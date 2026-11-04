@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Beranda from './pages/company/beranda';
@@ -12,6 +12,19 @@ export default function App() {
   const [activePage, setActivePage] = useState('Beranda');
   const [selectedDoctorId, setSelectedDoctorId] = useState('drg-indira');
   const [selectedServiceId, setSelectedServiceId] = useState('behel-gigi');
+
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
+    const handleBeforeUnload = () => {
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+  }, []);
 
   const handleNavigate = (pageName) => {
     setActivePage(pageName);

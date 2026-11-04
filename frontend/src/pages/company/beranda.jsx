@@ -38,28 +38,28 @@ export const SERVICES_DATA = [
     id: "gigi-umum",
     title: "Perawatan Gigi Umum",
     description: "Perawatan untuk membersihkan gigi, mengatasi kerusakan, dan menjaga kesehatan serta estetika senyum Anda.",
-    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80",
+    image: "src/assets/image/scalling-gigi.jpg",
     category: "Preventif & Konservasi"
   },
   {
     id: "saluran-akar",
     title: "Perawatan Saluran Akar",
     description: "Perawatan untuk mengatasi infeksi atau kerusakan pada bagian dalam gigi agar gigi tetap dapat dipertahankan.",
-    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80",
+    image: "src/assets/image/root-canal-treatment.jpg",
     category: "Endodonti"
   },
   {
     id: "pencabutan-gigi",
     title: "Pencabutan Gigi",
     description: "Tindakan pencabutan gigi dewasa, gigi susu, dan gigi bungsu sesuai kondisi serta kebutuhan pasien.",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80",
+    image: "src/assets/image/cabut-gigi.jpg",
     category: "Bedah Mulut"
   },
   {
     id: "behel-gigi",
     title: "Perawatan Behel Gigi",
     description: "Perawatan behel membantu merapikan susunan gigi dan memperbaiki gigitan untuk senyum yang lebih rapi dan sehat.",
-    image: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=800&q=80",
+    image: "src/assets/image/Perawatan-Behel.png",
     category: "Ortodonti"
   }
 ];
@@ -125,21 +125,66 @@ export const TESTIMONIALS_DATA = [
   },
   {
     id: 4,
-    initial: "D",
-    name: "Dimas Pratama",
+    initial: "A",
+    name: "Anik Ristiyani",
     avatarBg: "bg-[#8b5cf6]",
     time: "1 bulan lalu",
     rating: 5,
-    comment: "Pasang behel di Cabang Petukangan Selatan pelayanannya sangat memuaskan. Dokternya menjelaskan detail opsi behel China vs USA secara transparan tanpa dipaksa. Sangat recommended untuk perawatan behel!"
+    comment: "Habis perawatan gigi di In Dental Muchtarraya, dgn drg Indira , best pokoknya..dokter nya ramah.gak bikin pasien takut . Dan yg penting harga affordable dr klinik gigi lainnya. Sukses In dental 😍😍😍😍 …"
   },
   {
     id: 5,
-    initial: "R",
-    name: "Rina Wijaya",
+    initial: "Z",
+    name: "Zaki Nashwan",
     avatarBg: "bg-[#06b6d4]",
     time: "3 minggu lalu",
     rating: 5,
-    comment: "Tempatnya bersih, wangi, anak saya yang biasanya takut ke dokter gigi jadi nyaman dan kooperatif. Ruang tindakan modern dan dokternya sabar banget!"
+    comment: "Berhubung udah lama ga pergi scalling, akhirnya memutuskan ke In Dental Petukangan yang jaraknya ga jauh dr rumah. Tempatnya seperti klinik dokter gigi pada umumnya, bersih dan tenang. Ditanganin oleh drg. Sherly, yang niatnya cuma pengen scalling, akhirnya tambal gigi juga. Well, harganya masih affordable karena masih ada promo untuk kedatangan pertama untuk scalling, dari harga 450k jadi 250k. Worth it banget kan..Rencananya minggu depan akan datang lagi untuk tindakan berikutnya di In Dental Care. 😊"
+  },
+  {
+    id: 6,
+    initial: "M",
+    name: "Melati Hatta",
+    avatarBg: "bg-[#ffaa00]",
+    time: "3 minggu lalu",
+    rating: 5,
+    comment: "Sudah beberapa kali perawatan gigi di sini dari scaling, cabut gigi sampai tambal gigi utk anak, dewasa dan lansia. Pelayanan cepat dan rapi."
+  },
+  {
+    id: 7,
+    initial: "M",
+    name: "Melati Hatta",
+    avatarBg: "bg-[#1a964c]",
+    time: "3 minggu lalu",
+    rating: 5,
+    comment: "Sudah beberapa kali perawatan gigi di sini dari scaling, cabut gigi sampai tambal gigi utk anak, dewasa dan lansia. Pelayanan cepat dan rapi."
+  },
+  {
+    id: 8,
+    initial: "M",
+    name: "Melati Hatta",
+    avatarBg: "bg-[#871235]",
+    time: "3 minggu lalu",
+    rating: 5,
+    comment: "Sudah beberapa kali perawatan gigi di sini dari scaling, cabut gigi sampai tambal gigi utk anak, dewasa dan lansia. Pelayanan cepat dan rapi."
+  },
+  {
+    id: 9,
+    initial: "M",
+    name: "Melati Hatta",
+    avatarBg: "bg-[#ff173d]",
+    time: "3 minggu lalu",
+    rating: 5,
+    comment: "Sudah beberapa kali perawatan gigi di sini dari scaling, cabut gigi sampai tambal gigi utk anak, dewasa dan lansia. Pelayanan cepat dan rapi."
+  },
+  {
+    id: 10,
+    initial: "M",
+    name: "Melati Hatta",
+    avatarBg: "bg-[#052b36]",
+    time: "3 minggu lalu",
+    rating: 5,
+    comment: "Sudah beberapa kali perawatan gigi di sini dari scaling, cabut gigi sampai tambal gigi utk anak, dewasa dan lansia. Pelayanan cepat dan rapi."
   }
 ];
 
@@ -343,7 +388,7 @@ export default function Beranda() {
               {/* Left Column: Clinic Image */}
               <div className="lg:col-span-5 h-60 sm:h-72 lg:h-full relative overflow-hidden bg-slate-100">
                 <img
-                  src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1000&q=80"
+                  src="src/assets/image/perawatan.png"
                   alt="Tim dokter gigi IN Dental Care saat menangani pasien"
                   className="w-full h-full object-cover object-center"
                   loading="lazy"
@@ -565,26 +610,11 @@ export default function Beranda() {
               <div className="lg:col-span-6">
                 <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-100 aspect-[4/3] sm:aspect-[16/11]">
                   <img
-                    src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1000&q=80"
+                    src="src/assets/image/lokasi-klinik.png"
                     alt="Klinik IN Dental Care tampak depan"
                     className="w-full h-full object-cover object-center"
                     loading="lazy"
                   />
-
-                  {/* Badge */}
-                  <div className="absolute top-5 right-5 max-w-[210px] bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-lg border border-slate-100 flex items-start gap-2.5">
-                    <div className="w-8 h-8 rounded-full bg-[#49baff]/15 text-[#49baff] flex items-center justify-center shrink-0 mt-0.5">
-                      <MapPinIcon className="w-4 h-4 text-[#49baff]" />
-                    </div>
-                    <div>
-                      <div className="text-xs font-bold text-[#49baff] leading-none mb-1">
-                        Lokasi Kami 🪄
-                      </div>
-                      <div className="text-[11px] text-gray-600 leading-snug">
-                        Mudah diakses, lebih dekat untuk senyum sehatmu.
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
 

@@ -152,39 +152,39 @@ export const TESTIMONIALS_DATA = [
   },
   {
     id: 7,
-    initial: "M",
-    name: "Melati Hatta",
+    initial: "L",
+    name: "Lucky Rangga",
     avatarBg: "bg-[#1a964c]",
     time: "3 minggu lalu",
     rating: 5,
-    comment: "Sudah beberapa kali perawatan gigi di sini dari scaling, cabut gigi sampai tambal gigi utk anak, dewasa dan lansia. Pelayanan cepat dan rapi."
+    comment: "Pelayanannya memuaskan. Dokter dan petugas kesehatan lainnya ramah. Dari segi tempat, nyaman dan adem. Recommended. Kalo kontrol gigi, pasti bakal kesini lagi 🥰 …"
   },
   {
     id: 8,
-    initial: "M",
-    name: "Melati Hatta",
+    initial: "H",
+    name: "Hanivah Siti Vathinah",
     avatarBg: "bg-[#871235]",
     time: "3 minggu lalu",
     rating: 5,
-    comment: "Sudah beberapa kali perawatan gigi di sini dari scaling, cabut gigi sampai tambal gigi utk anak, dewasa dan lansia. Pelayanan cepat dan rapi."
+    comment: "Pertama kali scalling disini nyaman banget, ga kerasa ngilu nya, kebetulan aku sama dokter dira, pembawaannya santai banget, selalu memastikan kita dlm kondisi aman, jdi ga bikin kita tegang, bisa sekalian konsultasi jga..terima kasih banyak dokter dira, terbaik pokoknya so enjoyed perawatan di indental care :))"
   },
   {
     id: 9,
-    initial: "M",
-    name: "Melati Hatta",
+    initial: "A",
+    name: "Adli Ardiansyah",
     avatarBg: "bg-[#ff173d]",
     time: "3 minggu lalu",
     rating: 5,
-    comment: "Sudah beberapa kali perawatan gigi di sini dari scaling, cabut gigi sampai tambal gigi utk anak, dewasa dan lansia. Pelayanan cepat dan rapi."
+    comment: "Pelayanan baik dari pertama masuk sampai sudah selesai sangat baik mertua cabut gigi dan bersihkan karang gigi.  Untuk cabut gigi kata mertua tidak sakit sama sekali.  Datang happy pulang happy"
   },
   {
     id: 10,
-    initial: "M",
-    name: "Melati Hatta",
+    initial: "R",
+    name: "Rania Jayanti",
     avatarBg: "bg-[#052b36]",
     time: "3 minggu lalu",
     rating: 5,
-    comment: "Sudah beberapa kali perawatan gigi di sini dari scaling, cabut gigi sampai tambal gigi utk anak, dewasa dan lansia. Pelayanan cepat dan rapi."
+    comment: "Selalu seneng kl ke sini ketemu sama Dokter Indira. Apalagi bawa anak, Dokter Indira ramah jadi anak2 pun nyaman. Jadi ga takut lagi deh ke dokter gigi 😁😁"
   }
 ];
 

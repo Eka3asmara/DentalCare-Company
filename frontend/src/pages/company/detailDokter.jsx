@@ -1,5 +1,5 @@
 import React from 'react';
-import { DOCTORS_FULL_DATA, BRANCHES_DATA } from '../../data/dentalData';
+import { DOCTORS_DATA } from './dokter';
 import {
   ClockIcon,
   AlertCircleIcon,
@@ -10,7 +10,7 @@ import {
 
 export default function DetailDokter({ doctorId = 'drg-indira', onNavigate }) {
   // Find doctor by id, fallback to drg. Indira Nugrahani
-  const doctor = DOCTORS_FULL_DATA.find((d) => d.id === doctorId) || DOCTORS_FULL_DATA[0];
+  const doctor = DOCTORS_DATA.find((d) => d.id === doctorId) || DOCTORS_DATA[0];
 
   return (
     <div className="w-full bg-[#f9f8ff] py-6 sm:py-10">
@@ -88,7 +88,7 @@ export default function DetailDokter({ doctorId = 'drg-indira', onNavigate }) {
             {/* Jadwal Praktek Cabang 1 */}
             <div className="mb-6">
               <h3 className="text-base sm:text-lg font-bold text-[#49baff] mb-3">
-                Jadwal Praktek Cabang 1
+                Jadwal Praktek Cabang 1 (Petukangan Selatan)
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 max-w-xl">
                 {doctor.schedulesBranch1 && doctor.schedulesBranch1.map((item, idx) => (
@@ -116,7 +116,7 @@ export default function DetailDokter({ doctorId = 'drg-indira', onNavigate }) {
             {/* Jadwal Praktek Cabang 2 */}
             <div className="mb-4">
               <h3 className="text-base sm:text-lg font-bold text-[#49baff] mb-3">
-                Jadwal Praktek Cabang 2
+                Jadwal Praktek Cabang 2 (Petukangan Utara)
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 max-w-xl">
                 {doctor.schedulesBranch2 && doctor.schedulesBranch2.map((item, idx) => (
@@ -144,7 +144,7 @@ export default function DetailDokter({ doctorId = 'drg-indira', onNavigate }) {
             {/* WhatsApp Booking Direct Buttons */}
             <div className="mt-4 flex flex-wrap sm:flex-nowrap items-center gap-3 max-w-xl">
               <a
-                href={`${BRANCHES_DATA.cabang1.waUrl}%20untuk%20jadwal%20konsultasi%20dengan%20${encodeURIComponent(doctor.name)}`}
+                href={`https://wa.me/628121915709?text=Halo%20Admin%20IN%20Dental%20Care%20Cabang%201,%20saya%20ingin%20jadwal%20konsultasi%20dengan%20${encodeURIComponent(doctor.name)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#31cc1e] hover:bg-[#2cb81b] text-white text-xs font-semibold rounded-xl shadow-sm transition-transform hover:-translate-y-0.5 text-center"
@@ -154,7 +154,7 @@ export default function DetailDokter({ doctorId = 'drg-indira', onNavigate }) {
               </a>
 
               <a
-                href={`${BRANCHES_DATA.cabang2.waUrl}%20untuk%20jadwal%20konsultasi%20dengan%20${encodeURIComponent(doctor.name)}`}
+                href={`https://wa.me/628119339708?text=Halo%20Admin%20IN%20Dental%20Care%20Cabang%202,%20saya%20ingin%20jadwal%20konsultasi%20dengan%20${encodeURIComponent(doctor.name)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#31cc1e] hover:bg-[#2cb81b] text-white text-xs font-semibold rounded-xl shadow-sm transition-transform hover:-translate-y-0.5 text-center"
@@ -184,4 +184,3 @@ export default function DetailDokter({ doctorId = 'drg-indira', onNavigate }) {
     </div>
   );
 }
-

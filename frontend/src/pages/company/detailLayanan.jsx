@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { BRANCHES_DATA, TREATMENT_TYPES_MODAL_DATA } from '../../data/dentalData';
 import { ArrowRightIcon, WhatsAppIcon } from '../../components/Icons';
 import TreatmentModal from '../../components/TreatmentModal';
 
@@ -76,6 +75,62 @@ export const BRACES_TYPES = [
     image: "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=600&q=80"
   }
 ];
+
+export const TREATMENT_TYPES_MODAL_DATA = {
+  "behel-konvensional": {
+    id: "behel-konvensional",
+    title: "Behel Konvensional",
+    image: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=1000&q=80",
+    desc1: "Behel konvensional merupakan perawatan ortodonti yang menggunakan bracket dan kawat untuk membantu merapikan susunan gigi serta memperbaiki posisi gigitan secara bertahap. Perawatan ini bertujuan mendukung fungsi pengunyahan dan membantu menciptakan susunan gigi yang lebih teratur. Jenis behel yang digunakan akan disesuaikan dengan kondisi gigi dan kebutuhan perawatan pasien berdasarkan pemeriksaan dokter gigi.",
+    desc2: "IN Dental Care menyediakan berbagai pilihan behel konvensional, yaitu Metal, Ceramic, Mini Diamond, dan Saphire, dengan pilihan produk Made in China dan Made in USA. Harga perawatan bervariasi mulai dari Rp1.900.000 hingga Rp8.500.000, bergantung pada jenis behel yang dipilih. Pasien dapat berkonsultasi dengan dokter gigi untuk mengetahui pilihan yang sesuai dengan kondisi gigi, kebutuhan perawatan, dan anggaran yang tersedia.",
+    pricing: [
+      { name: "Metal", origin: "Made in China", price: "Rp1.900.000" },
+      { name: "Ceramic", origin: "Made in China", price: "Rp3.600.000" },
+      { name: "Metal", origin: "Made in USA", price: "Rp4.000.000" },
+      { name: "Mini Diamond", origin: "Made in USA", price: "Rp5.000.000" },
+      { name: "Ceramic", origin: "Made in USA", price: "Rp5.500.000" },
+      { name: "Saphire", origin: "Made in USA", price: "Rp8.500.000" }
+    ]
+  },
+  "behel-semi-konvensional": {
+    id: "behel-semi-konvensional",
+    title: "Behel Semi Konvensional",
+    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1000&q=80",
+    desc1: "Behel semi konvensional merupakan kombinasi bracket estetis dengan fleksibilitas kawat yang nyaman untuk memberikan penampilan lebih natural selama masa perawatan. Bracket yang lebih tersamar membantu pasien tetap tampil percaya diri saat tersenyum maupun berbicara.",
+    desc2: "IN Dental Care menyediakan pilihan behel semi konvensional berbahan komposit estetis dan keramik berkualitas tinggi (Made in China dan Made in USA) dengan biaya yang terjangkau dan hasil perataan gigi yang optimal.",
+    pricing: [
+      { name: "Composite Aesthetic", origin: "Made in China", price: "Rp2.800.000" },
+      { name: "Ceramic Translucent", origin: "Made in China", price: "Rp4.200.000" },
+      { name: "Semi Ceramic Pro", origin: "Made in USA", price: "Rp5.800.000" },
+      { name: "Sapphire Crystal Semi", origin: "Made in USA", price: "Rp7.500.000" }
+    ]
+  },
+  "behel-self-ligating": {
+    id: "behel-self-ligating",
+    title: "Behel Self-Ligating",
+    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=80",
+    desc1: "Behel self-ligating menggunakan klip penutup khusus tanpa karet elastis, sehingga kawat dapat bergerak lebih leluasa dengan gesekan minimal. Hal ini meminimalkan rasa ngilu, mempercepat pergeseran gigi, dan memudahkan pembersihan plak gigi setiap hari.",
+    desc2: "Tersedia pilihan Damon System orisinil Made in USA baik varian Metal maupun Clear (transparan). Frekuensi kontrol ke klinik juga menjadi lebih longgar sehingga sangat cocok untuk pasien dengan jadwal yang padat.",
+    pricing: [
+      { name: "Self-Ligating Metal Standard", origin: "Made in China", price: "Rp8.500.000" },
+      { name: "Damon Metal System", origin: "Made in USA", price: "Rp14.000.000" },
+      { name: "Damon Clear Transparan", origin: "Made in USA", price: "Rp18.000.000" },
+      { name: "Damon Quantum Ultra", origin: "Made in USA", price: "Rp21.000.000" }
+    ]
+  },
+  "invisible-braces": {
+    id: "invisible-braces",
+    title: "Invisible Braces",
+    image: "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=1000&q=80",
+    desc1: "Invisible braces (Clear Aligner) merupakan metode perataan gigi modern menggunakan tray bening transparan yang nyaris tidak terlihat saat dipakai. Aligner dapat dilepas-pasang secara mandiri saat makan dan membersihkan gigi, memberikan higienitas maksimal.",
+    desc2: "Didesain dengan bantuan simulasi perangkat lunak 3D canggih untuk memetakan pergerakan gigi secara presisi bertahap dari awal hingga posisi gigi ideal tercapai tanpa kawat logam.",
+    pricing: [
+      { name: "Clear Aligner - Mild Case", origin: "Made in USA", price: "Rp12.000.000" },
+      { name: "Clear Aligner - Moderate Case", origin: "Made in USA", price: "Rp22.000.000" },
+      { name: "Clear Aligner - Comprehensive", origin: "Made in USA", price: "Rp32.000.000" }
+    ]
+  }
+};
 
 export const RECOMMENDATIONS = [
   {
@@ -317,7 +372,7 @@ export default function DetailLayanan({ onNavigate }) {
               {/* Consultation via WhatsApp Direct Action */}
               <div className="flex flex-wrap sm:flex-nowrap items-center gap-3">
                 <a
-                  href={`${BRANCHES_DATA.cabang1.waUrl}%20tentang%20konsultasi%20Perawatan%20Behel%20Gigi`}
+                  href="https://wa.me/628121915709?text=Halo%20Admin%20IN%20Dental%20Care%20Cabang%201,%20saya%20ingin%20konsultasi%20Perawatan%20Behel%20Gigi"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#31cc1e] hover:bg-[#2cb81b] text-white text-xs sm:text-sm font-semibold rounded-xl shadow transition-transform hover:-translate-y-0.5 text-center"
@@ -327,7 +382,7 @@ export default function DetailLayanan({ onNavigate }) {
                 </a>
 
                 <a
-                  href={`${BRANCHES_DATA.cabang2.waUrl}%20tentang%20konsultasi%20Perawatan%20Behel%20Gigi`}
+                  href="https://wa.me/628119339708?text=Halo%20Admin%20IN%20Dental%20Care%20Cabang%202,%20saya%20ingin%20konsultasi%20Perawatan%20Behel%20Gigi"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#31cc1e] hover:bg-[#2cb81b] text-white text-xs sm:text-sm font-semibold rounded-xl shadow transition-transform hover:-translate-y-0.5 text-center"
@@ -409,4 +464,3 @@ export default function DetailLayanan({ onNavigate }) {
     </div>
   );
 }
-

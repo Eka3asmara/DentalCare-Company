@@ -1,6 +1,57 @@
 import React from 'react';
-import { SERVICES_PAGE_DATA } from '../../data/dentalData';
 import { ArrowRightIcon } from '../../components/Icons';
+
+export const SERVICES_PAGE_DATA = [
+  {
+    id: "gigi-umum",
+    title: "Perawatan Gigi Umum",
+    description: "Perawatan untuk membersihkan gigi, mengatasi kerusakan, dan menjaga kesehatan serta estetika senyum Anda.",
+    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80",
+    category: "Preventif & Konservasi"
+  },
+  {
+    id: "saluran-akar",
+    title: "Perawatan Saluran Akar",
+    description: "Perawatan untuk mengatasi infeksi atau kerusakan pada bagian dalam gigi agar gigi tetap dapat dipertahankan.",
+    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80",
+    category: "Endodonti"
+  },
+  {
+    id: "pencabutan-gigi",
+    title: "Pencabutan Gigi",
+    description: "Tindakan pencabutan gigi dewasa, gigi susu, dan gigi bungsu sesuai kondisi serta kebutuhan pasien.",
+    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80",
+    category: "Bedah Mulut"
+  },
+  {
+    id: "behel-gigi",
+    title: "Perawatan Behel Gigi",
+    description: "Perawatan behel membantu merapikan susunan gigi dan memperbaiki gigitan untuk senyum yang lebih rapi dan sehat.",
+    image: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=800&q=80",
+    category: "Ortodonti"
+  },
+  {
+    id: "gigi-palsu-crown",
+    title: "Gigi Palsu dan Crown",
+    description: "Perawatan gigi palsu dan crown membantu menggantikan gigi yang hilang atau memperbaiki gigi yang rusak.",
+    image: "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=800&q=80",
+    category: "Prostodonsia"
+  },
+  {
+    id: "implan-gigi",
+    title: "Implan Gigi",
+    description: "Implan gigi merupakan perawatan untuk menggantikan gigi yang hilang menggunakan penyangga khusus yang dipasang pada tulang rahang.",
+    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80",
+    category: "Implantologi"
+  },
+  {
+    id: "estetik-gigi",
+    title: "Perawatan Estetik Gigi",
+    description: "Perawatan estetik gigi membantu memperbaiki tampilan gigi agar terlihat lebih cerah dan rapi.",
+    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80",
+    category: "Estetika Gigi"
+  }
+];
 
 export default function Layanan({ onSelectService }) {
   return (

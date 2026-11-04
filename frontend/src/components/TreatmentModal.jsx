@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
-import { BRANCHES_DATA } from '../data/dentalData';
 import { WhatsAppIcon } from './Icons';
 
 /**
  * TreatmentModal - Modal Pop Up Rincian Jenis Perawatan & Tabel Harga
- * Sesuai desain Figma media_1793785246524_24a6a5c7.png & panduan Design System.
  */
 export default function TreatmentModal({ isOpen, onClose, treatment }) {
   // Prevent background scrolling when modal is active
@@ -141,7 +139,7 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
           {/* Direct CTA Action to WhatsApp */}
           <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
             <a
-              href={`${BRANCHES_DATA.cabang1.waUrl}%20tentang%20rincian%20perawatan%20${encodeURIComponent(treatment.title)}`}
+              href={`https://wa.me/628121915709?text=Halo%20Admin%20IN%20Dental%20Care%20Cabang%201,%20saya%20ingin%20tanya%20rincian%20perawatan%20${encodeURIComponent(treatment.title)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#31cc1e] hover:bg-[#2cb81b] text-white text-xs sm:text-sm font-semibold rounded-xl shadow-xs transition-transform hover:-translate-y-0.5 text-center"
@@ -151,7 +149,7 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
             </a>
 
             <a
-              href={`${BRANCHES_DATA.cabang2.waUrl}%20tentang%20rincian%20perawatan%20${encodeURIComponent(treatment.title)}`}
+              href={`https://wa.me/628119339708?text=Halo%20Admin%20IN%20Dental%20Care%20Cabang%202,%20saya%20ingin%20tanya%20rincian%20perawatan%20${encodeURIComponent(treatment.title)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#31cc1e] hover:bg-[#2cb81b] text-white text-xs sm:text-sm font-semibold rounded-xl shadow-xs transition-transform hover:-translate-y-0.5 text-center"
@@ -166,4 +164,3 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
     </div>
   );
 }
-

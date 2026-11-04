@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import {
-  STATS_DATA,
-  SERVICES_DATA,
-  ALL_EXTRA_SERVICES,
-  TESTIMONIALS_DATA,
-  BRANCHES_DATA
-} from '../../data/dentalData';
-import {
   ArrowRightIcon,
   CheckCircleIcon,
   WhatsAppIcon,
@@ -16,6 +9,209 @@ import {
   MapPinIcon,
   CloseIcon
 } from '../../components/Icons';
+
+export const STATS_DATA = [
+  {
+    value: "14+",
+    title: "Tahun Melayani",
+    desc: "Mendedikasikan diri untuk kesehatan gigi dan mulut pasien."
+  },
+  {
+    value: "1K+",
+    title: "Pasien Berkunjung",
+    desc: "Pasien telah mempercayakan perawatan senyum mereka kepada kami."
+  },
+  {
+    value: "7",
+    title: "Dokter",
+    desc: "Dokter Profesional siap memberikan penanganan terbaik."
+  },
+  {
+    value: "20+",
+    title: "Jumlah Layanan",
+    desc: "Jenis Layanan perawatan gigi modern untuk memenuhi berbagai kebutuhan Anda."
+  }
+];
+
+export const SERVICES_DATA = [
+  {
+    id: "tambal-crown",
+    title: "Tambal Crown",
+    description: "Solusi praktis memperkuat dan mengembalikan bentuk asli gigi yang rusak. Tampil alami, kuat, dan tahan lama.",
+    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=700&q=80",
+    fallbackColor: "bg-blue-50",
+    category: "Restorasi Gigi",
+    longDescription: "Perawatan restorasi mahkota gigi tiruan (crown) dan penambalan estetik untuk memperbaiki struktur gigi berlubang besar, patah, atau pasca perawatan saluran akar agar kembali berfungsi mengunyah secara optimal dengan tampilan menyerupai gigi asli.",
+    benefits: [
+      "Mengembalikan fungsi kunyah dan estetika senyum secara alami",
+      "Melindungi struktur gigi rapuh dari risiko patah permanen",
+      "Material biokompatibel bermutu tinggi yang tahan bertahun-tahun",
+      "Warna disesuaikan persis dengan gradasi gigi asli Anda"
+    ],
+    pricing: [
+      { type: "Tambal Estetik Komposit Light Cure", detail: "Bahan nano-hybrid sewarna gigi asli", price: "Rp 350.000 - Rp 600.000 / gigi" },
+      { type: "Crown Porcelain Fused to Metal (PFM)", detail: "Kombinasi kekuatan logam dengan lapisan porselen", price: "Rp 1.800.000 - Rp 2.500.000 / gigi" },
+      { type: "Crown All-Porcelain / E-Max", detail: "Translusensi sangat natural untuk gigi depan", price: "Rp 3.000.000 - Rp 4.500.000 / gigi" },
+      { type: "Crown Zirconia Premium", detail: "Kekuatan maksimal tanpa logam, anti-alergi", price: "Rp 4.500.000 - Rp 6.000.000 / gigi" }
+    ]
+  },
+  {
+    id: "pemasangan-behel",
+    title: "Pemasangan Behel",
+    description: "Solusi merapikan posisi gigi dan gigitan untuk estetika senyum yang lebih rapi, sehat, dan percaya diri.",
+    image: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=700&q=80",
+    fallbackColor: "bg-emerald-50",
+    category: "Ortodonti",
+    longDescription: "Perawatan ortodonti komprehensif untuk mengoreksi susunan gigi berjejal (crowded), renggang, tonggos, atau gigitan silang (crossbite). Dilakukan oleh dokter berpengalaman dengan pilihan material berkualitas tinggi.",
+    benefits: [
+      "Meningkatkan rasa percaya diri dengan senyum simetris dan rapi",
+      "Memudahkan pembersihan sela gigi sehingga mencegah karang dan gigi berlubang",
+      "Memperbaiki artikulasi bicara dan fungsi pengunyahan",
+      "Tersedia pilihan braket transparan dan self-ligating minim rasa ngilu"
+    ],
+    pricing: [
+      { type: "Behel Metal Konvensional (Made in China)", detail: "Ekonomis & efektif merapikan gigi", price: "Rp 3.500.000 - Rp 5.000.000" },
+      { type: "Behel Metal Premium (Made in USA - Roth/MBT)", detail: "Presisi tinggi, slot nyaman, anti karat medis", price: "Rp 6.500.000 - Rp 8.500.000" },
+      { type: "Behel Keramik / Sapphire Transparan (USA)", detail: "Warna jernih estetik mengikuti warna gigi", price: "Rp 9.000.000 - Rp 12.000.000" },
+      { type: "Behel Self-Ligating Damon System (USA)", detail: "Tanpa karet elastis, waktu kontrol lebih singkat & minim sakit", price: "Rp 14.000.000 - Rp 18.000.000" }
+    ]
+  },
+  {
+    id: "root-canal-treatment",
+    title: "Root Canal Treatment",
+    description: "Solusi menyelamatkan gigi yang terinfeksi atau nyeri parah tanpa perlu dicabut. Aman, nyaman, dan menghentikan rasa sakit.",
+    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=700&q=80",
+    fallbackColor: "bg-amber-50",
+    category: "Endodonti",
+    longDescription: "Perawatan saluran akar (PSA) berfokus membersihkan jaringan pulpa yang meradang atau terinfeksi kuman, mensterilkan saluran mikro akar gigi, dan menutupnya secara kedap agar gigi asli tetap dapat dipertahankan seumur hidup.",
+    benefits: [
+      "Menghilangkan rasa nyeri berdenyut secara tuntas tanpa cabut gigi",
+      "Mencegah infeksi dan nanah menyebar ke tulang rahang",
+      "Mempertahankan struktur alami rahang dan kemampuan mengunyah",
+      "Dikerjakan dengan anestesi lokal modern yang nyaman dan minim rasa sakit"
+    ],
+    pricing: [
+      { type: "PSA Gigi Depan (Anterior)", detail: "1 saluran akar, estetika terjaga", price: "Rp 900.000 - Rp 1.400.000 / saluran" },
+      { type: "PSA Gigi Premolar", detail: "1 - 2 saluran akar dengan sterilisasi mikro", price: "Rp 1.300.000 - Rp 1.800.000 / saluran" },
+      { type: "PSA Gigi Geraham (Molar)", detail: "3 - 4 saluran akar kompleks dengan rotary system", price: "Rp 1.800.000 - Rp 2.500.000 / saluran" },
+      { type: "Pengobatan Darurat & Sterilisasi Awal", detail: "Pereda nyeri darurat & pulpotomi", price: "Rp 400.000 - Rp 600.000" }
+    ]
+  },
+  {
+    id: "cabut-gigi",
+    title: "Cabut Gigi",
+    description: "Prosedur pencabutan gigi yang rusak parah atau bermasalah secara aman, cepat, dan minim rasa sakit.",
+    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=700&q=80",
+    fallbackColor: "bg-rose-50",
+    category: "Bedah Mulut",
+    longDescription: "Tindakan ekstraksi gigi yang sudah tidak dapat dipertahankan akibat infeksi berat, keropos akar habis, sisa akar tajam, atau gigi bungsu yang tumbuh miring (impaksi) dan menekan gigi sebelahnya.",
+    benefits: [
+      "Menghentikan sumber infeksi berulang dan pembengkakan gusi",
+      "Teknik atraumatik untuk meminimalkan trauma jaringan dan mempercepat penyembuhan",
+      "Ditangani oleh dokter gigi umum dan spesialis bedah mulut berpengalaman",
+      "Protokol anestesi modern untuk kenyamanan maksimal selama tindakan"
+    ],
+    pricing: [
+      { type: "Cabut Gigi Susu Anak", detail: "Anestesi topikal oles atau injeksi dingin", price: "Rp 150.000 - Rp 250.000" },
+      { type: "Cabut Gigi Dewasa Sederhana", detail: "Gigi goyang atau berakar tunggal", price: "Rp 300.000 - Rp 500.000" },
+      { type: "Cabut Gigi Penyulit / Sisa Akar", detail: "Akar bengkok atau mahkota rapuh", price: "Rp 600.000 - Rp 950.000" },
+      { type: "Odontektomi Gigi Bungsu Impaksi", detail: "Bedah minor oleh Dokter Spesialis Bedah Mulut", price: "Rp 1.800.000 - Rp 3.500.000" }
+    ]
+  }
+];
+
+export const ALL_EXTRA_SERVICES = [
+  {
+    id: "scaling-gigi",
+    title: "Pembersihan Karang Gigi (Scaling)",
+    category: "Preventif",
+    description: "Pembersihan kalkulus / karang gigi menggunakan getaran ultrasonik untuk mencegah radang gusi dan bau mulut.",
+    price: "Rp 250.000 - Rp 450.000"
+  },
+  {
+    id: "teeth-whitening",
+    title: "Pemutihan Gigi (Bleaching / Whitening)",
+    category: "Estetika",
+    description: "Mencerahkan warna gigi hingga beberapa tingkat lebih putih cerah dalam satu sesi perawatan klinis.",
+    price: "Rp 1.800.000 - Rp 3.000.000"
+  },
+  {
+    id: "dental-implant",
+    title: "Implan Gigi (Dental Implant)",
+    category: "Implantologi",
+    description: "Akar gigi tiruan titanium permanen yang ditanamkan pada tulang rahang untuk menggantikan gigi yang hilang seumur hidup.",
+    price: "Rp 12.000.000 - Rp 18.000.000"
+  },
+  {
+    id: "gigi-tiruan",
+    title: "Gigi Tiruan Lepasan (Valplast / Akrilik)",
+    category: "Prostodonsia",
+    description: "Plat gigi tiruan fleksibel atau akrilik yang nyaman dipakai untuk mengembalikan fungsi mengunyah sehari-hari.",
+    price: "Rp 900.000 - Rp 2.500.000"
+  }
+];
+
+export const TESTIMONIALS_DATA = [
+  {
+    id: 1,
+    initial: "Z",
+    name: "Zahra",
+    avatarBg: "bg-[#49baff]",
+    time: "2 bulan lalu",
+    rating: 5,
+    comment: "alhamdulillah ada klinik dekat rumah yg fasilitas nya lengkap tapi harga nya msh terjangkau. saya disini treatment PSA dgn dr indira, enjoy bgt bolak balik kesini krn drg nya baik yg genuinely care gt sama pasien ngga pereus, to the point dan satset tindakannya. terima kasih dok, gigi saya sudah ga sakit lagi🥰"
+  },
+  {
+    id: 2,
+    initial: "M",
+    name: "madhu mohana",
+    avatarBg: "bg-[#ff6b6b]",
+    time: "4 bulan lalu",
+    rating: 5,
+    comment: "The clinic is very clean and well-maintained. The dentist is very nice and friendly, making the whole experience comfortable. Will definitely come back again."
+  },
+  {
+    id: 3,
+    initial: "L",
+    name: "Lia Yuliani",
+    avatarBg: "bg-[#adc91f]",
+    time: "2 bulan lalu",
+    rating: 5,
+    comment: "Klinik gigi terbaik! 🦷✨ Dokter Indira the best banget. Selama perawatan sabar dan friendly banget ga bikin tegang. Staffnya juga ramah dan pelayanannya memuaskan. Pasti bakal jadi langganan terus 🤍"
+  },
+  {
+    id: 4,
+    initial: "D",
+    name: "Dimas Pratama",
+    avatarBg: "bg-[#8b5cf6]",
+    time: "1 bulan lalu",
+    rating: 5,
+    comment: "Pasang behel di Cabang Petukangan Selatan pelayanannya sangat memuaskan. Dokternya menjelaskan detail opsi behel China vs USA secara transparan tanpa dipaksa. Sangat recommended untuk perawatan behel!"
+  },
+  {
+    id: 5,
+    initial: "R",
+    name: "Rina Wijaya",
+    avatarBg: "bg-[#06b6d4]",
+    time: "3 minggu lalu",
+    rating: 5,
+    comment: "Tempatnya bersih, wangi, anak saya yang biasanya takut ke dokter gigi jadi nyaman dan kooperatif. Ruang tindakan modern dan dokternya sabar banget!"
+  }
+];
+
+const CABANG_1 = {
+  label: "Cabang 1 (Petukangan Selatan)",
+  address: "Jl. Garuda No.21, RT.8/RW.1, Petukangan Sel., Kec. Pesanggrahan, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12270",
+  mapsUrl: "https://maps.google.com/?q=Jl.+Garuda+No.21,+Petukangan+Sel.,+Kec.+Pesanggrahan,+Jakarta+Selatan",
+  waUrl: "https://wa.me/628121915709?text=Halo%20Admin%20IN%20Dental%20Care%20Cabang%201,%20saya%20ingin%20konsultasi%20jadwal%20perawatan"
+};
+
+const CABANG_2 = {
+  label: "Cabang 2 (Petukangan Utara)",
+  address: "Jl. H. Muchtar Raya No.9D, RT.1/RW.01, Petukangan Utara, JAKARTA, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12260",
+  mapsUrl: "https://maps.google.com/?q=Jl.+H.+Muchtar+Raya+No.9D,+Petukangan+Utara,+Jakarta+Selatan",
+  waUrl: "https://wa.me/628119339708?text=Halo%20Admin%20IN%20Dental%20Care%20Cabang%202,%20saya%20ingin%20konsultasi%20jadwal%20perawatan"
+};
 
 export default function Beranda() {
   const [selectedService, setSelectedService] = useState(null);
@@ -245,7 +441,7 @@ export default function Beranda() {
                 {/* WhatsApp Action Buttons */}
                 <div className="flex flex-wrap sm:flex-nowrap items-center gap-4">
                   <a
-                    href={BRANCHES_DATA.cabang1.waUrl}
+                    href={CABANG_1.waUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-[#31cc1e] hover:bg-[#2cb81b] text-white text-sm sm:text-base font-semibold rounded-2xl shadow hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5 text-center cursor-pointer"
@@ -255,7 +451,7 @@ export default function Beranda() {
                   </a>
 
                   <a
-                    href={BRANCHES_DATA.cabang2.waUrl}
+                    href={CABANG_2.waUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-[#31cc1e] hover:bg-[#2cb81b] text-white text-sm sm:text-base font-semibold rounded-2xl shadow hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5 text-center cursor-pointer"
@@ -374,13 +570,13 @@ export default function Beranda() {
                   </div>
                   <div>
                     <h3 className="text-base sm:text-lg font-bold text-[#333333] mb-1">
-                      {BRANCHES_DATA.cabang1.label}
+                      {CABANG_1.label}
                     </h3>
                     <p className="text-xs sm:text-sm text-[#333333]/80 leading-relaxed max-w-md mb-2">
-                      {BRANCHES_DATA.cabang1.address}
+                      {CABANG_1.address}
                     </p>
                     <a
-                      href={BRANCHES_DATA.cabang1.mapsUrl}
+                      href={CABANG_1.mapsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-xs font-semibold text-[#49baff] hover:underline flex items-center gap-1"
@@ -397,13 +593,13 @@ export default function Beranda() {
                   </div>
                   <div>
                     <h3 className="text-base sm:text-lg font-bold text-[#333333] mb-1">
-                      {BRANCHES_DATA.cabang2.label}
+                      {CABANG_2.label}
                     </h3>
                     <p className="text-xs sm:text-sm text-[#333333]/80 leading-relaxed max-w-md mb-2">
-                      {BRANCHES_DATA.cabang2.address}
+                      {CABANG_2.address}
                     </p>
                     <a
-                      href={BRANCHES_DATA.cabang2.mapsUrl}
+                      href={CABANG_2.mapsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-xs font-semibold text-[#49baff] hover:underline flex items-center gap-1"
@@ -566,7 +762,7 @@ export default function Beranda() {
 
                 <div className="flex items-center gap-3 w-full sm:w-auto">
                   <a
-                    href={`${BRANCHES_DATA.cabang1.waUrl}%20terkait%20layanan%20${encodeURIComponent(selectedService.title)}`}
+                    href={`${CABANG_1.waUrl}%20terkait%20layanan%20${encodeURIComponent(selectedService.title)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#31cc1e] hover:bg-[#2cb81b] text-white text-xs sm:text-sm font-semibold rounded-xl shadow-sm transition-transform hover:-translate-y-0.5"
@@ -576,7 +772,7 @@ export default function Beranda() {
                   </a>
 
                   <a
-                    href={`${BRANCHES_DATA.cabang2.waUrl}%20terkait%20layanan%20${encodeURIComponent(selectedService.title)}`}
+                    href={`${CABANG_2.waUrl}%20terkait%20layanan%20${encodeURIComponent(selectedService.title)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#31cc1e] hover:bg-[#2cb81b] text-white text-xs sm:text-sm font-semibold rounded-xl shadow-sm transition-transform hover:-translate-y-0.5"
@@ -701,7 +897,7 @@ export default function Beranda() {
                 </div>
                 <div className="flex items-center gap-3 w-full sm:w-auto">
                   <a
-                    href={BRANCHES_DATA.cabang1.waUrl}
+                    href={CABANG_1.waUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#31cc1e] hover:bg-[#2cb81b] text-white text-xs font-semibold rounded-xl shadow-sm transition-transform hover:-translate-y-0.5"
@@ -710,7 +906,7 @@ export default function Beranda() {
                     <span>Cabang 1</span>
                   </a>
                   <a
-                    href={BRANCHES_DATA.cabang2.waUrl}
+                    href={CABANG_2.waUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#31cc1e] hover:bg-[#2cb81b] text-white text-xs font-semibold rounded-xl shadow-sm transition-transform hover:-translate-y-0.5"
@@ -727,4 +923,3 @@ export default function Beranda() {
     </div>
   );
 }
-

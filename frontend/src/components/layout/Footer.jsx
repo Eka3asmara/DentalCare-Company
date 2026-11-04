@@ -1,5 +1,4 @@
 import React from 'react';
-import { BRANCHES_DATA } from '../../data/dentalData';
 import { MapPinIcon, PhoneIcon, MailIcon, TikTokIcon, InstagramIcon } from '../Icons';
 
 export default function Footer({ onNavigate }) {
@@ -76,10 +75,10 @@ export default function Footer({ onNavigate }) {
               <div>
                 <div className="flex items-center gap-2 font-bold mb-1 text-[#333333]">
                   <MapPinIcon className="w-4 h-4 text-[#7c9e10] shrink-0" />
-                  <span>{BRANCHES_DATA.cabang1.label}</span>
+                  <span>Cabang 1 (Petukangan Selatan)</span>
                 </div>
                 <p className="text-xs text-[#333333]/85 leading-relaxed pl-6">
-                  {BRANCHES_DATA.cabang1.address}
+                  Jl. Garuda No.21, RT.8/RW.1, Petukangan Sel., Kec. Pesanggrahan, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12270
                 </p>
               </div>
 
@@ -87,10 +86,10 @@ export default function Footer({ onNavigate }) {
               <div>
                 <div className="flex items-center gap-2 font-bold mb-1 text-[#333333]">
                   <MapPinIcon className="w-4 h-4 text-[#7c9e10] shrink-0" />
-                  <span>{BRANCHES_DATA.cabang2.label}</span>
+                  <span>Cabang 2 (Petukangan Utara)</span>
                 </div>
                 <p className="text-xs text-[#333333]/85 leading-relaxed pl-6">
-                  {BRANCHES_DATA.cabang2.address}
+                  Jl. H. Muchtar Raya No.9D, RT.1/RW.01, Petukangan Utara, JAKARTA, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12260
                 </p>
               </div>
             </div>
@@ -110,18 +109,18 @@ export default function Footer({ onNavigate }) {
                 </h5>
                 <div className="space-y-1 pl-1">
                   <a
-                    href={`tel:${BRANCHES_DATA.cabang1.phoneClean}`}
+                    href="tel:628121915709"
                     className="flex items-center gap-2.5 text-xs hover:text-[#49baff] transition-colors"
                   >
                     <PhoneIcon className="w-3.5 h-3.5 text-[#333333]" />
-                    <span>{BRANCHES_DATA.cabang1.phone}</span>
+                    <span>+62 812-1915-709</span>
                   </a>
                   <a
-                    href={`mailto:${BRANCHES_DATA.cabang1.email}`}
+                    href="mailto:indentalcareclinic@gmail.com"
                     className="flex items-center gap-2.5 text-xs hover:text-[#49baff] transition-colors"
                   >
                     <MailIcon className="w-3.5 h-3.5 text-[#333333]" />
-                    <span>{BRANCHES_DATA.cabang1.email}</span>
+                    <span>indentalcareclinic@gmail.com</span>
                   </a>
                 </div>
               </div>
@@ -133,18 +132,18 @@ export default function Footer({ onNavigate }) {
                 </h5>
                 <div className="space-y-1 pl-1">
                   <a
-                    href={`tel:${BRANCHES_DATA.cabang2.phoneClean}`}
+                    href="tel:628119339708"
                     className="flex items-center gap-2.5 text-xs hover:text-[#49baff] transition-colors"
                   >
                     <PhoneIcon className="w-3.5 h-3.5 text-[#333333]" />
-                    <span>{BRANCHES_DATA.cabang2.phone}</span>
+                    <span>+62 811-9339-708</span>
                   </a>
                   <a
-                    href={`mailto:${BRANCHES_DATA.cabang2.email}`}
+                    href="mailto:indentalcareclinic@gmail.com"
                     className="flex items-center gap-2.5 text-xs hover:text-[#49baff] transition-colors"
                   >
                     <MailIcon className="w-3.5 h-3.5 text-[#333333]" />
-                    <span>{BRANCHES_DATA.cabang2.email}</span>
+                    <span>indentalcareclinic@gmail.com</span>
                   </a>
                 </div>
               </div>
@@ -195,4 +194,3 @@ export default function Footer({ onNavigate }) {
     </footer>
   );
 }
-

@@ -287,7 +287,7 @@ export default function Beranda() {
               <div className="relative w-full max-w-md lg:max-w-none aspect-[4/3] sm:aspect-square flex items-center justify-center">
                 <div className="absolute inset-0 bg-[#e5ff8f]/40 blur-3xl -z-10 rounded-full scale-95 transform -translate-y-4"></div>
 
-                <div className="w-full h-full max-h-[460px] overflow-hidden shadow-2xl relative bg-slate-100 border-4 border-white hero-img-shape transition-transform duration-500 hover:scale-[1.01]">
+                <div className="w-full h-full max-h-[460px] overflow-hidden shadow-2xl relative hero-img-shape transition-transform duration-500 hover:scale-[1.01]">
                   <img
                     src="src/assets/image/dokter-indira.jpeg"
                     alt="Foto Dokter"

@@ -263,9 +263,8 @@ export default function Beranda() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
             {/* Hero Left: Title, Description & CTA */}
             <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-bold text-[#49baff] tracking-tight leading-[1.18] mb-6">
-                Senyum Percaya Diri Berawal <br className="hidden sm:inline" />
-                dari Gigi Sehat
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-semibold text-[#49baff] tracking-tight leading-[1.18] mb-6">
+                Senyum Percaya Diri Berawal dari Gigi Sehat
               </h1>
 
               <p className="text-base sm:text-lg text-[#333333]/90 leading-relaxed max-w-xl mb-8">
@@ -290,13 +289,10 @@ export default function Beranda() {
 
                 <div className="w-full h-full max-h-[460px] overflow-hidden shadow-2xl relative bg-slate-100 border-4 border-white hero-img-shape transition-transform duration-500 hover:scale-[1.01]">
                   <img
-                    src="https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=1000&q=80"
-                    alt="Dokter Gigi IN Dental Care bersama pasien di klinik modern"
+                    src="src/assets/image/dokter-indira.jpeg"
+                    alt="Foto Dokter"
                     className="w-full h-full object-cover object-center"
                     loading="eager"
-                    onError={(e) => {
-                      e.currentTarget.src = "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=1000&q=80";
-                    }}
                   />
                 </div>
               </div>
@@ -331,7 +327,7 @@ export default function Beranda() {
       {/* ========================================================= */}
       <section id="layanan" className="py-16 lg:py-24 bg-[#f9f8ff]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           {/* Section Header & 'Semua Layanan' Button */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div className="max-w-2xl">
@@ -472,7 +468,7 @@ export default function Beranda() {
       {/* ========================================================= */}
       <section className="py-16 lg:py-24 bg-[#f9f8ff]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           {/* Testimoni Subsection */}
           <div className="mb-24">
             <div className="text-center max-w-2xl mx-auto mb-10">
@@ -551,7 +547,7 @@ export default function Beranda() {
           {/* Lokasi Cabang Subsection */}
           <div id="kontak" className="pt-6">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-              
+
               {/* Left Column: Heading & Addresses */}
               <div className="lg:col-span-6 flex flex-col items-start text-left">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#333333] mb-3 leading-tight">

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   ArrowRightIcon,
   CheckCircleIcon,
@@ -27,7 +27,7 @@ export const STATS_DATA = [
     desc: "Dokter Profesional siap memberikan penanganan terbaik."
   },
   {
-    value: "20+",
+    value: "15+",
     title: "Jumlah Layanan",
     desc: "Jenis Layanan perawatan gigi modern untuk memenuhi berbagai kebutuhan Anda."
   }
@@ -35,88 +35,32 @@ export const STATS_DATA = [
 
 export const SERVICES_DATA = [
   {
-    id: "tambal-crown",
-    title: "Tambal Crown",
-    description: "Solusi praktis memperkuat dan mengembalikan bentuk asli gigi yang rusak. Tampil alami, kuat, dan tahan lama.",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=700&q=80",
-    fallbackColor: "bg-blue-50",
-    category: "Restorasi Gigi",
-    longDescription: "Perawatan restorasi mahkota gigi tiruan (crown) dan penambalan estetik untuk memperbaiki struktur gigi berlubang besar, patah, atau pasca perawatan saluran akar agar kembali berfungsi mengunyah secara optimal dengan tampilan menyerupai gigi asli.",
-    benefits: [
-      "Mengembalikan fungsi kunyah dan estetika senyum secara alami",
-      "Melindungi struktur gigi rapuh dari risiko patah permanen",
-      "Material biokompatibel bermutu tinggi yang tahan bertahun-tahun",
-      "Warna disesuaikan persis dengan gradasi gigi asli Anda"
-    ],
-    pricing: [
-      { type: "Tambal Estetik Komposit Light Cure", detail: "Bahan nano-hybrid sewarna gigi asli", price: "Rp 350.000 - Rp 600.000 / gigi" },
-      { type: "Crown Porcelain Fused to Metal (PFM)", detail: "Kombinasi kekuatan logam dengan lapisan porselen", price: "Rp 1.800.000 - Rp 2.500.000 / gigi" },
-      { type: "Crown All-Porcelain / E-Max", detail: "Translusensi sangat natural untuk gigi depan", price: "Rp 3.000.000 - Rp 4.500.000 / gigi" },
-      { type: "Crown Zirconia Premium", detail: "Kekuatan maksimal tanpa logam, anti-alergi", price: "Rp 4.500.000 - Rp 6.000.000 / gigi" }
-    ]
+    id: "gigi-umum",
+    title: "Perawatan Gigi Umum",
+    description: "Perawatan untuk membersihkan gigi, mengatasi kerusakan, dan menjaga kesehatan serta estetika senyum Anda.",
+    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80",
+    category: "Preventif & Konservasi"
   },
   {
-    id: "pemasangan-behel",
-    title: "Pemasangan Behel",
-    description: "Solusi merapikan posisi gigi dan gigitan untuk estetika senyum yang lebih rapi, sehat, dan percaya diri.",
-    image: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=700&q=80",
-    fallbackColor: "bg-emerald-50",
-    category: "Ortodonti",
-    longDescription: "Perawatan ortodonti komprehensif untuk mengoreksi susunan gigi berjejal (crowded), renggang, tonggos, atau gigitan silang (crossbite). Dilakukan oleh dokter berpengalaman dengan pilihan material berkualitas tinggi.",
-    benefits: [
-      "Meningkatkan rasa percaya diri dengan senyum simetris dan rapi",
-      "Memudahkan pembersihan sela gigi sehingga mencegah karang dan gigi berlubang",
-      "Memperbaiki artikulasi bicara dan fungsi pengunyahan",
-      "Tersedia pilihan braket transparan dan self-ligating minim rasa ngilu"
-    ],
-    pricing: [
-      { type: "Behel Metal Konvensional (Made in China)", detail: "Ekonomis & efektif merapikan gigi", price: "Rp 3.500.000 - Rp 5.000.000" },
-      { type: "Behel Metal Premium (Made in USA - Roth/MBT)", detail: "Presisi tinggi, slot nyaman, anti karat medis", price: "Rp 6.500.000 - Rp 8.500.000" },
-      { type: "Behel Keramik / Sapphire Transparan (USA)", detail: "Warna jernih estetik mengikuti warna gigi", price: "Rp 9.000.000 - Rp 12.000.000" },
-      { type: "Behel Self-Ligating Damon System (USA)", detail: "Tanpa karet elastis, waktu kontrol lebih singkat & minim sakit", price: "Rp 14.000.000 - Rp 18.000.000" }
-    ]
+    id: "saluran-akar",
+    title: "Perawatan Saluran Akar",
+    description: "Perawatan untuk mengatasi infeksi atau kerusakan pada bagian dalam gigi agar gigi tetap dapat dipertahankan.",
+    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80",
+    category: "Endodonti"
   },
   {
-    id: "root-canal-treatment",
-    title: "Root Canal Treatment",
-    description: "Solusi menyelamatkan gigi yang terinfeksi atau nyeri parah tanpa perlu dicabut. Aman, nyaman, dan menghentikan rasa sakit.",
-    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=700&q=80",
-    fallbackColor: "bg-amber-50",
-    category: "Endodonti",
-    longDescription: "Perawatan saluran akar (PSA) berfokus membersihkan jaringan pulpa yang meradang atau terinfeksi kuman, mensterilkan saluran mikro akar gigi, dan menutupnya secara kedap agar gigi asli tetap dapat dipertahankan seumur hidup.",
-    benefits: [
-      "Menghilangkan rasa nyeri berdenyut secara tuntas tanpa cabut gigi",
-      "Mencegah infeksi dan nanah menyebar ke tulang rahang",
-      "Mempertahankan struktur alami rahang dan kemampuan mengunyah",
-      "Dikerjakan dengan anestesi lokal modern yang nyaman dan minim rasa sakit"
-    ],
-    pricing: [
-      { type: "PSA Gigi Depan (Anterior)", detail: "1 saluran akar, estetika terjaga", price: "Rp 900.000 - Rp 1.400.000 / saluran" },
-      { type: "PSA Gigi Premolar", detail: "1 - 2 saluran akar dengan sterilisasi mikro", price: "Rp 1.300.000 - Rp 1.800.000 / saluran" },
-      { type: "PSA Gigi Geraham (Molar)", detail: "3 - 4 saluran akar kompleks dengan rotary system", price: "Rp 1.800.000 - Rp 2.500.000 / saluran" },
-      { type: "Pengobatan Darurat & Sterilisasi Awal", detail: "Pereda nyeri darurat & pulpotomi", price: "Rp 400.000 - Rp 600.000" }
-    ]
+    id: "pencabutan-gigi",
+    title: "Pencabutan Gigi",
+    description: "Tindakan pencabutan gigi dewasa, gigi susu, dan gigi bungsu sesuai kondisi serta kebutuhan pasien.",
+    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80",
+    category: "Bedah Mulut"
   },
   {
-    id: "cabut-gigi",
-    title: "Cabut Gigi",
-    description: "Prosedur pencabutan gigi yang rusak parah atau bermasalah secara aman, cepat, dan minim rasa sakit.",
-    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=700&q=80",
-    fallbackColor: "bg-rose-50",
-    category: "Bedah Mulut",
-    longDescription: "Tindakan ekstraksi gigi yang sudah tidak dapat dipertahankan akibat infeksi berat, keropos akar habis, sisa akar tajam, atau gigi bungsu yang tumbuh miring (impaksi) dan menekan gigi sebelahnya.",
-    benefits: [
-      "Menghentikan sumber infeksi berulang dan pembengkakan gusi",
-      "Teknik atraumatik untuk meminimalkan trauma jaringan dan mempercepat penyembuhan",
-      "Ditangani oleh dokter gigi umum dan spesialis bedah mulut berpengalaman",
-      "Protokol anestesi modern untuk kenyamanan maksimal selama tindakan"
-    ],
-    pricing: [
-      { type: "Cabut Gigi Susu Anak", detail: "Anestesi topikal oles atau injeksi dingin", price: "Rp 150.000 - Rp 250.000" },
-      { type: "Cabut Gigi Dewasa Sederhana", detail: "Gigi goyang atau berakar tunggal", price: "Rp 300.000 - Rp 500.000" },
-      { type: "Cabut Gigi Penyulit / Sisa Akar", detail: "Akar bengkok atau mahkota rapuh", price: "Rp 600.000 - Rp 950.000" },
-      { type: "Odontektomi Gigi Bungsu Impaksi", detail: "Bedah minor oleh Dokter Spesialis Bedah Mulut", price: "Rp 1.800.000 - Rp 3.500.000" }
-    ]
+    id: "behel-gigi",
+    title: "Perawatan Behel Gigi",
+    description: "Perawatan behel membantu merapikan susunan gigi dan memperbaiki gigitan untuk senyum yang lebih rapi dan sehat.",
+    image: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=800&q=80",
+    category: "Ortodonti"
   }
 ];
 
@@ -200,23 +144,19 @@ export const TESTIMONIALS_DATA = [
 ];
 
 const CABANG_1 = {
-  label: "Cabang 1 (Petukangan Selatan)",
+  label: "Cabang 1",
   address: "Jl. Garuda No.21, RT.8/RW.1, Petukangan Sel., Kec. Pesanggrahan, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12270",
-  mapsUrl: "https://maps.google.com/?q=Jl.+Garuda+No.21,+Petukangan+Sel.,+Kec.+Pesanggrahan,+Jakarta+Selatan",
   waUrl: "https://wa.me/628121915709?text=Halo%20Admin%20IN%20Dental%20Care%20Cabang%201,%20saya%20ingin%20konsultasi%20jadwal%20perawatan"
 };
 
 const CABANG_2 = {
-  label: "Cabang 2 (Petukangan Utara)",
+  label: "Cabang 2",
   address: "Jl. H. Muchtar Raya No.9D, RT.1/RW.01, Petukangan Utara, JAKARTA, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12260",
-  mapsUrl: "https://maps.google.com/?q=Jl.+H.+Muchtar+Raya+No.9D,+Petukangan+Utara,+Jakarta+Selatan",
   waUrl: "https://wa.me/628119339708?text=Halo%20Admin%20IN%20Dental%20Care%20Cabang%202,%20saya%20ingin%20konsultasi%20jadwal%20perawatan"
 };
 
 export default function Beranda() {
-  const [selectedService, setSelectedService] = useState(null);
   const [allServicesOpen, setAllServicesOpen] = useState(false);
-  const [testiIndex, setTestiIndex] = useState(0);
 
   // Smooth scroll to contact
   const handleContactClick = () => {
@@ -226,32 +166,43 @@ export default function Beranda() {
     }
   };
 
-  // Testimonial Carousel logic
-  const totalTesti = TESTIMONIALS_DATA.length;
-  const visibleCardsCount = 3;
+  // Testimonial Carousel slider ref & scroll controls
+  const sliderRef = useRef(null);
 
   const handlePrevTesti = () => {
-    setTestiIndex((prev) => (prev === 0 ? totalTesti - 1 : prev - 1));
+    if (sliderRef.current) {
+      const card = sliderRef.current.querySelector('.testi-card');
+      const cardWidth = card ? card.offsetWidth + 24 : 360;
+      const { scrollLeft, scrollWidth } = sliderRef.current;
+      if (scrollLeft <= 10) {
+        sliderRef.current.scrollTo({ left: scrollWidth, behavior: 'smooth' });
+      } else {
+        sliderRef.current.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+      }
+    }
   };
 
   const handleNextTesti = () => {
-    setTestiIndex((prev) => (prev + 1) % totalTesti);
+    if (sliderRef.current) {
+      const card = sliderRef.current.querySelector('.testi-card');
+      const cardWidth = card ? card.offsetWidth + 24 : 360;
+      const { scrollLeft, scrollWidth, clientWidth } = sliderRef.current;
+      if (scrollLeft + clientWidth >= scrollWidth - 15) {
+        sliderRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        sliderRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      }
+    }
   };
-
-  const displayedReviews = [];
-  for (let i = 0; i < visibleCardsCount; i++) {
-    const idx = (testiIndex + i) % totalTesti;
-    displayedReviews.push(TESTIMONIALS_DATA[idx]);
-  }
 
   // Prevent background scroll when modal is active
   useEffect(() => {
-    if (selectedService || allServicesOpen) {
+    if (allServicesOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
     }
-  }, [selectedService, allServicesOpen]);
+  }, [allServicesOpen]);
 
   return (
     <div className="w-full">
@@ -275,7 +226,7 @@ export default function Beranda() {
               <button
                 type="button"
                 onClick={handleContactClick}
-                className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#49baff] hover:bg-[#98cfff] text-white text-base font-semibold rounded-2xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#49baff] hover:bg-[#98cfff] text-white text-base hover:text-[#49baff] font-semibold rounded-2xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
               >
                 <span>Hubungi Kami</span>
                 <ArrowRightIcon className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -307,10 +258,10 @@ export default function Beranda() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
             {STATS_DATA.map((item, index) => (
               <div key={index} className="flex flex-col items-center text-center group">
-                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#adc91f] text-white flex items-center justify-center font-bold text-2xl sm:text-3xl shadow-md mb-5 transition-transform duration-300 group-hover:scale-105 select-none">
+                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#adc91f] text-white flex items-center justify-center font-semibold text-2xl sm:text-3xl shadow-md mb-5 transition-transform duration-300 group-hover:scale-105 select-none">
                   {item.value}
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-[#333333] mb-2">
+                <h3 className="text-lg sm:text-xl font-medium text-[#93ab19] mb-2">
                   {item.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-[#333333]/85 leading-relaxed max-w-[240px]">
@@ -331,7 +282,7 @@ export default function Beranda() {
           {/* Section Header & 'Semua Layanan' Button */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div className="max-w-2xl">
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#333333] mb-3">
+              <h2 className="text-3x1 sm:text-3xl font-medium text-[#333333] mb-3">
                 Layanan Kami
               </h2>
               <p className="text-sm sm:text-base text-[#333333]/80 leading-relaxed">
@@ -342,20 +293,19 @@ export default function Beranda() {
             <button
               type="button"
               onClick={() => setAllServicesOpen(true)}
-              className="self-start md:self-auto inline-flex items-center gap-2 px-6 py-2.5 bg-[#49baff] hover:bg-[#98cfff] text-white text-sm font-semibold rounded-2xl shadow-sm hover:shadow transition-all duration-200 cursor-pointer"
+              className="self-start md:self-auto inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#49baff] hover:bg-[#98cfff] text-white text-base hover:text-[#49baff] font-semibold rounded-2xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
             >
               <span>Semua Layanan</span>
               <ArrowRightIcon className="w-4 h-4" />
             </button>
           </div>
 
-          {/* 4 Service Cards Grid */}
+          {/* 4 Service Cards Grid (Tanpa Popup) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
             {SERVICES_DATA.map((service) => (
               <div
                 key={service.id}
-                onClick={() => setSelectedService(service)}
-                className="group bg-white rounded-2xl overflow-hidden card-shadow hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col cursor-pointer border border-slate-100"
+                className="group bg-white rounded-2xl overflow-hidden card-shadow hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col border border-slate-100"
               >
                 <div className="h-48 overflow-hidden relative bg-slate-100">
                   <img
@@ -364,9 +314,6 @@ export default function Beranda() {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-[11px] font-semibold text-[#49baff] px-2.5 py-1 rounded-full shadow-sm">
-                    Lihat Detail
-                  </div>
                 </div>
 
                 <div className="p-5 flex-1 flex flex-col">
@@ -383,8 +330,8 @@ export default function Beranda() {
 
           {/* Banner Konsultasi Tim Dokter */}
           <div id="dokter" className="pt-4">
-            <div className="text-center max-w-3xl mx-auto mb-10">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#adc91f] mb-3">
+            <div className="text-center max-w-5xl mx-auto mb-10">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-[#adc91f] mb-3">
                 Konsultasikan Kebutuhan Gigi Anda Bersama Kami
               </h2>
               <p className="text-sm sm:text-base text-[#333333]/80 leading-relaxed">
@@ -392,9 +339,9 @@ export default function Beranda() {
               </p>
             </div>
 
-            <div className="rounded-3xl overflow-hidden shadow-lg border border-slate-100 bg-white grid grid-cols-1 lg:grid-cols-12">
+            <div className="rounded-3xl overflow-hidden shadow-lg border border-slate-100 bg-white grid grid-cols-1 lg:grid-cols-12 lg:h-[367px]">
               {/* Left Column: Clinic Image */}
-              <div className="lg:col-span-5 h-64 sm:h-80 lg:h-auto min-h-[300px] relative overflow-hidden bg-slate-100">
+              <div className="lg:col-span-5 h-60 sm:h-72 lg:h-full relative overflow-hidden bg-slate-100">
                 <img
                   src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1000&q=80"
                   alt="Tim dokter gigi IN Dental Care saat menangani pasien"
@@ -404,45 +351,45 @@ export default function Beranda() {
               </div>
 
               {/* Right Column: Information & WhatsApp Buttons */}
-              <div className="lg:col-span-7 bg-[#e5ff8f] p-8 sm:p-10 lg:p-12 flex flex-col justify-center">
-                <h3 className="text-2xl sm:text-3xl font-bold text-[#333333] mb-2">
+              <div className="lg:col-span-7 bg-[#e5ff8f] p-6 sm:p-8 lg:px-10 lg:py-7 flex flex-col justify-center h-full">
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#93ab19] mb-1.5">
                   Tim Dokter Kami
                 </h3>
-                <p className="text-sm sm:text-base text-[#333333]/85 leading-relaxed mb-6">
+                <p className="text-xs sm:text-base text-[#333333]/85 leading-relaxed mb-4">
                   Didukung tenaga medis yang siap memberikan pelayanan kesehatan gigi.
                 </p>
 
-                <div className="space-y-4 mb-8">
-                  <div className="flex items-start gap-3">
-                    <div className="text-[#adc91f] mt-0.5 shrink-0 bg-white/70 p-1 rounded-full">
-                      <CheckCircleIcon className="w-5 h-5 text-[#adc91f]" />
+                <div className="space-y-3 mb-10">
+                  <div className="flex items-start gap-2.5">
+                    <div className="mt-0.5 shrink-0 bg-[#93ab19] p-0.5 rounded-full">
+                      <CheckCircleIcon className="w-4 h-4 text-white" />
                     </div>
-                    <div className="text-sm sm:text-base text-[#333333]">
-                      <span className="font-bold">Dokter Gigi Umum:</span>{' '}
-                      <span className="opacity-90">Pemeriksaan dan perawatan gigi dasar.</span>
+                    <div className="text-xs sm:text-base">
+                      <p className="font-semibold text-[#93ab19]">Dokter Gigi Umum</p>
+                      <p className="text-[#333333]/80">Pemeriksaan dan perawatan gigi dasar.</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3">
-                    <div className="text-[#adc91f] mt-0.5 shrink-0 bg-white/70 p-1 rounded-full">
-                      <CheckCircleIcon className="w-5 h-5 text-[#adc91f]" />
+                  <div className="flex items-start gap-2.5">
+                    <div className="mt-0.5 shrink-0 bg-[#93ab19] p-0.5 rounded-full">
+                      <CheckCircleIcon className="w-4 h-4 text-white" />
                     </div>
-                    <div className="text-sm sm:text-base text-[#333333]">
-                      <span className="font-bold">Dokter Spesialis Bedah Mulut:</span>{' '}
-                      <span className="opacity-90">Layanan bedah gigi dan mulut.</span>
+                    <div className="text-xs sm:text-base">
+                      <p className="font-semibold text-[#93ab19]">Dokter Spesialis Bedah Mulut</p>
+                      <p className="text-[#333333]/80">Layanan bedah gigi dan mulut.</p>
                     </div>
                   </div>
                 </div>
 
                 {/* WhatsApp Action Buttons */}
-                <div className="flex flex-wrap sm:flex-nowrap items-center gap-4">
+                <div className="flex flex-wrap sm:flex-nowrap items-center gap-3">
                   <a
                     href={CABANG_1.waUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-[#31cc1e] hover:bg-[#2cb81b] text-white text-sm sm:text-base font-semibold rounded-2xl shadow hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5 text-center cursor-pointer"
+                    className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#31cc1e] hover:bg-[#39e824] text-white text-xs sm:text-sm font-semibold rounded-xl shadow hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5 text-center cursor-pointer"
                   >
-                    <WhatsAppIcon className="w-5 h-5" />
+                    <WhatsAppIcon className="w-4 h-4" />
                     <span>Cabang 1</span>
                   </a>
 
@@ -450,9 +397,9 @@ export default function Beranda() {
                     href={CABANG_2.waUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-[#31cc1e] hover:bg-[#2cb81b] text-white text-sm sm:text-base font-semibold rounded-2xl shadow hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5 text-center cursor-pointer"
+                    className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#31cc1e] hover:bg-[#39e824] text-white text-xs sm:text-sm font-semibold rounded-xl shadow hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5 text-center cursor-pointer"
                   >
-                    <WhatsAppIcon className="w-5 h-5" />
+                    <WhatsAppIcon className="w-4 h-4" />
                     <span>Cabang 2</span>
                   </a>
                 </div>
@@ -472,7 +419,7 @@ export default function Beranda() {
           {/* Testimoni Subsection */}
           <div className="mb-24">
             <div className="text-center max-w-2xl mx-auto mb-10">
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#333333] mb-3">
+              <h2 className="text-3xl sm:text-4xl font-medium text-[#333333] mb-3">
                 Kata Mereka tentang Kami
               </h2>
 
@@ -487,56 +434,66 @@ export default function Beranda() {
               </p>
             </div>
 
-            {/* Carousel Slider */}
-            <div className="relative px-2 sm:px-8">
+            {/* Carousel Slider with Peek (Kepotong) Effect */}
+            <div className="relative group/slider">
+              {/* Left Arrow Button */}
               <button
                 type="button"
                 onClick={handlePrevTesti}
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white text-gray-700 shadow-md hover:shadow-lg border border-gray-100 flex items-center justify-center hover:text-[#49baff] transition-all duration-200 cursor-pointer"
+                className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white text-gray-700 shadow-xl border border-slate-100 flex items-center justify-center hover:text-[#49baff] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
                 aria-label="Ulasan Sebelumnya"
               >
                 <ChevronLeftIcon className="w-6 h-6" />
               </button>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {displayedReviews.map((review) => (
-                  <div
-                    key={`${review.id}-${review.name}`}
-                    className="bg-white rounded-2xl p-6 card-shadow flex flex-col justify-between transition-all duration-300 hover:shadow-lg border border-slate-50 min-h-[220px]"
-                  >
-                    <div>
-                      <div className="flex items-center gap-3.5 mb-3">
-                        <div className={`w-10 h-10 rounded-full ${review.avatarBg} text-white flex items-center justify-center font-bold text-base shrink-0 shadow-sm`}>
-                          {review.initial}
+              {/* Slider Track with Partial Next Card Visible (Kepotong) */}
+              <div className="overflow-hidden px-1 sm:px-2 py-3">
+                <div
+                  ref={sliderRef}
+                  className="flex gap-5 sm:gap-6 overflow-x-auto scroll-smooth py-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                  style={{ scrollSnapType: 'x mandatory' }}
+                >
+                  {TESTIMONIALS_DATA.map((review) => (
+                    <div
+                      key={`${review.id}-${review.name}`}
+                      className="testi-card shrink-0 w-[84%] sm:w-[46%] lg:w-[28.5%] bg-white rounded-2xl p-6 card-shadow flex flex-col justify-between transition-all duration-300 hover:shadow-xl border border-slate-100 min-h-[220px]"
+                      style={{ scrollSnapAlign: 'start' }}
+                    >
+                      <div>
+                        <div className="flex items-center gap-3.5 mb-3">
+                          <div className={`w-10 h-10 rounded-full ${review.avatarBg} text-white flex items-center justify-center font-bold text-base shrink-0 shadow-sm`}>
+                            {review.initial}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h4 className="text-sm font-bold text-[#49baff] truncate">
+                              {review.name}
+                            </h4>
+                            <span className="text-xs text-gray-400 block">
+                              {review.time}
+                            </span>
+                          </div>
                         </div>
-                        <div className="flex-1 min-w-0">
-                          <h4 className="text-sm font-bold text-[#49baff] truncate">
-                            {review.name}
-                          </h4>
-                          <span className="text-xs text-gray-400 block">
-                            {review.time}
-                          </span>
+
+                        <div className="flex items-center gap-1 mb-3">
+                          {[...Array(review.rating)].map((_, i) => (
+                            <StarIcon key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                          ))}
                         </div>
-                      </div>
 
-                      <div className="flex items-center gap-1 mb-3">
-                        {[...Array(review.rating)].map((_, i) => (
-                          <StarIcon key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                        ))}
+                        <p className="text-xs sm:text-[13px] text-[#333333]/90 leading-relaxed font-normal">
+                          {review.comment}
+                        </p>
                       </div>
-
-                      <p className="text-xs sm:text-[13px] text-[#333333]/90 leading-relaxed font-normal">
-                        {review.comment}
-                      </p>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
 
+              {/* Right Arrow Button */}
               <button
                 type="button"
                 onClick={handleNextTesti}
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white text-gray-700 shadow-md hover:shadow-lg border border-gray-100 flex items-center justify-center hover:text-[#49baff] transition-all duration-200 cursor-pointer"
+                className="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white text-gray-700 shadow-xl border border-slate-100 flex items-center justify-center hover:text-[#49baff] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
                 aria-label="Ulasan Berikutnya"
               >
                 <ChevronRightIcon className="w-6 h-6" />
@@ -550,9 +507,9 @@ export default function Beranda() {
 
               {/* Left Column: Heading & Addresses */}
               <div className="lg:col-span-6 flex flex-col items-start text-left">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#333333] mb-3 leading-tight">
-                  Temukan <span className="text-[#49baff]">IN Dental</span>{' '}
-                  <span className="text-[#adc91f]">Care</span> Terdekat
+                <h2 className="text-2xl sm:text-3xl font-medium text-[#333333] mb-3 leading-tight">
+                  Temukan <span className="text-[#49baff] font-semibold">IN Dental</span>{' '}
+                  <span className="text-[#adc91f] font-semibold">Care</span> <span className="text-[#333333] font-medium">Terdekat</span>
                 </h2>
 
                 <p className="text-sm sm:text-base text-[#333333]/80 leading-relaxed mb-8">
@@ -565,20 +522,19 @@ export default function Beranda() {
                     <MapPinIcon className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-base sm:text-lg font-bold text-[#333333] mb-1">
+                    <h3 className="text-base sm:text-lg font-medium text-[#333333] mb-1">
                       {CABANG_1.label}
                     </h3>
                     <p className="text-xs sm:text-sm text-[#333333]/80 leading-relaxed max-w-md mb-2">
-                      {CABANG_1.address}
+                      <a
+                        href="https://maps.app.goo.gl/JW7g4cipRZU6CVJV9"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="transition-colors duration-200 hover:text-[#49baff]"
+                      >
+                        {CABANG_1.address}
+                      </a>
                     </p>
-                    <a
-                      href={CABANG_1.mapsUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs font-semibold text-[#49baff] hover:underline flex items-center gap-1"
-                    >
-                      Buka Google Maps &rarr;
-                    </a>
                   </div>
                 </div>
 
@@ -588,20 +544,19 @@ export default function Beranda() {
                     <MapPinIcon className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-base sm:text-lg font-bold text-[#333333] mb-1">
+                    <h3 className="text-base sm:text-lg font-medium text-[#333333] mb-1">
                       {CABANG_2.label}
                     </h3>
                     <p className="text-xs sm:text-sm text-[#333333]/80 leading-relaxed max-w-md mb-2">
-                      {CABANG_2.address}
+                      <a
+                        href="https://maps.app.goo.gl/t839tmj7ooKXEkHS8"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="transition-colors duration-200 hover:text-[#49baff]"
+                      >
+                        {CABANG_2.address}
+                      </a>
                     </p>
-                    <a
-                      href={CABANG_2.mapsUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs font-semibold text-[#49baff] hover:underline flex items-center gap-1"
-                    >
-                      Buka Google Maps &rarr;
-                    </a>
                   </div>
                 </div>
               </div>
@@ -640,151 +595,7 @@ export default function Beranda() {
       </section>
 
       {/* ========================================================= */}
-      {/* MODAL 1: DETAIL LAYANAN & ESTIMASI HARGA (PRD US-2 & FR-2) */}
-      {/* ========================================================= */}
-      {selectedService && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/60 backdrop-blur-sm transition-all duration-300">
-          <div
-            className="relative w-full max-w-3xl bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-100 my-8 transform transition-all duration-300 scale-100 max-h-[90vh] flex flex-col"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Header Image with Close Button */}
-            <div className="relative h-56 sm:h-64 bg-slate-100 shrink-0">
-              <img
-                src={selectedService.image}
-                alt={selectedService.title}
-                className="w-full h-full object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-
-              <button
-                type="button"
-                onClick={() => setSelectedService(null)}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-gray-800 flex items-center justify-center shadow-lg transition-transform hover:scale-105 cursor-pointer"
-                aria-label="Tutup Modal"
-              >
-                <CloseIcon className="w-5 h-5" />
-              </button>
-
-              <div className="absolute bottom-4 left-6 right-6 text-white">
-                <span className="inline-block px-3 py-1 bg-[#adc91f] text-white text-xs font-bold rounded-full mb-2">
-                  {selectedService.category || 'Perawatan Gigi'}
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-bold tracking-tight">
-                  {selectedService.title}
-                </h3>
-              </div>
-            </div>
-
-            {/* Content Body */}
-            <div className="p-6 sm:p-8 overflow-y-auto space-y-6">
-              <div>
-                <h4 className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-2">
-                  Tentang Perawatan
-                </h4>
-                <p className="text-sm sm:text-base text-[#333333]/90 leading-relaxed">
-                  {selectedService.longDescription || selectedService.description}
-                </p>
-              </div>
-
-              {selectedService.benefits && selectedService.benefits.length > 0 && (
-                <div>
-                  <h4 className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-3">
-                    Keunggulan & Manfaat
-                  </h4>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                    {selectedService.benefits.map((benefit, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[#333333]/90">
-                        <CheckCircleIcon className="w-4 h-4 text-[#adc91f] shrink-0 mt-0.5" />
-                        <span>{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {/* Pricing Table (China vs USA per PRD US-2) */}
-              {selectedService.pricing && selectedService.pricing.length > 0 && (
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <h4 className="text-sm font-bold uppercase tracking-wider text-gray-400">
-                      Estimasi Biaya & Variasi Bahan
-                    </h4>
-                    <span className="text-[11px] text-[#adc91f] font-semibold bg-[#e5ff8f]/40 px-2.5 py-0.5 rounded-full">
-                      Harga Transparan
-                    </span>
-                  </div>
-
-                  <div className="border border-slate-100 rounded-2xl overflow-hidden shadow-sm">
-                    <table className="w-full text-left text-xs sm:text-sm">
-                      <thead className="bg-[#f9f8ff] text-[#333333] border-b border-slate-100 font-semibold">
-                        <tr>
-                          <th className="py-3 px-4">Jenis Tindakan / Material</th>
-                          <th className="py-3 px-4 hidden sm:table-cell">Keterangan</th>
-                          <th className="py-3 px-4 text-right">Perkiraan Biaya</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-slate-100">
-                        {selectedService.pricing.map((item, idx) => (
-                          <tr key={idx} className="hover:bg-slate-50/70 transition-colors">
-                            <td className="py-3 px-4 font-medium text-[#333333]">
-                              <div>{item.type}</div>
-                              <div className="text-[11px] text-gray-400 sm:hidden mt-0.5">{item.detail}</div>
-                            </td>
-                            <td className="py-3 px-4 text-gray-500 hidden sm:table-cell text-xs">
-                              {item.detail}
-                            </td>
-                            <td className="py-3 px-4 text-right font-bold text-[#49baff] whitespace-nowrap">
-                              {item.price}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              )}
-
-              {/* Booking WhatsApp Action */}
-              <div className="bg-[#e5ff8f]/40 border border-[#adc91f]/30 rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div>
-                  <div className="font-bold text-[#333333] text-sm sm:text-base">
-                    Siap Reservasi atau Konsultasi?
-                  </div>
-                  <div className="text-xs text-[#333333]/80">
-                    Pilih cabang klinik terdekat untuk reservasi instan tanpa antre:
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 w-full sm:w-auto">
-                  <a
-                    href={`${CABANG_1.waUrl}%20terkait%20layanan%20${encodeURIComponent(selectedService.title)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#31cc1e] hover:bg-[#2cb81b] text-white text-xs sm:text-sm font-semibold rounded-xl shadow-sm transition-transform hover:-translate-y-0.5"
-                  >
-                    <WhatsAppIcon className="w-4 h-4" />
-                    <span>Cabang 1</span>
-                  </a>
-
-                  <a
-                    href={`${CABANG_2.waUrl}%20terkait%20layanan%20${encodeURIComponent(selectedService.title)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#31cc1e] hover:bg-[#2cb81b] text-white text-xs sm:text-sm font-semibold rounded-xl shadow-sm transition-transform hover:-translate-y-0.5"
-                  >
-                    <WhatsAppIcon className="w-4 h-4" />
-                    <span>Cabang 2</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ========================================================= */}
-      {/* MODAL 2: KATALOG SEMUA LAYANAN (ALL SERVICES)              */}
+      {/* KATALOG SEMUA LAYANAN (ALL SERVICES MODAL)                */}
       {/* ========================================================= */}
       {allServicesOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/60 backdrop-blur-sm transition-all duration-300">
@@ -824,11 +635,7 @@ export default function Beranda() {
                   {SERVICES_DATA.map((service) => (
                     <div
                       key={service.id}
-                      onClick={() => {
-                        setAllServicesOpen(false);
-                        setSelectedService(service);
-                      }}
-                      className="p-4 rounded-2xl border border-slate-200 hover:border-[#49baff] hover:shadow-md transition-all flex items-start gap-4 cursor-pointer group bg-white"
+                      className="p-4 rounded-2xl border border-slate-200 hover:shadow-md transition-all flex items-start gap-4 bg-white"
                     >
                       <img
                         src={service.image}
@@ -836,13 +643,10 @@ export default function Beranda() {
                         className="w-16 h-16 rounded-xl object-cover shrink-0"
                       />
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between">
-                          <h5 className="font-bold text-[#333333] group-hover:text-[#49baff] text-sm sm:text-base">
-                            {service.title}
-                          </h5>
-                          <span className="text-xs text-[#adc91f] font-semibold">Detail &rarr;</span>
-                        </div>
-                        <p className="text-xs text-gray-500 line-clamp-2 mt-1">
+                        <h5 className="font-bold text-[#333333] text-sm sm:text-base mb-1">
+                          {service.title}
+                        </h5>
+                        <p className="text-xs text-gray-500 line-clamp-2">
                           {service.description}
                         </p>
                       </div>

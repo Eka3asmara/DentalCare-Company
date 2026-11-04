@@ -28,20 +28,20 @@ export default function Navbar({ activePage = 'Beranda', onNavigate }) {
     <header className="sticky top-0 z-40 bg-[#ffffff] backdrop-blur-md border-b border-slate-100 transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Brand Logo */}
-        <div 
-          onClick={() => handleNavClick({ label: 'Beranda', id: 'beranda' })} 
+        <div
+          onClick={() => handleNavClick({ label: 'Beranda', id: 'beranda' })}
           className="flex items-center gap-3 cursor-pointer group select-none"
         >
           <div className="transition-transform group-hover:scale-105 duration-200">
             <ToothLogoIcon className="w-10 h-10" />
           </div>
           <div className="flex flex-col">
-            <div className="flex items-center tracking-wide font-extrabold text-lg sm:text-xl leading-none">
+            <div className="flex items-center tracking-wide font-semibold text-lg sm:text-xl leading-none">
               <span className="text-[#49baff] mr-1">IN</span>
-              <span className="text-[#2b2d42] mr-1">DENTAL</span>
+              <span className="text-[#49baff] mr-1">DENTAL</span>
               <span className="text-[#adc91f]">CARE</span>
             </div>
-            <span className="text-[10px] sm:text-[11px] font-semibold text-[#49baff] tracking-wider mt-0.5">
+            <span className="text-[10px] sm:text-[10px] font-medium text-[#49baff] tracking-wider mt-0.5">
               CARE FOR EVERY SMILE
             </span>
           </div>
@@ -55,11 +55,10 @@ export default function Navbar({ activePage = 'Beranda', onNavigate }) {
               <button
                 key={item.label}
                 onClick={() => handleNavClick(item)}
-                className={`text-sm tracking-normal transition-colors relative py-1 font-medium ${
-                  isActive
-                    ? 'text-[#49baff] font-bold after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#49baff] after:rounded-full'
-                    : 'text-[#333333] hover:text-[#49baff]'
-                }`}
+                className={`text-sm tracking-normal transition-colors relative py-1 font-medium ${isActive
+                  ? 'text-[#49baff] font-bold after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#49baff] after:rounded-full'
+                  : 'text-[#333333] hover:text-[#49baff]'
+                  }`}
               >
                 {item.label}
               </button>
@@ -97,11 +96,10 @@ export default function Navbar({ activePage = 'Beranda', onNavigate }) {
               <button
                 key={item.label}
                 onClick={() => handleNavClick(item)}
-                className={`block w-full text-left px-4 py-3 rounded-xl text-base font-medium transition-colors ${
-                  isActive
-                    ? 'bg-[#49baff]/10 text-[#49baff] font-semibold'
-                    : 'text-[#333333] hover:bg-gray-50 hover:text-[#49baff]'
-                }`}
+                className={`block w-full text-left px-4 py-3 rounded-xl text-base font-medium transition-colors ${isActive
+                  ? 'bg-[#49baff]/10 text-[#49baff] font-semibold'
+                  : 'text-[#333333] hover:bg-gray-50 hover:text-[#49baff]'
+                  }`}
               >
                 {item.label}
               </button>

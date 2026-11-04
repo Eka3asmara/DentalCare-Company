@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ToothLogoIcon } from '../Icons';
+import logoKlinik from '../../assets/image/logo-indentalcare.png';
 
 export default function Navbar({ activePage = 'Beranda', onNavigate }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -14,14 +14,34 @@ export default function Navbar({ activePage = 'Beranda', onNavigate }) {
 
   const handleNavClick = (item) => {
     setMobileMenuOpen(false);
+
+    // Jika memilih Kontak
+    if (item.label.toLowerCase() === 'kontak') {
+      if (activePage.toLowerCase() === 'beranda') {
+        const el = document.getElementById('kontak');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+          return;
+        }
+      } else {
+        if (onNavigate) {
+          onNavigate('Beranda');
+        }
+        setTimeout(() => {
+          const el = document.getElementById('kontak');
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 150);
+        return;
+      }
+    }
+
+    // Navigasi ke halaman lain (Beranda, Profil, Dokter, Layanan) -> Selalu buka di posisi paling atas
     if (onNavigate) {
       onNavigate(item.label);
     }
-    // Also smooth scroll if section exists
-    const el = document.getElementById(item.id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   };
 
   return (
@@ -32,13 +52,17 @@ export default function Navbar({ activePage = 'Beranda', onNavigate }) {
           onClick={() => handleNavClick({ label: 'Beranda', id: 'beranda' })}
           className="flex items-center gap-3 cursor-pointer group select-none"
         >
-          <div className="transition-transform group-hover:scale-105 duration-200">
-            <ToothLogoIcon className="w-10 h-10" />
+          <div className="transition-transform group-hover:scale-105 duration-200 flex items-center justify-center text-center">
+            <img
+              src={logoKlinik}
+              alt="IN Dental Care Logo"
+              className="w-15 h-15 rounded-full object-cover flex items-center justify-center text-center text-[10px] text-gray-500 font-medium"
+            />
           </div>
           <div className="flex flex-col">
-            <div className="flex items-center tracking-wide font-semibold text-lg sm:text-xl leading-none">
-              <span className="text-[#49baff] mr-1">IN</span>
-              <span className="text-[#49baff] mr-1">DENTAL</span>
+            <div className="flex items-center tracking-wide font-semibold text-lg sm:text-lg leading-none">
+              <span className="text-[#0584bc] mr-1">IN</span>
+              <span className="text-[#0584bc] mr-1">DENTAL</span>
               <span className="text-[#adc91f]">CARE</span>
             </div>
             <span className="text-[10px] sm:text-[10px] font-medium text-[#49baff] tracking-wider mt-0.5">

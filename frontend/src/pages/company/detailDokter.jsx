@@ -15,7 +15,7 @@ export default function DetailDokter({ doctorId = 'drg-indira', onNavigate }) {
   return (
     <div className="w-full bg-[#f9f8ff] py-6 sm:py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* ========================================================= */}
         {/* BREADCRUMB: Beranda > Dokter > [Nama Dokter]              */}
         {/* ========================================================= */}
@@ -45,15 +45,15 @@ export default function DetailDokter({ doctorId = 'drg-indira', onNavigate }) {
         {/* MAIN PROFILE: 2 Kolom (Foto Dokter & Jadwal Praktek)      */}
         {/* ========================================================= */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-10">
-          
+
           {/* Left Column: Doctor Photo Card */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden bg-[#9ca3af] card-shadow border border-slate-100 relative flex items-end justify-center">
+            <div className="w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden bg-slate-100 card-shadow border border-slate-100 relative flex items-center justify-center text-center">
               {doctor.image ? (
                 <img
                   src={doctor.image}
                   alt={doctor.name}
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-top flex items-center justify-center text-center text-xs sm:text-sm text-gray-500 font-medium"
                   loading="eager"
                   onError={(e) => {
                     e.currentTarget.src = "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=1000&q=80";
@@ -69,7 +69,7 @@ export default function DetailDokter({ doctorId = 'drg-indira', onNavigate }) {
 
           {/* Right Column: Information, Bio & Schedules */}
           <div className="lg:col-span-7 flex flex-col justify-start">
-            
+
             {/* Category / Role Badge */}
             <div className="inline-block border border-[#adc91f] text-[#7c9e10] bg-[#e5ff8f]/20 text-xs font-semibold px-4 py-1 rounded-full mb-3 self-start">
               {doctor.role}

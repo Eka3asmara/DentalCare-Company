@@ -83,11 +83,11 @@ export default function Layanan({ onSelectService }) {
               className="bg-white rounded-2xl overflow-hidden card-shadow hover:shadow-xl transition-all duration-300 flex flex-col border border-slate-100 group"
             >
               {/* Card Image */}
-              <div className="h-52 sm:h-56 w-full overflow-hidden bg-slate-100 relative">
+              <div className="h-52 sm:h-56 w-full overflow-hidden bg-slate-100 relative flex items-center justify-center text-center">
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 flex items-center justify-center text-center text-xs sm:text-sm text-gray-500 font-medium"
                   loading="lazy"
                 />
               </div>

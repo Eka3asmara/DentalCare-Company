@@ -172,7 +172,7 @@ export default function DetailLayanan({ onNavigate }) {
 
   return (
     <div className="w-full bg-[#f9f8ff]">
-      
+
       {/* ========================================================= */}
       {/* SECTION 1: HERO DETAIL LAYANAN (Latar Brand Lime #e5ff8f) */}
       {/* ========================================================= */}
@@ -193,7 +193,7 @@ export default function DetailLayanan({ onNavigate }) {
       {/* ========================================================= */}
       <section className="py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <h2 className="text-xl sm:text-2xl lg:text-[28px] font-bold text-[#49baff] text-center mb-10 max-w-3xl mx-auto leading-snug">
             Berikut Beberapa Kondisi Gigi Yang Umumnya Membutuhkan Perawatan Behel.
           </h2>
@@ -205,11 +205,11 @@ export default function DetailLayanan({ onNavigate }) {
                 key={item.id}
                 className="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group"
               >
-                <div className="h-32 sm:h-40 w-full overflow-hidden bg-slate-100">
+                <div className="h-32 sm:h-40 w-full overflow-hidden bg-slate-100 flex items-center justify-center text-center">
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 flex items-center justify-center text-center text-xs sm:text-sm text-gray-500 font-medium"
                     loading="lazy"
                     onError={(e) => {
                       e.currentTarget.src = item.fallback;
@@ -234,14 +234,14 @@ export default function DetailLayanan({ onNavigate }) {
       <section className="py-12 lg:py-16 bg-white/60 border-y border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
+
             {/* Left: Patient Ortho Photo */}
             <div className="lg:col-span-5">
-              <div className="rounded-3xl overflow-hidden card-shadow aspect-[4/3] bg-slate-100 border border-slate-100">
+              <div className="rounded-3xl overflow-hidden card-shadow aspect-[4/3] bg-slate-100 border border-slate-100 flex items-center justify-center text-center">
                 <img
                   src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=900&q=80"
                   alt="Manfaat Perawatan Behel Gigi"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover flex items-center justify-center text-center text-xs sm:text-sm text-gray-500 font-medium"
                 />
               </div>
             </div>
@@ -281,7 +281,7 @@ export default function DetailLayanan({ onNavigate }) {
       {/* ========================================================= */}
       <section className="py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <h2 className="text-xl sm:text-2xl lg:text-[28px] font-bold text-[#49baff] text-center mb-10 max-w-3xl mx-auto leading-snug">
             Temukan jenis behel yang sesuai dengan kebutuhan dan kondisi gigi Anda.
           </h2>
@@ -296,7 +296,7 @@ export default function DetailLayanan({ onNavigate }) {
                 className="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-[#49baff]/40 group cursor-pointer text-left w-full focus:outline-none focus:ring-2 focus:ring-[#49baff]/50"
                 aria-label={`Lihat detail dan harga ${type.title}`}
               >
-                <div className="h-32 sm:h-40 w-full overflow-hidden bg-slate-100 relative">
+                <div className="h-32 sm:h-40 w-full overflow-hidden bg-slate-100 relative flex items-center justify-center text-center">
                   <img
                     src={type.image}
                     alt={type.title}
@@ -329,7 +329,7 @@ export default function DetailLayanan({ onNavigate }) {
       <section className="py-12 lg:py-16 bg-white/60 border-y border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
+
             {/* Left: Retainer Photo */}
             <div className="lg:col-span-5">
               <div className="rounded-3xl overflow-hidden card-shadow aspect-[4/3] bg-slate-100 border border-slate-100">
@@ -402,7 +402,7 @@ export default function DetailLayanan({ onNavigate }) {
       {/* ========================================================= */}
       <section className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#333333] mb-3">
               Rekomendasi Layanan Lainnya Untuk Anda
@@ -421,7 +421,7 @@ export default function DetailLayanan({ onNavigate }) {
                 onClick={() => onNavigate && onNavigate('Layanan')}
               >
                 <div>
-                  <div className="h-44 sm:h-48 w-full overflow-hidden bg-slate-100">
+                  <div className="h-44 sm:h-48 w-full overflow-hidden bg-slate-100 flex items-center justify-center text-center">
                     <img
                       src={rec.image}
                       alt={rec.title}

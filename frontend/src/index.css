@@ -26,6 +26,29 @@ html {
   font-family: 'Poppins', sans-serif;
 }
 
+/* Fallback styling: Center alt text when image fails to load */
+img {
+  position: relative;
+  text-align: center;
+}
+
+img::after {
+  content: attr(alt);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  background-color: #f1f5f9;
+  color: #64748b;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: inherit;
+  z-index: 10;
+}
+
 body {
   background-color: #f9f8ff;
   color: #333333;

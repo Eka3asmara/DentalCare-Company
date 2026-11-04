@@ -15,19 +15,19 @@ export default function App() {
 
   const handleNavigate = (pageName) => {
     setActivePage(pageName);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   };
 
   const handleSelectDoctor = (doctorId) => {
     setSelectedDoctorId(doctorId);
     setActivePage('DetailDokter');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   };
 
   const handleSelectService = (serviceId) => {
     setSelectedServiceId(serviceId);
     setActivePage('DetailLayanan');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   };
 
   const renderContent = () => {

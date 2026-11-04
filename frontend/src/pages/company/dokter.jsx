@@ -174,7 +174,7 @@ export default function Dokter({ onSelectDoctor }) {
   return (
     <div className="w-full py-12 lg:py-20 bg-[#f9f8ff]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* ========================================================= */}
         {/* HEADER SECTION: Title & Description                       */}
         {/* ========================================================= */}
@@ -197,12 +197,12 @@ export default function Dokter({ onSelectDoctor }) {
               className="bg-white rounded-2xl overflow-hidden card-shadow hover:shadow-xl transition-all duration-300 flex flex-col border border-slate-100 group"
             >
               {/* Doctor Photo / Silhouette Container */}
-              <div className="h-64 sm:h-72 w-full bg-[#9ca3af] relative overflow-hidden flex items-end justify-center">
+              <div className="h-64 sm:h-72 w-full bg-slate-100 relative overflow-hidden flex items-center justify-center text-center">
                 {doctor.image ? (
                   <img
                     src={doctor.image}
                     alt={doctor.name}
-                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 flex items-center justify-center text-center text-xs sm:text-sm text-gray-500 font-medium"
                     loading="lazy"
                   />
                 ) : doctor.gender === 'male' ? (

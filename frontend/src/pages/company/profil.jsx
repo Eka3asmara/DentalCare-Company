@@ -75,11 +75,11 @@ export default function Profil() {
                 <div className="absolute inset-0 bg-[#e5ff8f]/40 blur-3xl -z-10 rounded-full scale-95 transform -translate-y-4"></div>
 
                 {/* Asymmetric curved photo container per design system */}
-                <div className="w-full h-full max-h-[460px] overflow-hidden shadow-2xl relative bg-slate-100 border-4 border-white hero-img-shape transition-transform duration-500 hover:scale-[1.01]">
+                <div className="w-full h-full max-h-[460px] overflow-hidden shadow-2xl relative bg-slate-100 border-4 border-white hero-img-shape transition-transform duration-500 hover:scale-[1.01] flex items-center justify-center text-center">
                   <img
                     src="https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=1000&q=80"
                     alt="drg. Indira Nugrahani - Pendiri IN Dental Care"
-                    className="w-full h-full object-cover object-center"
+                    className="w-full h-full object-cover object-center flex items-center justify-center text-center text-xs sm:text-sm text-gray-500 font-medium"
                     loading="eager"
                     onError={(e) => {
                       e.currentTarget.src = "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=1000&q=80";

@@ -2,14 +2,36 @@ import React from 'react';
 import { MapPinIcon, PhoneIcon, MailIcon, TikTokIcon, InstagramIcon } from '../Icons';
 
 export default function Footer({ onNavigate }) {
-  const handleNavClick = (sectionId) => {
+  const handleNavClick = (target) => {
+    if (target.toLowerCase() === 'kontak') {
+      const el = document.getElementById('kontak');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+      if (onNavigate) {
+        onNavigate('Beranda');
+        setTimeout(() => {
+          const el = document.getElementById('kontak');
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 150);
+      }
+      return;
+    }
+
+    const pageMap = {
+      beranda: 'Beranda',
+      profil: 'Profil',
+      dokter: 'Dokter',
+      layanan: 'Layanan',
+    };
+    const page = pageMap[target.toLowerCase()] || target;
     if (onNavigate) {
-      onNavigate(sectionId);
+      onNavigate(page);
     }
-    const el = document.getElementById(sectionId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   };
 
   return (
@@ -28,7 +50,7 @@ export default function Footer({ onNavigate }) {
               <li>
                 <button
                   type="button"
-                  onClick={() => handleNavClick('beranda')}
+                  onClick={() => handleNavClick('profil')}
                   className="hover:text-[#49baff] transition-colors cursor-pointer"
                 >
                   Profil
@@ -185,7 +207,7 @@ export default function Footer({ onNavigate }) {
 
         {/* Copyright */}
         <div className="pt-8 text-center">
-          <p className="text-xs sm:text-sm font-semibold text-[#333333]/80">
+          <p className="text-xs sm:text-sm font-base text-[#333333]/80">
             &copy; 2026 IN Dental Care
           </p>
         </div>

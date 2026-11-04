@@ -53,11 +53,11 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
         </button>
 
         {/* 1. Header Image */}
-        <div className="w-full h-52 sm:h-64 md:h-72 overflow-hidden bg-slate-100 relative">
+        <div className="w-full h-52 sm:h-64 md:h-72 overflow-hidden bg-slate-100 relative flex items-center justify-center text-center">
           <img
             src={treatment.image}
             alt={treatment.title}
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-center flex items-center justify-center text-center text-xs sm:text-sm text-gray-500 font-medium"
             onError={(e) => {
               e.currentTarget.src =
                 "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=1000&q=80";

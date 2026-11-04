@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-bg: #f9f8ff;
+  --color-brand-lime: #e5ff8f;
+  --color-brand-lime-dark: #adc91f;
+  --color-brand-blue: #49baff;
+  --color-brand-blue-hover: #98cfff;
+  --color-brand-charcoal: #333333;
+  --color-brand-whatsapp: #31cc1e;
+
+  --font-poppins: 'Poppins', sans-serif;
+
+  --shadow-card: 0px 2px 7px 2px rgba(0, 0, 0, 0.12);
+  --shadow-custom: 0px 2px 7px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* Custom Shape for Hero Image defined in design system */
+.hero-img-shape {
+  border-radius: 165px 41px 225px 100px;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f9f8ff;
+  color: #333333;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Custom shadow utilities matching design tokens */
+.card-shadow {
+  box-shadow: 0px 2px 7px 2px rgba(0, 0, 0, 0.12);
+}
+
+.shadow-custom {
+  box-shadow: 0px 2px 7px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* ===== MODAL ANIMATIONS ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.93) translateY(10px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.22s ease-out both;
+}
+
+.animate-scaleUp {
+  animation: scaleUp 0.26s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}

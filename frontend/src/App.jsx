@@ -6,7 +6,13 @@ import Profil from './pages/company/profil';
 import Dokter from './pages/company/dokter';
 import DetailDokter from './pages/company/detailDokter';
 import Layanan from './pages/company/layanan';
-import DetailLayanan from './pages/company/detailLayanan';
+import DetailLayananBehel from './pages/company/detailLayanan-behel';
+import DetailLayananUmum from './pages/company/detailLayanan-umum';
+import DetailLayananRoot from './pages/company/detailLayanan-root';
+import DetailLayananCabutGigi from './pages/company/detailLayanan-cabut-gigi';
+import DetailLayananGigiPalsu from './pages/company/detailLayanan-gigi-palsu';
+import DetailLayananImplan from './pages/company/detailLayanan-implan';
+import DetailLayananEstetikGigi from './pages/company/detailLayanan-estetik-gigi';
 
 export default function App() {
   const [activePage, setActivePage] = useState('Beranda');
@@ -43,6 +49,31 @@ export default function App() {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   };
 
+  const renderDetailLayanan = () => {
+    switch (selectedServiceId) {
+      case 'gigi-umum':
+        return <DetailLayananUmum onNavigate={handleNavigate} onSelectService={handleSelectService} />;
+      case 'saluran-akar':
+        return <DetailLayananRoot onNavigate={handleNavigate} onSelectService={handleSelectService} />;
+      case 'pencabutan-gigi':
+      case 'cabut-gigi':
+        return <DetailLayananCabutGigi onNavigate={handleNavigate} onSelectService={handleSelectService} />;
+      case 'gigi-palsu-crown':
+      case 'gigi-palsu':
+        return <DetailLayananGigiPalsu onNavigate={handleNavigate} onSelectService={handleSelectService} />;
+      case 'implan-gigi':
+      case 'implan':
+        return <DetailLayananImplan onNavigate={handleNavigate} onSelectService={handleSelectService} />;
+      case 'estetik-gigi':
+      case 'estetik':
+        return <DetailLayananEstetikGigi onNavigate={handleNavigate} onSelectService={handleSelectService} />;
+      case 'behel-gigi':
+      case 'behel':
+      default:
+        return <DetailLayananBehel onNavigate={handleNavigate} onSelectService={handleSelectService} />;
+    }
+  };
+
   const renderContent = () => {
     switch (activePage.toLowerCase()) {
       case 'profil':
@@ -59,12 +90,7 @@ export default function App() {
       case 'layanan':
         return <Layanan onSelectService={handleSelectService} />;
       case 'detaillayanan':
-        return (
-          <DetailLayanan
-            serviceId={selectedServiceId}
-            onNavigate={handleNavigate}
-          />
-        );
+        return renderDetailLayanan();
       case 'beranda':
       default:
         return <Beranda />;

@@ -63,7 +63,7 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
 
         {/* 2. Modal Body Content */}
         <div className="p-6 sm:p-8">
-          
+
           {/* Title */}
           <h2
             id="modal-treatment-title"
@@ -114,9 +114,8 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
                     {/* Column 2: Produksi (Pill Badge) */}
                     <div className="col-span-4 flex justify-center">
                       <span
-                        className={`inline-block px-3 py-1 rounded-full text-[10.5px] sm:text-[11px] font-semibold text-white tracking-wide shadow-2xs ${
-                          isChina ? 'bg-[#a2c416]' : 'bg-[#49baff]'
-                        }`}
+                        className={`inline-block px-3 py-1 rounded-full text-[10.5px] sm:text-[11px] font-semibold text-white tracking-wide shadow-2xs ${isChina ? 'bg-[#a2c416]' : 'bg-[#49baff]'
+                          }`}
                       >
                         {badgeText}
                       </span>
@@ -131,30 +130,6 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
               })}
             </div>
           </div>
-
-          {/* Direct CTA Action to WhatsApp */}
-          <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
-            <a
-              href={`https://wa.me/628121915709?text=Halo%20Admin%20IN%20Dental%20Care%20Cabang%201,%20saya%20ingin%20tanya%20rincian%20perawatan%20${encodeURIComponent(treatment.title)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#31cc1e] hover:bg-[#2cb81b] text-white text-xs sm:text-sm font-semibold rounded-xl shadow-xs transition-transform hover:-translate-y-0.5 text-center"
-            >
-              <WhatsAppIcon className="w-4 h-4" />
-              <span>Tanya Dokter Cabang 1</span>
-            </a>
-
-            <a
-              href={`https://wa.me/628119339708?text=Halo%20Admin%20IN%20Dental%20Care%20Cabang%202,%20saya%20ingin%20tanya%20rincian%20perawatan%20${encodeURIComponent(treatment.title)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#31cc1e] hover:bg-[#2cb81b] text-white text-xs sm:text-sm font-semibold rounded-xl shadow-xs transition-transform hover:-translate-y-0.5 text-center"
-            >
-              <WhatsAppIcon className="w-4 h-4" />
-              <span>Tanya Dokter Cabang 2</span>
-            </a>
-          </div>
-
         </div>
       </div>
     </div>

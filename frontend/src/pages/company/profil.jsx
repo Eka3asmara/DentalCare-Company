@@ -138,7 +138,7 @@ export default function Profil() {
                 className="relative bg-white rounded-2xl card-shadow pt-10 pb-8 px-6 sm:px-7 flex flex-col items-center text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-slate-50 min-h-[190px]"
               >
                 {/* Floating Circular Number Badge centered on the top border */}
-                <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-[#84a116] text-white flex items-center justify-center font-medium text-lg shadow-sm">
+                <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-[#93ab19] text-white flex items-center justify-center font-medium text-lg shadow-sm">
                   {item.number}
                 </div>
 

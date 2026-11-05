@@ -58,10 +58,6 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
             src={treatment.image}
             alt={treatment.title}
             className="w-full h-full object-cover object-center flex items-center justify-center text-center text-xs sm:text-sm text-gray-500 font-medium"
-            onError={(e) => {
-              e.currentTarget.src =
-                "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=1000&q=80";
-            }}
           />
         </div>
 

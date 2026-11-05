@@ -1,171 +1,222 @@
 import React from 'react';
-import {
-  ArrowRightIcon,
-  MaleDoctorSilhouette,
-  FemaleDoctorSilhouette
-} from '../../components/Icons';
+import { ArrowRightIcon } from '../../components/Icons';
 
 export const DOCTORS_DATA = [
   {
-    id: "drg-indira",
-    name: "drg. Indira Nugrahani",
-    role: "Dokter Gigi Umum",
-    isSpecialist: false,
-    gender: "female",
-    image: "https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=1000&q=80",
-    education: "Universitas Prof. Dr. Moestopo (Beragama) - Pendiri IN Dental Care",
-    focus: "Restorasi Gigi, Perawatan Saluran Akar, Perawatan Estetik & Konsultasi Menyeluruh",
-    bio: "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
-    schedulesBranch1: [
-      { day: "Rabu", time: "15.00 - 20.00", status: "Praktik" },
-      { day: "Minggu", time: "09.00 - 20.00", status: "Praktik" }
+    "id": "drg-indira",
+    "name": "drg. Indira Nugrahani",
+    "role": "Dokter Gigi Umum",
+    "image": "src/assets/image/dokter-indira-background.png",
+    "bio": "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
+    "schedulesBranch1": [
+      {
+        "day": "Rabu",
+        "time": "15.00 - 20.00",
+        "status": "Praktik"
+      },
+      {
+        "day": "Minggu",
+        "time": "09.00 - 20.00",
+        "status": "Praktik"
+      }
     ],
-    schedulesBranch2: [
-      { day: "Rabu", time: "15.00 - 20.00", status: "Praktik" },
-      { day: "Minggu", time: "09.00 - 20.00", status: "Praktik" }
-    ],
-    schedules: [
-      { branch: "Cabang 1 (Petukangan Selatan)", days: "Rabu, Minggu", hours: "15.00 - 20.00 WIB" },
-      { branch: "Cabang 2 (Petukangan Utara)", days: "Rabu, Minggu", hours: "15.00 - 20.00 WIB" }
+    "schedulesBranch2": [
+      {
+        "day": "Rabu",
+        "time": "15.00 - 20.00",
+        "status": "Praktik"
+      },
+      {
+        "day": "Minggu",
+        "time": "09.00 - 20.00",
+        "status": "Praktik"
+      }
     ]
   },
   {
-    id: "drg-adria",
-    name: "drg. Adria Permana Putra, Sp.BM",
-    role: "Dokter Gigi Spesialis",
-    specialistDetail: "Spesialis Bedah Mulut dan Maksilofasial",
-    isSpecialist: true,
-    gender: "male",
-    image: null,
-    education: "Spesialis Bedah Mulut & Maksilofasial",
-    focus: "Odontektomi Gigi Bungsu Impaksi, Bedah Minor Gigi & Mulut, Dental Implant, Kista Mulut",
-    bio: "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
-    schedulesBranch1: [
-      { day: "Selasa", time: "16.00 - 20.00", status: "Praktik" },
-      { day: "Kamis", time: "16.00 - 20.00", status: "Praktik" }
+    "id": "drg-adria",
+    "name": "drg. Adria Permana Putra, Sp.BM",
+    "role": "Dokter Gigi Spesialis Bedah Mulut",
+    "image": "src/assets/image/avatar-blank-man.jpg",
+    "bio": "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
+    "schedulesBranch1": [
+      {
+        "day": "Selasa",
+        "time": "16.00 - 20.00",
+        "status": "Praktik"
+      },
+      {
+        "day": "Kamis",
+        "time": "16.00 - 20.00",
+        "status": "Praktik"
+      }
     ],
-    schedulesBranch2: [
-      { day: "Sabtu", time: "13.00 - 18.00", status: "Praktik" },
-      { day: "Minggu", time: "13.00 - 17.00", status: "Praktik" }
-    ],
-    schedules: [
-      { branch: "Cabang 1 (Petukangan Selatan)", days: "Selasa & Kamis", hours: "16.00 - 20.00 WIB" },
-      { branch: "Cabang 2 (Petukangan Utara)", days: "Sabtu & Minggu", hours: "13.00 - 18.00 WIB" }
+    "schedulesBranch2": [
+      {
+        "day": "Sabtu",
+        "time": "13.00 - 18.00",
+        "status": "Praktik"
+      },
+      {
+        "day": "Minggu",
+        "time": "13.00 - 17.00",
+        "status": "Praktik"
+      }
     ]
   },
   {
-    id: "drg-mhay",
-    name: "drg. Mhay Chyntha Hariyana",
-    role: "Dokter Gigi Umum",
-    isSpecialist: false,
-    gender: "female",
-    image: null,
-    education: "Fakultas Kedokteran Gigi",
-    focus: "Perawatan Saluran Akar (PSA), Penambalan Komposit Nano-hybrid, Scaling Ultrasonik",
-    bio: "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
-    schedulesBranch1: [
-      { day: "Senin", time: "13.00 - 19.00", status: "Praktik" },
-      { day: "Kamis", time: "13.00 - 19.00", status: "Praktik" }
+    "id": "drg-mhay",
+    "name": "drg. Mhay Chyntha Hariyana",
+    "role": "Dokter Gigi Umum",
+    "image": "src/assets/image/avatar-blank-woman.jpg",
+    "bio": "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
+    "schedulesBranch1": [
+      {
+        "day": "Senin",
+        "time": "13.00 - 19.00",
+        "status": "Praktik"
+      },
+      {
+        "day": "Kamis",
+        "time": "13.00 - 19.00",
+        "status": "Praktik"
+      }
     ],
-    schedulesBranch2: [
-      { day: "Rabu", time: "10.00 - 16.00", status: "Praktik" },
-      { day: "Sabtu", time: "10.00 - 16.00", status: "Praktik" }
-    ],
-    schedules: [
-      { branch: "Cabang 1 (Petukangan Selatan)", days: "Senin & Kamis", hours: "13.00 - 19.00 WIB" },
-      { branch: "Cabang 2 (Petukangan Utara)", days: "Rabu & Sabtu", hours: "10.00 - 16.00 WIB" }
+    "schedulesBranch2": [
+      {
+        "day": "Rabu",
+        "time": "10.00 - 16.00",
+        "status": "Praktik"
+      },
+      {
+        "day": "Sabtu",
+        "time": "10.00 - 16.00",
+        "status": "Praktik"
+      }
     ]
   },
   {
-    id: "drg-larena",
-    name: "drg. Larena",
-    role: "Dokter Gigi Umum",
-    isSpecialist: false,
-    gender: "female",
-    image: null,
-    education: "Fakultas Kedokteran Gigi",
-    focus: "Ortodonti Dasar (Pemasangan Behel), Estetika Senyum, Kontrol Rutin Ortodonti",
-    bio: "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
-    schedulesBranch1: [
-      { day: "Selasa", time: "10.00 - 16.00", status: "Praktik" },
-      { day: "Jumat", time: "10.00 - 16.00", status: "Praktik" }
+    "id": "drg-larena",
+    "name": "drg. Larena",
+    "role": "Dokter Gigi Umum",
+    "image": "src/assets/image/avatar-blank-woman.jpg",
+    "bio": "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
+    "schedulesBranch1": [
+      {
+        "day": "Selasa",
+        "time": "10.00 - 16.00",
+        "status": "Praktik"
+      },
+      {
+        "day": "Jumat",
+        "time": "10.00 - 16.00",
+        "status": "Praktik"
+      }
     ],
-    schedulesBranch2: [
-      { day: "Senin", time: "14.00 - 19.00", status: "Praktik" },
-      { day: "Kamis", time: "14.00 - 19.00", status: "Praktik" }
-    ],
-    schedules: [
-      { branch: "Cabang 1 (Petukangan Selatan)", days: "Selasa & Jumat", hours: "10.00 - 16.00 WIB" },
-      { branch: "Cabang 2 (Petukangan Utara)", days: "Senin & Kamis", hours: "14.00 - 19.00 WIB" }
+    "schedulesBranch2": [
+      {
+        "day": "Senin",
+        "time": "14.00 - 19.00",
+        "status": "Praktik"
+      },
+      {
+        "day": "Kamis",
+        "time": "14.00 - 19.00",
+        "status": "Praktik"
+      }
     ]
   },
   {
-    id: "drg-sherly",
-    name: "drg. R. Sherly",
-    role: "Dokter Gigi Umum",
-    isSpecialist: false,
-    gender: "female",
-    image: null,
-    education: "Fakultas Kedokteran Gigi",
-    focus: "Perawatan Gigi Anak (Pediatri), Pencabutan Gigi Susu & Dewasa, Terapi Fluoride",
-    bio: "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
-    schedulesBranch1: [
-      { day: "Rabu", time: "10.00 - 15.00", status: "Praktik" },
-      { day: "Sabtu", time: "10.00 - 15.00", status: "Praktik" }
+    "id": "drg-sherly",
+    "name": "drg. R. Sherly",
+    "role": "Dokter Gigi Umum",
+    "image": "src/assets/image/avatar-blank-woman.jpg",
+    "bio": "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
+    "schedulesBranch1": [
+      {
+        "day": "Rabu",
+        "time": "10.00 - 15.00",
+        "status": "Praktik"
+      },
+      {
+        "day": "Sabtu",
+        "time": "10.00 - 15.00",
+        "status": "Praktik"
+      }
     ],
-    schedulesBranch2: [
-      { day: "Selasa", time: "13.00 - 18.00", status: "Praktik" },
-      { day: "Jumat", time: "13.00 - 18.00", status: "Praktik" }
-    ],
-    schedules: [
-      { branch: "Cabang 1 (Petukangan Selatan)", days: "Rabu & Sabtu", hours: "10.00 - 15.00 WIB" },
-      { branch: "Cabang 2 (Petukangan Utara)", days: "Selasa & Jumat", hours: "13.00 - 18.00 WIB" }
+    "schedulesBranch2": [
+      {
+        "day": "Selasa",
+        "time": "13.00 - 18.00",
+        "status": "Praktik"
+      },
+      {
+        "day": "Jumat",
+        "time": "13.00 - 18.00",
+        "status": "Praktik"
+      }
     ]
   },
   {
-    id: "drg-fara",
-    name: "drg. Fara",
-    role: "Dokter Gigi Umum",
-    isSpecialist: false,
-    gender: "female",
-    image: null,
-    education: "Fakultas Kedokteran Gigi",
-    focus: "Pemutihan Gigi (Bleaching / Whitening), Pembersihan Karang Gigi, Penambalan Estetik",
-    bio: "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
-    schedulesBranch1: [
-      { day: "Senin", time: "14.00 - 19.00", status: "Praktik" },
-      { day: "Rabu", time: "14.00 - 19.00", status: "Praktik" }
+    "id": "drg-fara",
+    "name": "drg. Fara",
+    "role": "Dokter Gigi Umum",
+    "image": "src/assets/image/avatar-blank-woman.jpg",
+    "bio": "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
+    "schedulesBranch1": [
+      {
+        "day": "Senin",
+        "time": "14.00 - 19.00",
+        "status": "Praktik"
+      },
+      {
+        "day": "Rabu",
+        "time": "14.00 - 19.00",
+        "status": "Praktik"
+      }
     ],
-    schedulesBranch2: [
-      { day: "Kamis", time: "11.00 - 17.00", status: "Praktik" },
-      { day: "Sabtu", time: "11.00 - 17.00", status: "Praktik" }
-    ],
-    schedules: [
-      { branch: "Cabang 1 (Petukangan Selatan)", days: "Senin & Rabu", hours: "14.00 - 19.00 WIB" },
-      { branch: "Cabang 2 (Petukangan Utara)", days: "Kamis & Sabtu", hours: "11.00 - 17.00 WIB" }
+    "schedulesBranch2": [
+      {
+        "day": "Kamis",
+        "time": "11.00 - 17.00",
+        "status": "Praktik"
+      },
+      {
+        "day": "Sabtu",
+        "time": "11.00 - 17.00",
+        "status": "Praktik"
+      }
     ]
   },
   {
-    id: "drg-sarah",
-    name: "drg. Sarah",
-    role: "Dokter Gigi Umum",
-    isSpecialist: false,
-    gender: "female",
-    image: null,
-    education: "Fakultas Kedokteran Gigi",
-    focus: "Restorasi Mahkota (Crown), Penanganan Nyeri Gigi Akut, Perawatan Periodontal Ringan",
-    bio: "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
-    schedulesBranch1: [
-      { day: "Kamis", time: "11.00 - 17.00", status: "Praktik" },
-      { day: "Jumat", time: "11.00 - 17.00", status: "Praktik" }
+    "id": "drg-sarah",
+    "name": "drg. Sarah",
+    "role": "Dokter Gigi Umum",
+    "image": "src/assets/image/avatar-blank-woman.jpg",
+    "bio": "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
+    "schedulesBranch1": [
+      {
+        "day": "Kamis",
+        "time": "11.00 - 17.00",
+        "status": "Praktik"
+      },
+      {
+        "day": "Jumat",
+        "time": "11.00 - 17.00",
+        "status": "Praktik"
+      }
     ],
-    schedulesBranch2: [
-      { day: "Rabu", time: "10.00 - 16.00", status: "Praktik" },
-      { day: "Minggu", time: "10.00 - 16.00", status: "Praktik" }
-    ],
-    schedules: [
-      { branch: "Cabang 1 (Petukangan Selatan)", days: "Kamis & Jumat", hours: "11.00 - 17.00 WIB" },
-      { branch: "Cabang 2 (Petukangan Utara)", days: "Rabu & Minggu", hours: "10.00 - 16.00 WIB" }
+    "schedulesBranch2": [
+      {
+        "day": "Rabu",
+        "time": "10.00 - 16.00",
+        "status": "Praktik"
+      },
+      {
+        "day": "Minggu",
+        "time": "10.00 - 16.00",
+        "status": "Praktik"
+      }
     ]
   }
 ];
@@ -196,20 +247,14 @@ export default function Dokter({ onSelectDoctor }) {
               key={doctor.id}
               className="bg-white rounded-2xl overflow-hidden card-shadow hover:shadow-xl transition-all duration-300 flex flex-col border border-slate-100 group"
             >
-              {/* Doctor Photo / Silhouette Container */}
+              {/* Doctor Photo Container */}
               <div className="h-64 sm:h-72 w-full bg-slate-100 relative overflow-hidden flex items-center justify-center text-center">
-                {doctor.image ? (
-                  <img
-                    src={doctor.image}
-                    alt={doctor.name}
-                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 flex items-center justify-center text-center text-xs sm:text-sm text-gray-500 font-medium"
-                    loading="lazy"
-                  />
-                ) : doctor.gender === 'male' ? (
-                  <MaleDoctorSilhouette className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                ) : (
-                  <FemaleDoctorSilhouette className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                )}
+                <img
+                  src={doctor.image || ""}
+                  alt={doctor.name}
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 flex items-center justify-center text-center text-xs sm:text-sm text-gray-500 font-medium"
+                  loading="lazy"
+                />
               </div>
 
               {/* Doctor Details Body */}
@@ -217,14 +262,14 @@ export default function Dokter({ onSelectDoctor }) {
                 <div>
                   {/* Role Badge with Lime Border per Figma */}
                   <div className="inline-block border border-[#adc91f] text-[#7c9e10] bg-[#e5ff8f]/20 text-[11px] font-semibold px-3 py-0.5 rounded-full mb-3">
-                    {`(${doctor.role})`}
+                    {`${doctor.role}`}
                   </div>
 
                   {/* Doctor Name */}
                   <h3 className="text-base font-bold text-[#333333] mb-4 min-h-[44px] flex items-center leading-snug">
                     {doctor.name}
                   </h3>
-                </div>
+                </div>wo
 
                 {/* Info Lengkap Button (Navigates to Detail Dokter) */}
                 <button

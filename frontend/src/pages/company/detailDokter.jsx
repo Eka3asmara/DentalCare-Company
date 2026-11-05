@@ -3,9 +3,7 @@ import { DOCTORS_DATA } from './dokter';
 import {
   ClockIcon,
   AlertCircleIcon,
-  WhatsAppIcon,
-  MaleDoctorSilhouette,
-  FemaleDoctorSilhouette
+  WhatsAppIcon
 } from '../../components/Icons';
 
 export default function DetailDokter({ doctorId = 'drg-indira', onNavigate }) {
@@ -49,21 +47,12 @@ export default function DetailDokter({ doctorId = 'drg-indira', onNavigate }) {
           {/* Left Column: Doctor Photo Card */}
           <div className="lg:col-span-5 flex justify-center">
             <div className="w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden bg-slate-100 card-shadow border border-slate-100 relative flex items-center justify-center text-center">
-              {doctor.image ? (
-                <img
-                  src={doctor.image}
-                  alt={doctor.name}
-                  className="w-full h-full object-cover object-top flex items-center justify-center text-center text-xs sm:text-sm text-gray-500 font-medium"
-                  loading="eager"
-                  onError={(e) => {
-                    e.currentTarget.src = "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=1000&q=80";
-                  }}
-                />
-              ) : doctor.gender === 'male' ? (
-                <MaleDoctorSilhouette className="w-full h-full object-cover" />
-              ) : (
-                <FemaleDoctorSilhouette className="w-full h-full object-cover" />
-              )}
+              <img
+                src={doctor.image || ""}
+                alt={doctor.name}
+                className="w-full h-full object-cover object-top flex items-center justify-center text-center text-xs sm:text-sm text-gray-500 font-medium"
+                loading="eager"
+              />
             </div>
           </div>
 

@@ -211,9 +211,6 @@ export default function DetailLayanan({ onNavigate }) {
                     alt={item.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 flex items-center justify-center text-center text-xs sm:text-sm text-gray-500 font-medium"
                     loading="lazy"
-                    onError={(e) => {
-                      e.currentTarget.src = item.fallback;
-                    }}
                   />
                 </div>
                 <div className="p-3 sm:p-4 w-full">

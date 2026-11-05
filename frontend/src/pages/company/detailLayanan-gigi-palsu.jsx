@@ -7,8 +7,9 @@ import imgKehilanganSeluruhGigi from '../../assets/image/Kehilangan-Seluruh-Gigi
 import imgGigiBerlubangParah from '../../assets/image/Gigi-Berlubang-Parah.jpg';
 import imgGigiTerkikis from '../../assets/image/Gigi-Terkikis.jpg';
 
-import imgGigiPalsu from '../../assets/image/Gigi-Palsu-dan-Crown.jpeg';
-import imgKontrolPasca from '../../assets/image/Kontrol-Pasca-Perawatan.jpg';
+import imgGigiPalsu from '../../assets/image/gigi-palsu-lepasan.jpg';
+import imgGigiPalsuCrown from '../../assets/image/crown-gigi.jpg';
+import imgKontrolPasca from '../../assets/image/setelah-palsu.jpg';
 
 export const CONDITIONS = [
   {
@@ -42,7 +43,7 @@ export const TREATMENT_TYPES = [
   {
     id: "crown-gigi",
     title: "Crown Gigi",
-    image: imgGigiPalsu
+    image: imgGigiPalsuCrown
   }
 ];
 
@@ -278,17 +279,17 @@ export default function DetailLayananGigiPalsu({ onNavigate, onSelectService }) 
             {/* Right: Info & 3 Points */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               <h2 className="text-2xl sm:text-2xl font-medium text-[#333333] mb-3">
-                Cara Merawat Gigi Palsu & Crown
+                Perawatan Setelah Pemasangan Gigi Palsu dan Crown
               </h2>
               <p className="text-xs sm:text-base text-[#333333]/90 leading-relaxed mb-6">
-                Jaga kebersihan gigi tiruan Anda agar tahan lama dan rongga mulut tetap sehat terhindar dari iritasi atau peradangan.
+                Setelah pemasangan gigi palsu dan crown, pasien perlu menjaga kebersihan serta memperhatikan kondisi gigi dan jaringan mulut agar hasil perawatan tetap nyaman dan bertahan lama. Pasien juga dianjurkan mengikuti petunjuk dokter gigi dan melakukan pemeriksaan berkala.
               </p>
 
               <div className="space-y-3.5 mb-7">
                 {[
-                  "Lepas dan bersihkan gigi tiruan lepasan setelah makan menggunakan sikat berbulu halus.",
-                  "Rendam gigi tiruan dalam wadah air bersih bersuhu ruang saat tidur malam hari.",
-                  "Gunakan dental floss secara rutin untuk membersihkan sela di sekitar mahkota crown."
+                  "Membersihkan gigi palsu dan crown secara rutin.",
+                  "Menghindari makanan terlalu keras atau lengket.",
+                  "Melepas dan merendam gigi palsu lepasan sesuai anjuran dokter."
                 ].map((text, idx) => (
                   <div key={idx} className="flex items-start gap-3.5">
                     <div className="w-6 h-6 rounded-full bg-[#84a116] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-sm">

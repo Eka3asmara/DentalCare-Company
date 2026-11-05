@@ -6,8 +6,9 @@ import imgHipodontia from '../../assets/image/Hipodontia.jpg';
 import imgKehilanganGigiGeraham from '../../assets/image/Kehilangan-Gigi-Geraham.jpg';
 import imgKehilanganGigiDepan from '../../assets/image/Kehilangan-Gigi-Depan.jpg';
 
-import imgImplan from '../../assets/image/implan-gigi.jpg';
-import imgKontrolPasca from '../../assets/image/Kontrol-Pasca-Perawatan.jpg';
+import imgImplan from '../../assets/image/implant.jpg';
+import imgImplanCrown from '../../assets/image/implan-crown.jpg';
+import imgKontrolPasca from '../../assets/image/setelah-implan.jpg';
 
 export const CONDITIONS = [
   {
@@ -36,7 +37,7 @@ export const TREATMENT_TYPES = [
   {
     id: "crown-implant",
     title: "Crown Implant",
-    image: imgImplan
+    image: imgImplanCrown
   }
 ];
 
@@ -269,17 +270,17 @@ export default function DetailLayananImplan({ onNavigate, onSelectService }) {
             {/* Right: Info & 3 Points */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               <h2 className="text-2xl sm:text-2xl font-medium text-[#333333] mb-3">
-                Perawatan Pasca Tindakan Implan
+                Perawatan Setelah Pemasangan Implan Gigi
               </h2>
               <p className="text-xs sm:text-base text-[#333333]/90 leading-relaxed mb-6">
-                Keberhasilan jangka panjang implan gigi sangat bergantung pada kebersihan rongga mulut dan perawatan teratur.
+                Setelah menjalani pemasangan implan gigi, pasien perlu menjaga area tindakan agar proses penyembuhan berlangsung optimal dan implan dapat menyatu dengan tulang rahang. Pasien dianjurkan mengikuti instruksi dokter, menjaga kebersihan mulut, serta menghindari tekanan berlebihan pada area implan selama masa pemulihan.
               </p>
 
               <div className="space-y-3.5 mb-7">
                 {[
-                  "Jaga kebersihan gigi dengan sikat gigi berbulu lembut dan dental floss secara teratur.",
-                  "Hindari merokok selama masa integrasi implan dengan tulang rahang.",
-                  "Lakukan pemeriksaan berkala ke dokter gigi setiap 6 bulan untuk evaluasi stabilitas implan."
+                  "Mengonsumsi makanan lunak dan menghindari makanan keras sementara waktu.",
+                  "Menghindari merokok serta menekan atau menyentuh area implan.",
+                  "Menjaga kebersihan mulut sesuai arahan dokter."
                 ].map((text, idx) => (
                   <div key={idx} className="flex items-start gap-3.5">
                     <div className="w-6 h-6 rounded-full bg-[#84a116] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-sm">

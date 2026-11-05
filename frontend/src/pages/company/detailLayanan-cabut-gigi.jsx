@@ -8,9 +8,10 @@ import imgGigiGoyang from '../../assets/image/Gigi-Goyang.jpg';
 import imgGigiSusu from '../../assets/image/gigi-susu.jpg';
 import imgGigiAnkilosis from '../../assets/image/Gigi-Ankilosis.jpg';
 
-import imgCabutGigi from '../../assets/image/cabut-gigi.jpg';
-import imgImpaksiGigi from '../../assets/image/impaksigigi.jpg';
-import imgKontrolPasca from '../../assets/image/Kontrol-Pasca-Perawatan.jpg';
+import imgCabutGigi from '../../assets/image/cabut-dewasa.jpg';
+import imgCabutGigiSusu from '../../assets/image/cabut-anak.jpg';
+import imgImpaksiGigi from '../../assets/image/cabut-bungsu.jpg';
+import imgKontrolPasca from '../../assets/image/setelah-cabut.jpg';
 
 export const CONDITIONS = [
   {
@@ -49,11 +50,11 @@ export const TREATMENT_TYPES = [
   {
     id: "cabut-susu",
     title: "Cabut Gigi Susu",
-    image: imgCabutGigi
+    image: imgCabutGigiSusu
   },
   {
     id: "odontectomy",
-    title: "Pencabutan Gigi Bungsu (Odontectomy)",
+    title: "Cabut Gigi Bungsu",
     image: imgImpaksiGigi
   }
 ];
@@ -299,17 +300,17 @@ export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) 
             {/* Right: Info & 3 Points */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               <h2 className="text-2xl sm:text-2xl font-medium text-[#333333] mb-3">
-                Perawatan Pasca Tindakan Pencabutan Gigi
+                Perawatan Setelah Pencabutan Gigi
               </h2>
               <p className="text-xs sm:text-base text-[#333333]/90 leading-relaxed mb-6">
-                Ikuti instruksi pemulihan dari dokter untuk mempercepat penutupan luka dan mencegah komplikasi dry socket.
+                Setelah menjalani pencabutan gigi, pasien perlu menjaga area bekas pencabutan agar proses penyembuhan berlangsung dengan baik dan terhindar dari infeksi. Pasien dianjurkan mengikuti instruksi dokter, menjaga kebersihan mulut, serta menghindari aktivitas atau makanan yang dapat mengganggu terbentuknya bekuan darah pada area luka.
               </p>
 
               <div className="space-y-3.5 mb-7">
                 {[
-                  "Gigit kasa steril rapat selama 1-2 jam pertama dan jangan sering meludah.",
-                  "Hindari minum dengan sedotan dan jangan merokok selama 24 jam.",
-                  "Kompres dingin pipi di area pencabutan untuk meredakan potensi pembengkakan."
+                  "Menggigit kasa steril untuk membantu menghentikan perdarahan.",
+                  "Mengonsumsi makanan lunak serta menghindari makanan panas atau keras.",
+                  "Melakukan kontrol sesuai anjuran dokter gigi."
                 ].map((text, idx) => (
                   <div key={idx} className="flex items-start gap-3.5">
                     <div className="w-6 h-6 rounded-full bg-[#84a116] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-sm">

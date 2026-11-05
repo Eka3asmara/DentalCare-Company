@@ -6,8 +6,9 @@ import imgGigiMenguning from '../../assets/image/Gigi-Menguning.jpg';
 import imgGigiBerubahWarna from '../../assets/image/Gigi-Berubah-Warna-dari-Dalam.jpg';
 import imgWhiteSpots from '../../assets/image/White-Spots.jpg';
 
-import imgEstetik from '../../assets/image/Perawatan-estetik.png';
-import imgKontrolPasca from '../../assets/image/Kontrol-Pasca-Perawatan.jpg';
+import imgEstetik from '../../assets/image/bleaching.jpeg';
+import imgEstetikVeneer from '../../assets/image/Veneer.jpg';
+import imgKontrolPasca from '../../assets/image/setelah-estetik.jpeg';
 
 export const CONDITIONS = [
   {
@@ -36,7 +37,7 @@ export const TREATMENT_TYPES = [
   {
     id: "veneer-gigi",
     title: "Veneer Gigi",
-    image: imgEstetik
+    image: imgEstetikVeneer
   }
 ];
 
@@ -271,17 +272,17 @@ export default function DetailLayananEstetikGigi({ onNavigate, onSelectService }
             {/* Right: Info & 3 Points */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               <h2 className="text-2xl sm:text-2xl font-medium text-[#333333] mb-3">
-                Perawatan Pasca Tindakan Estetik Gigi
+                Perawatan Setelah Perawatan Gigi Estetik
               </h2>
               <p className="text-xs sm:text-base text-[#333333]/90 leading-relaxed mb-6">
-                Pertahankan kilau putih dan keawetan veneer Anda dengan merawat gigi secara benar sesuai saran dokter.
+                Setelah menjalani perawatan gigi estetik, pasien perlu menjaga kebersihan dan kondisi gigi agar hasil perawatan tetap optimal. Perawatan lanjutan dilakukan dengan menghindari kebiasaan yang dapat merusak atau mengubah warna gigi serta mengikuti anjuran dokter gigi.
               </p>
 
               <div className="space-y-3.5 mb-7">
                 {[
-                  "Hindari konsumsi makanan/minuman berwarna pekat (kopi, teh, saus gelap) selama 48 jam pertama.",
-                  "Gunakan sedotan saat meminum kopi dingin atau jus buah berwarna untuk mengurangi kontak langsung dengan gigi.",
-                  "Sikat gigi secara teratur dengan sikat berbulu halus dan pasta gigi non-abrasif."
+                  "Menjaga kebersihan gigi dengan menyikat gigi dan menggunakan benang gigi.",
+                  "Menghindari makanan keras yang berisiko merusak veneer atau bonding",
+                  "Melakukan kontrol rutin untuk menjaga hasil perawatan."
                 ].map((text, idx) => (
                   <div key={idx} className="flex items-start gap-3.5">
                     <div className="w-6 h-6 rounded-full bg-[#84a116] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-sm">

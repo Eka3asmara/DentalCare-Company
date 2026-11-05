@@ -10,7 +10,8 @@ import imgGigiPatah from '../../assets/image/Gigi-Patah.jpg';
 import imgPerubahanWarnaGigi from '../../assets/image/Perubahan-Warna-Gigi.jpg';
 
 import imgRootCanal from '../../assets/image/root-canal-treatment.jpg';
-import imgKontrolPasca from '../../assets/image/Kontrol-Pasca-Perawatan.jpg';
+import imgRetreatment from '../../assets/image/Retreatment.jpg';
+import imgKontrolPasca from '../../assets/image/Setelah-Psa.jpg';
 
 export const CONDITIONS = [
   {
@@ -53,8 +54,8 @@ export const TREATMENT_TYPES = [
   },
   {
     id: "retreatment",
-    title: "Retreatment (Perawatan Ulang)",
-    image: imgRootCanal
+    title: "Retreatment",
+    image: imgRetreatment
   }
 ];
 
@@ -287,17 +288,17 @@ export default function DetailLayananRoot({ onNavigate, onSelectService }) {
             {/* Right: Info & Points */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               <h2 className="text-2xl sm:text-2xl font-medium text-[#333333] mb-3">
-                Perawatan Mahkota (Crown) Setelah PSA
+                Perawatan Setelah Perawatan Saluran Akar
               </h2>
               <p className="text-xs sm:text-base text-[#333333]/90 leading-relaxed mb-6">
-                Gigi yang telah menjalani perawatan saluran akar kehilangan suplai nutrisi alami sehingga lebih rapuh. Sangat disarankan untuk memasang mahkota tiruan (dental crown) sebagai pelindung permanen.
+                Setelah menjalani perawatan saluran akar, pasien perlu melakukan perawatan lanjutan untuk melindungi gigi yang telah dirawat dan mengembalikan fungsi pengunyahannya. Dokter akan mengevaluasi kondisi gigi, melakukan restorasi atau pemasangan crown jika diperlukan, serta menjadwalkan pemeriksaan lanjutan untuk memastikan keberhasilan perawatan.
               </p>
 
               <div className="space-y-3.5 mb-7">
                 {[
-                  "Melindungi gigi dari risiko retak atau pecah saat mengunyah.",
-                  "Menutup rapat saluran akar agar tidak terjadi infeksi bakteri berulang.",
-                  "Mengembalikan bentuk, warna, dan fungsi alami gigi sepenuhnya."
+                  "Memastikan saluran akar telah dibersihkan dan ditutup dengan baik.",
+                  "Melakukan penambalan atau pemasangan crown untuk melindungi gigi.",
+                  "Melakukan kontrol berkala untuk memantau hasil perawatan."
                 ].map((text, idx) => (
                   <div key={idx} className="flex items-start gap-3.5">
                     <div className="w-6 h-6 rounded-full bg-[#84a116] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-sm">

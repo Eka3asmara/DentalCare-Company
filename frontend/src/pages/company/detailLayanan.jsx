@@ -300,18 +300,11 @@ export default function DetailLayanan({ onNavigate }) {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
-                  {/* Hover overlay hint */}
-                  <div className="absolute inset-0 bg-[#49baff]/0 group-hover:bg-[#49baff]/10 transition-colors duration-300 flex items-center justify-center">
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-white/90 text-[#49baff] text-[10px] font-bold px-2.5 py-1 rounded-full shadow">
-                      Lihat Harga
-                    </span>
-                  </div>
                 </div>
                 <div className="p-3 sm:p-4 w-full">
                   <h3 className="text-xs sm:text-sm font-bold text-[#49baff] group-hover:text-[#2ca4ee] transition-colors">
                     {type.title}
                   </h3>
-                  <p className="text-[10px] text-[#333333]/60 mt-0.5">Klik untuk lihat detail →</p>
                 </div>
               </button>
             ))}
@@ -365,29 +358,6 @@ export default function DetailLayanan({ onNavigate }) {
                   </div>
                 ))}
               </div>
-
-              {/* Consultation via WhatsApp Direct Action */}
-              <div className="flex flex-wrap sm:flex-nowrap items-center gap-3">
-                <a
-                  href="https://wa.me/628121915709?text=Halo%20Admin%20IN%20Dental%20Care%20Cabang%201,%20saya%20ingin%20konsultasi%20Perawatan%20Behel%20Gigi"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#31cc1e] hover:bg-[#2cb81b] text-white text-xs sm:text-sm font-semibold rounded-xl shadow transition-transform hover:-translate-y-0.5 text-center"
-                >
-                  <WhatsAppIcon className="w-4 h-4" />
-                  <span>Konsultasi Behel Cabang 1</span>
-                </a>
-
-                <a
-                  href="https://wa.me/628119339708?text=Halo%20Admin%20IN%20Dental%20Care%20Cabang%202,%20saya%20ingin%20konsultasi%20Perawatan%20Behel%20Gigi"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#31cc1e] hover:bg-[#2cb81b] text-white text-xs sm:text-sm font-semibold rounded-xl shadow transition-transform hover:-translate-y-0.5 text-center"
-                >
-                  <WhatsAppIcon className="w-4 h-4" />
-                  <span>Konsultasi Behel Cabang 2</span>
-                </a>
-              </div>
             </div>
 
           </div>
@@ -434,13 +404,6 @@ export default function DetailLayanan({ onNavigate }) {
                       {rec.desc}
                     </p>
                   </div>
-                </div>
-
-                <div className="px-5 pb-5 pt-0">
-                  <span className="text-xs font-semibold text-[#49baff] flex items-center gap-1 group-hover:underline">
-                    <span>Lihat Layanan</span>
-                    <ArrowRightIcon className="w-3.5 h-3.5" />
-                  </span>
                 </div>
               </div>
             ))}

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { WhatsAppIcon } from './Icons';
 
 /**
@@ -21,6 +21,48 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
   }, [isOpen, onClose]);
 
   if (!isOpen || !treatment) return null;
+
+  // Determine headers and column layout
+  const headers = treatment.headers || (treatment.pricing?.[0]?.origin || treatment.pricing?.[0]?.type || treatment.pricing?.[0]?.material || treatment.pricing?.[0]?.scope
+    ? ['Jenis', 'Keterangan', 'Harga']
+    : ['Jenis Perawatan', 'Harga']);
+
+  const isThreeColumns = headers.length >= 3;
+
+  const renderBadge = (row) => {
+    const value = row.origin || row.type || row.material || row.scope || row.keterangan || row.sub;
+    if (!value) return null;
+
+    const valLower = String(value).toLowerCase();
+    let badgeText = String(value);
+    let colorClass = 'bg-[#49baff]/15 text-[#0284c7] border border-[#49baff]/30';
+
+    if (valLower.includes('china')) {
+      colorClass = 'bg-[#a2c416] text-white shadow-2xs';
+      badgeText = value.startsWith('Made in') ? value : `Made in ${value}`;
+    } else if (valLower.includes('usa')) {
+      colorClass = 'bg-[#49baff] text-white shadow-2xs';
+      badgeText = value.startsWith('Made in') ? value : `Made in ${value}`;
+    } else if (valLower.includes('korea') || valLower.includes('italy')) {
+      colorClass = 'bg-[#49baff] text-white shadow-2xs';
+    } else if (valLower === 'metal') {
+      colorClass = 'bg-slate-100 text-slate-700 border border-slate-300';
+    } else if (valLower === 'clear') {
+      colorClass = 'bg-sky-50 text-sky-700 border border-sky-200';
+    } else if (valLower.includes('porcelain') || valLower.includes('zirconia') || valLower.includes('e-max') || valLower.includes('pfm')) {
+      colorClass = 'bg-purple-50 text-purple-700 border border-purple-200';
+    } else if (valLower.includes('composite')) {
+      colorClass = 'bg-emerald-50 text-emerald-700 border border-emerald-200';
+    } else if (valLower.includes('1 rahang')) {
+      colorClass = 'bg-[#a2c416]/20 text-[#647c0b] border border-[#a2c416]/40 font-semibold';
+    }
+
+    return (
+      <span className={`inline-block px-3 py-1 rounded-full text-[10.5px] sm:text-[11px] font-semibold tracking-wide ${colorClass}`}>
+        {badgeText}
+      </span>
+    );
+  };
 
   return (
     <div
@@ -73,14 +115,18 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
           </h2>
 
           {/* Paragraph 1 */}
-          <p className="text-xs sm:text-sm text-[#333333] leading-relaxed mb-4">
-            {treatment.desc1}
-          </p>
+          {treatment.desc1 && (
+            <p className="text-xs sm:text-sm text-[#333333] leading-relaxed mb-4">
+              {treatment.desc1}
+            </p>
+          )}
 
           {/* Paragraph 2 */}
-          <p className="text-xs sm:text-sm text-[#333333] leading-relaxed mb-6">
-            {treatment.desc2}
-          </p>
+          {treatment.desc2 && (
+            <p className="text-xs sm:text-sm text-[#333333] leading-relaxed mb-6">
+              {treatment.desc2}
+            </p>
+          )}
 
           {/* Subtitle: Daftar Jenis dan Harga */}
           <h3 className="text-lg sm:text-xl font-bold text-[#49baff] mb-4">
@@ -88,41 +134,61 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
           </h3>
 
           {/* Table Container with Rounded Borders */}
-          <div className="border border-slate-200 rounded-2xl overflow-hidden bg-white mb-6 shadow-2xs">
+          <div className="border border-slate-200 rounded-2xl overflow-hidden bg-white mb-4 shadow-2xs">
             {/* Table Header */}
-            <div className="grid grid-cols-12 px-4 sm:px-6 py-3.5 border-b border-slate-200 text-xs sm:text-sm font-bold text-[#333333] bg-white">
-              <div className="col-span-4 text-left">Jenis</div>
-              <div className="col-span-4 text-center">Produksi</div>
-              <div className="col-span-4 text-right">Harga</div>
-            </div>
+            {isThreeColumns ? (
+              <div className="grid grid-cols-12 px-4 sm:px-6 py-3.5 border-b border-slate-200 text-xs sm:text-sm font-bold text-[#333333] bg-slate-50/70">
+                <div className="col-span-5 text-left">{headers[0]}</div>
+                <div className="col-span-3 text-center">{headers[1]}</div>
+                <div className="col-span-4 text-right">{headers[2]}</div>
+              </div>
+            ) : (
+              <div className="grid grid-cols-12 px-4 sm:px-6 py-3.5 border-b border-slate-200 text-xs sm:text-sm font-bold text-[#333333] bg-slate-50/70">
+                <div className="col-span-7 text-left">{headers[0]}</div>
+                <div className="col-span-5 text-right">{headers[1]}</div>
+              </div>
+            )}
 
             {/* Table Rows */}
             <div className="divide-y divide-slate-100">
               {treatment.pricing && treatment.pricing.map((row, idx) => {
-                const isChina = row.origin.toLowerCase().includes('china');
-                const badgeText = row.origin.startsWith('Made in') ? row.origin : `Made in ${row.origin}`;
+                if (isThreeColumns) {
+                  return (
+                    <div
+                      key={idx}
+                      className="grid grid-cols-12 px-4 sm:px-6 py-3.5 items-center text-xs sm:text-sm hover:bg-slate-50/60 transition-colors"
+                    >
+                      {/* Column 1: Jenis */}
+                      <div className="col-span-5 font-medium text-[#333333]">
+                        {row.name}
+                      </div>
+
+                      {/* Column 2: Badge (Negara Asal / Tipe / Bahan / Cakupan) */}
+                      <div className="col-span-3 flex justify-center text-center">
+                        {renderBadge(row)}
+                      </div>
+
+                      {/* Column 3: Harga */}
+                      <div className="col-span-4 text-right font-semibold text-[#333333]">
+                        {row.price}
+                      </div>
+                    </div>
+                  );
+                }
+
+                // Two columns layout
                 return (
                   <div
                     key={idx}
                     className="grid grid-cols-12 px-4 sm:px-6 py-3.5 items-center text-xs sm:text-sm hover:bg-slate-50/60 transition-colors"
                   >
-                    {/* Column 1: Jenis */}
-                    <div className="col-span-4 font-medium text-[#333333]">
+                    {/* Column 1: Item Name / Tingkat / Ukuran */}
+                    <div className="col-span-7 font-medium text-[#333333]">
                       {row.name}
                     </div>
 
-                    {/* Column 2: Produksi (Pill Badge) */}
-                    <div className="col-span-4 flex justify-center">
-                      <span
-                        className={`inline-block px-3 py-1 rounded-full text-[10.5px] sm:text-[11px] font-semibold text-white tracking-wide shadow-2xs ${isChina ? 'bg-[#a2c416]' : 'bg-[#49baff]'
-                          }`}
-                      >
-                        {badgeText}
-                      </span>
-                    </div>
-
-                    {/* Column 3: Harga */}
-                    <div className="col-span-4 text-right font-medium text-[#333333]">
+                    {/* Column 2: Harga */}
+                    <div className="col-span-5 text-right font-semibold text-[#333333]">
                       {row.price}
                     </div>
                   </div>
@@ -130,6 +196,30 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
               })}
             </div>
           </div>
+
+          {/* Optional Note */}
+          {treatment.note && (
+            <div className="p-3.5 bg-amber-50 border border-amber-200/80 rounded-xl text-xs sm:text-sm text-amber-900 font-medium flex items-start gap-2 mb-6">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>{treatment.note}</span>
+            </div>
+          )}
+
+          {/* WhatsApp Action Button */}
+          <div className="mt-6">
+            <a
+              href="https://wa.me/6281234567890?text=Halo%20IN%20Dental%20Care,%20saya%20ingin%20konsultasi%20mengenai%20layanan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-3.5 px-4 bg-[#49baff] hover:bg-[#3ca3e5] text-white font-semibold text-xs sm:text-sm rounded-xl flex items-center justify-center gap-2 transition-all shadow-sm active:scale-98"
+            >
+              <WhatsAppIcon className="w-4 h-4 text-white" />
+              <span>Konsultasi & Reservasi Jadwal</span>
+            </a>
+          </div>
+
         </div>
       </div>
     </div>

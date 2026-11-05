@@ -1,166 +1,106 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { SERVICES_PAGE_DATA } from './layanan';
-import { ArrowRightIcon, WhatsAppIcon } from '../../components/Icons';
 import TreatmentModal from '../../components/TreatmentModal';
+
+import imgGigiPalsu from '../../assets/image/Gigi-Palsu-dan-Crown.jpeg';
+import imgGigiBerlubang from '../../assets/image/Gigi-Berlubang.jpg';
+import imgGigiDepanPatah from '../../assets/image/Gigi-Depan-Patah.jpg';
+import imgGigiBerubahBentuk from '../../assets/image/Gigi-Berubah-Bentuk.jpg';
+import imgGigiRenggang from '../../assets/image/Gigi-Renggang.jpg';
+import imgKontrolPasca from '../../assets/image/Kontrol-Pasca-Perawatan.jpg';
 
 export const CONDITIONS = [
   {
-    "id": 1,
-    "title": "Satu Gigi Ompong / Hilang",
-    "image": "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=600&q=80"
+    id: 1,
+    title: "Satu Gigi Ompong / Hilang",
+    image: imgGigiRenggang
   },
   {
-    "id": 2,
-    "title": "Banyak Gigi Ompong Sekaligus",
-    "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80"
+    id: 2,
+    title: "Banyak Gigi Ompong Sekaligus",
+    image: imgGigiPalsu
   },
   {
-    "id": 3,
-    "title": "Gigi Patah / Pecah Sebagian",
-    "image": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80"
+    id: 3,
+    title: "Gigi Patah / Pecah Sebagian",
+    image: imgGigiDepanPatah
   },
   {
-    "id": 4,
-    "title": "Gigi Pasca Perawatan Saluran Akar",
-    "image": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80"
+    id: 4,
+    title: "Gigi Pasca Perawatan Saluran Akar",
+    image: imgGigiBerlubang
   },
   {
-    "id": 5,
-    "title": "Sulit Mengunyah Makanan",
-    "image": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80"
+    id: 5,
+    title: "Sulit Mengunyah Makanan",
+    image: imgGigiPalsu
   },
   {
-    "id": 6,
-    "title": "Pipi Kempot Akibat Gigi Hilang",
-    "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80"
+    id: 6,
+    title: "Pipi Kempot Akibat Gigi Hilang",
+    image: imgGigiPalsu
   },
   {
-    "id": 7,
-    "title": "Gigi Tetangga Bergeser Miring",
-    "image": "https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=600&q=80"
+    id: 7,
+    title: "Gigi Tetangga Bergeser Miring",
+    image: imgGigiBerubahBentuk
   },
   {
-    "id": 8,
-    "title": "Pelindung Gigi Aus (Bruxism)",
-    "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80"
+    id: 8,
+    title: "Pelindung Gigi Aus (Bruxism)",
+    image: imgGigiBerubahBentuk
   }
 ];
 
 export const TREATMENT_TYPES = [
   {
-    "id": "crown-zirconia",
-    "title": "Dental Crown All-Zirconia",
-    "image": "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=600&q=80"
+    id: "gigi-palsu-lepasan",
+    title: "Gigi Palsu Lepasan",
+    image: imgGigiPalsu
   },
   {
-    "id": "crown-pfm",
-    "title": "Crown PFM (Porcelain-Metal)",
-    "image": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80"
-  },
-  {
-    "id": "gigi-valplast",
-    "title": "Gigi Tiruan Valplast (Fleksibel)",
-    "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80"
-  },
-  {
-    "id": "gigi-akrilik",
-    "title": "Gigi Tiruan Lepasan Akrilik",
-    "image": "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=600&q=80"
+    id: "crown-gigi",
+    title: "Crown Gigi",
+    image: imgGigiPalsu
   }
 ];
 
 export const TREATMENT_TYPES_MODAL_DATA = {
-  "crown-zirconia": {
-    "id": "crown-zirconia",
-    "title": "Dental Crown All-Zirconia",
-    "image": "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=1000&q=80",
-    "desc1": "Mahkota tiruan berbahan keramik zirkonia murni berteknologi CAD/CAM. Memberikan kekuatan mekanik tertinggi tanpa garis hitam di batas gusi.",
-    "desc2": "Sangat estetik menyerupai kilau gigi asli dan biocompatible ramah gusi.",
-    "pricing": [
-      {
-        "name": "Crown Monolithic Zirconia",
-        "origin": "Made in Germany",
-        "price": "Rp2.800.000"
-      },
-      {
-        "name": "Crown Layered Multilayer Zirconia",
-        "origin": "Made in Japan",
-        "price": "Rp3.500.000"
-      }
+  "gigi-palsu-lepasan": {
+    id: "gigi-palsu-lepasan",
+    title: "Gigi Palsu Lepasan",
+    image: imgGigiPalsu,
+    desc1: "Gigi tiruan lepasan adalah solusi penggantian gigi yang hilang yang dapat dilepas dan dipasang sendiri secara praktis oleh pasien.",
+    desc2: "Tersedia pilihan bahan Akrilik ekonomis, Valplast lentur tanpa kawat logam, Thermosen / FRS / Acryplast berkekuatan tinggi, serta Frame logam yang kokoh dan presisi.",
+    headers: ["Jenis Gigi Palsu", "Harga"],
+    pricing: [
+      { name: "Akrilik", price: "Rp1.500.000–Rp2.000.000" },
+      { name: "Valplast", price: "Rp2.000.000–Rp2.500.000" },
+      { name: "Thermosen / FRS / Acryplast", price: "Rp2.500.000–Rp3.000.000" },
+      { name: "Frame", price: "Rp3.000.000–Rp3.500.000" }
     ]
   },
-  "crown-pfm": {
-    "id": "crown-pfm",
-    "title": "Crown PFM (Porcelain-Metal)",
-    "image": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1000&q=80",
-    "desc1": "Mahkota tiruan dengan rangka logam di bagian dalam dan dilapisi porselen sewarna gigi di bagian luar.",
-    "desc2": "Solusi ekonomis yang sangat kokoh untuk gigi geraham belakang.",
-    "pricing": [
-      {
-        "name": "Crown PFM Standard",
-        "origin": "IN Dental Care",
-        "price": "Rp1.800.000"
-      },
-      {
-        "name": "Bridge PFM (per unit)",
-        "origin": "IN Dental Care",
-        "price": "Rp1.800.000"
-      }
-    ]
-  },
-  "gigi-valplast": {
-    "id": "gigi-valplast",
-    "title": "Gigi Tiruan Valplast (Fleksibel)",
-    "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=80",
-    "desc1": "Gigi tiruan lepasan berbahan nilon termoplastik yang lentur, tipis, dan tanpa kawat logam yang terlihat saat tersenyum.",
-    "desc2": "Sangat nyaman, tidak mudah patah, dan pas mencengkeram gusi dengan lembut.",
-    "pricing": [
-      {
-        "name": "Valplast Plat Dasar + 1 Gigi",
-        "origin": "Made in USA",
-        "price": "Rp1.600.000"
-      },
-      {
-        "name": "Tambahan per Elemen Gigi",
-        "origin": "Made in USA",
-        "price": "Rp200.000"
-      }
-    ]
-  },
-  "gigi-akrilik": {
-    "id": "gigi-akrilik",
-    "title": "Gigi Tiruan Lepasan Akrilik",
-    "image": "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=1000&q=80",
-    "desc1": "Gigi tiruan lepasan konvensional berbahan resin akrilik merah muda dengan kawat retensi cangkolan.",
-    "desc2": "Solusi ekonomis untuk mengganti beberapa gigi hingga gigi tiruan penuh (lengkap) 1 rahang.",
-    "pricing": [
-      {
-        "name": "Plat Akrilik + 1 Gigi Pertama",
-        "origin": "IN Dental Care",
-        "price": "Rp750.000"
-      },
-      {
-        "name": "Tambahan per Elemen Gigi",
-        "origin": "IN Dental Care",
-        "price": "Rp150.000"
-      },
-      {
-        "name": "Gigi Tiruan Lengkap Penuh (1 Rahang)",
-        "origin": "IN Dental Care",
-        "price": "Rp3.000.000"
-      }
+  "crown-gigi": {
+    id: "crown-gigi",
+    title: "Crown Gigi",
+    image: imgGigiPalsu,
+    desc1: "Crown gigi (mahkota tiruan) adalah selubung pelindung yang dipasang menutupi seluruh permukaan gigi yang rusak parah atau rapuh setelah perawatan saluran akar.",
+    desc2: "Mengembalikan bentuk, ukuran, kekuatan, serta estetika gigi asli dengan berbagai pilihan bahan unggulan seperti PFM, Porcelain / E-max, dan Zirconia / PFZ.",
+    headers: ["Jenis Crown", "Bahan", "Harga"],
+    pricing: [
+      { name: "Crown Gigi", material: "PFM", price: "Rp2.000.000" },
+      { name: "Crown Gigi", material: "Porcelain / E-max", price: "Rp3.000.000" },
+      { name: "Crown Gigi", material: "Zirconia / PFZ", price: "Rp3.500.000" }
     ]
   }
 };
-
 
 export default function DetailLayananGigiPalsu({ onNavigate, onSelectService }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [activeTreatment, setActiveTreatment] = useState(null);
 
   const recommendedServices = useMemo(() => {
-    const others = SERVICES_PAGE_DATA.filter((s) => s.id !== 'gigi-palsu-crown');
-    return [...others].sort(() => 0.5 - Math.random()).slice(0, 3);
+    return SERVICES_PAGE_DATA.filter((s) => s.id !== 'gigi-palsu-crown').slice(0, 3);
   }, []);
 
   const handleOpenModal = (treatmentId) => {
@@ -188,7 +128,7 @@ export default function DetailLayananGigiPalsu({ onNavigate, onSelectService }) 
             Gigi Palsu dan Crown
           </h1>
           <p className="text-xs sm:text-sm md:text-[16px] text-[#333333]/90 leading-relaxed max-w-5xl mx-auto">
-            Solusi restorasi modern untuk menggantikan gigi yang hilang dan melindungi gigi rusak parah. Kembalikan fungsi kunyah yang prima, senyum estetis yang natural, serta bentuk wajah yang proporsional.
+            Perawatan untuk menggantikan gigi yang hilang serta memperbaiki bentuk, fungsi, dan struktur gigi menggunakan bahan restorasi tertentu.
           </p>
         </div>
       </section>
@@ -200,7 +140,7 @@ export default function DetailLayananGigiPalsu({ onNavigate, onSelectService }) 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <h2 className="text-xl sm:text-2xl lg:text-[28px] font-semibold text-[#49baff] text-center mb-10 max-w-3xl mx-auto leading-snug">
-            Kondisi Gigi Yang Membutuhkan Gigi Palsu atau Crown
+            Kondisi Gigi Yang Membutuhkan Gigi Palsu & Crown
           </h2>
 
           {/* 8 Grid Cards (4 Kolom di Desktop, 2 Baris) */}
@@ -241,21 +181,27 @@ export default function DetailLayananGigiPalsu({ onNavigate, onSelectService }) 
             <div className="lg:col-span-5">
               <div className="rounded-3xl overflow-hidden card-shadow aspect-[4/3] bg-slate-100 border border-slate-100 flex items-center justify-center text-center">
                 <img
-                  src="https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=900&q=80"
+                  src={imgGigiPalsu}
                   alt="Manfaat Gigi Palsu dan Crown"
                   className="w-full h-full object-cover flex items-center justify-center text-center text-xs sm:text-sm text-gray-500 font-medium"
                 />
               </div>
             </div>
 
-            {/* Right: 5 Numbered Benefits */}
+            {/* Right: Numbered Benefits */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               <h2 className="text-2xl sm:text-2xl font-medium text-[#333333] mb-6">
                 Manfaat Gigi Palsu dan Crown
               </h2>
 
               <div className="space-y-4">
-                {["Mengembalikan kemampuan mengunyah makanan secara optimal dan nyaman.","Mencegah gigi di sekitarnya bergeser atau condong ke ruang kosong.","Mengembalikan bentuk estetika senyum dan proporsi wajah alami.","Memperbaiki artikulasi pengucapan kata yang terganggu akibat gigi ompong.","Melindungi gigi yang rapuh pasca perawatan agar tidak patah kembali."].map((text, idx) => (
+                {[
+                  "Mengembalikan kemampuan mengunyah makanan dengan nyaman.",
+                  "Mencegah pergeseran gigi tetangga ke celah ompong.",
+                  "Mempertahankan struktur wajah dan kontur bibir/pipi alami.",
+                  "Melindungi gigi rapuh dari risiko patah atau retak.",
+                  "Meningkatkan rasa percaya diri saat tersenyum dan berbicara."
+                ].map((text, idx) => (
                   <div key={idx} className="flex items-start gap-3.5">
                     <div className="w-6 h-6 rounded-full bg-[#84a116] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-sm">
                       {idx + 1}
@@ -279,11 +225,11 @@ export default function DetailLayananGigiPalsu({ onNavigate, onSelectService }) 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <h2 className="text-xl sm:text-2xl lg:text-[28px] font-semibold text-[#49baff] text-center mb-10 max-w-3xl mx-auto leading-snug">
-            Pilihan Jenis Gigi Palsu dan Crown
+            Pilihan Tindakan Gigi Palsu dan Crown
           </h2>
 
-          {/* 4 Cards Grid — klik untuk buka popup rincian & harga */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          {/* 2 Cards Grid Centered — klik untuk buka popup rincian & harga */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-4 sm:gap-6">
             {TREATMENT_TYPES.map((type) => (
               <button
                 key={type.id}
@@ -292,7 +238,7 @@ export default function DetailLayananGigiPalsu({ onNavigate, onSelectService }) 
                 className="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-[#49baff]/40 group cursor-pointer text-left w-full focus:outline-none focus:ring-2 focus:ring-[#49baff]/50"
                 aria-label={`Lihat detail dan harga ${type.title}`}
               >
-                <div className="h-32 sm:h-40 w-full overflow-hidden bg-slate-100 relative flex items-center justify-center text-center">
+                <div className="h-40 sm:h-48 w-full overflow-hidden bg-slate-100 relative flex items-center justify-center text-center">
                   <img
                     src={type.image}
                     alt={type.title}
@@ -300,8 +246,8 @@ export default function DetailLayananGigiPalsu({ onNavigate, onSelectService }) 
                     loading="lazy"
                   />
                 </div>
-                <div className="p-3 sm:p-4 w-full">
-                  <h3 className="text-xs sm:text-base font-semibold text-[#49baff] group-hover:text-[#2ca4ee] transition-colors text-center">
+                <div className="p-4 sm:p-5 w-full">
+                  <h3 className="text-sm sm:text-base font-semibold text-[#49baff] group-hover:text-[#2ca4ee] transition-colors text-center">
                     {type.title}
                   </h3>
                 </div>
@@ -323,8 +269,8 @@ export default function DetailLayananGigiPalsu({ onNavigate, onSelectService }) 
             <div className="lg:col-span-5">
               <div className="rounded-3xl overflow-hidden card-shadow aspect-[4/3] bg-slate-100 border border-slate-100">
                 <img
-                  src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=80"
-                  alt="Cara Merawat Gigi Palsu"
+                  src={imgKontrolPasca}
+                  alt="Cara Merawat Gigi Palsu dan Crown"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -336,11 +282,15 @@ export default function DetailLayananGigiPalsu({ onNavigate, onSelectService }) 
                 Cara Merawat Gigi Palsu & Crown
               </h2>
               <p className="text-xs sm:text-base text-[#333333]/90 leading-relaxed mb-6">
-                Jaga kebersihan gigi tiruan Anda agar tahan lama dan rongga mulut tetap segar bebas infeksi jamur.
+                Jaga kebersihan gigi tiruan Anda agar tahan lama dan rongga mulut tetap sehat terhindar dari iritasi atau peradangan.
               </p>
 
               <div className="space-y-3.5 mb-7">
-                {["Lepas dan bersihkan gigi tiruan lepasan setelah makan menggunakan sikat berbulu halus.","Rendam gigi tiruan dalam wadah air bersih saat tidur malam hari.","Hindari menggigit benda keras yang dapat memecahkan mahkota gigi."].map((text, idx) => (
+                {[
+                  "Lepas dan bersihkan gigi tiruan lepasan setelah makan menggunakan sikat berbulu halus.",
+                  "Rendam gigi tiruan dalam wadah air bersih bersuhu ruang saat tidur malam hari.",
+                  "Gunakan dental floss secara rutin untuk membersihkan sela di sekitar mahkota crown."
+                ].map((text, idx) => (
                   <div key={idx} className="flex items-start gap-3.5">
                     <div className="w-6 h-6 rounded-full bg-[#84a116] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-sm">
                       {idx + 1}

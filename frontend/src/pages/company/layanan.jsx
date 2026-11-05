@@ -1,4 +1,3 @@
-import React from 'react';
 import { ArrowRightIcon } from '../../components/Icons';
 
 import imgScalling from '../../assets/image/scalling-gigi.jpg';
@@ -11,51 +10,51 @@ import imgEstetik from '../../assets/image/Perawatan-estetik.png';
 
 export const SERVICES_PAGE_DATA = [
   {
+    id: "behel-gigi",
+    title: "Perawatan Behel Gigi (Ortodonti)",
+    description: "Perawatan untuk merapikan susunan gigi dan memperbaiki posisi gigitan melalui beberapa pilihan metode ortodonti.",
+    image: imgBehel,
+    category: "Ortodonti"
+  },
+  {
     id: "gigi-umum",
     title: "Perawatan Gigi Umum",
-    description: "Perawatan untuk membersihkan gigi, mengatasi kerusakan, dan menjaga kesehatan serta estetika senyum Anda.",
+    description: "Perawatan untuk menjaga kesehatan gigi dan gusi, membersihkan plak, mengatasi kerusakan gigi, serta menangani kondisi tertentu pada jaringan gigi dan gusi.",
     image: imgScalling,
     category: "Preventif & Konservasi"
   },
   {
     id: "saluran-akar",
-    title: "Perawatan Saluran Akar",
-    description: "Perawatan untuk mengatasi infeksi atau kerusakan pada bagian dalam gigi agar gigi tetap dapat dipertahankan.",
+    title: "Perawatan Saluran Akar (Root Canal Treatment)",
+    description: "Perawatan untuk menangani infeksi atau kerusakan pada jaringan pulpa gigi dengan tujuan mempertahankan gigi agar tetap dapat digunakan.",
     image: imgRootCanal,
     category: "Endodonti"
   },
   {
     id: "pencabutan-gigi",
     title: "Pencabutan Gigi",
-    description: "Tindakan pencabutan gigi dewasa, gigi susu, dan gigi bungsu sesuai kondisi serta kebutuhan pasien.",
+    description: "Tindakan pencabutan gigi yang dilakukan berdasarkan kondisi gigi, tingkat kesulitan, dan kebutuhan perawatan pasien.",
     image: imgCabutGigi,
     category: "Bedah Mulut"
   },
   {
-    id: "behel-gigi",
-    title: "Perawatan Behel Gigi",
-    description: "Perawatan behel membantu merapikan susunan gigi dan memperbaiki gigitan untuk senyum yang lebih rapi dan sehat.",
-    image: imgBehel,
-    category: "Ortodonti"
-  },
-  {
     id: "gigi-palsu-crown",
     title: "Gigi Palsu dan Crown",
-    description: "Perawatan gigi palsu dan crown membantu menggantikan gigi yang hilang atau memperbaiki gigi yang rusak.",
+    description: "Perawatan untuk menggantikan gigi yang hilang serta memperbaiki bentuk, fungsi, dan struktur gigi menggunakan bahan restorasi tertentu.",
     image: imgGigiPalsu,
     category: "Prostodonsia"
   },
   {
     id: "implan-gigi",
-    title: "Implan Gigi",
-    description: "Implan gigi merupakan perawatan untuk menggantikan gigi yang hilang menggunakan penyangga khusus yang dipasang pada tulang rahang.",
+    title: "Implan Gigi (Dental Implant)",
+    description: "Perawatan untuk menggantikan akar gigi yang hilang menggunakan implan sebagai penyangga gigi pengganti.",
     image: imgImplan,
     category: "Implantologi"
   },
   {
     id: "estetik-gigi",
     title: "Perawatan Estetik Gigi",
-    description: "Perawatan estetik gigi membantu memperbaiki tampilan gigi agar terlihat lebih cerah dan rapi.",
+    description: "Perawatan untuk meningkatkan penampilan gigi melalui tindakan pemutihan warna gigi dan perbaikan tampilan permukaan gigi.",
     image: imgEstetik,
     category: "Estetika Gigi"
   }

@@ -1,219 +1,186 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { SERVICES_PAGE_DATA } from './layanan';
-import { ArrowRightIcon, WhatsAppIcon } from '../../components/Icons';
 import TreatmentModal from '../../components/TreatmentModal';
+
+import imgKarangGigi from '../../assets/image/Karang-Gigi.jpg';
+import imgPlakGigi from '../../assets/image/Plak-Gigi.jpg';
+import imgToothStaining from '../../assets/image/Tooth-Staining.jpg';
+import imgGigiBerlubang from '../../assets/image/Gigi-Berlubang.jpg';
+import imgGigiDepanPatah from '../../assets/image/Gigi-Depan-Patah.jpg';
+import imgGigiBerubahBentuk from '../../assets/image/Gigi-Berubah-Bentuk.jpg';
+import imgPembesaranGusi from '../../assets/image/Pembesaran-Gusi.jpg';
+import imgGusiTumbuhBerlebihan from '../../assets/image/Gusi-Tumbuh-Berlebihan.jpg';
+
+import imgScaling from '../../assets/image/scalling-gigi2.jpg';
+import imgAirFlow from '../../assets/image/air-flow.jpg';
+import imgTambalGigi from '../../assets/image/tambal-gigi.jpg';
+import imgTambalGigiEstetik from '../../assets/image/tambal-gigi-estetik.jpg';
+import imgAbsesGigi from '../../assets/image/Abses-Gigi.jpg';
+import imgGingivektomi from '../../assets/image/Gingivektomi.jpg';
+
+import imgManfaatScalling from '../../assets/image/scalling-gigi.jpg';
+import imgKontrolPasca from '../../assets/image/Kontrol-Pasca-Perawatan.jpg';
 
 export const CONDITIONS = [
   {
-    "id": 1,
-    "title": "Karang Gigi",
-    "image": "src/assets/image/Karang-Gigi.jpg"
+    id: 1,
+    title: "Karang Gigi",
+    image: imgKarangGigi
   },
   {
-    "id": 2,
-    "title": "PLak Gigi",
-    "image": "src/assets/image/Plak-Gigi.jpg"
+    id: 2,
+    title: "Plak Gigi",
+    image: imgPlakGigi
   },
   {
-    "id": 3,
-    "title": "Tooth Staining",
-    "image": "src/assets/image/Tooth-Staining.jpg"
+    id: 3,
+    title: "Tooth Staining",
+    image: imgToothStaining
   },
   {
-    "id": 4,
-    "title": "Gigi Berlubang",
-    "image": "src/assets/image/Gigi-Berlubang.jpg"
+    id: 4,
+    title: "Gigi Berlubang",
+    image: imgGigiBerlubang
   },
   {
-    "id": 5,
-    "title": "Gigi Depan Patah",
-    "image": "src/assets/image/Gigi-Depan-Patah.jpg"
+    id: 5,
+    title: "Gigi Depan Patah",
+    image: imgGigiDepanPatah
   },
   {
-    "id": 6,
-    "title": "Gigi Berubah Bentuk",
-    "image": "src/assets/image/Gigi-Berubah-Bentuk.jpg"
+    id: 6,
+    title: "Gigi Berubah Bentuk",
+    image: imgGigiBerubahBentuk
   },
   {
-    "id": 7,
-    "title": "Pembesaran Gusi",
-    "image": "src/assets/image/Pembesaran-Gusi.jpg"
+    id: 7,
+    title: "Pembesaran Gusi",
+    image: imgPembesaranGusi
   },
   {
-    "id": 8,
-    "title": "Gusi Tumbuh Berlebihan",
-    "image": "src/assets/image/Gusi-Tumbuh-Berlebihan.jpg"
+    id: 8,
+    title: "Gusi Tumbuh Berlebihan",
+    image: imgGusiTumbuhBerlebihan
   }
 ];
 
 export const TREATMENT_TYPES = [
   {
-    "id": "scaling",
-    "title": "Scaling Gigi",
-    "image": "src/assets/image/scalling-gigi2.jpg"
+    id: "scaling",
+    title: "Scaling Gigi",
+    image: imgScaling
   },
   {
-    "id": "air-flow",
-    "title": "Air Flow",
-    "image": "src/assets/image/air-flow.jpg"
+    id: "air-flow",
+    title: "Air Flow",
+    image: imgAirFlow
   },
   {
-    "id": "tambal-gigi",
-    "title": "Tambal Gigi",
-    "image": "src/assets/image/tambal-gigi.jpg"
+    id: "tambal-gigi",
+    title: "Tambal Gigi",
+    image: imgTambalGigi
   },
   {
-    "id": "tambal-gigi-estetik",
-    "title": "Tambal Gigi Estetik",
-    "image": "src/assets/image/tambal-gigi-estetik.jpg"
+    id: "tambal-gigi-estetik",
+    title: "Tambal Gigi Estetik",
+    image: imgTambalGigiEstetik
   },
   {
-    "id": "abses-gigi-dan-gusi",
-    "title": "Abses Gigi dan Gusi",
-    "image": "src/assets/image/Abses-Gigi.jpg"
+    id: "abses-gigi-dan-gusi",
+    title: "Perawatan Abses Gigi & Gusi",
+    image: imgAbsesGigi
   },
   {
-    "id": "gingivektomi",
-    "title": "Gingivektomi",
-    "image": "src/assets/image/gingivektomi.jpg"
+    id: "gingivektomi",
+    title: "Gingivektomi",
+    image: imgGingivektomi
   }
 ];
 
 export const TREATMENT_TYPES_MODAL_DATA = {
   "scaling": {
-    "id": "scaling",
-    "title": "Scaling Gigi",
-    "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=80",
-    "desc1": "Scaling adalah prosedur pembersihan karang gigi dan plak yang mengeras di permukaan gigi maupun di bawah garis gusi menggunakan alat ultrasonik modern yang aman dan nyaman.",
-    "desc2": "Membantu mencegah periodontitis dan menjaga napas tetap segar. Dianjurkan dilakukan setiap 6 bulan sekali.",
-    "pricing": [
-      {
-        "name": "Scaling Ringan",
-        "origin": "IN Dental Care",
-        "price": "Rp180.000"
-      },
-      {
-        "name": "Scaling Komprehensif (2 Rahang)",
-        "origin": "IN Dental Care",
-        "price": "Rp350.000"
-      },
-      {
-        "name": "Deep Scaling & Root Planing",
-        "origin": "IN Dental Care",
-        "price": "Rp500.000"
-      }
+    id: "scaling",
+    title: "Scaling Gigi",
+    image: imgScaling,
+    desc1: "Scaling gigi adalah prosedur pembersihan karang gigi (calculus) dan plak yang mengeras di permukaan gigi maupun di bawah garis gusi menggunakan scaler ultrasonik yang aman.",
+    desc2: "Perawatan ini efektif mencegah radang gusi (gingivitis), bau mulut, serta dianjurkan dilakukan secara rutin setiap 6 bulan sekali.",
+    headers: ["Tingkat Perawatan", "Harga"],
+    pricing: [
+      { name: "Ringan", price: "Rp350.000" },
+      { name: "Sedang", price: "Rp400.000" },
+      { name: "Berat", price: "Rp450.000" }
     ]
   },
   "air-flow": {
-    "id": "air-flow",
-    "title": "Air Flow",
-    "image": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1000&q=80",
-    "desc1": "Air flow adalah teknik pembersihan karang gigi menggunakan semprotan bertekanan lembut berisi udara, air, dan bubuk pembersih halus (sodium bicarbonate).",
-    "desc2": "Hasil tambalan sangat kuat, estetik, dan menyatu alami dengan gigi asli Anda.",
-    "pricing": [
-      {
-        "name": "Tambal Komposit Kecil",
-        "origin": "Made in Germany",
-        "price": "Rp250.000"
-      },
-      {
-        "name": "Tambal Komposit Sedang",
-        "origin": "Made in USA",
-        "price": "Rp350.000"
-      },
-      {
-        "name": "Tambal Komposit Besar / Estetis Depan",
-        "origin": "Made in Japan",
-        "price": "Rp500.000"
-      }
+    id: "air-flow",
+    title: "Air Flow",
+    image: imgAirFlow,
+    desc1: "Air flow adalah metode pembersihan gigi dengan teknologi semprotan kombinasi air bertekanan, udara, dan serbuk pembersih halus.",
+    desc2: "Mampu menghilangkan noda membandel akibat kopi, teh, maupun tembakau hingga ke sela-sela gigi terdalam tanpa mengikis enamel gigi.",
+    headers: ["Tingkat Perawatan", "Harga"],
+    pricing: [
+      { name: "Ringan", price: "Rp150.000" },
+      { name: "Sedang", price: "Rp250.000" },
+      { name: "Berat", price: "Rp350.000" }
     ]
   },
   "tambal-gigi": {
-    "id": "tambal-gigi",
-    "title": "Tambal Gigi",
-    "image": "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=1000&q=80",
-    "desc1": "Penambalan gigi menggunakan bahan resin komposit sewarna gigi asli yang dikeraskan dengan sinar laser khusus untuk menutup kavitas gigi berlubang.",
-    "desc2": "Sangat baik untuk anak-anak maupun dewasa dengan risiko karies tinggi atau gigi sensitif.",
-    "pricing": [
-      {
-        "name": "Tambal Komposit Kecil",
-        "origin": "IN Dental Care",
-        "price": "Rp150.000"
-      },
-      {
-        "name": "Tambal Komposit Sedang",
-        "origin": "IN Dental Care",
-        "price": "Rp200.000"
-      }
+    id: "tambal-gigi",
+    title: "Tambal Gigi",
+    image: imgTambalGigi,
+    desc1: "Penambalan gigi bertujuan untuk membersihkan jaringan gigi yang rusak akibat karies/berlubang dan menutup kembali kavitas tersebut.",
+    desc2: "Mengembalikan kekuatan, fungsi kunyah, dan melindungi struktur gigi dari pembusukan yang lebih dalam.",
+    headers: ["Ukuran Tambalan", "Harga"],
+    pricing: [
+      { name: "Kecil", price: "Rp350.000" },
+      { name: "Sedang", price: "Rp400.000" },
+      { name: "Besar", price: "Rp500.000" }
     ]
   },
   "tambal-gigi-estetik": {
-    "id": "tambal-gigi-estetik",
-    "title": "Pembersihan Noda & Polishing",
-    "image": "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=1000&q=80",
-    "desc1": "Pembersihan noda membandel akibat konsumsi kopi, teh, atau tembakau dengan teknik air-polishing bertekanan lembut.",
-    "desc2": "Menghasilkan permukaan gigi yang licin dan kilau alami yang bersih maksimal.",
-    "pricing": [
-      {
-        "name": "Stain Removal Paket Standard",
-        "origin": "IN Dental Care",
-        "price": "Rp200.000"
-      },
-      {
-        "name": "Air Flow Stain Removal",
-        "origin": "IN Dental Care",
-        "price": "Rp350.000"
-      }
+    id: "tambal-gigi-estetik",
+    title: "Tambal Gigi Estetik",
+    image: imgTambalGigiEstetik,
+    desc1: "Tambal gigi estetik menggunakan bahan resin komposit berteknologi nano yang diselaraskan secara presisi dengan warna serta kilau alami gigi.",
+    desc2: "Sangat disarankan untuk gigi depan atau gigi yang terlihat saat tersenyum sehingga hasil tambalan tampak alami dan tidak kentara.",
+    headers: ["Ukuran Tambalan", "Harga"],
+    pricing: [
+      { name: "Kecil", price: "Rp450.000" },
+      { name: "Sedang", price: "Rp500.000" },
+      { name: "Besar", price: "Rp550.000" }
     ]
   },
   "abses-gigi-dan-gusi": {
-    "id": "abses-gigi-dan-gusi",
-    "title": "Abses Gigi dan Gusi",
-    "image": "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=1000&q=80",
-    "desc1": "Pembersihan noda membandel akibat konsumsi kopi, teh, atau tembakau dengan teknik air-polishing bertekanan lembut.",
-    "desc2": "Menghasilkan permukaan gigi yang licin dan kilau alami yang bersih maksimal.",
-    "pricing": [
-      {
-        "name": "Stain Removal Paket Standard",
-        "origin": "IN Dental Care",
-        "price": "Rp200.000"
-      },
-      {
-        "name": "Air Flow Stain Removal",
-        "origin": "IN Dental Care",
-        "price": "Rp350.000"
-      }
+    id: "abses-gigi-dan-gusi",
+    title: "Perawatan Abses Gigi & Gusi",
+    image: imgAbsesGigi,
+    desc1: "Perawatan abses dilakukan untuk menangani infeksi bakteri yang memicu penumpukan nanah, peradangan akut, serta rasa nyeri pada jaringan gigi maupun gusi.",
+    desc2: "Tindakan mencakup pembersihan sumber infeksi, drainase steril, dan medikasi untuk meredakan pembengkakan serta memulihkan jaringan sehat.",
+    headers: ["Jenis Perawatan", "Harga"],
+    pricing: [
+      { name: "Abses Gigi", price: "Rp600.000" },
+      { name: "Abses Gusi", price: "Rp450.000–Rp500.000" }
     ]
   },
   "gingivektomi": {
-    "id": "gingivektomi",
-    "title": "Gingivektomi",
-    "image": "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=1000&q=80",
-    "desc1": "Pembersihan noda membandel akibat konsumsi kopi, teh, atau tembakau dengan teknik air-polishing bertekanan lembut.",
-    "desc2": "Menghasilkan permukaan gigi yang licin dan kilau alami yang bersih maksimal.",
-    "pricing": [
-      {
-        "name": "Stain Removal Paket Standard",
-        "origin": "IN Dental Care",
-        "price": "Rp200.000"
-      },
-      {
-        "name": "Air Flow Stain Removal",
-        "origin": "IN Dental Care",
-        "price": "Rp350.000"
-      }
+    id: "gingivektomi",
+    title: "Gingivektomi",
+    image: imgGingivektomi,
+    desc1: "Gingivektomi adalah tindakan bedah periodontal minor untuk memotong atau merapikan jaringan gusi yang mengalami pembesaran berlebihan (gingival hyperplasia).",
+    desc2: "Membantu memperbaiki kontur gusi, mengatasi gummy smile, serta memudahkan akses pembersihan plak gigi.",
+    headers: ["Jenis Perawatan", "Cakupan", "Harga"],
+    pricing: [
+      { name: "Gingivektomi", scope: "1 Rahang", price: "Rp2.500.000–Rp3.000.000" }
     ]
   }
 };
-
 
 export default function DetailLayananUmum({ onNavigate, onSelectService }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [activeTreatment, setActiveTreatment] = useState(null);
 
   const recommendedServices = useMemo(() => {
-    const others = SERVICES_PAGE_DATA.filter((s) => s.id !== 'gigi-umum');
-    return [...others].sort(() => 0.5 - Math.random()).slice(0, 3);
+    return SERVICES_PAGE_DATA.filter((s) => s.id !== 'gigi-umum').slice(0, 3);
   }, []);
 
   const handleOpenModal = (treatmentId) => {
@@ -241,7 +208,7 @@ export default function DetailLayananUmum({ onNavigate, onSelectService }) {
             Perawatan Gigi Umum
           </h1>
           <p className="text-xs sm:text-sm md:text-[16px] text-[#333333]/90 leading-relaxed max-w-5xl mx-auto">
-            Layanan pencegahan dan perawatan dasar untuk menjaga kesehatan gigi dan gusi Anda. Mulai dari pembersihan karang gigi (scaling), penambalan gigi berlubang, hingga pemeriksaan berkala untuk senyum yang sehat dan bebas masalah.
+            Perawatan untuk menjaga kesehatan gigi dan gusi, membersihkan plak, mengatasi kerusakan gigi, serta menangani kondisi tertentu pada jaringan gigi dan gusi.
           </p>
         </div>
       </section>
@@ -294,21 +261,26 @@ export default function DetailLayananUmum({ onNavigate, onSelectService }) {
             <div className="lg:col-span-5">
               <div className="rounded-3xl overflow-hidden card-shadow aspect-[4/3] bg-slate-100 border border-slate-100 flex items-center justify-center text-center">
                 <img
-                  src="src/assets/image/scalling-gigi.jpg"
+                  src={imgManfaatScalling}
                   alt="Manfaat Perawatan Gigi Umum"
                   className="w-full h-full object-cover flex items-center justify-center text-center text-xs sm:text-sm text-gray-500 font-medium"
                 />
               </div>
             </div>
 
-            {/* Right: 5 Numbered Benefits */}
+            {/* Right: Numbered Benefits */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               <h2 className="text-2xl sm:text-2xl font-medium text-[#333333] mb-6">
                 Manfaat Perawatan Gigi Umum
               </h2>
 
               <div className="space-y-4">
-                {["Membantu membersihkan karang gigi dan noda pada gigi.", "Membantu menjaga kesehatan gigi dan gusi.", "Membantu memperbaiki gigi yang berlubang atau rusak.", "Membantu mengembalikan bentuk gigi agar terlihat lebih baik."].map((text, idx) => (
+                {[
+                  "Membantu membersihkan karang gigi dan noda pada gigi.",
+                  "Membantu menjaga kesehatan gigi dan gusi.",
+                  "Membantu memperbaiki gigi yang berlubang atau rusak.",
+                  "Membantu mengembalikan bentuk gigi agar terlihat lebih baik."
+                ].map((text, idx) => (
                   <div key={idx} className="flex items-start gap-3.5">
                     <div className="w-6 h-6 rounded-full bg-[#84a116] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-sm">
                       {idx + 1}
@@ -335,8 +307,8 @@ export default function DetailLayananUmum({ onNavigate, onSelectService }) {
             Pilihan Tindakan Perawatan Gigi Umum
           </h2>
 
-          {/* 4 Cards Grid — klik untuk buka popup rincian & harga */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          {/* 6 Cards Grid (3 Kolom di Desktop) — klik untuk buka popup rincian & harga */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             {TREATMENT_TYPES.map((type) => (
               <button
                 key={type.id}
@@ -376,14 +348,14 @@ export default function DetailLayananUmum({ onNavigate, onSelectService }) {
             <div className="lg:col-span-5">
               <div className="rounded-3xl overflow-hidden card-shadow aspect-[4/3] bg-slate-100 border border-slate-100">
                 <img
-                  src="src/assets/image/Kontrol-Pasca-Perawatan.jpg"
+                  src={imgKontrolPasca}
                   alt="Tips Merawat Gigi"
                   className="w-full h-full object-cover"
                 />
               </div>
             </div>
 
-            {/* Right: Info & 3 Points */}
+            {/* Right: Info & Points */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               <h2 className="text-2xl sm:text-2xl font-medium text-[#333333] mb-3">
                 Perawatan Lanjutan Setelah Tindakan Gigi
@@ -393,7 +365,9 @@ export default function DetailLayananUmum({ onNavigate, onSelectService }) {
               </p>
 
               <div className="space-y-3.5 mb-7">
-                {["Tidak semua tindakan membutuhkan obat atau kontrol lanjutan. Prosedur disesuaikan dengan jenis perawatan, misalnya scaling, penambalan, gingivektomi, maupun penanganan abses"].map((text, idx) => (
+                {[
+                  "Tidak semua tindakan membutuhkan obat atau kontrol lanjutan. Prosedur disesuaikan dengan jenis perawatan, misalnya scaling, penambalan, gingivektomi, maupun penanganan abses."
+                ].map((text, idx) => (
                   <div key={idx} className="flex items-start gap-3.5">
                     <div className="w-6 h-6 rounded-full bg-[#84a116] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-sm">
                       !

@@ -1,48 +1,63 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { SERVICES_PAGE_DATA } from './layanan';
-import { ArrowRightIcon, WhatsAppIcon } from '../../components/Icons';
 import TreatmentModal from '../../components/TreatmentModal';
+
+import imgGigiBerjejal from '../../assets/image/gigi-berjenjal.jpg';
+import imgGigiRenggang from '../../assets/image/Gigi-Renggang.jpg';
+import imgOverbite from '../../assets/image/Overbite.jpg';
+import imgGigiTonggos from '../../assets/image/Gigi-Tonggos.jpg';
+import imgGigiCakil from '../../assets/image/Gigi-Cakil.jpg';
+import imgGigitanTerbuka from '../../assets/image/Gigitan-Terbuka.jpg';
+import imgGigitanSilang from '../../assets/image/Gigitan-Silang.jpg';
+import imgImpaksiGigi from '../../assets/image/impaksigigi.jpg';
+
+import imgBehelKonvensional from '../../assets/image/Behel-Konvesional.jpg';
+import imgFastbraces from '../../assets/image/fastbraces.jpg';
+import imgSelfLigating from '../../assets/image/Behel-Self-Ligating.jpg';
+import imgInvisibleBraces from '../../assets/image/retainer.jpg';
+import imgPerawatanBehel from '../../assets/image/Perawatan-Behel.png';
+import imgRetainer from '../../assets/image/retainer.jpg';
 
 export const BEHEL_CONDITIONS = [
   {
     id: 1,
     title: "Gigi Berjejal",
-    image: "src/assets/image/gigi-berjenjal.jpg",
+    image: imgGigiBerjejal,
   },
   {
     id: 2,
     title: "Gigi Renggang",
-    image: "src/assets/image/Gigi-Renggang.jpg",
+    image: imgGigiRenggang,
   },
   {
     id: 3,
     title: "Overbite",
-    image: "src/assets/image/Overbite.jpg",
+    image: imgOverbite,
   },
   {
     id: 4,
     title: "Gigi Tonggos",
-    image: "src/assets/image/Gigi-Tonggos.jpg",
+    image: imgGigiTonggos,
   },
   {
     id: 5,
     title: "Underbite",
-    image: "src/assets/image/Gigi-Cakil.jpg",
+    image: imgGigiCakil,
   },
   {
     id: 6,
     title: "Gigitan Terbuka",
-    image: "src/assets/image/Gigitan-Terbuka.jpg",
+    image: imgGigitanTerbuka,
   },
   {
     id: 7,
     title: "Gigitan Silang",
-    image: "src/assets/image/Gigitan-Silang.jpg",
+    image: imgGigitanSilang,
   },
   {
     id: 8,
     title: "Ectopic/Impacted Teeth",
-    image: "src/assets/image/impaksigigi.jpg",
+    image: imgImpaksiGigi,
   }
 ];
 
@@ -50,22 +65,22 @@ export const BRACES_TYPES = [
   {
     id: "behel-konvensional",
     title: "Behel Konvensional",
-    image: "src/assets/image/Behel-Konvesional.jpg"
+    image: imgBehelKonvensional
   },
   {
     id: "behel-semi-konvensional",
     title: "Behel Semi Konvensional",
-    image: "src/assets/image/fastbraces.jpg"
+    image: imgFastbraces
   },
   {
     id: "behel-self-ligating",
     title: "Behel Self-Ligating",
-    image: "src/assets/image/Behel-Self-Ligating.jpg"
+    image: imgSelfLigating
   },
   {
     id: "invisible-braces",
     title: "Invisible Braces",
-    image: "src/assets/image/retainer.jpg"
+    image: imgInvisibleBraces
   }
 ];
 
@@ -73,63 +88,65 @@ export const TREATMENT_TYPES_MODAL_DATA = {
   "behel-konvensional": {
     id: "behel-konvensional",
     title: "Behel Konvensional",
-    image: "src/assets/image/Behel-Konvesional.jpg",
-    desc1: "Behel konvensional merupakan perawatan ortodonti yang menggunakan bracket dan kawat untuk membantu merapikan susunan gigi serta memperbaiki posisi gigitan secara bertahap. Perawatan ini bertujuan mendukung fungsi pengunyahan dan membantu menciptakan susunan gigi yang lebih teratur. Jenis behel yang digunakan akan disesuaikan dengan kondisi gigi dan kebutuhan perawatan pasien berdasarkan pemeriksaan dokter gigi.",
-    desc2: "IN Dental Care menyediakan berbagai pilihan behel konvensional, yaitu Metal, Ceramic, Mini Diamond, dan Saphire, dengan pilihan produk Made in China dan Made in USA. Harga perawatan bervariasi mulai dari Rp1.900.000 hingga Rp8.500.000, bergantung pada jenis behel yang dipilih. Pasien dapat berkonsultasi dengan dokter gigi untuk mengetahui pilihan yang sesuai dengan kondisi gigi, kebutuhan perawatan, dan anggaran yang tersedia.",
+    image: imgBehelKonvensional,
+    desc1: "Behel konvensional merupakan perawatan ortodonti yang menggunakan bracket dan kawat untuk membantu merapikan susunan gigi serta memperbaiki posisi gigitan secara bertahap. Perawatan ini bertujuan mendukung fungsi pengunyahan dan menciptakan susunan gigi yang harmonis.",
+    desc2: "IN Dental Care menyediakan pilihan bracket Metal, Ceramic, Mini Diamond, dan Saphire dari China dan USA. Pasien dapat berkonsultasi untuk memilih material yang paling sesuai dengan kebutuhan dan preferensi estetika.",
+    headers: ["Jenis Behel", "Negara Asal", "Harga"],
     pricing: [
-      { name: "Metal", origin: "Made in China", price: "Rp1.900.000" },
-      { name: "Ceramic", origin: "Made in China", price: "Rp3.600.000" },
-      { name: "Metal", origin: "Made in USA", price: "Rp4.000.000" },
-      { name: "Mini Diamond", origin: "Made in USA", price: "Rp5.000.000" },
-      { name: "Ceramic", origin: "Made in USA", price: "Rp5.500.000" },
-      { name: "Saphire", origin: "Made in USA", price: "Rp8.500.000" }
+      { name: "Metal", origin: "China", price: "Rp1.900.000" },
+      { name: "Ceramic", origin: "China", price: "Rp3.600.000" },
+      { name: "Metal", origin: "USA", price: "Rp4.000.000" },
+      { name: "Mini Diamond", origin: "USA", price: "Rp5.000.000" },
+      { name: "Ceramic", origin: "USA", price: "Rp5.500.000" },
+      { name: "Saphire", origin: "USA", price: "Rp8.500.000" }
     ]
   },
   "behel-semi-konvensional": {
     id: "behel-semi-konvensional",
     title: "Behel Semi Konvensional",
-    image: "src/assets/image/fastbraces.jpg",
-    desc1: "Behel semi konvensional merupakan kombinasi bracket estetis dengan fleksibilitas kawat yang nyaman untuk memberikan penampilan lebih natural selama masa perawatan. Bracket yang lebih tersamar membantu pasien tetap tampil percaya diri saat tersenyum maupun berbicara.",
-    desc2: "IN Dental Care menyediakan pilihan behel semi konvensional berbahan komposit estetis dan keramik berkualitas tinggi (Made in China dan Made in USA) dengan biaya yang terjangkau dan hasil perataan gigi yang optimal.",
+    image: imgFastbraces,
+    desc1: "Behel semi konvensional menggunakan teknologi Fastbraces dengan desain bracket segitiga dan kawat khusus untuk menggerakkan mahkota dan akar gigi secara bersamaan sejak awal perawatan.",
+    desc2: "Memberikan proses perataan gigi yang lebih cepat, efisien, serta nyaman bagi pasien yang menginginkan hasil optimal dalam waktu yang lebih singkat.",
+    headers: ["Jenis Behel", "Harga"],
     pricing: [
-      { name: "Composite Aesthetic", origin: "Made in China", price: "Rp2.800.000" },
+      { name: "Fastbraces", price: "Rp8.000.000" }
     ]
   },
   "behel-self-ligating": {
     id: "behel-self-ligating",
     title: "Behel Self-Ligating",
-    image: "src/assets/image/Behel-Self-Ligating.jpg",
-    desc1: "Behel self-ligating menggunakan klip penutup khusus tanpa karet elastis, sehingga kawat dapat bergerak lebih leluasa dengan gesekan minimal. Hal ini meminimalkan rasa ngilu, mempercepat pergeseran gigi, dan memudahkan pembersihan plak gigi setiap hari.",
-    desc2: "Tersedia pilihan Damon System orisinil Made in USA baik varian Metal maupun Clear (transparan). Frekuensi kontrol ke klinik juga menjadi lebih longgar sehingga sangat cocok untuk pasien dengan jadwal yang padat.",
+    image: imgSelfLigating,
+    desc1: "Behel self-ligating menggunakan klip geser tanpa karet elastis, meminimalkan gesekan kawat sehingga pergerakan gigi terasa lebih lembut dan higienitas gigi lebih terjaga.",
+    desc2: "Tersedia pilihan Standard, Premium, Damon Q, dan Damon Q2 baik varian Metal maupun Clear transparan dengan interval kontrol yang lebih longgar.",
+    headers: ["Jenis Behel", "Tipe", "Harga"],
     pricing: [
-      { name: "Self-Ligating Metal Standard", origin: "Made in China", price: "Rp8.500.000" },
-      { name: "Damon Metal System", origin: "Made in USA", price: "Rp14.000.000" },
-      { name: "Damon Clear Transparan", origin: "Made in USA", price: "Rp18.000.000" },
-      { name: "Damon Quantum Ultra", origin: "Made in USA", price: "Rp21.000.000" }
+      { name: "Standard Self-Ligating Braces", type: "Metal", price: "Rp6.000.000" },
+      { name: "Premium Self-Ligating", type: "Metal", price: "Rp9.000.000" },
+      { name: "Damon Q", type: "Metal", price: "Rp14.500.000" },
+      { name: "Damon Q", type: "Clear", price: "Rp18.000.000" },
+      { name: "Damon Q2", type: "Metal", price: "Rp16.500.000" }
     ]
   },
   "invisible-braces": {
     id: "invisible-braces",
     title: "Invisible Braces",
-    image: "src/assets/image/retainer.jpg",
-    desc1: "Invisible braces (Clear Aligner) merupakan metode perataan gigi modern menggunakan tray bening transparan yang nyaris tidak terlihat saat dipakai. Aligner dapat dilepas-pasang secara mandiri saat makan dan membersihkan gigi, memberikan higienitas maksimal.",
-    desc2: "Didesain dengan bantuan simulasi perangkat lunak 3D canggih untuk memetakan pergerakan gigi secara presisi bertahap dari awal hingga posisi gigi ideal tercapai tanpa kawat logam.",
+    image: imgInvisibleBraces,
+    desc1: "Invisible braces (aligner transparan) adalah metode perataan gigi modern menggunakan tray bening khusus yang nyaris tidak terlihat saat digunakan.",
+    desc2: "Dapat dilepas-pasang mandiri saat makan dan membersihkan gigi, memberikan fleksibilitas dan kenyamanan maksimal dalam beraktivitas.",
+    headers: ["Jenis Perawatan", "Harga"],
     pricing: [
-      { name: "Clear Aligner - Mild Case", origin: "Made in USA", price: "Rp12.000.000" },
-      { name: "Clear Aligner - Moderate Case", origin: "Made in USA", price: "Rp22.000.000" },
-      { name: "Clear Aligner - Comprehensive", origin: "Made in USA", price: "Rp32.000.000" }
+      { name: "Basic", price: "Rp16.900.000" },
+      { name: "Advanced", price: "Rp21.900.000" }
     ]
   }
 };
 
-
-export default function DetailLayanan({ onNavigate, onSelectService }) {
+export default function DetailLayananBehel({ onNavigate, onSelectService }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [activeTreatment, setActiveTreatment] = useState(null);
 
   const recommendedServices = useMemo(() => {
-    const others = SERVICES_PAGE_DATA.filter((s) => s.id !== 'behel-gigi');
-    return [...others].sort(() => 0.5 - Math.random()).slice(0, 3);
+    return SERVICES_PAGE_DATA.filter((s) => s.id !== 'behel-gigi').slice(0, 3);
   }, []);
 
   const handleOpenModal = (treatmentId) => {
@@ -154,11 +171,10 @@ export default function DetailLayanan({ onNavigate, onSelectService }) {
       <section className="bg-[#e5ff8f] py-14 lg:py-18 text-center border-b border-[#adc91f]/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-semibold text-[#93ab19] mb-4 tracking-tight">
-            Perawatan Behel Gigi
+            Perawatan Behel Gigi (Ortodonti)
           </h1>
           <p className="text-xs sm:text-sm md:text-[16px] text-[#333333]/90 leading-relaxed max-w-5xl mx-auto">
-            Perawatan behel membantu merapikan susunan gigi dan memperbaiki gigitan untuk senyum yang lebih rapi dan sehat.
-            Tersedia behel konvensional, semi konvensional, self-ligating, dan invisible braces sesuai kebutuhan gigi Anda.
+            Perawatan untuk merapikan susunan gigi dan memperbaiki posisi gigitan melalui beberapa pilihan metode ortodonti.
           </p>
         </div>
       </section>
@@ -211,7 +227,7 @@ export default function DetailLayanan({ onNavigate, onSelectService }) {
             <div className="lg:col-span-5">
               <div className="rounded-3xl overflow-hidden card-shadow aspect-[4/3] bg-slate-100 border border-slate-100 flex items-center justify-center text-center">
                 <img
-                  src="src/assets/image/Perawatan-Behel.png"
+                  src={imgPerawatanBehel}
                   alt="Manfaat Perawatan Behel Gigi"
                   className="w-full h-full object-cover flex items-center justify-center text-center text-xs sm:text-sm text-gray-500 font-medium"
                 />
@@ -299,7 +315,7 @@ export default function DetailLayanan({ onNavigate, onSelectService }) {
             <div className="lg:col-span-5">
               <div className="rounded-3xl overflow-hidden card-shadow aspect-[4/3] bg-slate-100 border border-slate-100">
                 <img
-                  src="src/assets/image/retainer.jpg"
+                  src={imgRetainer}
                   alt="Perawatan Retainer Setelah Behel"
                   className="w-full h-full object-cover"
                 />

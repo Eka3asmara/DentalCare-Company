@@ -1,166 +1,120 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { SERVICES_PAGE_DATA } from './layanan';
-import { ArrowRightIcon, WhatsAppIcon } from '../../components/Icons';
 import TreatmentModal from '../../components/TreatmentModal';
+
+import imgCabutGigi from '../../assets/image/cabut-gigi.jpg';
+import imgImpaksiGigi from '../../assets/image/impaksigigi.jpg';
+import imgGigiBerlubang from '../../assets/image/Gigi-Berlubang.jpg';
+import imgAbsesGigi from '../../assets/image/Abses-Gigi.jpg';
+import imgGigiDepanPatah from '../../assets/image/Gigi-Depan-Patah.jpg';
+import imgKontrolPasca from '../../assets/image/Kontrol-Pasca-Perawatan.jpg';
 
 export const CONDITIONS = [
   {
-    "id": 1,
-    "title": "Gigi Bungsu Miring / Impaksi",
-    "image": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80"
+    id: 1,
+    title: "Gigi Bungsu Miring / Impaksi",
+    image: imgImpaksiGigi
   },
   {
-    "id": 2,
-    "title": "Gigi Rusak Parah Tidak Bisa Ditambal",
-    "image": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80"
+    id: 2,
+    title: "Gigi Rusak Parah Tidak Bisa Ditambal",
+    image: imgGigiBerlubang
   },
   {
-    "id": 3,
-    "title": "Gigi Goyang Berat (Periodontitis)",
-    "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80"
+    id: 3,
+    title: "Gigi Goyang Berat (Periodontitis)",
+    image: imgCabutGigi
   },
   {
-    "id": 4,
-    "title": "Gigi Susu Persisten (Anak)",
-    "image": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80"
+    id: 4,
+    title: "Gigi Susu Persisten (Anak)",
+    image: imgCabutGigi
   },
   {
-    "id": 5,
-    "title": "Sisa Akar Gigi Terinfeksi",
-    "image": "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=600&q=80"
+    id: 5,
+    title: "Sisa Akar Gigi Terinfeksi",
+    image: imgGigiBerlubang
   },
   {
-    "id": 6,
-    "title": "Pencabutan untuk Kebutuhan Behel",
-    "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80"
+    id: 6,
+    title: "Pencabutan untuk Kebutuhan Behel",
+    image: imgCabutGigi
   },
   {
-    "id": 7,
-    "title": "Gigi Patah di Bawah Gusi",
-    "image": "https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=600&q=80"
+    id: 7,
+    title: "Gigi Patah di Bawah Gusi",
+    image: imgGigiDepanPatah
   },
   {
-    "id": 8,
-    "title": "Abses / Kista Gigi Berulang",
-    "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80"
+    id: 8,
+    title: "Abses Gigi Berulang",
+    image: imgAbsesGigi
   }
 ];
 
 export const TREATMENT_TYPES = [
   {
-    "id": "cabut-dewasa",
-    "title": "Cabut Gigi Dewasa",
-    "image": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80"
+    id: "cabut-dewasa",
+    title: "Cabut Gigi Dewasa",
+    image: imgCabutGigi
   },
   {
-    "id": "cabut-anak",
-    "title": "Cabut Gigi Susu Anak",
-    "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80"
+    id: "cabut-susu",
+    title: "Cabut Gigi Susu",
+    image: imgCabutGigi
   },
   {
-    "id": "odontektomi-ringan",
-    "title": "Odontektomi Gigi Bungsu",
-    "image": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80"
-  },
-  {
-    "id": "odontektomi-kompleks",
-    "title": "Bedah Mulut Minor Spesialis",
-    "image": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80"
+    id: "odontectomy",
+    title: "Pencabutan Gigi Bungsu (Odontectomy)",
+    image: imgImpaksiGigi
   }
 ];
 
 export const TREATMENT_TYPES_MODAL_DATA = {
   "cabut-dewasa": {
-    "id": "cabut-dewasa",
-    "title": "Cabut Gigi Dewasa",
-    "image": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1000&q=80",
-    "desc1": "Prosedur ekstraksi gigi permanen yang mengalami kerusakan parah menggunakan anestesi lokal dengan teknik yang minim trauma jaringan.",
-    "desc2": "Proses cepat, nyaman, dan pemulihan luka berlangsung singkat.",
-    "pricing": [
-      {
-        "name": "Cabut Gigi Depan Sederhana",
-        "origin": "IN Dental Care",
-        "price": "Rp250.000"
-      },
-      {
-        "name": "Cabut Gigi Geraham Sederhana",
-        "origin": "IN Dental Care",
-        "price": "Rp350.000"
-      },
-      {
-        "name": "Cabut Sisa Akar Gigi dengan Penyulit",
-        "origin": "IN Dental Care",
-        "price": "Rp500.000"
-      }
+    id: "cabut-dewasa",
+    title: "Cabut Gigi Dewasa",
+    image: imgCabutGigi,
+    desc1: "Pencabutan gigi dewasa dilakukan pada gigi permanen yang mengalami kerusakan berat, berlubang parah tak tertolong, atau patah hingga di bawah gusi.",
+    desc2: "Ditangani secara profesional dan higienis dengan anestesi lokal untuk memastikan tindakan berlangsung nyaman dan minim rasa sakit.",
+    headers: ["Jenis Pencabutan", "Harga"],
+    pricing: [
+      { name: "Cabut Gigi Biasa", price: "Rp400.000–Rp600.000" },
+      { name: "Cabut Gigi Komplikasi", price: "Rp750.000–Rp1.500.000" }
     ]
   },
-  "cabut-anak": {
-    "id": "cabut-anak",
-    "title": "Cabut Gigi Susu Anak",
-    "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=80",
-    "desc1": "Pencabutan gigi susu yang sudah goyang atau sudah waktunya tanggal agar gigi permanen anak tumbuh rapi di posisinya.",
-    "desc2": "Dikerjakan dengan pendekatan ramah anak menggunakan anestesi oles/topikal manis tanpa jarum suntik menakutkan.",
-    "pricing": [
-      {
-        "name": "Cabut Gigi Susu Anestesi Oles",
-        "origin": "IN Dental Care",
-        "price": "Rp120.000"
-      },
-      {
-        "name": "Cabut Gigi Susu Anestesi Injeksi Halus",
-        "origin": "IN Dental Care",
-        "price": "Rp180.000"
-      }
+  "cabut-susu": {
+    id: "cabut-susu",
+    title: "Cabut Gigi Susu",
+    image: imgCabutGigi,
+    desc1: "Pencabutan gigi susu pada anak-anak dilakukan untuk membantu pergantian gigi alami agar gigi permanen pengganti dapat tumbuh lurus dan rapi.",
+    desc2: "Diterapkan pendekatan ramah anak dengan pilihan anestesi topikal atau lokal untuk pengalaman perawatan yang tenang dan menyenangkan bagi si kecil.",
+    headers: ["Jenis Pencabutan", "Harga"],
+    pricing: [
+      { name: "Cabut Gigi Susu", price: "Rp350.000–Rp400.000" },
+      { name: "Cabut Gigi Susu dengan Anestesi", price: "Rp400.000–Rp450.000" }
     ]
   },
-  "odontektomi-ringan": {
-    "id": "odontektomi-ringan",
-    "title": "Odontektomi Gigi Bungsu",
-    "image": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1000&q=80",
-    "desc1": "Operasi bedah minor untuk mengeluarkan gigi geraham ketiga (gigi bungsu) yang tumbuh miring atau terpendam sebagian dalam gusi.",
-    "desc2": "Mencegah peradangan gusi (perikoronitis) dan nyeri berulang.",
-    "pricing": [
-      {
-        "name": "Odontektomi Kelas 1 (Ringan)",
-        "origin": "IN Dental Care",
-        "price": "Rp1.800.000"
-      },
-      {
-        "name": "Odontektomi Kelas 2 (Sedang)",
-        "origin": "IN Dental Care",
-        "price": "Rp2.500.000"
-      }
-    ]
-  },
-  "odontektomi-kompleks": {
-    "id": "odontektomi-kompleks",
-    "title": "Bedah Mulut Minor Spesialis",
-    "image": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1000&q=80",
-    "desc1": "Operasi gigi bungsu impaksi dalam atau dekat dengan saluran saraf mandibula yang ditangani langsung oleh Dokter Gigi Spesialis Bedah Mulut (Sp.BM).",
-    "desc2": "Tingkat presisi tinggi dengan pemantauan panoramik / CBCT radiologi.",
-    "pricing": [
-      {
-        "name": "Odontektomi Kelas 3 (Kompleks / Dalam)",
-        "origin": "Spesialis Bedah Mulut",
-        "price": "Rp3.200.000"
-      },
-      {
-        "name": "Enukleasi Kista & Bedah Minor Rahang",
-        "origin": "Spesialis Bedah Mulut",
-        "price": "Rp4.000.000"
-      }
+  "odontectomy": {
+    id: "odontectomy",
+    title: "Pencabutan Gigi Bungsu (Odontectomy)",
+    image: imgImpaksiGigi,
+    desc1: "Odontectomy adalah prosedur bedah minor untuk mencabut gigi geraham ketiga (gigi bungsu) yang mengalami impaksi, tumbuh miring, atau terpendam sebagian dalam gusi/tulang rahang.",
+    desc2: "Tindakan ini menghilangkan rasa sakit berulang, mencegah peradangan jaringan sekitar, dan melindungi susunan gigi lainnya dari dorongan tidak teratur.",
+    headers: ["Lokasi Gigi", "Harga"],
+    pricing: [
+      { name: "Gigi Bungsu Atas", price: "Rp1.500.000–Rp2.500.000" },
+      { name: "Gigi Bungsu Bawah", price: "Rp3.500.000–Rp4.500.000" }
     ]
   }
 };
-
 
 export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [activeTreatment, setActiveTreatment] = useState(null);
 
   const recommendedServices = useMemo(() => {
-    const others = SERVICES_PAGE_DATA.filter((s) => s.id !== 'pencabutan-gigi');
-    return [...others].sort(() => 0.5 - Math.random()).slice(0, 3);
+    return SERVICES_PAGE_DATA.filter((s) => s.id !== 'pencabutan-gigi').slice(0, 3);
   }, []);
 
   const handleOpenModal = (treatmentId) => {
@@ -185,10 +139,10 @@ export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) 
       <section className="bg-[#e5ff8f] py-14 lg:py-18 text-center border-b border-[#adc91f]/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-semibold text-[#93ab19] mb-4 tracking-tight">
-            Pencabutan Gigi & Bedah Mulut
+            Pencabutan Gigi
           </h1>
           <p className="text-xs sm:text-sm md:text-[16px] text-[#333333]/90 leading-relaxed max-w-5xl mx-auto">
-            Tindakan pencabutan gigi yang rusak parah, gigi susu anak, hingga operasi odontektomi gigi bungsu yang impaksi secara aman, nyaman, dan minim rasa sakit oleh dokter gigi umum dan spesialis bedah mulut.
+            Tindakan pencabutan gigi yang dilakukan berdasarkan kondisi gigi, tingkat kesulitan, dan kebutuhan perawatan pasien.
           </p>
         </div>
       </section>
@@ -241,21 +195,27 @@ export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) 
             <div className="lg:col-span-5">
               <div className="rounded-3xl overflow-hidden card-shadow aspect-[4/3] bg-slate-100 border border-slate-100 flex items-center justify-center text-center">
                 <img
-                  src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=900&q=80"
+                  src={imgCabutGigi}
                   alt="Manfaat Pencabutan Gigi"
                   className="w-full h-full object-cover flex items-center justify-center text-center text-xs sm:text-sm text-gray-500 font-medium"
                 />
               </div>
             </div>
 
-            {/* Right: 5 Numbered Benefits */}
+            {/* Right: Numbered Benefits */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               <h2 className="text-2xl sm:text-2xl font-medium text-[#333333] mb-6">
-                Manfaat Pencabutan Gigi yang Tepat
+                Manfaat Tindakan Pencabutan Gigi
               </h2>
 
               <div className="space-y-4">
-                {["Menghilangkan sumber infeksi dan nyeri yang menjalar ke kepala.","Mencegah kerusakan pada gigi tetangga akibat dorongan gigi bungsu.","Mencegah pembentukan kista dan kerusakan pada tulang rahang.","Membuka ruang optimal untuk perataan gigi pada perawatan behel.","Mencegah bau mulut dan pembengkakan gusi berulang."].map((text, idx) => (
+                {[
+                  "Menghilangkan sumber infeksi dan rasa sakit berulang.",
+                  "Mencegah kerusakan menyebar ke gigi sehat di sekitarnya.",
+                  "Membantu memberi ruang pada perawatan ortodonti (behel).",
+                  "Mencegah komplikasi gigi geraham bungsu yang terpendam.",
+                  "Mempermudah persiapan pemasangan gigi tiruan atau implan."
+                ].map((text, idx) => (
                   <div key={idx} className="flex items-start gap-3.5">
                     <div className="w-6 h-6 rounded-full bg-[#84a116] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-sm">
                       {idx + 1}
@@ -279,11 +239,11 @@ export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <h2 className="text-xl sm:text-2xl lg:text-[28px] font-semibold text-[#49baff] text-center mb-10 max-w-3xl mx-auto leading-snug">
-            Pilihan Layanan Pencabutan & Bedah Mulut
+            Pilihan Tindakan Pencabutan Gigi
           </h2>
 
-          {/* 4 Cards Grid — klik untuk buka popup rincian & harga */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          {/* 3 Cards Grid — klik untuk buka popup rincian & harga */}
+          <div className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-4 sm:gap-6">
             {TREATMENT_TYPES.map((type) => (
               <button
                 key={type.id}
@@ -292,7 +252,7 @@ export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) 
                 className="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-[#49baff]/40 group cursor-pointer text-left w-full focus:outline-none focus:ring-2 focus:ring-[#49baff]/50"
                 aria-label={`Lihat detail dan harga ${type.title}`}
               >
-                <div className="h-32 sm:h-40 w-full overflow-hidden bg-slate-100 relative flex items-center justify-center text-center">
+                <div className="h-40 sm:h-48 w-full overflow-hidden bg-slate-100 relative flex items-center justify-center text-center">
                   <img
                     src={type.image}
                     alt={type.title}
@@ -300,8 +260,8 @@ export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) 
                     loading="lazy"
                   />
                 </div>
-                <div className="p-3 sm:p-4 w-full">
-                  <h3 className="text-xs sm:text-base font-semibold text-[#49baff] group-hover:text-[#2ca4ee] transition-colors text-center">
+                <div className="p-4 sm:p-5 w-full">
+                  <h3 className="text-sm sm:text-base font-semibold text-[#49baff] group-hover:text-[#2ca4ee] transition-colors text-center">
                     {type.title}
                   </h3>
                 </div>
@@ -323,8 +283,8 @@ export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) 
             <div className="lg:col-span-5">
               <div className="rounded-3xl overflow-hidden card-shadow aspect-[4/3] bg-slate-100 border border-slate-100">
                 <img
-                  src="https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=900&q=80"
-                  alt="Panduan Pasca Cabut Gigi"
+                  src={imgKontrolPasca}
+                  alt="Panduan Pasca Pencabutan Gigi"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -333,14 +293,18 @@ export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) 
             {/* Right: Info & 3 Points */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               <h2 className="text-2xl sm:text-2xl font-medium text-[#333333] mb-3">
-                Panduan Pemulihan Pasca Pencabutan
+                Perawatan Pasca Tindakan Pencabutan Gigi
               </h2>
               <p className="text-xs sm:text-base text-[#333333]/90 leading-relaxed mb-6">
-                Lakukan petunjuk berikut agar luka bekas pencabutan lekas sembuh dan terhindar dari komplikasi dry socket.
+                Ikuti instruksi pemulihan dari dokter untuk mempercepat penutupan luka dan mencegah komplikasi dry socket.
               </p>
 
               <div className="space-y-3.5 mb-7">
-                {["Gigit kasa steril rapat selama 1-2 jam pertama dan jangan sering meludah.","Hindari minum dengan sedotan dan jangan merokok selama 24 jam.","Kompres dingin pipi di area pencabutan untuk meredakan potensi pembengkakan."].map((text, idx) => (
+                {[
+                  "Gigit kasa steril rapat selama 1-2 jam pertama dan jangan sering meludah.",
+                  "Hindari minum dengan sedotan dan jangan merokok selama 24 jam.",
+                  "Kompres dingin pipi di area pencabutan untuk meredakan potensi pembengkakan."
+                ].map((text, idx) => (
                   <div key={idx} className="flex items-start gap-3.5">
                     <div className="w-6 h-6 rounded-full bg-[#84a116] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-sm">
                       {idx + 1}

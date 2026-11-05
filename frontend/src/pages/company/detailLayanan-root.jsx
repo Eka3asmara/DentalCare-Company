@@ -1,176 +1,102 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { SERVICES_PAGE_DATA } from './layanan';
-import { ArrowRightIcon, WhatsAppIcon } from '../../components/Icons';
 import TreatmentModal from '../../components/TreatmentModal';
+
+import imgRootCanal from '../../assets/image/root-canal-treatment.jpg';
+import imgGigiBerlubang from '../../assets/image/Gigi-Berlubang.jpg';
+import imgAbsesGigi from '../../assets/image/Abses-Gigi.jpg';
+import imgGigiDepanPatah from '../../assets/image/Gigi-Depan-Patah.jpg';
+import imgKontrolPasca from '../../assets/image/Kontrol-Pasca-Perawatan.jpg';
 
 export const CONDITIONS = [
   {
-    "id": 1,
-    "title": "Nyeri Berdenyut Hebat",
-    "image": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80"
+    id: 1,
+    title: "Nyeri Berdenyut Hebat",
+    image: imgGigiBerlubang
   },
   {
-    "id": 2,
-    "title": "Sensitif Suhu Panas/Dingin",
-    "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80"
+    id: 2,
+    title: "Sensitif Suhu Panas / Dingin",
+    image: imgRootCanal
   },
   {
-    "id": 3,
-    "title": "Lubang Gigi Sangat Dalam",
-    "image": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80"
+    id: 3,
+    title: "Lubang Gigi Sangat Dalam",
+    image: imgGigiBerlubang
   },
   {
-    "id": 4,
-    "title": "Gigi Menghitam / Gelap",
-    "image": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80"
+    id: 4,
+    title: "Gigi Menghitam / Berubah Warna",
+    image: imgGigiBerlubang
   },
   {
-    "id": 5,
-    "title": "Bengkak / Abses pada Gusi",
-    "image": "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=600&q=80"
+    id: 5,
+    title: "Bengkak / Abses pada Gusi",
+    image: imgAbsesGigi
   },
   {
-    "id": 6,
-    "title": "Sakit Saat Mengunyah",
-    "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80"
+    id: 6,
+    title: "Sakit Saat Mengunyah",
+    image: imgRootCanal
   },
   {
-    "id": 7,
-    "title": "Gigi Patah Kena Saraf",
-    "image": "https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=600&q=80"
+    id: 7,
+    title: "Gigi Patah Kena Saraf",
+    image: imgGigiDepanPatah
   },
   {
-    "id": 8,
-    "title": "Benjolan Nanah Gusi",
-    "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80"
+    id: 8,
+    title: "Benjolan Nanah pada Gusi",
+    image: imgAbsesGigi
   }
 ];
 
 export const TREATMENT_TYPES = [
   {
-    "id": "psa-anterior",
-    "title": "PSA Gigi Depan (Anterior)",
-    "image": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80"
+    id: "root-canal-treatment",
+    title: "Root Canal Treatment",
+    image: imgRootCanal
   },
   {
-    "id": "psa-premolar",
-    "title": "PSA Gigi Geraham Kecil",
-    "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80"
-  },
-  {
-    "id": "psa-molar",
-    "title": "PSA Gigi Geraham Besar",
-    "image": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80"
-  },
-  {
-    "id": "psa-retreatment",
-    "title": "Retreatment PSA (Ulang)",
-    "image": "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=600&q=80"
+    id: "retreatment",
+    title: "Retreatment (Perawatan Ulang)",
+    image: imgRootCanal
   }
 ];
 
 export const TREATMENT_TYPES_MODAL_DATA = {
-  "psa-anterior": {
-    "id": "psa-anterior",
-    "title": "PSA Gigi Depan (Anterior)",
-    "image": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1000&q=80",
-    "desc1": "Perawatan saluran akar untuk gigi seri atau taring (1 saluran akar) yang terinfeksi. Prosedur membersihkan pulpa gigi, mensterilkan saluran, dan menyegelnya rapat.",
-    "desc2": "Dilakukan dengan anestesi lokal sehingga prosesnya nyaman dan bebas rasa sakit.",
-    "pricing": [
-      {
-        "name": "Kunjungan Pembersihan & Sterilisasi",
-        "origin": "IN Dental Care",
-        "price": "Rp450.000"
-      },
-      {
-        "name": "Obturasi / Pengisian Saluran Akar",
-        "origin": "IN Dental Care",
-        "price": "Rp600.000"
-      },
-      {
-        "name": "Paket Tuntas PSA Gigi Depan",
-        "origin": "IN Dental Care",
-        "price": "Rp950.000"
-      }
+  "root-canal-treatment": {
+    id: "root-canal-treatment",
+    title: "Root Canal Treatment",
+    image: imgRootCanal,
+    desc1: "Root Canal Treatment (Perawatan Saluran Akar) adalah perawatan untuk menangani infeksi atau kerusakan pada jaringan pulpa gigi dengan tujuan mempertahankan gigi agar tetap dapat digunakan.",
+    desc2: "Prosedur membersihkan saluran pulpa yang terinfeksi bakteri, mensterilkan saluran akar, dan menyegelnya dengan bahan pengisi khusus guna menyelamatkan gigi asli tanpa perlu pencabutan.",
+    headers: ["Lokasi Gigi", "Harga"],
+    pricing: [
+      { name: "Gigi Depan", price: "Rp2.000.000–Rp2.500.000" },
+      { name: "Gigi Tengah", price: "Rp3.000.000–Rp3.500.000" },
+      { name: "Gigi Belakang", price: "Rp4.000.000–Rp4.500.000" }
     ]
   },
-  "psa-premolar": {
-    "id": "psa-premolar",
-    "title": "PSA Gigi Geraham Kecil",
-    "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=80",
-    "desc1": "Perawatan saluran akar untuk gigi geraham kecil (1-2 saluran akar). Menghentikan infeksi yang menyebabkan rasa sakit saat mengunyah.",
-    "desc2": "Membantu mempertahankan fungsi kunyah penting di bagian tengah rahang.",
-    "pricing": [
-      {
-        "name": "Pembersihan & Sterilisasi Saluran",
-        "origin": "IN Dental Care",
-        "price": "Rp550.000"
-      },
-      {
-        "name": "Pengisian Saluran Akar Premolar",
-        "origin": "IN Dental Care",
-        "price": "Rp700.000"
-      },
-      {
-        "name": "Paket Tuntas PSA Premolar",
-        "origin": "IN Dental Care",
-        "price": "Rp1.200.000"
-      }
-    ]
-  },
-  "psa-molar": {
-    "id": "psa-molar",
-    "title": "PSA Gigi Geraham Besar",
-    "image": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1000&q=80",
-    "desc1": "Perawatan saluran akar pada gigi geraham besar (3-4 saluran akar anatomis kompleks). Menangani infeksi pulpa parah di bagian belakang rahang.",
-    "desc2": "Menggunakan rotary instrumentation canggih untuk hasil sterilisasi saluran akar yang maksimal.",
-    "pricing": [
-      {
-        "name": "Pembersihan Saluran Akar Molar",
-        "origin": "IN Dental Care",
-        "price": "Rp650.000"
-      },
-      {
-        "name": "Pengisian Saluran Akar Molar",
-        "origin": "IN Dental Care",
-        "price": "Rp850.000"
-      },
-      {
-        "name": "Paket Tuntas PSA Molar",
-        "origin": "IN Dental Care",
-        "price": "Rp1.500.000"
-      }
-    ]
-  },
-  "psa-retreatment": {
-    "id": "psa-retreatment",
-    "title": "Retreatment PSA (Ulang)",
-    "image": "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=1000&q=80",
-    "desc1": "Perawatan ulang pada gigi yang sebelumnya sudah pernah menjalani PSA namun mengalami infeksi kembali akibat kebocoran tambalan atau saluran akar tambahan.",
-    "desc2": "Menyelamatkan gigi dari opsi terakhir pencabutan.",
-    "pricing": [
-      {
-        "name": "Bongkar Pengisian Lama & Sterilisasi",
-        "origin": "IN Dental Care",
-        "price": "Rp750.000"
-      },
-      {
-        "name": "Paket Tuntas Retreatment PSA",
-        "origin": "IN Dental Care",
-        "price": "Rp1.800.000"
-      }
+  "retreatment": {
+    id: "retreatment",
+    title: "Retreatment (Perawatan Saluran Akar Ulang)",
+    image: imgRootCanal,
+    desc1: "Retreatment merupakan tindakan perawatan saluran akar ulang yang dilakukan pada gigi yang pernah menjalani PSA namun mengalami infeksi kembali atau timbul keluhan baru.",
+    desc2: "Tindakan mencakup pelepasan restorasi serta pengisian lama, sterilisasi menyeluruh seluruh saluran akar, dan pengisian kembali secara optimal untuk mencegah ekstraksi.",
+    headers: ["Jenis Perawatan", "Harga"],
+    pricing: [
+      { name: "Retreatment (Perawatan Saluran Akar Ulang)", price: "Rp6.000.000–Rp6.500.000" }
     ]
   }
 };
-
 
 export default function DetailLayananRoot({ onNavigate, onSelectService }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [activeTreatment, setActiveTreatment] = useState(null);
 
   const recommendedServices = useMemo(() => {
-    const others = SERVICES_PAGE_DATA.filter((s) => s.id !== 'saluran-akar');
-    return [...others].sort(() => 0.5 - Math.random()).slice(0, 3);
+    return SERVICES_PAGE_DATA.filter((s) => s.id !== 'saluran-akar').slice(0, 3);
   }, []);
 
   const handleOpenModal = (treatmentId) => {
@@ -195,10 +121,10 @@ export default function DetailLayananRoot({ onNavigate, onSelectService }) {
       <section className="bg-[#e5ff8f] py-14 lg:py-18 text-center border-b border-[#adc91f]/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-semibold text-[#93ab19] mb-4 tracking-tight">
-            Perawatan Saluran Akar (PSA)
+            Perawatan Saluran Akar (Root Canal Treatment)
           </h1>
           <p className="text-xs sm:text-sm md:text-[16px] text-[#333333]/90 leading-relaxed max-w-5xl mx-auto">
-            Solusi penyelamatan gigi yang mengalami infeksi atau kerusakan mendalam hingga jaringan saraf pulpa tanpa perlu dicabut. Prosedur ini menghentikan rasa nyeri berdenyut dan mempertahankan fungsi gigi asli Anda.
+            Perawatan untuk menangani infeksi atau kerusakan pada jaringan pulpa gigi dengan tujuan mempertahankan gigi agar tetap dapat digunakan.
           </p>
         </div>
       </section>
@@ -251,21 +177,27 @@ export default function DetailLayananRoot({ onNavigate, onSelectService }) {
             <div className="lg:col-span-5">
               <div className="rounded-3xl overflow-hidden card-shadow aspect-[4/3] bg-slate-100 border border-slate-100 flex items-center justify-center text-center">
                 <img
-                  src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=80"
+                  src={imgRootCanal}
                   alt="Manfaat Perawatan Saluran Akar"
                   className="w-full h-full object-cover flex items-center justify-center text-center text-xs sm:text-sm text-gray-500 font-medium"
                 />
               </div>
             </div>
 
-            {/* Right: 5 Numbered Benefits */}
+            {/* Right: Numbered Benefits */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               <h2 className="text-2xl sm:text-2xl font-medium text-[#333333] mb-6">
                 Manfaat Perawatan Saluran Akar
               </h2>
 
               <div className="space-y-4">
-                {["Menghilangkan rasa nyeri gigi yang berdenyut secara permanen.","Menyelamatkan gigi asli sehingga tidak perlu dicabut atau ompong.","Mengeliminasi infeksi bakteri pada saraf dan jaringan tulang rahang.","Mengembalikan kenyamanan saat mengunyah makanan.","Menjaga susunan dan keseimbangan gigi tetangga di dalam mulut."].map((text, idx) => (
+                {[
+                  "Menghilangkan rasa nyeri gigi yang berdenyut secara permanen.",
+                  "Menyelamatkan gigi asli sehingga tidak perlu dicabut atau ompong.",
+                  "Mengeliminasi infeksi bakteri pada saraf dan jaringan tulang rahang.",
+                  "Mengembalikan kenyamanan saat mengunyah makanan.",
+                  "Menjaga susunan dan keseimbangan gigi tetangga di dalam mulut."
+                ].map((text, idx) => (
                   <div key={idx} className="flex items-start gap-3.5">
                     <div className="w-6 h-6 rounded-full bg-[#84a116] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-sm">
                       {idx + 1}
@@ -292,8 +224,8 @@ export default function DetailLayananRoot({ onNavigate, onSelectService }) {
             Jenis Tindakan Perawatan Saluran Akar
           </h2>
 
-          {/* 4 Cards Grid — klik untuk buka popup rincian & harga */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          {/* 2 Cards Grid Centered — klik untuk buka popup rincian & harga */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-4 sm:gap-6">
             {TREATMENT_TYPES.map((type) => (
               <button
                 key={type.id}
@@ -302,7 +234,7 @@ export default function DetailLayananRoot({ onNavigate, onSelectService }) {
                 className="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-[#49baff]/40 group cursor-pointer text-left w-full focus:outline-none focus:ring-2 focus:ring-[#49baff]/50"
                 aria-label={`Lihat detail dan harga ${type.title}`}
               >
-                <div className="h-32 sm:h-40 w-full overflow-hidden bg-slate-100 relative flex items-center justify-center text-center">
+                <div className="h-40 sm:h-48 w-full overflow-hidden bg-slate-100 relative flex items-center justify-center text-center">
                   <img
                     src={type.image}
                     alt={type.title}
@@ -310,8 +242,8 @@ export default function DetailLayananRoot({ onNavigate, onSelectService }) {
                     loading="lazy"
                   />
                 </div>
-                <div className="p-3 sm:p-4 w-full">
-                  <h3 className="text-xs sm:text-base font-semibold text-[#49baff] group-hover:text-[#2ca4ee] transition-colors text-center">
+                <div className="p-4 sm:p-5 w-full">
+                  <h3 className="text-sm sm:text-base font-semibold text-[#49baff] group-hover:text-[#2ca4ee] transition-colors text-center">
                     {type.title}
                   </h3>
                 </div>
@@ -333,14 +265,14 @@ export default function DetailLayananRoot({ onNavigate, onSelectService }) {
             <div className="lg:col-span-5">
               <div className="rounded-3xl overflow-hidden card-shadow aspect-[4/3] bg-slate-100 border border-slate-100">
                 <img
-                  src="https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=900&q=80"
-                  alt="Pemasangan Crown Setelah PSA"
+                  src={imgKontrolPasca}
+                  alt="Perawatan Mahkota Crown Setelah PSA"
                   className="w-full h-full object-cover"
                 />
               </div>
             </div>
 
-            {/* Right: Info & 3 Points */}
+            {/* Right: Info & Points */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               <h2 className="text-2xl sm:text-2xl font-medium text-[#333333] mb-3">
                 Perawatan Mahkota (Crown) Setelah PSA
@@ -350,7 +282,11 @@ export default function DetailLayananRoot({ onNavigate, onSelectService }) {
               </p>
 
               <div className="space-y-3.5 mb-7">
-                {["Melindungi gigi dari risiko retak atau pecah saat mengunyah.","Menutup rapat saluran akar agar tidak terjadi infeksi bakteri berulang.","Mengembalikan bentuk, warna, dan fungsi alami gigi sepenuhnya."].map((text, idx) => (
+                {[
+                  "Melindungi gigi dari risiko retak atau pecah saat mengunyah.",
+                  "Menutup rapat saluran akar agar tidak terjadi infeksi bakteri berulang.",
+                  "Mengembalikan bentuk, warna, dan fungsi alami gigi sepenuhnya."
+                ].map((text, idx) => (
                   <div key={idx} className="flex items-start gap-3.5">
                     <div className="w-6 h-6 rounded-full bg-[#84a116] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-sm">
                       {idx + 1}

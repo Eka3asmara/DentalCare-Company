@@ -1,166 +1,105 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { SERVICES_PAGE_DATA } from './layanan';
-import { ArrowRightIcon, WhatsAppIcon } from '../../components/Icons';
 import TreatmentModal from '../../components/TreatmentModal';
+
+import imgEstetik from '../../assets/image/Perawatan-estetik.png';
+import imgToothStaining from '../../assets/image/Tooth-Staining.jpg';
+import imgGigiBerubahBentuk from '../../assets/image/Gigi-Berubah-Bentuk.jpg';
+import imgGigiDepanPatah from '../../assets/image/Gigi-Depan-Patah.jpg';
+import imgGigiRenggang from '../../assets/image/Gigi-Renggang.jpg';
+import imgKontrolPasca from '../../assets/image/Kontrol-Pasca-Perawatan.jpg';
 
 export const CONDITIONS = [
   {
-    "id": 1,
-    "title": "Gigi Kuning / Kusam",
-    "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80"
+    id: 1,
+    title: "Gigi Kuning / Kusam",
+    image: imgToothStaining
   },
   {
-    "id": 2,
-    "title": "Noda Kopi, Teh & Rokok",
-    "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80"
+    id: 2,
+    title: "Noda Kopi, Teh & Rokok",
+    image: imgToothStaining
   },
   {
-    "id": 3,
-    "title": "Bentuk Gigi Bergerigi / Tidak Rata",
-    "image": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80"
+    id: 3,
+    title: "Bentuk Gigi Tidak Rata",
+    image: imgGigiBerubahBentuk
   },
   {
-    "id": 4,
-    "title": "Celah Kecil Antara Gigi Depan",
-    "image": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80"
+    id: 4,
+    title: "Celah Kecil Antara Gigi Depan",
+    image: imgGigiRenggang
   },
   {
-    "id": 5,
-    "title": "Gigi Depan Cuil / Patah Kecil",
-    "image": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80"
+    id: 5,
+    title: "Gigi Depan Patah / Cuil Kecil",
+    image: imgGigiDepanPatah
   },
   {
-    "id": 6,
-    "title": "Noda Obat Tetrasiklin Bawaan",
-    "image": "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=600&q=80"
+    id: 6,
+    title: "Noda Obat Tetrasiklin Bawaan",
+    image: imgToothStaining
   },
   {
-    "id": 7,
-    "title": "Warna Tambalan Depan Belang",
-    "image": "https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=600&q=80"
+    id: 7,
+    title: "Warna Tambalan Depan Belang",
+    image: imgGigiBerubahBentuk
   },
   {
-    "id": 8,
-    "title": "Senyum Kurang Percaya Diri",
-    "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80"
+    id: 8,
+    title: "Senyum Kurang Percaya Diri",
+    image: imgEstetik
   }
 ];
 
 export const TREATMENT_TYPES = [
   {
-    "id": "in-office-bleaching",
-    "title": "In-Office Teeth Bleaching",
-    "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80"
+    id: "bleaching",
+    title: "Bleaching (Pemutihan Gigi)",
+    image: imgEstetik
   },
   {
-    "id": "home-bleaching",
-    "title": "Home Bleaching Kit",
-    "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80"
-  },
-  {
-    "id": "veneer-porcelain",
-    "title": "Porcelain Veneer (E-Max)",
-    "image": "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=600&q=80"
-  },
-  {
-    "id": "veneer-composite",
-    "title": "Direct Composite Veneer",
-    "image": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80"
+    id: "veneer-gigi",
+    title: "Veneer Gigi",
+    image: imgEstetik
   }
 ];
 
 export const TREATMENT_TYPES_MODAL_DATA = {
-  "in-office-bleaching": {
-    "id": "in-office-bleaching",
-    "title": "In-Office Teeth Bleaching",
-    "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1000&q=80",
-    "desc1": "Prosedur pemutihan gigi instan di klinik menggunakan gel hidrogen peroksida medis yang diaktivasi sinar LED/laser khusus selama 45-60 menit.",
-    "desc2": "Hasil gigi putih bersih terlihat seketika dengan tingkat keamanan gusi yang terlindungi maksimal.",
-    "pricing": [
-      {
-        "name": "Bleaching Single Session (LED Light)",
-        "origin": "USA Material",
-        "price": "Rp1.800.000"
-      },
-      {
-        "name": "Bleaching Dual Session + Desensitizing",
-        "origin": "USA Material",
-        "price": "Rp2.500.000"
-      },
-      {
-        "name": "Paket Premium Laser Bleaching",
-        "origin": "Germany Laser",
-        "price": "Rp3.200.000"
-      }
+  "bleaching": {
+    id: "bleaching",
+    title: "Bleaching (Pemutihan Gigi)",
+    image: imgEstetik,
+    desc1: "Bleaching gigi adalah tindakan pemutihan warna gigi untuk mencerahkan noda kekuningan atau kusam pada enamel gigi menggunakan bahan gel pemutih medis yang aman dan teruji klinis.",
+    desc2: "Membantu mengembalikan kecerahan alami gigi beberapa tingkat lebih putih, bersih, dan memancarkan senyum berkilau yang percaya diri.",
+    headers: ["Jenis Bleaching", "Harga"],
+    pricing: [
+      { name: "Standard Bleaching", price: "Rp1.800.000" },
+      { name: "Extra White Bleaching", price: "Rp3.500.000" },
+      { name: "Premium Bleaching", price: "Rp5.500.000" }
     ]
   },
-  "home-bleaching": {
-    "id": "home-bleaching",
-    "title": "Home Bleaching Kit",
-    "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=80",
-    "desc1": "Paket pemutihan gigi mandiri di rumah dengan custom tray (cetakan gigi khusus) dan gel karbamid peroksida bergradasi aman.",
-    "desc2": "Digunakan 2-4 jam per hari selama 1-2 minggu dengan instruksi lengkap dari dokter.",
-    "pricing": [
-      {
-        "name": "Custom Tray + Gel Bleaching 2 Tabung",
-        "origin": "Opalescence USA",
-        "price": "Rp1.500.000"
-      },
-      {
-        "name": "Refill Gel Bleaching (per tabung)",
-        "origin": "Opalescence USA",
-        "price": "Rp350.000"
-      }
-    ]
-  },
-  "veneer-porcelain": {
-    "id": "veneer-porcelain",
-    "title": "Porcelain Veneer (E-Max)",
-    "image": "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=1000&q=80",
-    "desc1": "Cangkang porselen E-Max ultra-tipis yang direkatkan secara permanen pada permukaan depan gigi. Tidak mudah berubah warna dan tahan lebih dari 10-15 tahun.",
-    "desc2": "Memberikan senyum Hollywood smile yang berkilau sempurna dan natural.",
-    "pricing": [
-      {
-        "name": "Porcelain Veneer E-Max (per gigi)",
-        "origin": "Ivoclar Vivadent",
-        "price": "Rp3.500.000"
-      },
-      {
-        "name": "Paket 6 Gigi Depan (Smile Makeover)",
-        "origin": "Ivoclar Vivadent",
-        "price": "Rp19.500.000"
-      }
-    ]
-  },
-  "veneer-composite": {
-    "id": "veneer-composite",
-    "title": "Direct Composite Veneer",
-    "image": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1000&q=80",
-    "desc1": "Pelapisan permukaan gigi langsung menggunakan bahan resin komposit nano-hybrid berkualitas tinggi oleh dokter gigi dalam 1 kali kunjungan.",
-    "desc2": "Opsi cepat, terjangkau, dan tanpa perlu pengikisan enamel gigi yang berlebih.",
-    "pricing": [
-      {
-        "name": "Direct Veneer Komposit (per gigi)",
-        "origin": "Made in Japan",
-        "price": "Rp800.000"
-      },
-      {
-        "name": "Paket 6 Gigi Depan Komposit",
-        "origin": "Made in Japan",
-        "price": "Rp4.500.000"
-      }
+  "veneer-gigi": {
+    id: "veneer-gigi",
+    title: "Veneer Gigi",
+    image: imgEstetik,
+    desc1: "Veneer gigi adalah lapisan tipis khusus yang direkatkan pada permukaan depan gigi guna memperbaiki bentuk, warna, ukuran, atau celah antar gigi yang tidak simetris.",
+    desc2: "Tersedia pilihan Temporary Veneer sementara, Direct Veneer berbahan Composite praktis, serta Indirect Veneer Porcelain berkualitas prima yang berkilau alami dan tahan lama.",
+    headers: ["Jenis Veneer", "Bahan / Keterangan", "Harga"],
+    pricing: [
+      { name: "Temporary Veneer", material: "Veneer Sementara", price: "Rp500.000" },
+      { name: "Direct Veneer", material: "Composite", price: "Rp600.000–Rp1.000.000" },
+      { name: "Indirect Veneer", material: "Porcelain", price: "Rp3.000.000" }
     ]
   }
 };
-
 
 export default function DetailLayananEstetikGigi({ onNavigate, onSelectService }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [activeTreatment, setActiveTreatment] = useState(null);
 
   const recommendedServices = useMemo(() => {
-    const others = SERVICES_PAGE_DATA.filter((s) => s.id !== 'estetik-gigi');
-    return [...others].sort(() => 0.5 - Math.random()).slice(0, 3);
+    return SERVICES_PAGE_DATA.filter((s) => s.id !== 'estetik-gigi').slice(0, 3);
   }, []);
 
   const handleOpenModal = (treatmentId) => {
@@ -188,7 +127,7 @@ export default function DetailLayananEstetikGigi({ onNavigate, onSelectService }
             Perawatan Estetik Gigi
           </h1>
           <p className="text-xs sm:text-sm md:text-[16px] text-[#333333]/90 leading-relaxed max-w-5xl mx-auto">
-            Rangkaian prosedur kosmetik gigi untuk menyempurnakan bentuk, warna, dan keselarasan senyum Anda. Hadirkan senyum putih berkilau dan percaya diri melalui bleaching (pemutihan gigi) dan veneer berkualitas tinggi.
+            Perawatan untuk meningkatkan penampilan gigi melalui tindakan pemutihan warna gigi dan perbaikan tampilan permukaan gigi.
           </p>
         </div>
       </section>
@@ -200,7 +139,7 @@ export default function DetailLayananEstetikGigi({ onNavigate, onSelectService }
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <h2 className="text-xl sm:text-2xl lg:text-[28px] font-semibold text-[#49baff] text-center mb-10 max-w-3xl mx-auto leading-snug">
-            Kondisi Gigi Yang Membutuhkan Perawatan Estetik
+            Kondisi Gigi Yang Membutuhkan Perawatan Estetik Gigi
           </h2>
 
           {/* 8 Grid Cards (4 Kolom di Desktop, 2 Baris) */}
@@ -241,21 +180,27 @@ export default function DetailLayananEstetikGigi({ onNavigate, onSelectService }
             <div className="lg:col-span-5">
               <div className="rounded-3xl overflow-hidden card-shadow aspect-[4/3] bg-slate-100 border border-slate-100 flex items-center justify-center text-center">
                 <img
-                  src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=900&q=80"
+                  src={imgEstetik}
                   alt="Manfaat Perawatan Estetik Gigi"
                   className="w-full h-full object-cover flex items-center justify-center text-center text-xs sm:text-sm text-gray-500 font-medium"
                 />
               </div>
             </div>
 
-            {/* Right: 5 Numbered Benefits */}
+            {/* Right: Numbered Benefits */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               <h2 className="text-2xl sm:text-2xl font-medium text-[#333333] mb-6">
                 Manfaat Perawatan Estetik Gigi
               </h2>
 
               <div className="space-y-4">
-                {["Mencerahkan warna gigi hingga beberapa tingkat lebih putih alami.","Mengoreksi bentuk, ukuran, dan kesimetrisan gigi depan.","Menutup celah (diastema) di antara gigi tanpa perlu behel lama.","Menutupi noda membandel yang tidak bisa hilang dengan sikat gigi.","Meningkatkan daya tarik senyum dan kepercayaan diri saat berbicara."].map((text, idx) => (
+                {[
+                  "Mencerahkan warna gigi yang kusam atau kuning secara nyata.",
+                  "Menyamarkan noda makanan, minuman, dan rokok yang membandel.",
+                  "Memperbaiki bentuk gigi yang tidak rata, sompel, atau renggang.",
+                  "Menciptakan senyum yang harmonis, rapi, dan berseri alami.",
+                  "Meningkatkan rasa percaya diri dalam berpenampilan setiap hari."
+                ].map((text, idx) => (
                   <div key={idx} className="flex items-start gap-3.5">
                     <div className="w-6 h-6 rounded-full bg-[#84a116] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-sm">
                       {idx + 1}
@@ -279,11 +224,11 @@ export default function DetailLayananEstetikGigi({ onNavigate, onSelectService }
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <h2 className="text-xl sm:text-2xl lg:text-[28px] font-semibold text-[#49baff] text-center mb-10 max-w-3xl mx-auto leading-snug">
-            Pilihan Layanan Estetik Gigi
+            Pilihan Tindakan Estetik Gigi
           </h2>
 
-          {/* 4 Cards Grid — klik untuk buka popup rincian & harga */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          {/* 2 Cards Grid Centered — klik untuk buka popup rincian & harga */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-4 sm:gap-6">
             {TREATMENT_TYPES.map((type) => (
               <button
                 key={type.id}
@@ -292,7 +237,7 @@ export default function DetailLayananEstetikGigi({ onNavigate, onSelectService }
                 className="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-[#49baff]/40 group cursor-pointer text-left w-full focus:outline-none focus:ring-2 focus:ring-[#49baff]/50"
                 aria-label={`Lihat detail dan harga ${type.title}`}
               >
-                <div className="h-32 sm:h-40 w-full overflow-hidden bg-slate-100 relative flex items-center justify-center text-center">
+                <div className="h-40 sm:h-48 w-full overflow-hidden bg-slate-100 relative flex items-center justify-center text-center">
                   <img
                     src={type.image}
                     alt={type.title}
@@ -300,8 +245,8 @@ export default function DetailLayananEstetikGigi({ onNavigate, onSelectService }
                     loading="lazy"
                   />
                 </div>
-                <div className="p-3 sm:p-4 w-full">
-                  <h3 className="text-xs sm:text-base font-semibold text-[#49baff] group-hover:text-[#2ca4ee] transition-colors text-center">
+                <div className="p-4 sm:p-5 w-full">
+                  <h3 className="text-sm sm:text-base font-semibold text-[#49baff] group-hover:text-[#2ca4ee] transition-colors text-center">
                     {type.title}
                   </h3>
                 </div>
@@ -323,8 +268,8 @@ export default function DetailLayananEstetikGigi({ onNavigate, onSelectService }
             <div className="lg:col-span-5">
               <div className="rounded-3xl overflow-hidden card-shadow aspect-[4/3] bg-slate-100 border border-slate-100">
                 <img
-                  src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=80"
-                  alt="Tips Menjaga Senyum Putih"
+                  src={imgKontrolPasca}
+                  alt="Panduan Pasca Perawatan Estetik Gigi"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -333,14 +278,18 @@ export default function DetailLayananEstetikGigi({ onNavigate, onSelectService }
             {/* Right: Info & 3 Points */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               <h2 className="text-2xl sm:text-2xl font-medium text-[#333333] mb-3">
-                Panduan Menjaga Senyum Putih
+                Perawatan Pasca Tindakan Estetik Gigi
               </h2>
               <p className="text-xs sm:text-base text-[#333333]/90 leading-relaxed mb-6">
-                Pertahankan hasil gigi putih berkilau Anda dengan merawatnya secara tepat setelah tindakan.
+                Pertahankan kilau putih dan keawetan veneer Anda dengan merawat gigi secara benar sesuai saran dokter.
               </p>
 
               <div className="space-y-3.5 mb-7">
-                {["Hindari makanan/minuman berwarna pekat (kopi, teh, kunyit) selama 48 jam pertama.","Gunakan sedotan saat meminum kopi dingin atau minuman bersoda.","Sikat gigi secara teratur dengan sikat berbulu lembut dan pasta gigi non-abrasif."].map((text, idx) => (
+                {[
+                  "Hindari konsumsi makanan/minuman berwarna pekat (kopi, teh, saus gelap) selama 48 jam pertama.",
+                  "Gunakan sedotan saat meminum kopi dingin atau jus buah berwarna untuk mengurangi kontak langsung dengan gigi.",
+                  "Sikat gigi secara teratur dengan sikat berbulu halus dan pasta gigi non-abrasif."
+                ].map((text, idx) => (
                   <div key={idx} className="flex items-start gap-3.5">
                     <div className="w-6 h-6 rounded-full bg-[#84a116] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-sm">
                       {idx + 1}

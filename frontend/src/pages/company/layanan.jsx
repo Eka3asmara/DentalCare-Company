@@ -11,7 +11,7 @@ import imgEstetik from '../../assets/image/Perawatan-estetik.png';
 export const SERVICES_PAGE_DATA = [
   {
     id: "behel-gigi",
-    title: "Perawatan Behel Gigi (Ortodonti)",
+    title: "Perawatan Behel Gigi",
     description: "Perawatan untuk merapikan susunan gigi dan memperbaiki posisi gigitan melalui beberapa pilihan metode ortodonti.",
     image: imgBehel,
     category: "Ortodonti"
@@ -25,7 +25,7 @@ export const SERVICES_PAGE_DATA = [
   },
   {
     id: "saluran-akar",
-    title: "Perawatan Saluran Akar (Root Canal Treatment)",
+    title: "Perawatan Saluran Akar",
     description: "Perawatan untuk menangani infeksi atau kerusakan pada jaringan pulpa gigi dengan tujuan mempertahankan gigi agar tetap dapat digunakan.",
     image: imgRootCanal,
     category: "Endodonti"
@@ -46,7 +46,7 @@ export const SERVICES_PAGE_DATA = [
   },
   {
     id: "implan-gigi",
-    title: "Implan Gigi (Dental Implant)",
+    title: "Implan Gigi",
     description: "Perawatan untuk menggantikan akar gigi yang hilang menggunakan implan sebagai penyangga gigi pengganti.",
     image: imgImplan,
     category: "Implantologi"

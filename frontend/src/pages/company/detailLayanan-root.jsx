@@ -2,42 +2,46 @@ import { useState, useMemo } from 'react';
 import { SERVICES_PAGE_DATA } from './layanan';
 import TreatmentModal from '../../components/TreatmentModal';
 
+import imgDeepCaries from '../../assets/image/Deep-Caries.jpg';
+import imgPulpitis from '../../assets/image/Pulpitis-Irreversibel.png';
+import imgNekrosisPulpa from '../../assets/image/Nekrosis-Pulpa.jpg';
+import imgGigiRetak from '../../assets/image/Gigi-Retak.jpg';
+import imgGigiPatah from '../../assets/image/Gigi-Patah.jpg';
+import imgPerubahanWarnaGigi from '../../assets/image/Perubahan-Warna-Gigi.jpg';
+
 import imgRootCanal from '../../assets/image/root-canal-treatment.jpg';
-import imgGigiBerlubang from '../../assets/image/Gigi-Berlubang.jpg';
-import imgAbsesGigi from '../../assets/image/Abses-Gigi.jpg';
-import imgGigiDepanPatah from '../../assets/image/Gigi-Depan-Patah.jpg';
 import imgKontrolPasca from '../../assets/image/Kontrol-Pasca-Perawatan.jpg';
 
 export const CONDITIONS = [
   {
     id: 1,
     title: "Gigi Berlubang Dalam",
-    image: "src/assets/image/Deep-Caries.jpg"
+    image: imgDeepCaries
   },
   {
     id: 2,
     title: "Radang Saraf Gigi",
-    image: "src/assets/image/Pulpitis-Irreversibel.png"
+    image: imgPulpitis
   },
   {
     id: 3,
     title: "Saaraf Gigi Mati",
-    image: "src/assets/image/Nekrosis-Pulpa.jpg"
+    image: imgNekrosisPulpa
   },
   {
     id: 4,
     title: "Gigi Retak",
-    image: "src/assets/image/Gigi-Retak.jpg"
+    image: imgGigiRetak
   },
   {
     id: 5,
     title: "Gigi Patah",
-    image: "src/assets/image/Gigi-Patah.jpg"
+    image: imgGigiPatah
   },
   {
     id: 6,
     title: "Perubahan Warna Gigi",
-    image: "src/assets/image/Perubahan-Warna-Gigi.jpg"
+    image: imgPerubahanWarnaGigi
   }
 ];
 
@@ -111,7 +115,7 @@ export default function DetailLayananRoot({ onNavigate, onSelectService }) {
       <section className="bg-[#e5ff8f] py-14 lg:py-18 text-center border-b border-[#adc91f]/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-semibold text-[#93ab19] mb-4 tracking-tight">
-            Perawatan Saluran Akar (Root Canal Treatment)
+            Perawatan Saluran Akar
           </h1>
           <p className="text-xs sm:text-sm md:text-[16px] text-[#333333]/90 leading-relaxed max-w-5xl mx-auto">
             Perawatan untuk menangani infeksi atau kerusakan pada jaringan pulpa gigi dengan tujuan mempertahankan gigi agar tetap dapat digunakan.
@@ -133,28 +137,26 @@ export default function DetailLayananRoot({ onNavigate, onSelectService }) {
           <div
             className={
               CONDITIONS.length < 5
-                ? `flex flex-wrap justify-center gap-4 sm:gap-6 mx-auto ${
-                    CONDITIONS.length === 3
-                      ? "max-w-4xl"
-                      : CONDITIONS.length === 4
-                      ? "max-w-5xl"
-                      : "max-w-4xl"
-                  }`
+                ? `flex flex-wrap justify-center gap-4 sm:gap-6 mx-auto ${CONDITIONS.length === 3
+                  ? "max-w-4xl"
+                  : CONDITIONS.length === 4
+                    ? "max-w-5xl"
+                    : "max-w-4xl"
+                }`
                 : "grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6"
             }
           >
             {CONDITIONS.map((item) => (
               <div
                 key={item.id}
-                className={`bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group ${
-                  CONDITIONS.length === 3
+                className={`bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group ${CONDITIONS.length === 3
                     ? "w-[calc(50%-8px)] sm:w-[calc(33.333%-16px)] max-w-[280px]"
                     : CONDITIONS.length === 4
-                    ? "w-[calc(50%-8px)] sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)] max-w-[280px]"
-                    : CONDITIONS.length < 5
-                    ? "w-[calc(50%-8px)] sm:w-60 md:w-64 max-w-[280px]"
-                    : "w-full"
-                }`}
+                      ? "w-[calc(50%-8px)] sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)] max-w-[280px]"
+                      : CONDITIONS.length < 5
+                        ? "w-[calc(50%-8px)] sm:w-60 md:w-64 max-w-[280px]"
+                        : "w-full"
+                  }`}
               >
                 <div className="h-32 sm:h-40 w-full overflow-hidden bg-slate-100 flex items-center justify-center text-center shrink-0">
                   <img

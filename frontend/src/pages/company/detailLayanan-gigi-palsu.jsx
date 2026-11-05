@@ -2,33 +2,34 @@ import { useState, useMemo } from 'react';
 import { SERVICES_PAGE_DATA } from './layanan';
 import TreatmentModal from '../../components/TreatmentModal';
 
+import imgKehilanganBeberapaGigi from '../../assets/image/Kehilangan-Beberapa-Gigi.jpg';
+import imgKehilanganSeluruhGigi from '../../assets/image/Kehilangan-Seluruh-Gigi.jpg';
+import imgGigiBerlubangParah from '../../assets/image/Gigi-Berlubang-Parah.jpg';
+import imgGigiTerkikis from '../../assets/image/Gigi-Terkikis.jpg';
+
 import imgGigiPalsu from '../../assets/image/Gigi-Palsu-dan-Crown.jpeg';
-import imgGigiBerlubang from '../../assets/image/Gigi-Berlubang.jpg';
-import imgGigiDepanPatah from '../../assets/image/Gigi-Depan-Patah.jpg';
-import imgGigiBerubahBentuk from '../../assets/image/Gigi-Berubah-Bentuk.jpg';
-import imgGigiRenggang from '../../assets/image/Gigi-Renggang.jpg';
 import imgKontrolPasca from '../../assets/image/Kontrol-Pasca-Perawatan.jpg';
 
 export const CONDITIONS = [
   {
     id: 1,
     title: "Kehilangan Beberapa Gigi",
-    image: 'src/assets/image/Kehilangan-Beberapa-GIgi.jpg'
+    image: imgKehilanganBeberapaGigi
   },
   {
     id: 2,
     title: "Kehilangan Seluruh Gigi",
-    image: "src/assets/image/Kehilangan-Seluruh-Gigi.jpg"
+    image: imgKehilanganSeluruhGigi
   },
   {
     id: 3,
     title: "Gigi Berlubang Parah",
-    image: "src/assets/image/Gigi-Berlubang-Parah.jpg"
+    image: imgGigiBerlubangParah
   },
   {
     id: 4,
     title: "Gigi Terkikis",
-    image: "src/assets/image/Gigi-Terkikis.jpg"
+    image: imgGigiTerkikis
   }
 ];
 
@@ -127,28 +128,26 @@ export default function DetailLayananGigiPalsu({ onNavigate, onSelectService }) 
           <div
             className={
               CONDITIONS.length < 5
-                ? `flex flex-wrap justify-center gap-4 sm:gap-6 mx-auto ${
-                    CONDITIONS.length === 3
-                      ? "max-w-4xl"
-                      : CONDITIONS.length === 4
-                      ? "max-w-5xl"
-                      : "max-w-4xl"
-                  }`
+                ? `flex flex-wrap justify-center gap-4 sm:gap-6 mx-auto ${CONDITIONS.length === 3
+                  ? "max-w-4xl"
+                  : CONDITIONS.length === 4
+                    ? "max-w-5xl"
+                    : "max-w-4xl"
+                }`
                 : "grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6"
             }
           >
             {CONDITIONS.map((item) => (
               <div
                 key={item.id}
-                className={`bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group ${
-                  CONDITIONS.length === 3
-                    ? "w-[calc(50%-8px)] sm:w-[calc(33.333%-16px)] max-w-[280px]"
-                    : CONDITIONS.length === 4
+                className={`bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group ${CONDITIONS.length === 3
+                  ? "w-[calc(50%-8px)] sm:w-[calc(33.333%-16px)] max-w-[280px]"
+                  : CONDITIONS.length === 4
                     ? "w-[calc(50%-8px)] sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)] max-w-[280px]"
                     : CONDITIONS.length < 5
-                    ? "w-[calc(50%-8px)] sm:w-60 md:w-64 max-w-[280px]"
-                    : "w-full"
-                }`}
+                      ? "w-[calc(50%-8px)] sm:w-60 md:w-64 max-w-[280px]"
+                      : "w-full"
+                  }`}
               >
                 <div className="h-32 sm:h-40 w-full overflow-hidden bg-slate-100 flex items-center justify-center text-center shrink-0">
                   <img

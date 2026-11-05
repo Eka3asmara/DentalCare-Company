@@ -2,8 +2,7 @@ import React from 'react';
 import { DOCTORS_DATA } from './dokter';
 import {
   ClockIcon,
-  AlertCircleIcon,
-  WhatsAppIcon
+  AlertCircleIcon
 } from '../../components/Icons';
 
 export default function DetailDokter({ doctorId = 'drg-indira', onNavigate }) {
@@ -60,98 +59,79 @@ export default function DetailDokter({ doctorId = 'drg-indira', onNavigate }) {
           <div className="lg:col-span-7 flex flex-col justify-start">
 
             {/* Category / Role Badge */}
-            <div className="inline-block border border-[#adc91f] text-[#7c9e10] bg-[#e5ff8f]/20 text-xs font-semibold px-4 py-1 rounded-full mb-3 self-start">
+            <div className="inline-block border border-[#adc91f] text-[#adc91f] bg-[#e5ff8f]/20 text-xs font-medium px-4 py-1 rounded-full mb-3 self-start">
               {doctor.role}
             </div>
 
             {/* Doctor Name */}
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#333333] mb-4 tracking-tight leading-snug">
+            <h1 className="text-2xl sm:text-3xl lg:text-3xl font-semibold text-[#333333] mb-4 tracking-tight leading-snug">
               {doctor.name}
             </h1>
 
             {/* Doctor Bio / Statement */}
-            <p className="text-xs sm:text-sm text-[#333333]/90 leading-relaxed mb-7 max-w-2xl">
+            <p className="text-xs sm:text-base text-[#333333]/90 leading-relaxed mb-7 max-w-2xl">
               {doctor.bio}
             </p>
 
-            {/* Jadwal Praktek Cabang 1 */}
-            <div className="mb-6">
-              <h3 className="text-base sm:text-lg font-bold text-[#49baff] mb-3">
-                Jadwal Praktek Cabang 1 (Petukangan Selatan)
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 max-w-xl">
-                {doctor.schedulesBranch1 && doctor.schedulesBranch1.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-white rounded-2xl p-4 border border-slate-200 card-shadow flex flex-col justify-between"
-                  >
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-bold text-sm text-[#333333]">
-                        {item.day}
-                      </span>
-                      <span className="bg-[#adc91f] text-white text-[11px] font-semibold px-2.5 py-0.5 rounded-full">
-                        {item.status}
-                      </span>
+            {/* Jadwal Praktek Cabang Garuda (Cabang 1) */}
+            {doctor.schedulesBranch1 && doctor.schedulesBranch1.length > 0 && (
+              <div className="mb-6">
+                <h3 className="text-base sm:text-lg font-semibold text-[#49baff] mb-3">
+                  Jadwal Praktik Cabang Garuda
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 max-w-xl">
+                  {doctor.schedulesBranch1.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="bg-[#ece8ff] rounded-2xl p-4 border border-[#0584bc] card-shadow flex flex-col justify-between"
+                    >
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="font-bold text-sm text-[#333333]">
+                          {item.day}
+                        </span>
+                        <span className="bg-[#adc91f] text-white text-[10px] font-base px-2.5 py-0.5 rounded-full">
+                          {item.status}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs sm:text-[13px] text-[#333333]">
+                        <ClockIcon className="w-4 h-4 text-[#333333] shrink-0" />
+                        <span>{item.time}</span>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2 text-xs sm:text-[13px] text-[#333333]">
-                      <ClockIcon className="w-4 h-4 text-[#333333] shrink-0" />
-                      <span>{item.time}</span>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
-            {/* Jadwal Praktek Cabang 2 */}
-            <div className="mb-4">
-              <h3 className="text-base sm:text-lg font-bold text-[#49baff] mb-3">
-                Jadwal Praktek Cabang 2 (Petukangan Utara)
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 max-w-xl">
-                {doctor.schedulesBranch2 && doctor.schedulesBranch2.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-white rounded-2xl p-4 border border-slate-200 card-shadow flex flex-col justify-between"
-                  >
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-bold text-sm text-[#333333]">
-                        {item.day}
-                      </span>
-                      <span className="bg-[#adc91f] text-white text-[11px] font-semibold px-2.5 py-0.5 rounded-full">
-                        {item.status}
-                      </span>
+            {/* Jadwal Praktek Cabang Muchtar Raya (Cabang 2) */}
+            {doctor.schedulesBranch2 && doctor.schedulesBranch2.length > 0 && (
+              <div className="mb-6">
+                <h3 className="text-base sm:text-lg font-semibold text-[#49baff] mb-3">
+                  Jadwal Praktik Cabang Muchtar Raya
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 max-w-xl">
+                  {doctor.schedulesBranch2.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="bg-[#ece8ff] rounded-2xl p-4 border border-[#0584bc] card-shadow flex flex-col justify-between"
+                    >
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="font-bold text-sm text-[#333333]">
+                          {item.day}
+                        </span>
+                        <span className="bg-[#adc91f] text-white text-[10px] font-base px-2.5 py-0.5 rounded-full">
+                          {item.status}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs sm:text-[13px] text-[#333333]">
+                        <ClockIcon className="w-4 h-4 text-[#333333] shrink-0" />
+                        <span>{item.time}</span>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2 text-xs sm:text-[13px] text-[#333333]">
-                      <ClockIcon className="w-4 h-4 text-[#333333] shrink-0" />
-                      <span>{item.time}</span>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-
-            {/* WhatsApp Booking Direct Buttons */}
-            <div className="mt-4 flex flex-wrap sm:flex-nowrap items-center gap-3 max-w-xl">
-              <a
-                href={`https://wa.me/628121915709?text=Halo%20Admin%20IN%20Dental%20Care%20Cabang%201,%20saya%20ingin%20jadwal%20konsultasi%20dengan%20${encodeURIComponent(doctor.name)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#31cc1e] hover:bg-[#2cb81b] text-white text-xs font-semibold rounded-xl shadow-sm transition-transform hover:-translate-y-0.5 text-center"
-              >
-                <WhatsAppIcon className="w-4 h-4" />
-                <span>Reservasi Cabang 1</span>
-              </a>
-
-              <a
-                href={`https://wa.me/628119339708?text=Halo%20Admin%20IN%20Dental%20Care%20Cabang%202,%20saya%20ingin%20jadwal%20konsultasi%20dengan%20${encodeURIComponent(doctor.name)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#31cc1e] hover:bg-[#2cb81b] text-white text-xs font-semibold rounded-xl shadow-sm transition-transform hover:-translate-y-0.5 text-center"
-              >
-                <WhatsAppIcon className="w-4 h-4" />
-                <span>Reservasi Cabang 2</span>
-              </a>
-            </div>
+            )}
 
           </div>
 
@@ -160,10 +140,10 @@ export default function DetailDokter({ doctorId = 'drg-indira', onNavigate }) {
         {/* ========================================================= */}
         {/* CATATAN PASIEN BOX (Sesuai Desain Figma)                  */}
         {/* ========================================================= */}
-        <div className="rounded-2xl border border-red-300 bg-[#fef2f2] p-4 sm:p-5 flex items-start gap-3 text-red-900 shadow-sm">
-          <AlertCircleIcon className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
-          <p className="text-xs sm:text-[13px] leading-relaxed text-[#333333]">
-            <span className="font-bold text-red-700">Catatan Pasien: </span>
+        <div className="rounded-2xl border-2 border-red-600 bg-[#fbb1b1] p-4 sm:p-5 flex items-start gap-3 text-red-900 shadow-sm">
+          <AlertCircleIcon className="w-5 h-5 text-red-800 shrink-0 mt-0.5" />
+          <p className="text-xs sm:text-[14px] leading-relaxed text-[#333333]">
+            <span className="font-bold text-red-800">Catatan Pasien: </span>
             Jam praktik dapat berubah jika dokter perlu menangani tindakan atau penanganan darurat gigi.
             Mohon hadir 15 menit sebelum jadwal reservasi Anda.
           </p>

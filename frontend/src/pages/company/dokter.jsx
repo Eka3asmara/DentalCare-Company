@@ -1,223 +1,102 @@
 import React from 'react';
 import { ArrowRightIcon } from '../../components/Icons';
 
+// Local Image Assets
+import imgIndira from '../../assets/image/dokter-indira-background.png';
+import imgMan from '../../assets/image/avatar-blank-man.jpg';
+import imgWoman from '../../assets/image/avatar-blank-woman.jpg';
+
 export const DOCTORS_DATA = [
   {
-    "id": "drg-indira",
-    "name": "drg. Indira Nugrahani",
-    "role": "Dokter Gigi Umum",
-    "image": "src/assets/image/dokter-indira-background.png",
-    "bio": "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
-    "schedulesBranch1": [
-      {
-        "day": "Rabu",
-        "time": "15.00 - 20.00",
-        "status": "Praktik"
-      },
-      {
-        "day": "Minggu",
-        "time": "09.00 - 20.00",
-        "status": "Praktik"
-      }
+    id: "drg-indira",
+    name: "drg. Indira Nugrahani",
+    role: "Dokter Gigi Umum",
+    image: imgIndira,
+    bio: "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
+    schedulesBranch1: [
+      { day: "Senin", time: "15.00 - 21.00", status: "Praktik" },
+      { day: "Selasa", time: "09.00 - 21.00", status: "Praktik" },
+      { day: "Kamis", time: "15.00 - 21.00", status: "Praktik" },
+      { day: "Jumat", time: "15.00 - 21.00", status: "Praktik" },
+      { day: "Sabtu", time: "09.00 - 21.00", status: "Praktik" }
     ],
-    "schedulesBranch2": [
-      {
-        "day": "Rabu",
-        "time": "15.00 - 20.00",
-        "status": "Praktik"
-      },
-      {
-        "day": "Minggu",
-        "time": "09.00 - 20.00",
-        "status": "Praktik"
-      }
+    schedulesBranch2: [
+      { day: "Rabu", time: "15.00 - 21.00", status: "Praktik" },
+      { day: "Minggu", time: "09.00 - 21.00", status: "Praktik" }
     ]
   },
   {
-    "id": "drg-adria",
-    "name": "drg. Adria Permana Putra, Sp.BM",
-    "role": "Dokter Gigi Spesialis Bedah Mulut",
-    "image": "src/assets/image/avatar-blank-man.jpg",
-    "bio": "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
-    "schedulesBranch1": [
-      {
-        "day": "Selasa",
-        "time": "16.00 - 20.00",
-        "status": "Praktik"
-      },
-      {
-        "day": "Kamis",
-        "time": "16.00 - 20.00",
-        "status": "Praktik"
-      }
+    id: "drg-mhay",
+    name: "drg. Mhay Chyntha Hariyana",
+    role: "Dokter Gigi Umum",
+    image: imgWoman,
+    bio: "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
+    schedulesBranch1: [
+      { day: "Senin", time: "09.00 - 15.00", status: "Praktik" },
+      { day: "Kamis", time: "09.00 - 15.00", status: "Praktik" }
     ],
-    "schedulesBranch2": [
-      {
-        "day": "Sabtu",
-        "time": "13.00 - 18.00",
-        "status": "Praktik"
-      },
-      {
-        "day": "Minggu",
-        "time": "13.00 - 17.00",
-        "status": "Praktik"
-      }
+    schedulesBranch2: [
+      { day: "Selasa", time: "09.00 - 21.00", status: "Praktik" },
+      { day: "Rabu", time: "09.00 - 15.00", status: "Praktik" }
     ]
   },
   {
-    "id": "drg-mhay",
-    "name": "drg. Mhay Chyntha Hariyana",
-    "role": "Dokter Gigi Umum",
-    "image": "src/assets/image/avatar-blank-woman.jpg",
-    "bio": "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
-    "schedulesBranch1": [
-      {
-        "day": "Senin",
-        "time": "13.00 - 19.00",
-        "status": "Praktik"
-      },
-      {
-        "day": "Kamis",
-        "time": "13.00 - 19.00",
-        "status": "Praktik"
-      }
+    id: "drg-larena",
+    name: "drg. Larena",
+    role: "Dokter Gigi Umum",
+    image: imgWoman,
+    bio: "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
+    schedulesBranch1: [
+      { day: "Jumat", time: "09.00 - 15.00", status: "Praktik" },
+      { day: "Minggu", time: "09.00 - 21.00", status: "Praktik" }
     ],
-    "schedulesBranch2": [
-      {
-        "day": "Rabu",
-        "time": "10.00 - 16.00",
-        "status": "Praktik"
-      },
-      {
-        "day": "Sabtu",
-        "time": "10.00 - 16.00",
-        "status": "Praktik"
-      }
+    schedulesBranch2: [
+      { day: "Sabtu", time: "09.00 - 15.00", status: "Praktik" }
     ]
   },
   {
-    "id": "drg-larena",
-    "name": "drg. Larena",
-    "role": "Dokter Gigi Umum",
-    "image": "src/assets/image/avatar-blank-woman.jpg",
-    "bio": "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
-    "schedulesBranch1": [
-      {
-        "day": "Selasa",
-        "time": "10.00 - 16.00",
-        "status": "Praktik"
-      },
-      {
-        "day": "Jumat",
-        "time": "10.00 - 16.00",
-        "status": "Praktik"
-      }
+    id: "drg-fara",
+    name: "drg. Fara",
+    role: "Dokter Gigi Umum",
+    image: imgWoman,
+    bio: "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
+    schedulesBranch1: [
+      { day: "Rabu", time: "09.00 - 21.00", status: "Praktik" }
     ],
-    "schedulesBranch2": [
-      {
-        "day": "Senin",
-        "time": "14.00 - 19.00",
-        "status": "Praktik"
-      },
-      {
-        "day": "Kamis",
-        "time": "14.00 - 19.00",
-        "status": "Praktik"
-      }
+    schedulesBranch2: []
+  },
+  {
+    id: "drg-sarah",
+    name: "drg. Sarah",
+    role: "Dokter Gigi Umum",
+    image: imgWoman,
+    bio: "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
+    schedulesBranch1: [],
+    schedulesBranch2: [
+      { day: "Senin", time: "09.00 - 15.00", status: "Praktik" },
+      { day: "Kamis", time: "09.00 - 21.00", status: "Praktik" }
     ]
   },
   {
-    "id": "drg-sherly",
-    "name": "drg. R. Sherly",
-    "role": "Dokter Gigi Umum",
-    "image": "src/assets/image/avatar-blank-woman.jpg",
-    "bio": "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
-    "schedulesBranch1": [
-      {
-        "day": "Rabu",
-        "time": "10.00 - 15.00",
-        "status": "Praktik"
-      },
-      {
-        "day": "Sabtu",
-        "time": "10.00 - 15.00",
-        "status": "Praktik"
-      }
-    ],
-    "schedulesBranch2": [
-      {
-        "day": "Selasa",
-        "time": "13.00 - 18.00",
-        "status": "Praktik"
-      },
-      {
-        "day": "Jumat",
-        "time": "13.00 - 18.00",
-        "status": "Praktik"
-      }
+    id: "drg-sherly",
+    name: "drg. Sherly",
+    role: "Dokter Gigi Umum",
+    image: imgWoman,
+    bio: "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
+    schedulesBranch1: [],
+    schedulesBranch2: [
+      { day: "Jumat", time: "09.00 - 21.00", status: "Praktik" },
+      { day: "Sabtu", time: "15.00 - 21.00", status: "Praktik" }
     ]
   },
   {
-    "id": "drg-fara",
-    "name": "drg. Fara",
-    "role": "Dokter Gigi Umum",
-    "image": "src/assets/image/avatar-blank-woman.jpg",
-    "bio": "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
-    "schedulesBranch1": [
-      {
-        "day": "Senin",
-        "time": "14.00 - 19.00",
-        "status": "Praktik"
-      },
-      {
-        "day": "Rabu",
-        "time": "14.00 - 19.00",
-        "status": "Praktik"
-      }
-    ],
-    "schedulesBranch2": [
-      {
-        "day": "Kamis",
-        "time": "11.00 - 17.00",
-        "status": "Praktik"
-      },
-      {
-        "day": "Sabtu",
-        "time": "11.00 - 17.00",
-        "status": "Praktik"
-      }
-    ]
-  },
-  {
-    "id": "drg-sarah",
-    "name": "drg. Sarah",
-    "role": "Dokter Gigi Umum",
-    "image": "src/assets/image/avatar-blank-woman.jpg",
-    "bio": "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
-    "schedulesBranch1": [
-      {
-        "day": "Kamis",
-        "time": "11.00 - 17.00",
-        "status": "Praktik"
-      },
-      {
-        "day": "Jumat",
-        "time": "11.00 - 17.00",
-        "status": "Praktik"
-      }
-    ],
-    "schedulesBranch2": [
-      {
-        "day": "Rabu",
-        "time": "10.00 - 16.00",
-        "status": "Praktik"
-      },
-      {
-        "day": "Minggu",
-        "time": "10.00 - 16.00",
-        "status": "Praktik"
-      }
-    ]
+    id: "drg-adria",
+    name: "drg. Adria Permana Putra, Sp.BM",
+    role: "Dokter Gigi Spesialis Bedah Mulut",
+    image: imgMan,
+    bio: "Dokter IN Dental Care berkomitmen memberikan pelayanan kesehatan gigi dan mulut yang profesional, ramah, dan berkualitas, dengan mengutamakan kenyamanan serta kebutuhan setiap pasien.",
+    schedulesBranch1: [],
+    schedulesBranch2: []
   }
 ];
 
@@ -230,7 +109,7 @@ export default function Dokter({ onSelectDoctor }) {
         {/* HEADER SECTION: Title & Description                       */}
         {/* ========================================================= */}
         <div className="text-center max-w-3xl mx-auto mb-14 lg:mb-16">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#49baff] tracking-tight mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#49baff] tracking-tight mb-4">
             Kenali Tim Dokter Kami
           </h1>
           <p className="text-sm sm:text-base text-[#333333]/85 leading-relaxed max-w-2xl mx-auto">
@@ -261,15 +140,15 @@ export default function Dokter({ onSelectDoctor }) {
               <div className="p-5 flex-1 flex flex-col justify-between">
                 <div>
                   {/* Role Badge with Lime Border per Figma */}
-                  <div className="inline-block border border-[#adc91f] text-[#7c9e10] bg-[#e5ff8f]/20 text-[11px] font-semibold px-3 py-0.5 rounded-full mb-3">
+                  <div className="inline-block border border-[#adc91f] text-[#adc91f] bg-[#e5ff8f]/20 text-[12px] font-medium px-3 py-0.5 rounded-full mb-3">
                     {`${doctor.role}`}
                   </div>
 
                   {/* Doctor Name */}
-                  <h3 className="text-base font-bold text-[#333333] mb-4 min-h-[44px] flex items-center leading-snug">
+                  <h3 className="text-lg font-medium text-[#333333] mb-4 min-h-[44px] flex items-center leading-snug">
                     {doctor.name}
                   </h3>
-                </div>wo
+                </div>
 
                 {/* Info Lengkap Button (Navigates to Detail Dokter) */}
                 <button
@@ -279,10 +158,10 @@ export default function Dokter({ onSelectDoctor }) {
                       onSelectDoctor(doctor.id);
                     }
                   }}
-                  className="w-full py-2.5 px-4 bg-[#49baff] hover:bg-[#98cfff] text-white text-xs font-semibold rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-sm cursor-pointer"
+                  className="w-full py-3.5 px-4 bg-[#49baff] hover:bg-[#98cfff] hover:text-[#49baff] text-white text-sm font-semibold rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-sm cursor-pointer"
                 >
                   <span>Info Lengkap</span>
-                  <ArrowRightIcon className="w-3.5 h-3.5" />
+                  <ArrowRightIcon className="w-5 h-5" />
                 </button>
               </div>
             </div>

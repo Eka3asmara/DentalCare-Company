@@ -465,7 +465,7 @@ export default function Beranda() {
                     rel="noopener noreferrer"
                     className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-5 py-4 bg-[#31cc1e] hover:bg-[#39e824] text-white text-xs sm:text-sm font-semibold rounded-xl shadow hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5 text-center cursor-pointer"
                   >
-                    <WhatsAppIcon className="w-4 h-4" />
+                    <WhatsAppIcon className="w-5 h-5" />
                     <span>Cabang 1</span>
                   </a>
 
@@ -475,7 +475,7 @@ export default function Beranda() {
                     rel="noopener noreferrer"
                     className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-5 py-4 bg-[#31cc1e] hover:bg-[#39e824] text-white text-xs sm:text-sm font-semibold rounded-xl shadow hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5 text-center cursor-pointer"
                   >
-                    <WhatsAppIcon className="w-4 h-4" />
+                    <WhatsAppIcon className="w-5 h-5" />
                     <span>Cabang 2</span>
                   </a>
                 </div>

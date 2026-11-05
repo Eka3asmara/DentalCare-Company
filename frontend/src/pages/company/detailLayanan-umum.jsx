@@ -168,9 +168,10 @@ export const TREATMENT_TYPES_MODAL_DATA = {
     image: imgGingivektomi,
     desc1: "Gingivektomi adalah tindakan bedah periodontal minor untuk memotong atau merapikan jaringan gusi yang mengalami pembesaran berlebihan (gingival hyperplasia).",
     desc2: "Membantu memperbaiki kontur gusi, mengatasi gummy smile, serta memudahkan akses pembersihan plak gigi.",
-    headers: ["Jenis Perawatan", "Cakupan", "Harga"],
+    headers: ["Jenis Perawatan", "Harga"],
     pricing: [
-      { name: "Gingivektomi", scope: "1 Rahang", price: "Rp2.500.000–Rp3.000.000" }
+      { name: "Pergigi", price: "Rp450.000-Rp500.000" },
+      { name: "1 Rahang", price: "Rp2.500.000–Rp3.000.000" }
     ]
   }
 };
@@ -240,12 +241,12 @@ export default function DetailLayananUmum({ onNavigate, onSelectService }) {
               <div
                 key={item.id}
                 className={`bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group ${CONDITIONS.length === 3
-                    ? "w-[calc(50%-8px)] sm:w-[calc(33.333%-16px)] max-w-[280px]"
-                    : CONDITIONS.length === 4
-                      ? "w-[calc(50%-8px)] sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)] max-w-[280px]"
-                      : CONDITIONS.length < 5
-                        ? "w-[calc(50%-8px)] sm:w-60 md:w-64 max-w-[280px]"
-                        : "w-full"
+                  ? "w-[calc(50%-8px)] sm:w-[calc(33.333%-16px)] max-w-[280px]"
+                  : CONDITIONS.length === 4
+                    ? "w-[calc(50%-8px)] sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)] max-w-[280px]"
+                    : CONDITIONS.length < 5
+                      ? "w-[calc(50%-8px)] sm:w-60 md:w-64 max-w-[280px]"
+                      : "w-full"
                   }`}
               >
                 <div className="h-32 sm:h-40 w-full overflow-hidden bg-slate-100 flex items-center justify-center text-center shrink-0">

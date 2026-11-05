@@ -5,73 +5,83 @@ import TreatmentModal from '../../components/TreatmentModal';
 export const CONDITIONS = [
   {
     "id": 1,
-    "title": "Karang Gigi Menumpuk",
-    "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80"
+    "title": "Karang Gigi",
+    "image": "src/assets/image/Karang-Gigi.jpg"
   },
   {
     "id": 2,
-    "title": "Gigi Berlubang (Karies)",
-    "image": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80"
+    "title": "PLak Gigi",
+    "image": "src/assets/image/Plak-Gigi.jpg"
   },
   {
     "id": 3,
-    "title": "Gusi Berdarah & Radang",
-    "image": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80"
+    "title": "Tooth Staining",
+    "image": "src/assets/image/Tooth-Staining.jpg"
   },
   {
     "id": 4,
-    "title": "Bau Mulut (Halitosis)",
-    "image": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80"
+    "title": "Gigi Berlubang",
+    "image": "src/assets/image/Gigi-Berlubang.jpg"
   },
   {
     "id": 5,
-    "title": "Gigi Ngilu / Sensitif",
-    "image": "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=600&q=80"
+    "title": "Gigi Depan Patah",
+    "image": "src/assets/image/Gigi-Depan-Patah.jpg"
   },
   {
     "id": 6,
-    "title": "Plak & Noda Rokok / Teh",
-    "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80"
+    "title": "Gigi Berubah Bentuk",
+    "image": "src/assets/image/Gigi-Berubah-Bentuk.jpg"
   },
   {
     "id": 7,
-    "title": "Tambalan Lama Rusak",
-    "image": "https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=600&q=80"
+    "title": "Pembesaran Gusi",
+    "image": "src/assets/image/Pembesaran-Gusi.jpg"
   },
   {
     "id": 8,
-    "title": "Pemeriksaan Rutin 6 Bulan",
-    "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80"
+    "title": "Gusi Tumbuh Berlebihan",
+    "image": "src/assets/image/Gusi-Tumbuh-Berlebihan.jpg"
   }
 ];
 
 export const TREATMENT_TYPES = [
   {
-    "id": "scaling-standard",
-    "title": "Scaling Gigi (Pembersihan Karang)",
-    "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80"
+    "id": "scaling",
+    "title": "Scaling Gigi",
+    "image": "src/assets/image/scalling-gigi2.jpg"
   },
   {
-    "id": "tambal-komposit",
-    "title": "Tambal Gigi Komposit Estetis",
-    "image": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80"
+    "id": "air-flow",
+    "title": "Air Flow",
+    "image": "src/assets/image/air-flow.jpg"
   },
   {
-    "id": "fluoride-therapy",
-    "title": "Aplikasi Topikal Fluoride",
-    "image": "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=600&q=80"
+    "id": "tambal-gigi",
+    "title": "Tambal Gigi",
+    "image": "src/assets/image/tambal-gigi.jpg"
   },
   {
-    "id": "polishing-stain",
-    "title": "Pembersihan Noda & Polishing",
-    "image": "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=600&q=80"
+    "id": "tambal-gigi-estetik",
+    "title": "Tambal Gigi Estetik",
+    "image": "src/assets/image/tambal-gigi-estetik.jpg"
+  },
+  {
+    "id": "abses-gigi-dan-gusi",
+    "title": "Abses Gigi dan Gusi",
+    "image": "src/assets/image/Abses-Gigi.jpg"
+  },
+  {
+    "id": "gingivektomi",
+    "title": "Gingivektomi",
+    "image": "src/assets/image/gingivektomi.jpg"
   }
 ];
 
 export const TREATMENT_TYPES_MODAL_DATA = {
-  "scaling-standard": {
-    "id": "scaling-standard",
-    "title": "Scaling Gigi (Pembersihan Karang)",
+  "scaling": {
+    "id": "scaling",
+    "title": "Scaling Gigi",
     "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=80",
     "desc1": "Scaling adalah prosedur pembersihan karang gigi dan plak yang mengeras di permukaan gigi maupun di bawah garis gusi menggunakan alat ultrasonik modern yang aman dan nyaman.",
     "desc2": "Membantu mencegah periodontitis dan menjaga napas tetap segar. Dianjurkan dilakukan setiap 6 bulan sekali.",
@@ -93,11 +103,11 @@ export const TREATMENT_TYPES_MODAL_DATA = {
       }
     ]
   },
-  "tambal-komposit": {
-    "id": "tambal-komposit",
-    "title": "Tambal Gigi Komposit Estetis",
+  "air-flow": {
+    "id": "air-flow",
+    "title": "Air Flow",
     "image": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1000&q=80",
-    "desc1": "Penambalan gigi menggunakan bahan resin komposit sewarna gigi asli yang dikeraskan dengan sinar laser khusus untuk menutup kavitas gigi berlubang.",
+    "desc1": "Air flow adalah teknik pembersihan karang gigi menggunakan semprotan bertekanan lembut berisi udara, air, dan bubuk pembersih halus (sodium bicarbonate).",
     "desc2": "Hasil tambalan sangat kuat, estetik, dan menyatu alami dengan gigi asli Anda.",
     "pricing": [
       {
@@ -117,28 +127,66 @@ export const TREATMENT_TYPES_MODAL_DATA = {
       }
     ]
   },
-  "fluoride-therapy": {
-    "id": "fluoride-therapy",
-    "title": "Aplikasi Topikal Fluoride",
+  "tambal-gigi": {
+    "id": "tambal-gigi",
+    "title": "Tambal Gigi",
     "image": "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=1000&q=80",
-    "desc1": "Pelapisan gel atau pernis fluoride berkonsentrasi tinggi pada permukaan gigi untuk memperkuat lapisan enamel dan mencegah gigi berlubang.",
+    "desc1": "Penambalan gigi menggunakan bahan resin komposit sewarna gigi asli yang dikeraskan dengan sinar laser khusus untuk menutup kavitas gigi berlubang.",
     "desc2": "Sangat baik untuk anak-anak maupun dewasa dengan risiko karies tinggi atau gigi sensitif.",
     "pricing": [
       {
-        "name": "Fluoride Varnish Anak",
+        "name": "Tambal Komposit Kecil",
         "origin": "IN Dental Care",
         "price": "Rp150.000"
       },
       {
-        "name": "Fluoride Varnish Dewasa",
+        "name": "Tambal Komposit Sedang",
         "origin": "IN Dental Care",
         "price": "Rp200.000"
       }
     ]
   },
-  "polishing-stain": {
-    "id": "polishing-stain",
+  "tambal-gigi-estetik": {
+    "id": "tambal-gigi-estetik",
     "title": "Pembersihan Noda & Polishing",
+    "image": "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=1000&q=80",
+    "desc1": "Pembersihan noda membandel akibat konsumsi kopi, teh, atau tembakau dengan teknik air-polishing bertekanan lembut.",
+    "desc2": "Menghasilkan permukaan gigi yang licin dan kilau alami yang bersih maksimal.",
+    "pricing": [
+      {
+        "name": "Stain Removal Paket Standard",
+        "origin": "IN Dental Care",
+        "price": "Rp200.000"
+      },
+      {
+        "name": "Air Flow Stain Removal",
+        "origin": "IN Dental Care",
+        "price": "Rp350.000"
+      }
+    ]
+  },
+  "abses-gigi-dan-gusi": {
+    "id": "abses-gigi-dan-gusi",
+    "title": "Abses Gigi dan Gusi",
+    "image": "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=1000&q=80",
+    "desc1": "Pembersihan noda membandel akibat konsumsi kopi, teh, atau tembakau dengan teknik air-polishing bertekanan lembut.",
+    "desc2": "Menghasilkan permukaan gigi yang licin dan kilau alami yang bersih maksimal.",
+    "pricing": [
+      {
+        "name": "Stain Removal Paket Standard",
+        "origin": "IN Dental Care",
+        "price": "Rp200.000"
+      },
+      {
+        "name": "Air Flow Stain Removal",
+        "origin": "IN Dental Care",
+        "price": "Rp350.000"
+      }
+    ]
+  },
+  "gingivektomi": {
+    "id": "gingivektomi",
+    "title": "Gingivektomi",
     "image": "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=1000&q=80",
     "desc1": "Pembersihan noda membandel akibat konsumsi kopi, teh, atau tembakau dengan teknik air-polishing bertekanan lembut.",
     "desc2": "Menghasilkan permukaan gigi yang licin dan kilau alami yang bersih maksimal.",
@@ -260,7 +308,7 @@ export default function DetailLayananUmum({ onNavigate }) {
             <div className="lg:col-span-5">
               <div className="rounded-3xl overflow-hidden card-shadow aspect-[4/3] bg-slate-100 border border-slate-100 flex items-center justify-center text-center">
                 <img
-                  src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=80"
+                  src="src/assets/image/scalling-gigi.jpg"
                   alt="Manfaat Perawatan Gigi Umum"
                   className="w-full h-full object-cover flex items-center justify-center text-center text-xs sm:text-sm text-gray-500 font-medium"
                 />
@@ -274,7 +322,7 @@ export default function DetailLayananUmum({ onNavigate }) {
               </h2>
 
               <div className="space-y-4">
-                {["Membersihkan karang gigi dan bakteri penyebab radang gusi.","Mencegah gigi berlubang bertambah parah hingga saraf.","Mengatasi bau mulut sehingga napas kembali segar dan percaya diri.","Mengembalikan fungsi kunyah yang nyaman tanpa rasa ngilu.","Deteksi dini penyakit gigi dan gusi sebelum membutuhkan biaya besar."].map((text, idx) => (
+                {["Membersihkan karang gigi dan bakteri penyebab radang gusi.", "Mencegah gigi berlubang bertambah parah hingga saraf.", "Mengatasi bau mulut sehingga napas kembali segar dan percaya diri.", "Mengembalikan fungsi kunyah yang nyaman tanpa rasa ngilu.", "Deteksi dini penyakit gigi dan gusi sebelum membutuhkan biaya besar."].map((text, idx) => (
                   <div key={idx} className="flex items-start gap-3.5">
                     <div className="w-6 h-6 rounded-full bg-[#84a116] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-sm">
                       {idx + 1}
@@ -342,7 +390,7 @@ export default function DetailLayananUmum({ onNavigate }) {
             <div className="lg:col-span-5">
               <div className="rounded-3xl overflow-hidden card-shadow aspect-[4/3] bg-slate-100 border border-slate-100">
                 <img
-                  src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=80"
+                  src="src/assets/image/Kontrol-Pasca-Perawatan.jpg"
                   alt="Tips Merawat Gigi"
                   className="w-full h-full object-cover"
                 />
@@ -359,7 +407,7 @@ export default function DetailLayananUmum({ onNavigate }) {
               </p>
 
               <div className="space-y-3.5 mb-7">
-                {["Sikat gigi minimal 2 kali sehari dengan pasta gigi berfluoride.","Gunakan benang gigi (dental floss) untuk membersihkan sela-sela gigi.","Kontrol rutin ke dokter gigi setiap 6 bulan sekali."].map((text, idx) => (
+                {["Sikat gigi minimal 2 kali sehari dengan pasta gigi berfluoride.", "Gunakan benang gigi (dental floss) untuk membersihkan sela-sela gigi.", "Kontrol rutin ke dokter gigi setiap 6 bulan sekali."].map((text, idx) => (
                   <div key={idx} className="flex items-start gap-3.5">
                     <div className="w-6 h-6 rounded-full bg-[#84a116] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-sm">
                       {idx + 1}

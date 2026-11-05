@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import { SERVICES_PAGE_DATA } from './layanan';
 import { ArrowRightIcon, WhatsAppIcon } from '../../components/Icons';
 import TreatmentModal from '../../components/TreatmentModal';
 
@@ -162,30 +163,15 @@ export const TREATMENT_TYPES_MODAL_DATA = {
   }
 };
 
-export const RECOMMENDATIONS = [
-  {
-    "id": "gigi-palsu-crown",
-    "title": "Gigi Palsu dan Crown",
-    "desc": "Perawatan gigi palsu dan crown membantu menggantikan gigi yang hilang atau memperbaiki gigi yang rusak.",
-    "image": "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=700&q=80"
-  },
-  {
-    "id": "gigi-umum",
-    "title": "Perawatan Gigi Umum",
-    "desc": "Perawatan untuk membersihkan gigi, mengatasi kerusakan, dan menjaga kesehatan serta estetika senyum Anda.",
-    "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=700&q=80"
-  },
-  {
-    "id": "implan-gigi",
-    "title": "Implan Gigi",
-    "desc": "Solusi permanen menggantikan gigi yang hilang menggunakan penyangga khusus.",
-    "image": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=700&q=80"
-  }
-];
 
-export default function DetailLayananRoot({ onNavigate }) {
+export default function DetailLayananRoot({ onNavigate, onSelectService }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [activeTreatment, setActiveTreatment] = useState(null);
+
+  const recommendedServices = useMemo(() => {
+    const others = SERVICES_PAGE_DATA.filter((s) => s.id !== 'saluran-akar');
+    return [...others].sort(() => 0.5 - Math.random()).slice(0, 3);
+  }, []);
 
   const handleOpenModal = (treatmentId) => {
     const data = TREATMENT_TYPES_MODAL_DATA[treatmentId];
@@ -208,10 +194,10 @@ export default function DetailLayananRoot({ onNavigate }) {
       {/* ========================================================= */}
       <section className="bg-[#e5ff8f] py-14 lg:py-18 text-center border-b border-[#adc91f]/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-[#7c9e10] mb-4 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-semibold text-[#93ab19] mb-4 tracking-tight">
             Perawatan Saluran Akar (PSA)
           </h1>
-          <p className="text-xs sm:text-sm md:text-[15px] text-[#333333]/90 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-xs sm:text-sm md:text-[16px] text-[#333333]/90 leading-relaxed max-w-5xl mx-auto">
             Solusi penyelamatan gigi yang mengalami infeksi atau kerusakan mendalam hingga jaringan saraf pulpa tanpa perlu dicabut. Prosedur ini menghentikan rasa nyeri berdenyut dan mempertahankan fungsi gigi asli Anda.
           </p>
         </div>
@@ -223,7 +209,7 @@ export default function DetailLayananRoot({ onNavigate }) {
       <section className="py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <h2 className="text-xl sm:text-2xl lg:text-[28px] font-bold text-[#49baff] text-center mb-10 max-w-3xl mx-auto leading-snug">
+          <h2 className="text-xl sm:text-2xl lg:text-[28px] font-semibold text-[#49baff] text-center mb-10 max-w-3xl mx-auto leading-snug">
             Kondisi Gigi Yang Membutuhkan Perawatan Saluran Akar
           </h2>
 
@@ -243,7 +229,7 @@ export default function DetailLayananRoot({ onNavigate }) {
                   />
                 </div>
                 <div className="p-3 sm:p-4 w-full">
-                  <h3 className="text-xs sm:text-sm font-bold text-[#49baff] truncate">
+                  <h3 className="text-xs sm:text-base font-semibold text-[#49baff] truncate">
                     {item.title}
                   </h3>
                 </div>
@@ -274,7 +260,7 @@ export default function DetailLayananRoot({ onNavigate }) {
 
             {/* Right: 5 Numbered Benefits */}
             <div className="lg:col-span-7 flex flex-col justify-center">
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#333333] mb-6">
+              <h2 className="text-2xl sm:text-2xl font-medium text-[#333333] mb-6">
                 Manfaat Perawatan Saluran Akar
               </h2>
 
@@ -302,7 +288,7 @@ export default function DetailLayananRoot({ onNavigate }) {
       <section className="py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <h2 className="text-xl sm:text-2xl lg:text-[28px] font-bold text-[#49baff] text-center mb-10 max-w-3xl mx-auto leading-snug">
+          <h2 className="text-xl sm:text-2xl lg:text-[28px] font-semibold text-[#49baff] text-center mb-10 max-w-3xl mx-auto leading-snug">
             Jenis Tindakan Perawatan Saluran Akar
           </h2>
 
@@ -325,7 +311,7 @@ export default function DetailLayananRoot({ onNavigate }) {
                   />
                 </div>
                 <div className="p-3 sm:p-4 w-full">
-                  <h3 className="text-xs sm:text-sm font-bold text-[#49baff] group-hover:text-[#2ca4ee] transition-colors">
+                  <h3 className="text-xs sm:text-base font-semibold text-[#49baff] group-hover:text-[#2ca4ee] transition-colors text-center">
                     {type.title}
                   </h3>
                 </div>
@@ -356,10 +342,10 @@ export default function DetailLayananRoot({ onNavigate }) {
 
             {/* Right: Info & 3 Points */}
             <div className="lg:col-span-7 flex flex-col justify-center">
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#333333] mb-3">
+              <h2 className="text-2xl sm:text-2xl font-medium text-[#333333] mb-3">
                 Perawatan Mahkota (Crown) Setelah PSA
               </h2>
-              <p className="text-xs sm:text-sm text-[#333333]/90 leading-relaxed mb-6">
+              <p className="text-xs sm:text-base text-[#333333]/90 leading-relaxed mb-6">
                 Gigi yang telah menjalani perawatan saluran akar kehilangan suplai nutrisi alami sehingga lebih rapuh. Sangat disarankan untuk memasang mahkota tiruan (dental crown) sebagai pelindung permanen.
               </p>
 
@@ -388,37 +374,43 @@ export default function DetailLayananRoot({ onNavigate }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#333333] mb-3">
+            <h2 className="text-2xl sm:text-2xl font-medium text-[#333333] mb-3">
               Rekomendasi Layanan Lainnya Untuk Anda
             </h2>
-            <p className="text-xs sm:text-sm text-[#333333]/85 leading-relaxed">
+            <p className="text-xs sm:text-base text-[#333333]/85 leading-relaxed">
               Temukan berbagai pilihan perawatan gigi lainnya yang sesuai dengan kebutuhan Anda untuk menjaga kesehatan gigi dan menciptakan senyum yang lebih percaya diri.
             </p>
           </div>
 
           {/* 3 Recommended Service Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7">
-            {RECOMMENDATIONS.map((rec) => (
+            {recommendedServices.map((rec) => (
               <div
                 key={rec.id}
                 className="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group cursor-pointer"
-                onClick={() => onNavigate && onNavigate('Layanan')}
+                onClick={() => {
+                  if (onSelectService) {
+                    onSelectService(rec.id);
+                  } else if (onNavigate) {
+                    onNavigate('Layanan');
+                  }
+                }}
               >
                 <div>
                   <div className="h-44 sm:h-48 w-full overflow-hidden bg-slate-100 flex items-center justify-center text-center">
                     <img
                       src={rec.image}
                       alt={rec.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 flex items-center justify-center text-center text-xs sm:text-sm text-gray-500 font-medium"
                       loading="lazy"
                     />
                   </div>
                   <div className="p-5">
-                    <h3 className="text-base font-bold text-[#49baff] mb-2 group-hover:text-[#2ca4ee] transition-colors">
+                    <h3 className="text-lg font-semibold text-[#49baff] mb-2 group-hover:text-[#2ca4ee] transition-colors">
                       {rec.title}
                     </h3>
-                    <p className="text-xs sm:text-[13px] text-[#333333]/90 leading-relaxed">
-                      {rec.desc}
+                    <p className="text-xs sm:text-[14px] text-[#333333]/90 leading-relaxed">
+                      {rec.description}
                     </p>
                   </div>
                 </div>

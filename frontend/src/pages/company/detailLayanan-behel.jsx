@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import { SERVICES_PAGE_DATA } from './layanan';
 import { ArrowRightIcon, WhatsAppIcon } from '../../components/Icons';
 import TreatmentModal from '../../components/TreatmentModal';
 
@@ -6,50 +7,42 @@ export const BEHEL_CONDITIONS = [
   {
     id: 1,
     title: "Gigi Berjejal",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80",
-    fallback: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=600&q=80"
+    image: "src/assets/image/gigi-berjenjal.jpg",
   },
   {
     id: 2,
     title: "Gigi Renggang",
-    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80",
-    fallback: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=600&q=80"
+    image: "src/assets/image/Gigi-Renggang.jpg",
   },
   {
     id: 3,
     title: "Overbite",
-    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80",
-    fallback: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=600&q=80"
+    image: "src/assets/image/Overbite.jpg",
   },
   {
     id: 4,
     title: "Gigi Tonggos",
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80",
-    fallback: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=600&q=80"
+    image: "src/assets/image/Gigi-Tonggos.jpg",
   },
   {
     id: 5,
     title: "Underbite",
-    image: "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=600&q=80",
-    fallback: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=600&q=80"
+    image: "src/assets/image/Gigi-Cakil.jpg",
   },
   {
     id: 6,
     title: "Gigitan Terbuka",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80",
-    fallback: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=600&q=80"
+    image: "src/assets/image/Gigitan-Terbuka.jpg",
   },
   {
     id: 7,
     title: "Gigitan Silang",
-    image: "https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=600&q=80",
-    fallback: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=600&q=80"
+    image: "src/assets/image/Gigitan-Silang.jpg",
   },
   {
     id: 8,
     title: "Ectopic/Impacted Teeth",
-    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80",
-    fallback: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80"
+    image: "src/assets/image/impaksigigi.jpg",
   }
 ];
 
@@ -57,22 +50,22 @@ export const BRACES_TYPES = [
   {
     id: "behel-konvensional",
     title: "Behel Konvensional",
-    image: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=600&q=80"
+    image: "src/assets/image/Behel-Konvesional.jpg"
   },
   {
     id: "behel-semi-konvensional",
     title: "Behel Semi Konvensional",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80"
+    image: "src/assets/image/fastbraces.jpg"
   },
   {
     id: "behel-self-ligating",
     title: "Behel Self-Ligating",
-    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80"
+    image: "src/assets/image/Behel-Self-Ligating.jpg"
   },
   {
     id: "invisible-braces",
     title: "Invisible Braces",
-    image: "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=600&q=80"
+    image: "src/assets/image/retainer.jpg"
   }
 ];
 
@@ -80,7 +73,7 @@ export const TREATMENT_TYPES_MODAL_DATA = {
   "behel-konvensional": {
     id: "behel-konvensional",
     title: "Behel Konvensional",
-    image: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=1000&q=80",
+    image: "src/assets/image/Behel-Konvesional.jpg",
     desc1: "Behel konvensional merupakan perawatan ortodonti yang menggunakan bracket dan kawat untuk membantu merapikan susunan gigi serta memperbaiki posisi gigitan secara bertahap. Perawatan ini bertujuan mendukung fungsi pengunyahan dan membantu menciptakan susunan gigi yang lebih teratur. Jenis behel yang digunakan akan disesuaikan dengan kondisi gigi dan kebutuhan perawatan pasien berdasarkan pemeriksaan dokter gigi.",
     desc2: "IN Dental Care menyediakan berbagai pilihan behel konvensional, yaitu Metal, Ceramic, Mini Diamond, dan Saphire, dengan pilihan produk Made in China dan Made in USA. Harga perawatan bervariasi mulai dari Rp1.900.000 hingga Rp8.500.000, bergantung pada jenis behel yang dipilih. Pasien dapat berkonsultasi dengan dokter gigi untuk mengetahui pilihan yang sesuai dengan kondisi gigi, kebutuhan perawatan, dan anggaran yang tersedia.",
     pricing: [
@@ -95,20 +88,17 @@ export const TREATMENT_TYPES_MODAL_DATA = {
   "behel-semi-konvensional": {
     id: "behel-semi-konvensional",
     title: "Behel Semi Konvensional",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1000&q=80",
+    image: "src/assets/image/fastbraces.jpg",
     desc1: "Behel semi konvensional merupakan kombinasi bracket estetis dengan fleksibilitas kawat yang nyaman untuk memberikan penampilan lebih natural selama masa perawatan. Bracket yang lebih tersamar membantu pasien tetap tampil percaya diri saat tersenyum maupun berbicara.",
     desc2: "IN Dental Care menyediakan pilihan behel semi konvensional berbahan komposit estetis dan keramik berkualitas tinggi (Made in China dan Made in USA) dengan biaya yang terjangkau dan hasil perataan gigi yang optimal.",
     pricing: [
       { name: "Composite Aesthetic", origin: "Made in China", price: "Rp2.800.000" },
-      { name: "Ceramic Translucent", origin: "Made in China", price: "Rp4.200.000" },
-      { name: "Semi Ceramic Pro", origin: "Made in USA", price: "Rp5.800.000" },
-      { name: "Sapphire Crystal Semi", origin: "Made in USA", price: "Rp7.500.000" }
     ]
   },
   "behel-self-ligating": {
     id: "behel-self-ligating",
     title: "Behel Self-Ligating",
-    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=80",
+    image: "src/assets/image/Behel-Self-Ligating.jpg",
     desc1: "Behel self-ligating menggunakan klip penutup khusus tanpa karet elastis, sehingga kawat dapat bergerak lebih leluasa dengan gesekan minimal. Hal ini meminimalkan rasa ngilu, mempercepat pergeseran gigi, dan memudahkan pembersihan plak gigi setiap hari.",
     desc2: "Tersedia pilihan Damon System orisinil Made in USA baik varian Metal maupun Clear (transparan). Frekuensi kontrol ke klinik juga menjadi lebih longgar sehingga sangat cocok untuk pasien dengan jadwal yang padat.",
     pricing: [
@@ -121,7 +111,7 @@ export const TREATMENT_TYPES_MODAL_DATA = {
   "invisible-braces": {
     id: "invisible-braces",
     title: "Invisible Braces",
-    image: "https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=1000&q=80",
+    image: "src/assets/image/retainer.jpg",
     desc1: "Invisible braces (Clear Aligner) merupakan metode perataan gigi modern menggunakan tray bening transparan yang nyaris tidak terlihat saat dipakai. Aligner dapat dilepas-pasang secara mandiri saat makan dan membersihkan gigi, memberikan higienitas maksimal.",
     desc2: "Didesain dengan bantuan simulasi perangkat lunak 3D canggih untuk memetakan pergerakan gigi secara presisi bertahap dari awal hingga posisi gigi ideal tercapai tanpa kawat logam.",
     pricing: [
@@ -132,30 +122,15 @@ export const TREATMENT_TYPES_MODAL_DATA = {
   }
 };
 
-export const RECOMMENDATIONS = [
-  {
-    id: "gigi-umum",
-    title: "Perawatan Gigi Umum",
-    desc: "Perawatan untuk membersihkan gigi, mengatasi kerusakan, dan menjaga kesehatan serta estetika senyum Anda.",
-    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=700&q=80"
-  },
-  {
-    id: "saluran-akar",
-    title: "Perawatan Saluran Akar",
-    desc: "Perawatan untuk mengatasi infeksi atau kerusakan pada bagian dalam gigi agar gigi tetap dapat dipertahankan.",
-    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=700&q=80"
-  },
-  {
-    id: "pencabutan-gigi",
-    title: "Pencabutan Gigi",
-    desc: "Tindakan pencabutan gigi dewasa, gigi susu, dan gigi bungsu sesuai kondisi serta kebutuhan pasien.",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=700&q=80"
-  }
-];
 
-export default function DetailLayanan({ onNavigate }) {
+export default function DetailLayanan({ onNavigate, onSelectService }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [activeTreatment, setActiveTreatment] = useState(null);
+
+  const recommendedServices = useMemo(() => {
+    const others = SERVICES_PAGE_DATA.filter((s) => s.id !== 'behel-gigi');
+    return [...others].sort(() => 0.5 - Math.random()).slice(0, 3);
+  }, []);
 
   const handleOpenModal = (treatmentId) => {
     const data = TREATMENT_TYPES_MODAL_DATA[treatmentId];
@@ -178,10 +153,10 @@ export default function DetailLayanan({ onNavigate }) {
       {/* ========================================================= */}
       <section className="bg-[#e5ff8f] py-14 lg:py-18 text-center border-b border-[#adc91f]/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-[#7c9e10] mb-4 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-semibold text-[#93ab19] mb-4 tracking-tight">
             Perawatan Behel Gigi
           </h1>
-          <p className="text-xs sm:text-sm md:text-[15px] text-[#333333]/90 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-xs sm:text-sm md:text-[16px] text-[#333333]/90 leading-relaxed max-w-5xl mx-auto">
             Perawatan behel membantu merapikan susunan gigi dan memperbaiki gigitan untuk senyum yang lebih rapi dan sehat.
             Tersedia behel konvensional, semi konvensional, self-ligating, dan invisible braces sesuai kebutuhan gigi Anda.
           </p>
@@ -194,7 +169,7 @@ export default function DetailLayanan({ onNavigate }) {
       <section className="py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <h2 className="text-xl sm:text-2xl lg:text-[28px] font-bold text-[#49baff] text-center mb-10 max-w-3xl mx-auto leading-snug">
+          <h2 className="text-xl sm:text-2xl lg:text-[28px] font-semibold text-[#49baff] text-center mb-10 max-w-3xl mx-auto leading-snug">
             Berikut Beberapa Kondisi Gigi Yang Umumnya Membutuhkan Perawatan Behel.
           </h2>
 
@@ -214,7 +189,7 @@ export default function DetailLayanan({ onNavigate }) {
                   />
                 </div>
                 <div className="p-3 sm:p-4 w-full">
-                  <h3 className="text-xs sm:text-sm font-bold text-[#49baff] truncate">
+                  <h3 className="text-xs sm:text-base font-semibold text-[#49baff] truncate">
                     {item.title}
                   </h3>
                 </div>
@@ -236,7 +211,7 @@ export default function DetailLayanan({ onNavigate }) {
             <div className="lg:col-span-5">
               <div className="rounded-3xl overflow-hidden card-shadow aspect-[4/3] bg-slate-100 border border-slate-100 flex items-center justify-center text-center">
                 <img
-                  src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=900&q=80"
+                  src="src/assets/image/Perawatan-Behel.png"
                   alt="Manfaat Perawatan Behel Gigi"
                   className="w-full h-full object-cover flex items-center justify-center text-center text-xs sm:text-sm text-gray-500 font-medium"
                 />
@@ -245,7 +220,7 @@ export default function DetailLayanan({ onNavigate }) {
 
             {/* Right: 5 Numbered Benefits */}
             <div className="lg:col-span-7 flex flex-col justify-center">
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#333333] mb-6">
+              <h2 className="text-2xl sm:text-2xl font-medium text-[#333333] mb-6">
                 Manfaat Behel Gigi
               </h2>
 
@@ -279,7 +254,7 @@ export default function DetailLayanan({ onNavigate }) {
       <section className="py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <h2 className="text-xl sm:text-2xl lg:text-[28px] font-bold text-[#49baff] text-center mb-10 max-w-3xl mx-auto leading-snug">
+          <h2 className="text-xl sm:text-2xl lg:text-[28px] font-semibold text-[#49baff] text-center mb-10 max-w-3xl mx-auto leading-snug">
             Temukan jenis behel yang sesuai dengan kebutuhan dan kondisi gigi Anda.
           </h2>
 
@@ -302,7 +277,7 @@ export default function DetailLayanan({ onNavigate }) {
                   />
                 </div>
                 <div className="p-3 sm:p-4 w-full">
-                  <h3 className="text-xs sm:text-sm font-bold text-[#49baff] group-hover:text-[#2ca4ee] transition-colors">
+                  <h3 className="text-xs sm:text-base font-semibold text-[#49baff] group-hover:text-[#2ca4ee] transition-colors text-center">
                     {type.title}
                   </h3>
                 </div>
@@ -324,7 +299,7 @@ export default function DetailLayanan({ onNavigate }) {
             <div className="lg:col-span-5">
               <div className="rounded-3xl overflow-hidden card-shadow aspect-[4/3] bg-slate-100 border border-slate-100">
                 <img
-                  src="https://images.unsplash.com/photo-1594824813583-4927b5874246?auto=format&fit=crop&w=900&q=80"
+                  src="src/assets/image/retainer.jpg"
                   alt="Perawatan Retainer Setelah Behel"
                   className="w-full h-full object-cover"
                 />
@@ -333,10 +308,10 @@ export default function DetailLayanan({ onNavigate }) {
 
             {/* Right: Retainer Info & 3 Points */}
             <div className="lg:col-span-7 flex flex-col justify-center">
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#333333] mb-3">
+              <h2 className="text-2xl sm:text-2xl font-medium text-[#333333] mb-3">
                 Perawatan Retainer Setelah Behel
               </h2>
-              <p className="text-xs sm:text-sm text-[#333333]/90 leading-relaxed mb-6">
+              <p className="text-xs sm:text-base text-[#333333]/90 leading-relaxed mb-6">
                 Setelah behel dilepas, penggunaan retainer menjadi tahap penting untuk mempertahankan posisi gigi agar tetap rapi
                 dan tidak kembali bergeser ke posisi semula. Retainer digunakan sesuai anjuran dokter gigi untuk menjaga
                 kestabilan hasil perawatan ortodonti.
@@ -371,37 +346,43 @@ export default function DetailLayanan({ onNavigate }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#333333] mb-3">
+            <h2 className="text-2xl sm:text-2xl font-medium text-[#333333] mb-3">
               Rekomendasi Layanan Lainnya Untuk Anda
             </h2>
-            <p className="text-xs sm:text-sm text-[#333333]/85 leading-relaxed">
+            <p className="text-xs sm:text-base text-[#333333]/85 leading-relaxed">
               Temukan berbagai pilihan perawatan gigi lainnya yang sesuai dengan kebutuhan Anda untuk menjaga kesehatan gigi dan menciptakan senyum yang lebih percaya diri.
             </p>
           </div>
 
           {/* 3 Recommended Service Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7">
-            {RECOMMENDATIONS.map((rec) => (
+            {recommendedServices.map((rec) => (
               <div
                 key={rec.id}
                 className="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group cursor-pointer"
-                onClick={() => onNavigate && onNavigate('Layanan')}
+                onClick={() => {
+                  if (onSelectService) {
+                    onSelectService(rec.id);
+                  } else if (onNavigate) {
+                    onNavigate('Layanan');
+                  }
+                }}
               >
                 <div>
                   <div className="h-44 sm:h-48 w-full overflow-hidden bg-slate-100 flex items-center justify-center text-center">
                     <img
                       src={rec.image}
                       alt={rec.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 flex items-center justify-center text-center text-xs sm:text-sm text-gray-500 font-medium"
                       loading="lazy"
                     />
                   </div>
                   <div className="p-5">
-                    <h3 className="text-base font-bold text-[#49baff] mb-2 group-hover:text-[#2ca4ee] transition-colors">
+                    <h3 className="text-lg font-semibold text-[#49baff] mb-2 group-hover:text-[#2ca4ee] transition-colors">
                       {rec.title}
                     </h3>
-                    <p className="text-xs sm:text-[13px] text-[#333333]/90 leading-relaxed">
-                      {rec.desc}
+                    <p className="text-xs sm:text-[14px] text-[#333333]/90 leading-relaxed">
+                      {rec.description}
                     </p>
                   </div>
                 </div>

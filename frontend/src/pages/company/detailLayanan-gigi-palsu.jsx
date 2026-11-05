@@ -12,43 +12,23 @@ import imgKontrolPasca from '../../assets/image/Kontrol-Pasca-Perawatan.jpg';
 export const CONDITIONS = [
   {
     id: 1,
-    title: "Satu Gigi Ompong / Hilang",
-    image: imgGigiRenggang
+    title: "Kehilangan Beberapa Gigi",
+    image: 'src/assets/image/Kehilangan-Beberapa-GIgi.jpg'
   },
   {
     id: 2,
-    title: "Banyak Gigi Ompong Sekaligus",
-    image: imgGigiPalsu
+    title: "Kehilangan Seluruh Gigi",
+    image: "src/assets/image/Kehilangan-Seluruh-Gigi.jpg"
   },
   {
     id: 3,
-    title: "Gigi Patah / Pecah Sebagian",
-    image: imgGigiDepanPatah
+    title: "Gigi Berlubang Parah",
+    image: "src/assets/image/Gigi-Berlubang-Parah.jpg"
   },
   {
     id: 4,
-    title: "Gigi Pasca Perawatan Saluran Akar",
-    image: imgGigiBerlubang
-  },
-  {
-    id: 5,
-    title: "Sulit Mengunyah Makanan",
-    image: imgGigiPalsu
-  },
-  {
-    id: 6,
-    title: "Pipi Kempot Akibat Gigi Hilang",
-    image: imgGigiPalsu
-  },
-  {
-    id: 7,
-    title: "Gigi Tetangga Bergeser Miring",
-    image: imgGigiBerubahBentuk
-  },
-  {
-    id: 8,
-    title: "Pelindung Gigi Aus (Bruxism)",
-    image: imgGigiBerubahBentuk
+    title: "Gigi Terkikis",
+    image: "src/assets/image/Gigi-Terkikis.jpg"
   }
 ];
 
@@ -144,13 +124,33 @@ export default function DetailLayananGigiPalsu({ onNavigate, onSelectService }) 
           </h2>
 
           {/* 8 Grid Cards (4 Kolom di Desktop, 2 Baris) */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          <div
+            className={
+              CONDITIONS.length < 5
+                ? `flex flex-wrap justify-center gap-4 sm:gap-6 mx-auto ${
+                    CONDITIONS.length === 3
+                      ? "max-w-4xl"
+                      : CONDITIONS.length === 4
+                      ? "max-w-5xl"
+                      : "max-w-4xl"
+                  }`
+                : "grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6"
+            }
+          >
             {CONDITIONS.map((item) => (
               <div
                 key={item.id}
-                className="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group"
+                className={`bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group ${
+                  CONDITIONS.length === 3
+                    ? "w-[calc(50%-8px)] sm:w-[calc(33.333%-16px)] max-w-[280px]"
+                    : CONDITIONS.length === 4
+                    ? "w-[calc(50%-8px)] sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)] max-w-[280px]"
+                    : CONDITIONS.length < 5
+                    ? "w-[calc(50%-8px)] sm:w-60 md:w-64 max-w-[280px]"
+                    : "w-full"
+                }`}
               >
-                <div className="h-32 sm:h-40 w-full overflow-hidden bg-slate-100 flex items-center justify-center text-center">
+                <div className="h-32 sm:h-40 w-full overflow-hidden bg-slate-100 flex items-center justify-center text-center shrink-0">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -158,8 +158,8 @@ export default function DetailLayananGigiPalsu({ onNavigate, onSelectService }) 
                     loading="lazy"
                   />
                 </div>
-                <div className="p-3 sm:p-4 w-full">
-                  <h3 className="text-xs sm:text-base font-semibold text-[#49baff] truncate">
+                <div className="p-3 sm:p-4 w-full flex-1 flex items-center justify-center min-h-[56px] sm:min-h-[64px]">
+                  <h3 className="text-xs sm:text-base font-semibold text-[#49baff] leading-snug break-words text-center">
                     {item.title}
                   </h3>
                 </div>

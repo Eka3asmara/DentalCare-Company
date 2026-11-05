@@ -109,7 +109,7 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
           {/* Title */}
           <h2
             id="modal-treatment-title"
-            className="text-2xl sm:text-3xl font-bold text-[#49baff] mb-4 tracking-tight"
+            className="text-2xl sm:text-3xl font-semibold text-[#49baff] mb-4 tracking-tight"
           >
             {treatment.title}
           </h2>
@@ -129,7 +129,7 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
           )}
 
           {/* Subtitle: Daftar Jenis dan Harga */}
-          <h3 className="text-lg sm:text-xl font-bold text-[#49baff] mb-4">
+          <h3 className="text-lg sm:text-xl font-semibold text-[#49baff] mb-4">
             Daftar Jenis dan Harga
           </h3>
 
@@ -206,19 +206,6 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
               <span>{treatment.note}</span>
             </div>
           )}
-
-          {/* WhatsApp Action Button */}
-          <div className="mt-6">
-            <a
-              href="https://wa.me/6281234567890?text=Halo%20IN%20Dental%20Care,%20saya%20ingin%20konsultasi%20mengenai%20layanan"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full py-3.5 px-4 bg-[#49baff] hover:bg-[#3ca3e5] text-white font-semibold text-xs sm:text-sm rounded-xl flex items-center justify-center gap-2 transition-all shadow-sm active:scale-98"
-            >
-              <WhatsAppIcon className="w-4 h-4 text-white" />
-              <span>Konsultasi & Reservasi Jadwal</span>
-            </a>
-          </div>
 
         </div>
       </div>

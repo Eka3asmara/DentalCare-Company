@@ -58,7 +58,7 @@ export const TREATMENT_TYPES_MODAL_DATA = {
   "veneer-gigi": {
     id: "veneer-gigi",
     title: "Veneer Gigi",
-    image: imgEstetik,
+    image: imgEstetikVeneer,
     desc1: "Veneer gigi adalah lapisan tipis khusus yang direkatkan pada permukaan depan gigi guna memperbaiki bentuk, warna, ukuran, atau celah antar gigi yang tidak simetris.",
     desc2: "Tersedia pilihan Temporary Veneer sementara, Direct Veneer berbahan Composite praktis, serta Indirect Veneer Porcelain berkualitas prima yang berkilau alami dan tahan lama.",
     headers: ["Jenis Veneer", "Bahan / Keterangan", "Harga"],
@@ -75,7 +75,13 @@ export default function DetailLayananEstetikGigi({ onNavigate, onSelectService }
   const [activeTreatment, setActiveTreatment] = useState(null);
 
   const recommendedServices = useMemo(() => {
-    return SERVICES_PAGE_DATA.filter((s) => s.id !== 'estetik-gigi').slice(0, 3);
+    const remaining = SERVICES_PAGE_DATA.filter((s) => s.id !== 'estetik-gigi');
+    const shuffled = [...remaining];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled.slice(0, 3);
   }, []);
 
   const handleOpenModal = (treatmentId) => {

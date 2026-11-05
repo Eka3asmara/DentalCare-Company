@@ -75,8 +75,8 @@ export const TREATMENT_TYPES_MODAL_DATA = {
   },
   "retreatment": {
     id: "retreatment",
-    title: "Retreatment (Perawatan Saluran Akar Ulang)",
-    image: imgRootCanal,
+    title: "Retreatment",
+    image: imgRetreatment,
     desc1: "Retreatment merupakan tindakan perawatan saluran akar ulang yang dilakukan pada gigi yang pernah menjalani PSA namun mengalami infeksi kembali atau timbul keluhan baru.",
     desc2: "Tindakan mencakup pelepasan restorasi serta pengisian lama, sterilisasi menyeluruh seluruh saluran akar, dan pengisian kembali secara optimal untuk mencegah ekstraksi.",
     headers: ["Jenis Perawatan", "Harga"],
@@ -91,7 +91,13 @@ export default function DetailLayananRoot({ onNavigate, onSelectService }) {
   const [activeTreatment, setActiveTreatment] = useState(null);
 
   const recommendedServices = useMemo(() => {
-    return SERVICES_PAGE_DATA.filter((s) => s.id !== 'saluran-akar').slice(0, 3);
+    const remaining = SERVICES_PAGE_DATA.filter((s) => s.id !== 'saluran-akar');
+    const shuffled = [...remaining];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled.slice(0, 3);
   }, []);
 
   const handleOpenModal = (treatmentId) => {
@@ -151,12 +157,12 @@ export default function DetailLayananRoot({ onNavigate, onSelectService }) {
               <div
                 key={item.id}
                 className={`bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group ${CONDITIONS.length === 3
-                    ? "w-[calc(50%-8px)] sm:w-[calc(33.333%-16px)] max-w-[280px]"
-                    : CONDITIONS.length === 4
-                      ? "w-[calc(50%-8px)] sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)] max-w-[280px]"
-                      : CONDITIONS.length < 5
-                        ? "w-[calc(50%-8px)] sm:w-60 md:w-64 max-w-[280px]"
-                        : "w-full"
+                  ? "w-[calc(50%-8px)] sm:w-[calc(33.333%-16px)] max-w-[280px]"
+                  : CONDITIONS.length === 4
+                    ? "w-[calc(50%-8px)] sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)] max-w-[280px]"
+                    : CONDITIONS.length < 5
+                      ? "w-[calc(50%-8px)] sm:w-60 md:w-64 max-w-[280px]"
+                      : "w-full"
                   }`}
               >
                 <div className="h-32 sm:h-40 w-full overflow-hidden bg-slate-100 flex items-center justify-center text-center shrink-0">

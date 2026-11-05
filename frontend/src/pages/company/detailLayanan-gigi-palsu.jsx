@@ -65,7 +65,7 @@ export const TREATMENT_TYPES_MODAL_DATA = {
   "crown-gigi": {
     id: "crown-gigi",
     title: "Crown Gigi",
-    image: imgGigiPalsu,
+    image: imgGigiPalsuCrown,
     desc1: "Crown gigi (mahkota tiruan) adalah selubung pelindung yang dipasang menutupi seluruh permukaan gigi yang rusak parah atau rapuh setelah perawatan saluran akar.",
     desc2: "Mengembalikan bentuk, ukuran, kekuatan, serta estetika gigi asli dengan berbagai pilihan bahan unggulan seperti PFM, Porcelain / E-max, dan Zirconia / PFZ.",
     headers: ["Jenis Crown", "Bahan", "Harga"],
@@ -82,7 +82,13 @@ export default function DetailLayananGigiPalsu({ onNavigate, onSelectService }) 
   const [activeTreatment, setActiveTreatment] = useState(null);
 
   const recommendedServices = useMemo(() => {
-    return SERVICES_PAGE_DATA.filter((s) => s.id !== 'gigi-palsu-crown').slice(0, 3);
+    const remaining = SERVICES_PAGE_DATA.filter((s) => s.id !== 'gigi-palsu-crown');
+    const shuffled = [...remaining];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled.slice(0, 3);
   }, []);
 
   const handleOpenModal = (treatmentId) => {

@@ -146,7 +146,13 @@ export default function DetailLayananBehel({ onNavigate, onSelectService }) {
   const [activeTreatment, setActiveTreatment] = useState(null);
 
   const recommendedServices = useMemo(() => {
-    return SERVICES_PAGE_DATA.filter((s) => s.id !== 'behel-gigi').slice(0, 3);
+    const remaining = SERVICES_PAGE_DATA.filter((s) => s.id !== 'behel-gigi');
+    const shuffled = [...remaining];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled.slice(0, 3);
   }, []);
 
   const handleOpenModal = (treatmentId) => {

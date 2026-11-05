@@ -75,7 +75,7 @@ export const TREATMENT_TYPES_MODAL_DATA = {
   "cabut-susu": {
     id: "cabut-susu",
     title: "Cabut Gigi Susu",
-    image: imgCabutGigi,
+    image: imgCabutGigiSusu,
     desc1: "Pencabutan gigi susu pada anak-anak dilakukan untuk membantu pergantian gigi alami agar gigi permanen pengganti dapat tumbuh lurus dan rapi.",
     desc2: "Diterapkan pendekatan ramah anak dengan pilihan anestesi topikal atau lokal untuk pengalaman perawatan yang tenang dan menyenangkan bagi si kecil.",
     headers: ["Jenis Pencabutan", "Harga"],
@@ -86,7 +86,7 @@ export const TREATMENT_TYPES_MODAL_DATA = {
   },
   "odontectomy": {
     id: "odontectomy",
-    title: "Pencabutan Gigi Bungsu (Odontectomy)",
+    title: "Cabut Gigi Bungsu",
     image: imgImpaksiGigi,
     desc1: "Odontectomy adalah prosedur bedah minor untuk mencabut gigi geraham ketiga (gigi bungsu) yang mengalami impaksi, tumbuh miring, atau terpendam sebagian dalam gusi/tulang rahang.",
     desc2: "Tindakan ini menghilangkan rasa sakit berulang, mencegah peradangan jaringan sekitar, dan melindungi susunan gigi lainnya dari dorongan tidak teratur.",
@@ -103,7 +103,13 @@ export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) 
   const [activeTreatment, setActiveTreatment] = useState(null);
 
   const recommendedServices = useMemo(() => {
-    return SERVICES_PAGE_DATA.filter((s) => s.id !== 'pencabutan-gigi').slice(0, 3);
+    const remaining = SERVICES_PAGE_DATA.filter((s) => s.id !== 'pencabutan-gigi');
+    const shuffled = [...remaining];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled.slice(0, 3);
   }, []);
 
   const handleOpenModal = (treatmentId) => {
@@ -163,12 +169,12 @@ export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) 
               <div
                 key={item.id}
                 className={`bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group ${CONDITIONS.length === 3
-                    ? "w-[calc(50%-8px)] sm:w-[calc(33.333%-16px)] max-w-[280px]"
-                    : CONDITIONS.length === 4
-                      ? "w-[calc(50%-8px)] sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)] max-w-[280px]"
-                      : CONDITIONS.length < 5
-                        ? "w-[calc(50%-8px)] sm:w-60 md:w-64 max-w-[280px]"
-                        : "w-full"
+                  ? "w-[calc(50%-8px)] sm:w-[calc(33.333%-16px)] max-w-[280px]"
+                  : CONDITIONS.length === 4
+                    ? "w-[calc(50%-8px)] sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)] max-w-[280px]"
+                    : CONDITIONS.length < 5
+                      ? "w-[calc(50%-8px)] sm:w-60 md:w-64 max-w-[280px]"
+                      : "w-full"
                   }`}
               >
                 <div className="h-32 sm:h-40 w-full overflow-hidden bg-slate-100 flex items-center justify-center text-center shrink-0">

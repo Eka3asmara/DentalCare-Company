@@ -72,39 +72,42 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
       aria-modal="true"
       aria-labelledby="modal-treatment-title"
     >
-      {/* Modal Container */}
+      {/* Modal Container — flex column, no overflow on outer shell */}
       <div
-        className="relative bg-white rounded-3xl max-w-2xl w-full max-h-[92vh] overflow-y-auto shadow-2xl transition-all transform scale-100 animate-scaleUp"
+        className="relative bg-white rounded-3xl max-w-2xl w-full max-h-[92vh] flex flex-col shadow-2xl transition-all transform scale-100 animate-scaleUp"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Floating Close Button (Top-Right over Header Image) */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 z-20 w-9 h-9 sm:w-10 sm:h-10 bg-white rounded-full flex items-center justify-center text-gray-700 shadow-lg hover:bg-gray-100 hover:scale-105 active:scale-95 transition-all cursor-pointer"
-          aria-label="Tutup Popup"
-        >
-          <svg
-            className="w-4 h-4 sm:w-5 sm:h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            strokeWidth="2.5"
+        {/* Non-scrolling header: close button + hero image */}
+        <div className="relative shrink-0">
+          {/* Floating Close Button — always visible, never scrolls */}
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 z-20 w-9 h-9 sm:w-10 sm:h-10 bg-white rounded-full flex items-center justify-center text-gray-700 shadow-lg hover:bg-gray-100 hover:scale-105 active:scale-95 transition-all cursor-pointer"
+            aria-label="Tutup Popup"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+            <svg
+              className="w-4 h-4 sm:w-5 sm:h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth="2.5"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
 
-        {/* 1. Header Image */}
-        <div className="w-full h-52 sm:h-64 md:h-72 overflow-hidden bg-slate-100 relative flex items-center justify-center text-center">
-          <img
-            src={treatment.image}
-            alt={treatment.title}
-            className="w-full h-full object-cover object-center flex items-center justify-center text-center text-xs sm:text-sm text-gray-500 font-medium"
-          />
+          {/* 1. Header Image */}
+          <div className="w-full h-52 sm:h-64 md:h-72 overflow-hidden bg-slate-100 rounded-t-3xl flex items-center justify-center text-center">
+            <img
+              src={treatment.image}
+              alt={treatment.title}
+              className="w-full h-full object-cover object-center text-xs sm:text-sm text-gray-500 font-medium"
+            />
+          </div>
         </div>
 
-        {/* 2. Modal Body Content */}
-        <div className="p-6 sm:p-8">
+        {/* 2. Scrollable Modal Body Content — only this area scrolls */}
+        <div className="overflow-y-auto flex-1 p-6 sm:p-8">
 
           {/* Title */}
           <h2

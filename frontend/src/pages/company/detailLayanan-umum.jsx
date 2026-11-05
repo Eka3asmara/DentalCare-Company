@@ -181,7 +181,13 @@ export default function DetailLayananUmum({ onNavigate, onSelectService }) {
   const [activeTreatment, setActiveTreatment] = useState(null);
 
   const recommendedServices = useMemo(() => {
-    return SERVICES_PAGE_DATA.filter((s) => s.id !== 'gigi-umum').slice(0, 3);
+    const remaining = SERVICES_PAGE_DATA.filter((s) => s.id !== 'gigi-umum');
+    const shuffled = [...remaining];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled.slice(0, 3);
   }, []);
 
   const handleOpenModal = (treatmentId) => {
@@ -327,7 +333,7 @@ export default function DetailLayananUmum({ onNavigate, onSelectService }) {
           </h2>
 
           {/* 6 Cards Grid (3 Kolom di Desktop) — klik untuk buka popup rincian & harga */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             {TREATMENT_TYPES.map((type) => (
               <button
                 key={type.id}

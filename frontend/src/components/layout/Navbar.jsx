@@ -1,8 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import logoKlinik from '../../assets/image/logo-indentalcare.png';
 
 export default function Navbar({ activePage = 'Beranda', onNavigate }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+  const buttonRef = useRef(null);
+
+  // Menutup menu mobile saat user klik di mana saja di luar menu, saat scroll, atau menekan Escape
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const handleClickOutside = (event) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target)
+      ) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    const handleScroll = () => {
+      setMobileMenuOpen(false);
+    };
+
+    document.addEventListener('pointerdown', handleClickOutside);
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      document.removeEventListener('pointerdown', handleClickOutside);
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [mobileMenuOpen]);
 
   const navItems = [
     { label: 'Beranda', id: 'beranda' },
@@ -45,7 +83,7 @@ export default function Navbar({ activePage = 'Beranda', onNavigate }) {
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-[#ffffff] backdrop-blur-md border-b border-slate-100 transition-all">
+    <header className="sticky top-0 z-40 bg-[#ffffff] backdrop-blur-md border-b border-slate-100 transition-all relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
         {/* Brand Logo */}
         <div
@@ -93,6 +131,7 @@ export default function Navbar({ activePage = 'Beranda', onNavigate }) {
         {/* Mobile Hamburger Button */}
         <div className="md:hidden flex items-center">
           <button
+            ref={buttonRef}
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 rounded-xl text-gray-600 hover:text-[#49baff] hover:bg-slate-50 focus:outline-none transition-colors"
@@ -111,25 +150,38 @@ export default function Navbar({ activePage = 'Beranda', onNavigate }) {
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer Menu (Overlays page content without pushing it down) */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#ffffff] backdrop-blur-md border-b border-gray-200 px-4 pt-2 pb-5 space-y-1.5 shadow-lg animate-fadeIn">
-          {navItems.map((item) => {
-            const isActive = activePage.toLowerCase() === item.label.toLowerCase();
-            return (
-              <button
-                key={item.label}
-                onClick={() => handleNavClick(item)}
-                className={`block w-full text-left px-4 py-2.5 rounded-xl text-sm sm:text-base font-medium transition-colors ${isActive
-                  ? 'bg-[#49baff]/10 text-[#49baff] font-semibold'
-                  : 'text-[#333333] hover:bg-gray-50 hover:text-[#49baff]'
-                  }`}
-              >
-                {item.label}
-              </button>
-            );
-          })}
-        </div>
+        <>
+          {/* Backdrop overlay di bawah menu untuk menutup saat diklik di luar */}
+          <div
+            className="fixed inset-0 top-16 sm:top-20 z-40 bg-black/25 backdrop-blur-xs md:hidden animate-fadeIn cursor-pointer"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
+
+          {/* Floating Dropdown Menu */}
+          <div
+            ref={menuRef}
+            className="absolute top-full left-0 right-0 z-50 md:hidden bg-white/95 backdrop-blur-md border-b border-slate-200/80 px-4 pt-2 pb-5 space-y-1.5 shadow-xl animate-fadeIn"
+          >
+            {navItems.map((item) => {
+              const isActive = activePage.toLowerCase() === item.label.toLowerCase();
+              return (
+                <button
+                  key={item.label}
+                  onClick={() => handleNavClick(item)}
+                  className={`block w-full text-left px-4 py-2.5 rounded-xl text-sm sm:text-base font-medium transition-colors ${isActive
+                    ? 'bg-[#49baff]/10 text-[#49baff] font-semibold'
+                    : 'text-[#333333] hover:bg-gray-50 hover:text-[#49baff]'
+                    }`}
+                >
+                  {item.label}
+                </button>
+              );
+            })}
+          </div>
+        </>
       )}
     </header>
   );

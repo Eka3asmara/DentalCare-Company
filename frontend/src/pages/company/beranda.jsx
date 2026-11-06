@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import {
   ArrowRightIcon,
   CheckCircleIcon,
@@ -167,26 +167,33 @@ export const TESTIMONIALS_DATA = [
 ];
 
 const CABANG_1 = {
-  label: "Cabang 1",
+  label: "Cabang Garuda",
   address: "Jl. Garuda No.21, RT.8/RW.1, Petukangan Sel, Kec. Pesanggrahan, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12270",
-  waUrl: "https://wa.me/628121915709?text=Halo%20Admin%20IN%20Dental%20Care%20Cabang%201,%20saya%20ingin%20konsultasi%20jadwal%20perawatan"
+  waUrl: "https://wa.me/628121915700?text=Halo%20Admin%20In%20Dental%20Care%20Cabang%20Garuda%0A%0ASaya%20ingin%20membuat%20janji%20konsultasi%20atau%20perawatan%20gigi.%20mohon%20informasi%20jadwal%20dokter%20yang%20tersedia.%20Terima%20Kasih"
 };
 
 const CABANG_2 = {
-  label: "Cabang 2",
+  label: "Cabang Muchtar",
   address: "Jl. H. Muchtar Raya No.9D, RT.1/RW.01, Petukangan Utara, JAKARTA, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12260",
-  waUrl: "https://wa.me/628119339708?text=Halo%20Admin%20IN%20Dental%20Care%20Cabang%202,%20saya%20ingin%20konsultasi%20jadwal%20perawatan"
+  waUrl: "https://wa.me/628119239700?text=Halo%20Admin%20In%20Dental%20Care%20Cabang%20Muchtar%20Raya%0A%0ASaya%20ingin%20membuat%20janji%20konsultasi%20atau%20perawatan%20gigi.%20mohon%20informasi%20jadwal%20dokter%20yang%20tersedia.%20Terima%20Kasih"
 };
 
-export default function Beranda() {
+export default function Beranda({ onNavigate, onSelectService }) {
   const [allServicesOpen, setAllServicesOpen] = useState(false);
 
-  // Smooth scroll to contact
-  const handleContactClick = () => {
-    const el = document.getElementById('kontak');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+  // Navigate to Profil page
+  const handleLihatSelengkapnya = () => {
+    if (onNavigate) onNavigate('Profil');
+  };
+
+  // Navigate to Layanan page
+  const handleSemuaLayanan = () => {
+    if (onNavigate) onNavigate('Layanan');
+  };
+
+  // Navigate to detail layanan
+  const handleServiceClick = (serviceId) => {
+    if (onSelectService) onSelectService(serviceId);
   };
 
   // Testimonial Carousel — infinite loop via CSS transform
@@ -301,10 +308,10 @@ export default function Beranda() {
 
               <button
                 type="button"
-                onClick={handleContactClick}
+                onClick={handleLihatSelengkapnya}
                 className="inline-flex items-center gap-2.5 px-10 py-3.5 bg-[#49baff] hover:bg-[#98cfff] text-white text-base hover:text-[#49baff] font-semibold rounded-2xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
               >
-                <span>Hubungi Kami</span>
+                <span>Lihat Selengkapnya</span>
                 <ArrowRightIcon className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </button>
             </div>
@@ -368,7 +375,7 @@ export default function Beranda() {
 
             <button
               type="button"
-              onClick={() => setAllServicesOpen(true)}
+              onClick={handleSemuaLayanan}
               className="self-start md:self-auto inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#49baff] hover:bg-[#98cfff] text-white text-base hover:text-[#49baff] font-semibold rounded-2xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
             >
               <span>Semua Layanan</span>
@@ -376,12 +383,13 @@ export default function Beranda() {
             </button>
           </div>
 
-          {/* 4 Service Cards Grid (Tanpa Popup) */}
+          {/* 4 Service Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
             {SERVICES_DATA.map((service) => (
               <div
                 key={service.id}
-                className="group bg-white rounded-2xl overflow-hidden card-shadow hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col border border-slate-100"
+                onClick={() => handleServiceClick(service.id)}
+                className="group bg-white rounded-2xl overflow-hidden card-shadow hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col border border-slate-100 cursor-pointer"
               >
                 <div className="h-48 overflow-hidden relative bg-slate-100 flex items-center justify-center text-center">
                   <img
@@ -466,7 +474,7 @@ export default function Beranda() {
                     className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-5 py-4 bg-[#31cc1e] hover:bg-[#39e824] text-white text-xs sm:text-sm font-semibold rounded-xl shadow hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5 text-center cursor-pointer"
                   >
                     <WhatsAppIcon className="w-5 h-5" />
-                    <span>Cabang 1</span>
+                    <span>Cabang Garuda</span>
                   </a>
 
                   <a
@@ -476,7 +484,7 @@ export default function Beranda() {
                     className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-5 py-4 bg-[#31cc1e] hover:bg-[#39e824] text-white text-xs sm:text-sm font-semibold rounded-xl shadow hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5 text-center cursor-pointer"
                   >
                     <WhatsAppIcon className="w-5 h-5" />
-                    <span>Cabang 2</span>
+                    <span>Cabang Muchtar</span>
                   </a>
                 </div>
               </div>

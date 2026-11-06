@@ -15,10 +15,10 @@ export default function Navbar({ activePage = 'Beranda', onNavigate }) {
   const handleNavClick = (item) => {
     setMobileMenuOpen(false);
 
-    // Jika memilih Kontak
+    // Jika memilih Kontak — scroll ke section "Konsultasikan Kebutuhan Gigi"
     if (item.label.toLowerCase() === 'kontak') {
       if (activePage.toLowerCase() === 'beranda') {
-        const el = document.getElementById('kontak');
+        const el = document.getElementById('dokter');
         if (el) {
           el.scrollIntoView({ behavior: 'smooth' });
           return;
@@ -28,7 +28,7 @@ export default function Navbar({ activePage = 'Beranda', onNavigate }) {
           onNavigate('Beranda');
         }
         setTimeout(() => {
-          const el = document.getElementById('kontak');
+          const el = document.getElementById('dokter');
           if (el) {
             el.scrollIntoView({ behavior: 'smooth' });
           }

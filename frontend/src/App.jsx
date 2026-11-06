@@ -15,21 +15,51 @@ import DetailLayananImplan from './pages/company/detailLayanan-implan';
 import DetailLayananEstetikGigi from './pages/company/detailLayanan-estetik-gigi';
 
 export default function App() {
-  const [activePage, setActivePage] = useState('Beranda');
-  const [selectedDoctorId, setSelectedDoctorId] = useState('drg-indira');
-  const [selectedServiceId, setSelectedServiceId] = useState('behel-gigi');
+  const [activePage, setActivePage] = useState(() => {
+    try {
+      return sessionStorage.getItem('dentalcare_active_page') || 'Beranda';
+    } catch {
+      return 'Beranda';
+    }
+  });
+  const [selectedDoctorId, setSelectedDoctorId] = useState(() => {
+    try {
+      return sessionStorage.getItem('dentalcare_selected_doctor') || 'drg-indira';
+    } catch {
+      return 'drg-indira';
+    }
+  });
+  const [selectedServiceId, setSelectedServiceId] = useState(() => {
+    try {
+      return sessionStorage.getItem('dentalcare_selected_service') || 'behel-gigi';
+    } catch {
+      return 'behel-gigi';
+    }
+  });
+
+  useEffect(() => {
+    try {
+      sessionStorage.setItem('dentalcare_active_page', activePage);
+    } catch {}
+  }, [activePage]);
+
+  useEffect(() => {
+    try {
+      sessionStorage.setItem('dentalcare_selected_doctor', selectedDoctorId);
+    } catch {}
+  }, [selectedDoctorId]);
+
+  useEffect(() => {
+    try {
+      sessionStorage.setItem('dentalcare_selected_service', selectedServiceId);
+    } catch {}
+  }, [selectedServiceId]);
 
   useEffect(() => {
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
     }
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-
-    const handleBeforeUnload = () => {
-      window.scrollTo(0, 0);
-    };
-    window.addEventListener('beforeunload', handleBeforeUnload);
-    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
   }, []);
 
   const handleNavigate = (pageName) => {
@@ -93,7 +123,7 @@ export default function App() {
         return renderDetailLayanan();
       case 'beranda':
       default:
-        return <Beranda />;
+        return <Beranda onNavigate={handleNavigate} onSelectService={handleSelectService} />;
     }
   };
 

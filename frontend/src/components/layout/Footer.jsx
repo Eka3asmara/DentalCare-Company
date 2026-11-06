@@ -127,15 +127,15 @@ export default function Footer({ onNavigate }) {
               {/* Kontak Cabang 1 */}
               <div>
                 <h5 className="font-medium mb-1.5 text-[#333333]">
-                  Kontak Cabang 1
+                  Kontak Cabang Garuda
                 </h5>
                 <div className="space-y-1 pl-1">
                   <a
-                    href="tel:628121915709"
+                    href="tel:628121915700"
                     className="flex items-center gap-2.5 text-xs hover:text-[#49baff] transition-colors"
                   >
                     <PhoneIcon className="w-3.5 h-3.5 text-[#333333]" />
-                    <span>+62 812-1915-709</span>
+                    <span>+62 812-1915-700</span>
                   </a>
                   <a
                     href="mailto:indentalcareclinic@gmail.com"
@@ -150,15 +150,15 @@ export default function Footer({ onNavigate }) {
               {/* Kontak Cabang 2 */}
               <div>
                 <h5 className="font-medium mb-1.5 text-[#333333]">
-                  Kontak Cabang 2
+                  Kontak Cabang Muchtar
                 </h5>
                 <div className="space-y-1 pl-1">
                   <a
-                    href="tel:628119339708"
+                    href="tel:628119239700"
                     className="flex items-center gap-2.5 text-xs hover:text-[#49baff] transition-colors"
                   >
                     <PhoneIcon className="w-3.5 h-3.5 text-[#333333]" />
-                    <span>+62 811-9339-708</span>
+                    <span>+62 811-9239-700</span>
                   </a>
                   <a
                     href="mailto:indentalcareclinic@gmail.com"
@@ -181,7 +181,7 @@ export default function Footer({ onNavigate }) {
             <div className="flex items-center gap-3">
               {/* TikTok */}
               <a
-                href="https://tiktok.com/@indentalcare"
+                href="https://tiktok.com/@in.dental.care.cl"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-black text-white flex items-center justify-center hover:opacity-80 transition-opacity"
@@ -192,7 +192,7 @@ export default function Footer({ onNavigate }) {
 
               {/* Instagram */}
               <a
-                href="https://instagram.com/indentalcare"
+                href="https://instagram.com/indentalcareclinic"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-black text-white flex items-center justify-center hover:opacity-80 transition-opacity"

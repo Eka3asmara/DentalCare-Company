@@ -31,6 +31,7 @@ export default function App() {
   });
   const [selectedServiceId, setSelectedServiceId] = useState(() => {
     try {
+
       return sessionStorage.getItem('dentalcare_selected_service') || 'behel-gigi';
     } catch {
       return 'behel-gigi';
@@ -40,19 +41,19 @@ export default function App() {
   useEffect(() => {
     try {
       sessionStorage.setItem('dentalcare_active_page', activePage);
-    } catch {}
+    } catch { }
   }, [activePage]);
 
   useEffect(() => {
     try {
       sessionStorage.setItem('dentalcare_selected_doctor', selectedDoctorId);
-    } catch {}
+    } catch { }
   }, [selectedDoctorId]);
 
   useEffect(() => {
     try {
       sessionStorage.setItem('dentalcare_selected_service', selectedServiceId);
-    } catch {}
+    } catch { }
   }, [selectedServiceId]);
 
   useEffect(() => {
@@ -132,8 +133,8 @@ export default function App() {
     activePage === 'DetailDokter'
       ? 'Dokter'
       : activePage === 'DetailLayanan'
-      ? 'Layanan'
-      : activePage;
+        ? 'Layanan'
+        : activePage;
 
   return (
     <div className="min-h-screen flex flex-col bg-[#f9f8ff] text-[#333333] font-['Poppins',sans-serif] selection:bg-[#49baff]/20 selection:text-[#49baff]">

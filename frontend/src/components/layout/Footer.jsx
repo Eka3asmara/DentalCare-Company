@@ -35,18 +35,18 @@ export default function Footer({ onNavigate }) {
   };
 
   return (
-    <footer className="bg-[#e5ff8f] text-[#333333] pt-14 pb-10 border-t border-[#adc91f]/30">
+    <footer className="bg-[#e5ff8f] text-[#333333] pt-10 sm:pt-14 pb-8 sm:pb-10 border-t border-[#adc91f]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* 4 Columns Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-[#adc91f]/25">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-8 pb-8 sm:pb-12 border-b border-[#adc91f]/25">
 
           {/* Column 1: Navigasi (lg:col-span-2) */}
           <div className="lg:col-span-2">
-            <h4 className="text-base font-semibold text-[#7c9e10] mb-5">
+            <h4 className="text-sm sm:text-base font-semibold text-[#7c9e10] mb-3 sm:mb-5">
               Navigasi
             </h4>
-            <ul className="space-y-3 text-xs sm:text-sm font-medium text-[#333333]">
+            <ul className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm font-medium text-[#333333]">
               <li>
                 <button
                   type="button"
@@ -88,11 +88,11 @@ export default function Footer({ onNavigate }) {
 
           {/* Column 2: Lokasi Cabang (lg:col-span-4) */}
           <div className="lg:col-span-4">
-            <h4 className="text-base font-semibold text-[#7c9e10] mb-5">
+            <h4 className="text-sm sm:text-base font-semibold text-[#7c9e10] mb-3 sm:mb-5">
               Lokasi Cabang
             </h4>
 
-            <div className="space-y-5 text-xs sm:text-sm text-[#333333]">
+            <div className="space-y-4 sm:space-y-5 text-xs sm:text-sm text-[#333333]">
               {/* Cabang 1 */}
               <div>
                 <div className="flex items-center gap-2 font-medium mb-1 text-[#333333]">
@@ -119,11 +119,11 @@ export default function Footer({ onNavigate }) {
 
           {/* Column 3: Kontak (lg:col-span-4) */}
           <div className="lg:col-span-4">
-            <h4 className="text-base font-semibold text-[#7c9e10] mb-5">
+            <h4 className="text-sm sm:text-base font-semibold text-[#7c9e10] mb-3 sm:mb-5">
               Kontak
             </h4>
 
-            <div className="space-y-5 text-xs sm:text-sm text-[#333333]">
+            <div className="space-y-4 sm:space-y-5 text-xs sm:text-sm text-[#333333]">
               {/* Kontak Cabang 1 */}
               <div>
                 <h5 className="font-medium mb-1.5 text-[#333333]">
@@ -174,7 +174,7 @@ export default function Footer({ onNavigate }) {
 
           {/* Column 4: Ikuti Media Sosial Kami (lg:col-span-2) */}
           <div className="lg:col-span-2">
-            <h4 className="text-base font-semibold text-[#7c9e10] mb-5">
+            <h4 className="text-sm sm:text-base font-semibold text-[#7c9e10] mb-3 sm:mb-5">
               Ikuti Media Sosial Kami
             </h4>
 

@@ -292,16 +292,16 @@ export default function Beranda({ onNavigate, onSelectService }) {
       {/* ========================================================= */}
       {/* SECTION 1: HERO & STATISTIK                              */}
       {/* ========================================================= */}
-      <section id="beranda" className="relative pt-8 pb-16 lg:pt-14 lg:pb-24 overflow-hidden">
+      <section id="beranda" className="relative pt-6 pb-12 sm:pt-10 sm:pb-16 lg:pt-14 lg:pb-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-            {/* Hero Left: Title, Description & CTA */}
-            <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-semibold text-[#49baff] tracking-tight leading-[1.18] mb-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-8 items-center">
+            {/* Hero Left: Title, Description & CTA (Centered on mobile, left on desktop) */}
+            <div className="lg:col-span-7 flex flex-col items-center text-center lg:items-start lg:text-left z-10">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[46px] font-semibold text-[#49baff] tracking-tight leading-snug sm:leading-[1.18] mb-3 sm:mb-5">
                 Senyum Percaya Diri Berawal dari Gigi Sehat
               </h1>
 
-              <p className="text-base sm:text-lg text-[#333333]/90 leading-relaxed max-w-xl mb-8">
+              <p className="text-xs sm:text-sm md:text-base text-[#333333]/90 leading-relaxed max-w-xl mb-6 sm:mb-8 mx-auto lg:mx-0">
                 Bersama kami, merawat gigi kini lebih mudah dan menyenangkan. Percayakan
                 kesehatan senyum Anda dan keluarga pada pelayanan terbaik kami.
               </p>
@@ -309,19 +309,19 @@ export default function Beranda({ onNavigate, onSelectService }) {
               <button
                 type="button"
                 onClick={handleLihatSelengkapnya}
-                className="inline-flex items-center gap-2.5 px-10 py-3.5 bg-[#49baff] hover:bg-[#98cfff] text-white text-base hover:text-[#49baff] font-semibold rounded-2xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2.5 px-8 sm:px-10 py-3 sm:py-3.5 bg-[#49baff] hover:bg-[#98cfff] text-white text-sm sm:text-base hover:text-[#49baff] font-semibold rounded-2xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
               >
                 <span>Lihat Selengkapnya</span>
-                <ArrowRightIcon className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" />
               </button>
             </div>
 
             {/* Hero Right: Asymmetric Shape Photo */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end relative">
-              <div className="relative w-full max-w-md lg:max-w-none aspect-[4/3] sm:aspect-square flex items-center justify-center">
+              <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-none aspect-[4/3] sm:aspect-square flex items-center justify-center">
                 <div className="absolute inset-0 bg-[#e5ff8f]/40 blur-3xl -z-10 rounded-full scale-95 transform -translate-y-4"></div>
 
-                <div className="w-full h-full max-h-[460px] overflow-hidden shadow-2xl relative hero-img-shape transition-transform duration-500 hover:scale-[1.01] flex items-center justify-center bg-slate-100 text-center">
+                <div className="w-full h-full max-h-[340px] sm:max-h-[420px] lg:max-h-[460px] overflow-hidden shadow-2xl relative hero-img-shape transition-transform duration-500 hover:scale-[1.01] flex items-center justify-center bg-slate-100 text-center">
                   <img
                     src={imgDokterIndira}
                     alt="drg. Indira Nugrahani - Pendiri & Dokter Gigi IN Dental Care"
@@ -341,10 +341,10 @@ export default function Beranda({ onNavigate, onSelectService }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
             {STATS_DATA.map((item, index) => (
               <div key={index} className="flex flex-col items-center text-center group">
-                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#adc91f] text-white flex items-center justify-center font-semibold text-2xl sm:text-3xl shadow-md mb-5 transition-transform duration-300 group-hover:scale-105 select-none">
+                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#adc91f] text-white flex items-center justify-center font-semibold text-2xl sm:text-3xl shadow-md mb-4 sm:mb-5 transition-transform duration-300 group-hover:scale-105 select-none">
                   {item.value}
                 </div>
-                <h3 className="text-lg sm:text-xl font-medium text-[#93ab19] mb-2">
+                <h3 className="text-lg sm:text-xl font-semibold text-[#93ab19] mb-1.5 sm:mb-2">
                   {item.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-[#333333]/85 leading-relaxed max-w-[240px]">
@@ -359,16 +359,16 @@ export default function Beranda({ onNavigate, onSelectService }) {
       {/* ========================================================= */}
       {/* SECTION 2: LAYANAN KAMI & KONSULTASI DOKTER               */}
       {/* ========================================================= */}
-      <section id="layanan" className="py-16 lg:py-24 bg-[#f9f8ff]">
+      <section id="layanan" className="py-12 sm:py-16 lg:py-24 bg-[#f9f8ff]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Section Header & 'Semua Layanan' Button */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-            <div className="max-w-2xl">
-              <h2 className="text-3x1 sm:text-3xl font-medium text-[#333333] mb-3">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
+            <div className="max-w-2xl text-left">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-[#333333] mb-2 sm:mb-3">
                 Layanan Kami
               </h2>
-              <p className="text-sm sm:text-base text-[#333333]/80 leading-relaxed">
+              <p className="text-xs sm:text-sm md:text-base text-[#333333]/80 leading-relaxed">
                 Hadirkan senyum cemerlang dan percaya diri melalui rangkaian solusi perawatan gigi terpadu kami.
               </p>
             </div>
@@ -376,22 +376,22 @@ export default function Beranda({ onNavigate, onSelectService }) {
             <button
               type="button"
               onClick={handleSemuaLayanan}
-              className="self-start md:self-auto inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#49baff] hover:bg-[#98cfff] text-white text-base hover:text-[#49baff] font-semibold rounded-2xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+              className="self-start md:self-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 bg-[#49baff] hover:bg-[#98cfff] text-white text-sm sm:text-base hover:text-[#49baff] font-semibold rounded-2xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
             >
               <span>Semua Layanan</span>
-              <ArrowRightIcon className="w-5 h-5" />
+              <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
 
-          {/* 4 Service Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
+          {/* 4 Service Cards Grid — lega & nyaman dibaca */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-14 sm:mb-20 lg:mb-24">
             {SERVICES_DATA.map((service) => (
               <div
                 key={service.id}
                 onClick={() => handleServiceClick(service.id)}
-                className="group bg-white rounded-2xl overflow-hidden card-shadow hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col border border-slate-100 cursor-pointer"
+                className="group bg-white rounded-2xl overflow-hidden card-shadow hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col border border-slate-100 cursor-pointer min-h-[300px] sm:min-h-[330px]"
               >
-                <div className="h-48 overflow-hidden relative bg-slate-100 flex items-center justify-center text-center">
+                <div className="h-44 sm:h-48 overflow-hidden relative bg-slate-100 flex items-center justify-center text-center shrink-0">
                   <img
                     src={service.image}
                     alt={service.title}
@@ -400,11 +400,11 @@ export default function Beranda({ onNavigate, onSelectService }) {
                   />
                 </div>
 
-                <div className="p-5 flex-1 flex flex-col">
-                  <h3 className="text-lg font-semibold text-[#49baff] group-hover:text-[#2ca4ee] transition-colors mb-2.5">
+                <div className="p-5 sm:p-6 flex-1 flex flex-col justify-start">
+                  <h3 className="text-base sm:text-lg font-semibold text-[#49baff] group-hover:text-[#2ca4ee] transition-colors mb-2.5 leading-snug">
                     {service.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#333333]/80 leading-relaxed">
+                  <p className="text-xs sm:text-[13px] md:text-sm text-[#333333]/80 leading-relaxed font-normal">
                     {service.description}
                   </p>
                 </div>
@@ -413,19 +413,19 @@ export default function Beranda({ onNavigate, onSelectService }) {
           </div>
 
           {/* Banner Konsultasi Tim Dokter */}
-          <div id="dokter" className="pt-4">
-            <div className="text-center max-w-5xl mx-auto mb-10">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-[#adc91f] mb-3">
+          <div id="dokter" className="pt-2 sm:pt-4">
+            <div className="text-center max-w-5xl mx-auto mb-6 sm:mb-10">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-[#adc91f] mb-2 sm:mb-3">
                 Konsultasikan Kebutuhan Gigi Anda Bersama Kami
               </h2>
-              <p className="text-sm sm:text-base text-[#333333]/80 leading-relaxed">
+              <p className="text-xs sm:text-sm md:text-base text-[#333333]/80 leading-relaxed max-w-2xl mx-auto">
                 Kenali tenaga medis kami dan temukan layanan perawatan gigi yang sesuai dengan kebutuhan Anda dan keluarga.
               </p>
             </div>
 
             <div className="rounded-3xl overflow-hidden shadow-lg border border-slate-100 bg-white grid grid-cols-1 lg:grid-cols-12 lg:h-[367px]">
               {/* Left Column: Clinic Image */}
-              <div className="lg:col-span-5 h-60 sm:h-72 lg:h-full relative overflow-hidden bg-slate-100 flex items-center justify-center text-center">
+              <div className="lg:col-span-5 h-48 sm:h-64 lg:h-full relative overflow-hidden bg-slate-100 flex items-center justify-center text-center">
                 <img
                   src={imgPerawatan}
                   alt="Tim dokter gigi IN Dental Care saat menangani pasien"
@@ -435,45 +435,45 @@ export default function Beranda({ onNavigate, onSelectService }) {
               </div>
 
               {/* Right Column: Information & WhatsApp Buttons */}
-              <div className="lg:col-span-7 bg-[#e5ff8f] p-6 sm:p-8 lg:px-10 lg:py-7 flex flex-col justify-center h-full">
-                <h3 className="text-xl sm:text-2xl font-medium text-[#93ab19] mb-1">
+              <div className="lg:col-span-7 bg-[#e5ff8f] p-5 sm:p-7 lg:px-10 lg:py-7 flex flex-col justify-center h-full">
+                <h3 className="text-base sm:text-xl lg:text-2xl font-semibold text-[#93ab19] mb-1">
                   Tim Dokter Kami
                 </h3>
-                <p className="text-xs sm:text-base text-[#333333]/85 leading-relaxed mb-5">
+                <p className="text-xs sm:text-sm text-[#333333]/85 leading-relaxed mb-4 sm:mb-5">
                   Didukung tenaga medis yang siap memberikan pelayanan kesehatan gigi.
                 </p>
 
-                <div className="space-y-6 mb-10">
+                <div className="space-y-3 sm:space-y-4 mb-5 sm:mb-7">
                   <div className="flex items-start gap-2.5">
                     <div className="mt-0.5 shrink-0 bg-[#93ab19] p-0.5 rounded-full">
-                      <CheckCircleIcon className="w-4 h-4 text-[#93ab19]" />
+                      <CheckCircleIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#93ab19]" />
                     </div>
                     <div>
-                      <p className="font-medium text-[#93ab19] text-lg">Dokter Gigi Umum</p>
-                      <p className="text-[#333333]/80 text-sm">Pemeriksaan dan perawatan gigi dasar.</p>
+                      <p className="font-semibold text-[#93ab19] text-xs sm:text-sm md:text-base">Dokter Gigi Umum</p>
+                      <p className="text-[#333333]/80 text-[11px] sm:text-xs">Pemeriksaan dan perawatan gigi dasar.</p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-2.5">
                     <div className="mt-0.5 shrink-0 bg-[#93ab19] p-0.5 rounded-full">
-                      <CheckCircleIcon className="w-4 h-4 text-[#93ab19]" />
+                      <CheckCircleIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#93ab19]" />
                     </div>
                     <div>
-                      <p className="font-medium text-[#93ab19] text-lg">Dokter Spesialis Bedah Mulut</p>
-                      <p className="text-[#333333]/80 text-sm">Layanan bedah gigi dan mulut.</p>
+                      <p className="font-semibold text-[#93ab19] text-xs sm:text-sm md:text-base">Dokter Spesialis Bedah Mulut</p>
+                      <p className="text-[#333333]/80 text-[11px] sm:text-xs">Layanan bedah gigi dan mulut.</p>
                     </div>
                   </div>
                 </div>
 
                 {/* WhatsApp Action Buttons */}
-                <div className="flex flex-wrap sm:flex-nowrap items-center gap-3">
+                <div className="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-3 w-full">
                   <a
                     href={CABANG_1.waUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-5 py-4 bg-[#31cc1e] hover:bg-[#39e824] text-white text-xs sm:text-sm font-semibold rounded-xl shadow hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5 text-center cursor-pointer"
+                    className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:py-3 bg-[#31cc1e] hover:bg-[#39e824] text-white text-xs sm:text-sm font-semibold rounded-xl shadow hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5 text-center cursor-pointer"
                   >
-                    <WhatsAppIcon className="w-5 h-5" />
+                    <WhatsAppIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                     <span>Cabang Garuda</span>
                   </a>
 
@@ -481,9 +481,9 @@ export default function Beranda({ onNavigate, onSelectService }) {
                     href={CABANG_2.waUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-5 py-4 bg-[#31cc1e] hover:bg-[#39e824] text-white text-xs sm:text-sm font-semibold rounded-xl shadow hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5 text-center cursor-pointer"
+                    className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:py-3 bg-[#31cc1e] hover:bg-[#39e824] text-white text-xs sm:text-sm font-semibold rounded-xl shadow hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5 text-center cursor-pointer"
                   >
-                    <WhatsAppIcon className="w-5 h-5" />
+                    <WhatsAppIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                     <span>Cabang Muchtar</span>
                   </a>
                 </div>
@@ -497,23 +497,23 @@ export default function Beranda({ onNavigate, onSelectService }) {
       {/* ========================================================= */}
       {/* SECTION 3: TESTIMONI PASIEN & LOKASI CABANG               */}
       {/* ========================================================= */}
-      <section className="py-16 lg:py-24 bg-[#f9f8ff]">
+      <section className="py-12 sm:py-16 lg:py-24 bg-[#f9f8ff]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Testimoni Subsection */}
-          <div className="mb-24">
-            <div className="text-center max-w-2xl mx-auto mb-10">
-              <h2 className="text-3xl sm:text-3xl font-medium text-[#333333] mb-3">
+          <div className="mb-14 sm:mb-20 lg:mb-24">
+            <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-10">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-[#333333] mb-2 sm:mb-3">
                 Kata Mereka tentang Kami
               </h2>
 
               <div className="flex items-center justify-center gap-1.5 mb-2">
                 {[...Array(5)].map((_, i) => (
-                  <StarIcon key={i} className="w-6 h-6 text-yellow-400 fill-yellow-400" />
+                  <StarIcon key={i} className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400 fill-yellow-400" />
                 ))}
               </div>
 
-              <p className="text-sm text-gray-500 font-medium">
+              <p className="text-xs sm:text-sm text-gray-500 font-medium">
                 Berdasarkan 411 ulasan
               </p>
             </div>
@@ -524,10 +524,10 @@ export default function Beranda({ onNavigate, onSelectService }) {
               <button
                 type="button"
                 onClick={handlePrevTesti}
-                className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white text-gray-700 shadow-xl border border-slate-100 flex items-center justify-center hover:text-[#49baff] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
+                className="absolute -left-2 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-white text-gray-700 shadow-xl border border-slate-100 flex items-center justify-center hover:text-[#49baff] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
                 aria-label="Ulasan Sebelumnya"
               >
-                <ChevronLeftIcon className="w-6 h-6" />
+                <ChevronLeftIcon className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
 
               {/* Slider Track — transform-based infinite carousel */}
@@ -547,26 +547,26 @@ export default function Beranda({ onNavigate, onSelectService }) {
                     <div
                       key={`${review.id}-${review.name}-${idx}`}
                       ref={idx === 0 ? cardRefEl : null}
-                      className="testi-card shrink-0 w-[84%] sm:w-[46%] lg:w-[28.5%] bg-white rounded-2xl p-6 card-shadow flex flex-col justify-between border border-slate-100 min-h-[220px]"
+                      className="testi-card shrink-0 w-[86%] sm:w-[46%] lg:w-[28.5%] bg-white rounded-2xl p-4 sm:p-6 card-shadow flex flex-col justify-between border border-slate-100 min-h-[190px] sm:min-h-[220px]"
                     >
                       <div>
-                        <div className="flex items-center gap-3.5 mb-3">
-                          <div className={`w-10 h-10 rounded-full ${review.avatarBg} text-white flex items-center justify-center font-bold text-base shrink-0 shadow-sm`}>
+                        <div className="flex items-center gap-3 mb-2.5 sm:mb-3">
+                          <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full ${review.avatarBg} text-white flex items-center justify-center font-bold text-sm sm:text-base shrink-0 shadow-sm`}>
                             {review.initial}
                           </div>
                           <div className="flex-1 min-w-0">
-                            <h4 className="text-sm font-bold text-[#49baff] truncate">
+                            <h4 className="text-xs sm:text-sm font-bold text-[#49baff] truncate">
                               {review.name}
                             </h4>
-                            <span className="text-xs text-gray-400 block">
+                            <span className="text-[11px] sm:text-xs text-gray-400 block">
                               {review.time}
                             </span>
                           </div>
                         </div>
 
-                        <div className="flex items-center gap-1 mb-3">
+                        <div className="flex items-center gap-1 mb-2 sm:mb-3">
                           {[...Array(review.rating)].map((_, i) => (
-                            <StarIcon key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                            <StarIcon key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-400 fill-yellow-400" />
                           ))}
                         </div>
 
@@ -583,39 +583,39 @@ export default function Beranda({ onNavigate, onSelectService }) {
               <button
                 type="button"
                 onClick={handleNextTesti}
-                className="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white text-gray-700 shadow-xl border border-slate-100 flex items-center justify-center hover:text-[#49baff] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
+                className="absolute -right-2 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-white text-gray-700 shadow-xl border border-slate-100 flex items-center justify-center hover:text-[#49baff] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
                 aria-label="Ulasan Berikutnya"
               >
-                <ChevronRightIcon className="w-6 h-6" />
+                <ChevronRightIcon className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
             </div>
           </div>
 
           {/* Lokasi Cabang Subsection */}
-          <div id="kontak" className="pt-6">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+          <div id="kontak" className="pt-4 sm:pt-6">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-8 items-center">
 
               {/* Left Column: Heading & Addresses */}
               <div className="lg:col-span-6 flex flex-col items-start text-left">
-                <h2 className="text-2xl sm:text-3xl font-medium text-[#333333] mb-3 leading-tight">
-                  Temukan <span className="text-[#49baff] font-semibold">IN Dental</span>{' '}
-                  <span className="text-[#adc91f] font-semibold">Care</span> <span className="text-[#333333] font-medium">Terdekat</span>
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-[#333333] mb-2 sm:mb-3 leading-tight">
+                  Temukan <span className="text-[#49baff]">IN Dental</span>{' '}
+                  <span className="text-[#adc91f]">Care</span> <span>Terdekat</span>
                 </h2>
 
-                <p className="text-sm sm:text-base text-[#333333]/80 leading-relaxed mb-8">
+                <p className="text-xs sm:text-sm md:text-base text-[#333333]/80 leading-relaxed mb-6 sm:mb-8">
                   Kami hadir di berbagai kota. Cek cabang terdekat dari lokasi Anda sekarang.
                 </p>
 
                 {/* Cabang 1 */}
-                <div className="flex items-start gap-4 mb-7 group">
-                  <div className="w-10 h-10 rounded-full bg-[#adc91f] text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5">
-                    <MapPinIcon className="w-5 h-5 text-white" />
+                <div className="flex items-start gap-3 sm:gap-4 mb-5 sm:mb-7 group">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#adc91f] text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+                    <MapPinIcon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-base sm:text-lg font-medium text-[#333333] mb-1">
+                    <h3 className="text-sm sm:text-base md:text-lg font-semibold text-[#333333] mb-1">
                       {CABANG_1.label}
                     </h3>
-                    <p className="text-xs sm:text-sm text-[#333333]/80 leading-relaxed max-w-md mb-2">
+                    <p className="text-xs sm:text-sm text-[#333333]/80 leading-relaxed max-w-md">
                       <a
                         href="https://maps.app.goo.gl/JW7g4cipRZU6CVJV9"
                         target="_blank"
@@ -629,15 +629,15 @@ export default function Beranda({ onNavigate, onSelectService }) {
                 </div>
 
                 {/* Cabang 2 */}
-                <div className="flex items-start gap-4 group">
-                  <div className="w-10 h-10 rounded-full bg-[#adc91f] text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5">
-                    <MapPinIcon className="w-5 h-5 text-white" />
+                <div className="flex items-start gap-3 sm:gap-4 group">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#adc91f] text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+                    <MapPinIcon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-base sm:text-lg font-medium text-[#333333] mb-1">
+                    <h3 className="text-sm sm:text-base md:text-lg font-semibold text-[#333333] mb-1">
                       {CABANG_2.label}
                     </h3>
-                    <p className="text-xs sm:text-sm text-[#333333]/80 leading-relaxed max-w-md mb-2">
+                    <p className="text-xs sm:text-sm text-[#333333]/80 leading-relaxed max-w-md">
                       <a
                         href="https://maps.app.goo.gl/t839tmj7ooKXEkHS8"
                         target="_blank"
@@ -653,7 +653,7 @@ export default function Beranda({ onNavigate, onSelectService }) {
 
               {/* Right Column: Photo Card */}
               <div className="lg:col-span-6">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl bg-slate-100 aspect-[4/3] sm:aspect-[16/11] flex items-center justify-center text-center">
+                <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl bg-slate-100 aspect-[4/3] sm:aspect-[16/11] flex items-center justify-center text-center">
                   <img
                     src={imgLokasiKlinik}
                     alt="Klinik IN Dental Care tampak depan"

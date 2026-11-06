@@ -46,33 +46,33 @@ export default function Navbar({ activePage = 'Beranda', onNavigate }) {
 
   return (
     <header className="sticky top-0 z-40 bg-[#ffffff] backdrop-blur-md border-b border-slate-100 transition-all">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
         {/* Brand Logo */}
         <div
           onClick={() => handleNavClick({ label: 'Beranda', id: 'beranda' })}
-          className="flex items-center gap-3 cursor-pointer group select-none"
+          className="flex items-center gap-2 sm:gap-3 cursor-pointer group select-none"
         >
-          <div className="transition-transform group-hover:scale-105 duration-200 flex items-center justify-center text-center">
+          <div className="transition-transform group-hover:scale-105 duration-200 flex items-center justify-center text-center shrink-0">
             <img
               src={logoKlinik}
               alt="IN Dental Care Logo"
-              className="w-15 h-15 rounded-full object-cover flex items-center justify-center text-center text-[10px] text-gray-500 font-medium"
+              className="w-9 h-9 sm:w-12 md:w-14 sm:h-12 md:h-14 rounded-full object-cover flex items-center justify-center text-center text-[10px] text-gray-500 font-medium"
             />
           </div>
           <div className="flex flex-col">
-            <div className="flex items-center tracking-wide font-semibold text-lg sm:text-lg leading-none">
+            <div className="flex items-center tracking-wide font-semibold text-[13px] sm:text-base md:text-lg leading-none">
               <span className="text-[#0584bc] mr-1">IN</span>
               <span className="text-[#0584bc] mr-1">DENTAL</span>
               <span className="text-[#adc91f]">CARE</span>
             </div>
-            <span className="text-[10px] sm:text-[10px] font-medium text-[#49baff] tracking-wider mt-0.5">
+            <span className="text-[8px] sm:text-[10px] font-medium text-[#49baff] tracking-wider mt-0.5">
               CARE FOR EVERY SMILE
             </span>
           </div>
         </div>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
           {navItems.map((item) => {
             const isActive = activePage.toLowerCase() === item.label.toLowerCase();
             return (
@@ -95,7 +95,7 @@ export default function Navbar({ activePage = 'Beranda', onNavigate }) {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg text-gray-600 hover:text-[#49baff] hover:bg-white/80 focus:outline-none"
+            className="p-2 rounded-xl text-gray-600 hover:text-[#49baff] hover:bg-slate-50 focus:outline-none transition-colors"
             aria-label="Buka Menu"
           >
             {mobileMenuOpen ? (
@@ -113,14 +113,14 @@ export default function Navbar({ activePage = 'Beranda', onNavigate }) {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#ffffff] backdrop-blur-md border-b border-gray-200 px-4 pt-2 pb-6 space-y-2 shadow-lg animate-fadeIn">
+        <div className="md:hidden bg-[#ffffff] backdrop-blur-md border-b border-gray-200 px-4 pt-2 pb-5 space-y-1.5 shadow-lg animate-fadeIn">
           {navItems.map((item) => {
             const isActive = activePage.toLowerCase() === item.label.toLowerCase();
             return (
               <button
                 key={item.label}
                 onClick={() => handleNavClick(item)}
-                className={`block w-full text-left px-4 py-3 rounded-xl text-base font-medium transition-colors ${isActive
+                className={`block w-full text-left px-4 py-2.5 rounded-xl text-sm sm:text-base font-medium transition-colors ${isActive
                   ? 'bg-[#49baff]/10 text-[#49baff] font-semibold'
                   : 'text-[#333333] hover:bg-gray-50 hover:text-[#49baff]'
                   }`}

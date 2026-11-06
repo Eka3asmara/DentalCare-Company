@@ -62,20 +62,20 @@ export const SERVICES_PAGE_DATA = [
 
 export default function Layanan({ onSelectService }) {
   return (
-    <div className="w-full py-12 lg:py-20 bg-[#f9f8ff]">
+    <div className="w-full py-8 sm:py-12 lg:py-20 bg-[#f9f8ff]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ========================================================= */}
         {/* HEADER SECTION: Eyebrow, Title & Description              */}
         {/* ========================================================= */}
-        <div className="text-center max-w-3xl mx-auto mb-14 lg:mb-16">
-          <span className="text-xs sm:text-lg font-medium text-[#49baff] tracking-normal mb-2 block">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 lg:mb-16">
+          <span className="text-xs sm:text-base font-semibold text-[#49baff] tracking-normal mb-2 block">
             Layanan Yang Kami Sediakan
           </span>
-          <h1 className="text-3xl sm:text-4xl md:text-2xl font-semibold text-[#333333] tracking-tight mb-4">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-[#333333] tracking-tight mb-2 sm:mb-4">
             Solusi Perawatan Gigi untuk Setiap Kebutuhan
           </h1>
-          <p className="text-xs sm:text-base text-[#333333]/85 leading-relaxed max-w-5xl mx-auto">
+          <p className="text-xs sm:text-sm md:text-base text-[#333333]/85 leading-relaxed max-w-5xl mx-auto">
             Jelajahi berbagai layanan perawatan gigi yang kami sediakan, mulai dari perawatan gigi umum hingga perawatan untuk memperbaiki dan menjaga kondisi gigi. Temukan layanan yang sesuai dengan kebutuhan Anda untuk membantu menjaga kesehatan gigi Anda.
           </p>
         </div>
@@ -83,14 +83,14 @@ export default function Layanan({ onSelectService }) {
         {/* ========================================================= */}
         {/* SERVICES GRID: 7 Kartu Layanan                            */}
         {/* ========================================================= */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7">
           {SERVICES_PAGE_DATA.map((service) => (
             <div
               key={service.id}
               className="bg-white rounded-2xl overflow-hidden card-shadow hover:shadow-xl transition-all duration-300 flex flex-col border border-slate-100 group"
             >
               {/* Card Image */}
-              <div className="h-52 sm:h-56 w-full overflow-hidden bg-slate-100 relative flex items-center justify-center text-center">
+              <div className="h-44 sm:h-52 md:h-56 w-full overflow-hidden bg-slate-100 relative flex items-center justify-center text-center">
                 <img
                   src={service.image}
                   alt={service.title}
@@ -100,12 +100,12 @@ export default function Layanan({ onSelectService }) {
               </div>
 
               {/* Card Body */}
-              <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+              <div className="p-4 sm:p-5 md:p-6 flex-1 flex flex-col justify-between">
                 <div>
                   <h3 className="text-base sm:text-lg font-semibold text-[#49baff] group-hover:text-[#2ca4ee] transition-colors mb-2">
                     {service.title}
                   </h3>
-                  <p className="text-xs sm:text-[14px] text-[#333333]/90 leading-relaxed mb-6">
+                  <p className="text-xs sm:text-sm text-[#333333]/90 leading-relaxed mb-4 sm:mb-6">
                     {service.description}
                   </p>
                 </div>
@@ -118,10 +118,10 @@ export default function Layanan({ onSelectService }) {
                       onSelectService(service.id);
                     }
                   }}
-                  className="w-full py-3.5 px-4 bg-[#49baff] hover:bg-[#98cfff] hover:text-[#49baff] text-white text-sm font-semibold rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-sm cursor-pointer"
+                  className="w-full py-2.5 sm:py-3.5 px-4 bg-[#49baff] hover:bg-[#98cfff] hover:text-[#49baff] text-white text-xs sm:text-sm font-semibold rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-sm cursor-pointer"
                 >
                   <span>Lihat Detail</span>
-                  <ArrowRightIcon className="w-5 h-5" />
+                  <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
               </div>
             </div>

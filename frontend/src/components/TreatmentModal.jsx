@@ -58,7 +58,7 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
     }
 
     return (
-      <span className={`inline-block px-3 py-1 rounded-full text-[10.5px] sm:text-[11px] font-semibold tracking-wide ${colorClass}`}>
+      <span className={`inline-block px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[9px] sm:text-[10px] md:text-[11px] font-semibold tracking-wide ${colorClass}`}>
         {badgeText}
       </span>
     );
@@ -66,7 +66,7 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 md:p-6 bg-black/60 backdrop-blur-xs transition-opacity duration-300 animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-8 bg-black/60 backdrop-blur-xs transition-opacity duration-300 animate-fadeIn"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -74,7 +74,7 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
     >
       {/* Modal Container — flex column, no overflow on outer shell */}
       <div
-        className="relative bg-white rounded-3xl max-w-2xl w-full max-h-[92vh] flex flex-col shadow-2xl transition-all transform scale-100 animate-scaleUp"
+        className="relative bg-white rounded-2xl sm:rounded-3xl max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl w-full max-h-[80vh] sm:max-h-[85vh] flex flex-col shadow-2xl transition-all transform scale-100 animate-scaleUp"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Non-scrolling header: close button + hero image */}
@@ -82,11 +82,11 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
           {/* Floating Close Button — always visible, never scrolls */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 z-20 w-9 h-9 sm:w-10 sm:h-10 bg-white rounded-full flex items-center justify-center text-gray-700 shadow-lg hover:bg-gray-100 hover:scale-105 active:scale-95 transition-all cursor-pointer"
+            className="absolute top-2.5 right-2.5 sm:top-3.5 sm:right-3.5 z-20 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 bg-white/95 rounded-full flex items-center justify-center text-gray-700 shadow-md hover:bg-white hover:scale-105 active:scale-95 transition-all cursor-pointer"
             aria-label="Tutup Popup"
           >
             <svg
-              className="w-4 h-4 sm:w-5 sm:h-5"
+              className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-4.5 md:h-4.5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -97,7 +97,7 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
           </button>
 
           {/* 1. Header Image */}
-          <div className="w-full h-52 sm:h-64 md:h-72 overflow-hidden bg-slate-100 rounded-t-3xl flex items-center justify-center text-center">
+          <div className="w-full h-40 sm:h-56 md:h-72 overflow-hidden bg-slate-100 rounded-t-2xl sm:rounded-t-3xl flex items-center justify-center text-center">
             <img
               src={treatment.image}
               alt={treatment.title}
@@ -107,46 +107,46 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
         </div>
 
         {/* 2. Scrollable Modal Body Content — only this area scrolls */}
-        <div className="overflow-y-auto flex-1 p-6 sm:p-8">
+        <div className="overflow-y-auto flex-1 p-3.5 sm:p-5 md:p-6">
 
           {/* Title */}
           <h2
             id="modal-treatment-title"
-            className="text-2xl sm:text-3xl font-semibold text-[#49baff] mb-4 tracking-tight"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-[#49baff] mb-2 sm:mb-3 tracking-tight"
           >
             {treatment.title}
           </h2>
 
           {/* Paragraph 1 */}
           {treatment.desc1 && (
-            <p className="text-xs sm:text-sm text-[#333333] leading-relaxed mb-4">
+            <p className="text-[11px] sm:text-xs md:text-sm text-[#333333] leading-relaxed mb-2 sm:mb-3">
               {treatment.desc1}
             </p>
           )}
 
           {/* Paragraph 2 */}
           {treatment.desc2 && (
-            <p className="text-xs sm:text-sm text-[#333333] leading-relaxed mb-6">
+            <p className="text-[11px] sm:text-xs md:text-sm text-[#333333] leading-relaxed mb-3 sm:mb-4">
               {treatment.desc2}
             </p>
           )}
 
           {/* Subtitle: Daftar Jenis dan Harga */}
-          <h3 className="text-lg sm:text-xl font-semibold text-[#49baff] mb-4">
+          <h3 className="text-xs sm:text-sm md:text-base font-semibold text-[#49baff] mb-2 sm:mb-3">
             Daftar Jenis dan Harga
           </h3>
 
           {/* Table Container with Rounded Borders */}
-          <div className="border border-slate-200 rounded-2xl overflow-hidden bg-white mb-4 shadow-2xs">
+          <div className="border border-slate-200 rounded-xl sm:rounded-2xl overflow-hidden bg-white mb-3 sm:mb-4 shadow-2xs">
             {/* Table Header */}
             {isThreeColumns ? (
-              <div className="grid grid-cols-12 px-4 sm:px-6 py-3.5 border-b border-slate-200 text-xs sm:text-sm font-bold text-[#333333] bg-slate-50/70">
+              <div className="grid grid-cols-12 px-2.5 sm:px-4 md:px-5 py-2 sm:py-2.5 border-b border-slate-200 text-[10px] sm:text-xs md:text-sm font-bold text-[#333333] bg-slate-50/70">
                 <div className="col-span-5 text-left">{headers[0]}</div>
                 <div className="col-span-3 text-center">{headers[1]}</div>
                 <div className="col-span-4 text-right">{headers[2]}</div>
               </div>
             ) : (
-              <div className="grid grid-cols-12 px-4 sm:px-6 py-3.5 border-b border-slate-200 text-xs sm:text-sm font-bold text-[#333333] bg-slate-50/70">
+              <div className="grid grid-cols-12 px-2.5 sm:px-4 md:px-5 py-2 sm:py-2.5 border-b border-slate-200 text-[10px] sm:text-xs md:text-sm font-bold text-[#333333] bg-slate-50/70">
                 <div className="col-span-7 text-left">{headers[0]}</div>
                 <div className="col-span-5 text-right">{headers[1]}</div>
               </div>
@@ -159,10 +159,10 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
                   return (
                     <div
                       key={idx}
-                      className="grid grid-cols-12 px-4 sm:px-6 py-3.5 items-center text-xs sm:text-sm hover:bg-slate-50/60 transition-colors"
+                      className="grid grid-cols-12 px-2.5 sm:px-4 md:px-5 py-2 sm:py-2.5 items-center text-[10px] sm:text-xs md:text-sm hover:bg-slate-50/60 transition-colors"
                     >
                       {/* Column 1: Jenis */}
-                      <div className="col-span-5 font-medium text-[#333333]">
+                      <div className="col-span-5 font-medium text-[#333333] pr-1">
                         {row.name}
                       </div>
 
@@ -183,10 +183,10 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
                 return (
                   <div
                     key={idx}
-                    className="grid grid-cols-12 px-4 sm:px-6 py-3.5 items-center text-xs sm:text-sm hover:bg-slate-50/60 transition-colors"
+                    className="grid grid-cols-12 px-2.5 sm:px-4 md:px-5 py-2 sm:py-2.5 items-center text-[10px] sm:text-xs md:text-sm hover:bg-slate-50/60 transition-colors"
                   >
                     {/* Column 1: Item Name / Tingkat / Ukuran */}
-                    <div className="col-span-7 font-medium text-[#333333]">
+                    <div className="col-span-7 font-medium text-[#333333] pr-1">
                       {row.name}
                     </div>
 
@@ -202,8 +202,8 @@ export default function TreatmentModal({ isOpen, onClose, treatment }) {
 
           {/* Optional Note */}
           {treatment.note && (
-            <div className="p-3.5 bg-amber-50 border border-amber-200/80 rounded-xl text-xs sm:text-sm text-amber-900 font-medium flex items-start gap-2 mb-6">
-              <svg className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+            <div className="p-2.5 sm:p-3 bg-amber-50 border border-amber-200/80 rounded-xl text-[10px] sm:text-xs md:text-sm text-amber-900 font-medium flex items-start gap-2 mb-3 sm:mb-4">
+              <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <span>{treatment.note}</span>

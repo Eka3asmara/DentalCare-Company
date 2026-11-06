@@ -131,12 +131,12 @@ export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) 
       {/* ========================================================= */}
       {/* SECTION 1: HERO DETAIL LAYANAN (Latar Brand Lime #e5ff8f) */}
       {/* ========================================================= */}
-      <section className="bg-[#e5ff8f] py-14 lg:py-18 text-center border-b border-[#adc91f]/30">
+      <section className="bg-[#e5ff8f] py-6 sm:py-10 lg:py-16 text-center border-b border-[#adc91f]/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-semibold text-[#93ab19] mb-4 tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-[40px] font-semibold text-[#93ab19] mb-3 sm:mb-4 tracking-tight">
             Pencabutan Gigi
           </h1>
-          <p className="text-xs sm:text-sm md:text-[16px] text-[#333333]/90 leading-relaxed max-w-5xl mx-auto">
+          <p className="text-xs sm:text-sm md:text-base text-[#333333]/90 leading-relaxed max-w-4xl mx-auto px-2 sm:px-0">
             Tindakan pencabutan gigi yang dilakukan berdasarkan kondisi gigi, tingkat kesulitan, dan kebutuhan perawatan pasien.
           </p>
         </div>
@@ -145,10 +145,10 @@ export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) 
       {/* ========================================================= */}
       {/* SECTION 2: KONDISI GIGI YANG MEMBUTUHKAN PERAWATAN        */}
       {/* ========================================================= */}
-      <section className="py-16 lg:py-20">
+      <section className="py-8 sm:py-12 lg:py-18">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <h2 className="text-xl sm:text-2xl lg:text-[28px] font-semibold text-[#49baff] text-center mb-10 max-w-3xl mx-auto leading-snug">
+          <h2 className="text-base sm:text-xl lg:text-2xl font-semibold text-[#49baff] text-center mb-4 sm:mb-8 max-w-3xl mx-auto leading-snug">
             Kondisi Gigi Yang Membutuhkan Tindakan Pencabutan
           </h2>
 
@@ -177,7 +177,7 @@ export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) 
                       : "w-full"
                   }`}
               >
-                <div className="h-32 sm:h-40 w-full overflow-hidden bg-slate-100 flex items-center justify-center text-center shrink-0">
+                <div className="h-24 sm:h-32 md:h-40 w-full overflow-hidden bg-slate-100 flex items-center justify-center text-center shrink-0">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -185,8 +185,8 @@ export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) 
                     loading="lazy"
                   />
                 </div>
-                <div className="p-3 sm:p-4 w-full flex-1 flex items-center justify-center min-h-[56px] sm:min-h-[64px]">
-                  <h3 className="text-xs sm:text-base font-semibold text-[#49baff] leading-snug break-words text-center">
+                <div className="p-2 sm:p-3 w-full flex-1 flex items-center justify-center min-h-[40px] sm:min-h-[56px]">
+                  <h3 className="text-[11px] sm:text-sm md:text-base font-semibold text-[#49baff] leading-snug break-words text-center">
                     {item.title}
                   </h3>
                 </div>
@@ -200,9 +200,9 @@ export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) 
       {/* ========================================================= */}
       {/* SECTION 3: MANFAAT PERAWATAN (2 Kolom)                    */}
       {/* ========================================================= */}
-      <section className="py-12 lg:py-16 bg-white/60 border-y border-slate-100">
+      <section className="py-8 sm:py-10 lg:py-16 bg-white/60 border-y border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center">
 
             {/* Left: Treatment Photo */}
             <div className="lg:col-span-5">
@@ -217,7 +217,7 @@ export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) 
 
             {/* Right: Numbered Benefits */}
             <div className="lg:col-span-7 flex flex-col justify-center">
-              <h2 className="text-2xl sm:text-2xl font-medium text-[#333333] mb-6">
+              <h2 className="text-base sm:text-xl md:text-2xl font-semibold text-[#333333] mb-3 sm:mb-5">
                 Manfaat Tindakan Pencabutan Gigi
               </h2>
 
@@ -248,10 +248,10 @@ export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) 
       {/* ========================================================= */}
       {/* SECTION 4: TEMUKAN JENIS / TINDAKAN PERAWATAN             */}
       {/* ========================================================= */}
-      <section className="py-16 lg:py-20">
+      <section className="py-8 sm:py-12 lg:py-18">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <h2 className="text-xl sm:text-2xl lg:text-[28px] font-semibold text-[#49baff] text-center mb-10 max-w-3xl mx-auto leading-snug">
+          <h2 className="text-base sm:text-xl lg:text-2xl font-semibold text-[#49baff] text-center mb-4 sm:mb-8 max-w-3xl mx-auto leading-snug">
             Pilihan Tindakan Pencabutan Gigi
           </h2>
 
@@ -265,7 +265,7 @@ export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) 
                 className="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col items-center text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-[#49baff]/40 group cursor-pointer text-left w-full focus:outline-none focus:ring-2 focus:ring-[#49baff]/50"
                 aria-label={`Lihat detail dan harga ${type.title}`}
               >
-                <div className="h-40 sm:h-48 w-full overflow-hidden bg-slate-100 relative flex items-center justify-center text-center">
+                <div className="h-36 sm:h-44 md:h-48 w-full overflow-hidden bg-slate-100 relative flex items-center justify-center text-center">
                   <img
                     src={type.image}
                     alt={type.title}
@@ -273,8 +273,8 @@ export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) 
                     loading="lazy"
                   />
                 </div>
-                <div className="p-4 sm:p-5 w-full">
-                  <h3 className="text-sm sm:text-base font-semibold text-[#49baff] group-hover:text-[#2ca4ee] transition-colors text-center">
+                <div className="p-2 sm:p-3 md:p-4 w-full">
+                  <h3 className="text-[11px] sm:text-sm md:text-base font-semibold text-[#49baff] group-hover:text-[#2ca4ee] transition-colors text-center">
                     {type.title}
                   </h3>
                 </div>
@@ -288,9 +288,9 @@ export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) 
       {/* ========================================================= */}
       {/* SECTION 5: PANDUAN / PERAWATAN PASCA TINDAKAN             */}
       {/* ========================================================= */}
-      <section className="py-12 lg:py-16 bg-white/60 border-y border-slate-100">
+      <section className="py-8 sm:py-10 lg:py-16 bg-white/60 border-y border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center">
 
             {/* Left: Post-treatment Photo */}
             <div className="lg:col-span-5">
@@ -305,10 +305,10 @@ export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) 
 
             {/* Right: Info & 3 Points */}
             <div className="lg:col-span-7 flex flex-col justify-center">
-              <h2 className="text-2xl sm:text-2xl font-medium text-[#333333] mb-3">
+              <h2 className="text-base sm:text-xl md:text-2xl font-semibold text-[#333333] mb-2 sm:mb-3">
                 Perawatan Setelah Pencabutan Gigi
               </h2>
-              <p className="text-xs sm:text-base text-[#333333]/90 leading-relaxed mb-6">
+              <p className="text-xs sm:text-sm md:text-base text-[#333333]/90 leading-relaxed mb-3 sm:mb-5">
                 Setelah menjalani pencabutan gigi, pasien perlu menjaga area bekas pencabutan agar proses penyembuhan berlangsung dengan baik dan terhindar dari infeksi. Pasien dianjurkan mengikuti instruksi dokter, menjaga kebersihan mulut, serta menghindari aktivitas atau makanan yang dapat mengganggu terbentuknya bekuan darah pada area luka.
               </p>
 
@@ -337,20 +337,20 @@ export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) 
       {/* ========================================================= */}
       {/* SECTION 6: REKOMENDASI LAYANAN LAINNYA                    */}
       {/* ========================================================= */}
-      <section className="py-16 lg:py-24">
+      <section className="py-10 sm:py-14 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-2xl sm:text-2xl font-medium text-[#333333] mb-3">
+          <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-10">
+            <h2 className="text-base sm:text-xl md:text-2xl font-semibold text-[#333333] mb-2 sm:mb-3">
               Rekomendasi Layanan Lainnya Untuk Anda
             </h2>
-            <p className="text-xs sm:text-base text-[#333333]/85 leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base text-[#333333]/85 leading-relaxed">
               Temukan berbagai pilihan perawatan gigi lainnya yang sesuai dengan kebutuhan Anda untuk menjaga kesehatan gigi dan menciptakan senyum yang lebih percaya diri.
             </p>
           </div>
 
           {/* 3 Recommended Service Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             {recommendedServices.map((rec) => (
               <div
                 key={rec.id}
@@ -364,7 +364,7 @@ export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) 
                 }}
               >
                 <div>
-                  <div className="h-44 sm:h-48 w-full overflow-hidden bg-slate-100 flex items-center justify-center text-center">
+                  <div className="h-36 sm:h-44 md:h-48 w-full overflow-hidden bg-slate-100 flex items-center justify-center text-center">
                     <img
                       src={rec.image}
                       alt={rec.title}
@@ -372,11 +372,11 @@ export default function DetailLayananCabutGigi({ onNavigate, onSelectService }) 
                       loading="lazy"
                     />
                   </div>
-                  <div className="p-5">
-                    <h3 className="text-lg font-semibold text-[#49baff] mb-2 group-hover:text-[#2ca4ee] transition-colors">
+                  <div className="p-3 sm:p-4 md:p-5">
+                    <h3 className="text-sm sm:text-base md:text-lg font-semibold text-[#49baff] mb-1 sm:mb-1.5 group-hover:text-[#2ca4ee] transition-colors">
                       {rec.title}
                     </h3>
-                    <p className="text-xs sm:text-[14px] text-[#333333]/90 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#333333]/90 leading-relaxed">
                       {rec.description}
                     </p>
                   </div>

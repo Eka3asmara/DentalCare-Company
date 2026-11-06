@@ -15,9 +15,21 @@
   --shadow-custom: 0px 2px 7px 2px rgba(0, 0, 0, 0.25);
 }
 
-/* Custom Shape for Hero Image defined in design system */
+/* Custom Shape for Hero Image: smaller scale of the same asymmetric curve on mobile, full scale on desktop */
 .hero-img-shape {
-  border-radius: 165px 41px 225px 100px;
+  border-radius: 75px 22px 105px 48px;
+}
+
+@media (min-width: 640px) {
+  .hero-img-shape {
+    border-radius: 110px 30px 150px 70px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-img-shape {
+    border-radius: 165px 41px 225px 100px;
+  }
 }
 
 /* Smooth scrolling */

@@ -1,5 +1,5 @@
 import React from 'react';
-import imgDokterIndira from '../../assets/image/dokter-indira.jpeg';
+import imgDokterIndira from '../../assets/image/dokter-indira.webp';
 
 export const MISI_DATA = [
   {

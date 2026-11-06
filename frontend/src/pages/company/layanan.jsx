@@ -1,12 +1,12 @@
 import { ArrowRightIcon } from '../../components/Icons';
 
-import imgScalling from '../../assets/image/scalling-gigi.jpg';
-import imgRootCanal from '../../assets/image/root-canal-treatment.jpg';
-import imgCabutGigi from '../../assets/image/cabut-gigi.jpg';
-import imgBehel from '../../assets/image/Perawatan-Behel.png';
-import imgGigiPalsu from '../../assets/image/Gigi-Palsu-dan-Crown.jpeg';
-import imgImplan from '../../assets/image/implan-gigi.jpg';
-import imgEstetik from '../../assets/image/Perawatan-estetik.png';
+import imgScalling from '../../assets/image/scalling-gigi.webp';
+import imgRootCanal from '../../assets/image/root-canal-treatment.webp';
+import imgCabutGigi from '../../assets/image/cabut-gigi.webp';
+import imgBehel from '../../assets/image/Perawatan-Behel.webp';
+import imgGigiPalsu from '../../assets/image/Gigi-Palsu-dan-Crown.webp';
+import imgImplan from '../../assets/image/implan-gigi.webp';
+import imgEstetik from '../../assets/image/Perawatan-estetik.webp';
 
 export const SERVICES_PAGE_DATA = [
   {

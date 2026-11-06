@@ -2,13 +2,13 @@ import { useState, useMemo } from 'react';
 import { SERVICES_PAGE_DATA } from './layanan';
 import TreatmentModal from '../../components/TreatmentModal';
 
-import imgGigiMenguning from '../../assets/image/Gigi-Menguning.jpg';
-import imgGigiBerubahWarna from '../../assets/image/Gigi-Berubah-Warna-dari-Dalam.jpg';
-import imgWhiteSpots from '../../assets/image/White-Spots.jpg';
+import imgGigiMenguning from '../../assets/image/Gigi-Menguning.webp';
+import imgGigiBerubahWarna from '../../assets/image/Gigi-Berubah-Warna-dari-Dalam.webp';
+import imgWhiteSpots from '../../assets/image/White-Spots.webp';
 
-import imgEstetik from '../../assets/image/bleaching.jpeg';
-import imgEstetikVeneer from '../../assets/image/Veneer.jpg';
-import imgKontrolPasca from '../../assets/image/setelah-estetik.jpeg';
+import imgEstetik from '../../assets/image/bleaching.webp';
+import imgEstetikVeneer from '../../assets/image/Veneer.webp';
+import imgKontrolPasca from '../../assets/image/setelah-estetik.webp';
 
 export const CONDITIONS = [
   {

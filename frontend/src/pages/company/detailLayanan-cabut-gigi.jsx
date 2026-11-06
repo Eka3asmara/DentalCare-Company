@@ -2,16 +2,16 @@ import { useState, useMemo } from 'react';
 import { SERVICES_PAGE_DATA } from './layanan';
 import TreatmentModal from '../../components/TreatmentModal';
 
-import imgGigiRusakParah from '../../assets/image/Gigi-Rusak-Parah.jpg';
-import imgGigiPatahHinggaAkar from '../../assets/image/Gigi-Patah-hingga-Akar.jpg';
-import imgGigiGoyang from '../../assets/image/Gigi-Goyang.jpg';
-import imgGigiSusu from '../../assets/image/gigi-susu.jpg';
-import imgGigiAnkilosis from '../../assets/image/Gigi-Ankilosis.jpg';
+import imgGigiRusakParah from '../../assets/image/Gigi-Rusak-Parah.webp';
+import imgGigiPatahHinggaAkar from '../../assets/image/Gigi-Patah-hingga-Akar.webp';
+import imgGigiGoyang from '../../assets/image/Gigi-Goyang.webp';
+import imgGigiSusu from '../../assets/image/gigi-susu.webp';
+import imgGigiAnkilosis from '../../assets/image/Gigi-Ankilosis.webp';
 
-import imgCabutGigi from '../../assets/image/cabut-dewasa.jpg';
-import imgCabutGigiSusu from '../../assets/image/cabut-anak.jpg';
-import imgImpaksiGigi from '../../assets/image/cabut-bungsu.jpg';
-import imgKontrolPasca from '../../assets/image/setelah-cabut.jpg';
+import imgCabutGigi from '../../assets/image/cabut-dewasa.webp';
+import imgCabutGigiSusu from '../../assets/image/cabut-anak.webp';
+import imgImpaksiGigi from '../../assets/image/cabut-bungsu.webp';
+import imgKontrolPasca from '../../assets/image/setelah-cabut.webp';
 
 export const CONDITIONS = [
   {

@@ -2,13 +2,13 @@ import { useState, useMemo } from 'react';
 import { SERVICES_PAGE_DATA } from './layanan';
 import TreatmentModal from '../../components/TreatmentModal';
 
-import imgHipodontia from '../../assets/image/Hipodontia.jpg';
-import imgKehilanganGigiGeraham from '../../assets/image/Kehilangan-Gigi-Geraham.jpg';
-import imgKehilanganGigiDepan from '../../assets/image/Kehilangan-Gigi-Depan.jpg';
+import imgHipodontia from '../../assets/image/Hipodontia.webp';
+import imgKehilanganGigiGeraham from '../../assets/image/Kehilangan-Gigi-Geraham.webp';
+import imgKehilanganGigiDepan from '../../assets/image/Kehilangan-Gigi-Depan.webp';
 
-import imgImplan from '../../assets/image/implant.jpg';
-import imgImplanCrown from '../../assets/image/implan-crown.jpg';
-import imgKontrolPasca from '../../assets/image/setelah-implan.jpg';
+import imgImplan from '../../assets/image/implant.webp';
+import imgImplanCrown from '../../assets/image/implan-crown.webp';
+import imgKontrolPasca from '../../assets/image/setelah-implan.webp';
 
 export const CONDITIONS = [
   {

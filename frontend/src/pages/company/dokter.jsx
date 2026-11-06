@@ -2,9 +2,9 @@ import React from 'react';
 import { ArrowRightIcon } from '../../components/Icons';
 
 // Local Image Assets
-import imgIndira from '../../assets/image/dokter-indira-background.png';
-import imgMan from '../../assets/image/avatar-blank-man.jpg';
-import imgWoman from '../../assets/image/avatar-blank-woman.jpg';
+import imgIndira from '../../assets/image/dokter-indira-background.webp';
+import imgMan from '../../assets/image/avatar-blank-man.webp';
+import imgWoman from '../../assets/image/avatar-blank-woman.webp';
 
 export const DOCTORS_DATA = [
   {

@@ -2,14 +2,14 @@ import { useState, useMemo } from 'react';
 import { SERVICES_PAGE_DATA } from './layanan';
 import TreatmentModal from '../../components/TreatmentModal';
 
-import imgKehilanganBeberapaGigi from '../../assets/image/Kehilangan-Beberapa-Gigi.jpg';
-import imgKehilanganSeluruhGigi from '../../assets/image/Kehilangan-Seluruh-Gigi.jpg';
-import imgGigiBerlubangParah from '../../assets/image/Gigi-Berlubang-Parah.jpg';
-import imgGigiTerkikis from '../../assets/image/Gigi-Terkikis.jpg';
+import imgKehilanganBeberapaGigi from '../../assets/image/Kehilangan-Beberapa-Gigi.webp';
+import imgKehilanganSeluruhGigi from '../../assets/image/Kehilangan-Seluruh-Gigi.webp';
+import imgGigiBerlubangParah from '../../assets/image/Gigi-Berlubang-Parah.webp';
+import imgGigiTerkikis from '../../assets/image/Gigi-Terkikis.webp';
 
-import imgGigiPalsu from '../../assets/image/gigi-palsu-lepasan.jpg';
-import imgGigiPalsuCrown from '../../assets/image/crown-gigi.jpg';
-import imgKontrolPasca from '../../assets/image/setelah-palsu.jpg';
+import imgGigiPalsu from '../../assets/image/gigi-palsu-lepasan.webp';
+import imgGigiPalsuCrown from '../../assets/image/crown-gigi.webp';
+import imgKontrolPasca from '../../assets/image/setelah-palsu.webp';
 
 export const CONDITIONS = [
   {

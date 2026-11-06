@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Beranda from './pages/company/beranda';
-import Profil from './pages/company/profil';
-import Dokter from './pages/company/dokter';
-import DetailDokter from './pages/company/detailDokter';
-import Layanan from './pages/company/layanan';
-import DetailLayananBehel from './pages/company/detailLayanan-behel';
-import DetailLayananUmum from './pages/company/detailLayanan-umum';
-import DetailLayananRoot from './pages/company/detailLayanan-root';
-import DetailLayananCabutGigi from './pages/company/detailLayanan-cabut-gigi';
-import DetailLayananGigiPalsu from './pages/company/detailLayanan-gigi-palsu';
-import DetailLayananImplan from './pages/company/detailLayanan-implan';
-import DetailLayananEstetikGigi from './pages/company/detailLayanan-estetik-gigi';
+
+// Lazy load sub-halaman agar bundle awal website sangat ringan
+const Profil = lazy(() => import('./pages/company/profil'));
+const Dokter = lazy(() => import('./pages/company/dokter'));
+const DetailDokter = lazy(() => import('./pages/company/detailDokter'));
+const Layanan = lazy(() => import('./pages/company/layanan'));
+const DetailLayananBehel = lazy(() => import('./pages/company/detailLayanan-behel'));
+const DetailLayananUmum = lazy(() => import('./pages/company/detailLayanan-umum'));
+const DetailLayananRoot = lazy(() => import('./pages/company/detailLayanan-root'));
+const DetailLayananCabutGigi = lazy(() => import('./pages/company/detailLayanan-cabut-gigi'));
+const DetailLayananGigiPalsu = lazy(() => import('./pages/company/detailLayanan-gigi-palsu'));
+const DetailLayananImplan = lazy(() => import('./pages/company/detailLayanan-implan'));
+const DetailLayananEstetikGigi = lazy(() => import('./pages/company/detailLayanan-estetik-gigi'));
 
 export default function App() {
   const [activePage, setActivePage] = useState(() => {
@@ -144,9 +146,18 @@ export default function App() {
         onNavigate={handleNavigate}
       />
 
-      {/* 2. Main Page Content (Dinamis: Beranda / Profil / Dokter / DetailDokter / Layanan / DetailLayanan) */}
+      {/* 2. Main Page Content (Dinamis dengan React.lazy Code-Splitting) */}
       <main className="flex-1">
-        {renderContent()}
+        <Suspense
+          fallback={
+            <div className="w-full min-h-[50vh] flex flex-col items-center justify-center gap-3 py-16 animate-fadeIn">
+              <div className="w-9 h-9 border-3 border-[#49baff]/20 border-t-[#49baff] rounded-full animate-spin"></div>
+              <span className="text-xs font-medium text-gray-400">Memuat halaman...</span>
+            </div>
+          }
+        >
+          {renderContent()}
+        </Suspense>
       </main>
 
       {/* 3. Footer Component */}

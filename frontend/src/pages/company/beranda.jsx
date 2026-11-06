@@ -11,13 +11,13 @@ import {
 } from '../../components/Icons';
 
 // Local Image Assets
-import imgDokterIndira from '../../assets/image/dokter-indira.jpeg';
-import imgPerawatan from '../../assets/image/perawatan.png';
-import imgLokasiKlinik from '../../assets/image/lokasi-klinik.png';
-import imgScalling from '../../assets/image/scalling-gigi.jpg';
-import imgRootCanal from '../../assets/image/root-canal-treatment.jpg';
-import imgCabutGigi from '../../assets/image/cabut-gigi.jpg';
-import imgPerawatanBehel from '../../assets/image/Perawatan-Behel.png';
+import imgDokterIndira from '../../assets/image/dokter-indira.webp';
+import imgPerawatan from '../../assets/image/perawatan.webp';
+import imgLokasiKlinik from '../../assets/image/lokasi-klinik.webp';
+import imgScalling from '../../assets/image/scalling-gigi.webp';
+import imgRootCanal from '../../assets/image/root-canal-treatment.webp';
+import imgCabutGigi from '../../assets/image/cabut-gigi.webp';
+import imgPerawatanBehel from '../../assets/image/Perawatan-Behel.webp';
 
 export const STATS_DATA = [
   {

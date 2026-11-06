@@ -2,21 +2,21 @@ import { useState, useMemo } from 'react';
 import { SERVICES_PAGE_DATA } from './layanan';
 import TreatmentModal from '../../components/TreatmentModal';
 
-import imgGigiBerjejal from '../../assets/image/gigi-berjenjal.jpg';
-import imgGigiRenggang from '../../assets/image/Gigi-Renggang.jpg';
-import imgOverbite from '../../assets/image/Overbite.jpg';
-import imgGigiTonggos from '../../assets/image/Gigi-Tonggos.jpg';
-import imgGigiCakil from '../../assets/image/Gigi-Cakil.jpg';
-import imgGigitanTerbuka from '../../assets/image/Gigitan-Terbuka.jpg';
-import imgGigitanSilang from '../../assets/image/Gigitan-Silang.jpg';
-import imgImpaksiGigi from '../../assets/image/impaksigigi.jpg';
+import imgGigiBerjejal from '../../assets/image/gigi-berjenjal.webp';
+import imgGigiRenggang from '../../assets/image/Gigi-Renggang.webp';
+import imgOverbite from '../../assets/image/Overbite.webp';
+import imgGigiTonggos from '../../assets/image/Gigi-Tonggos.webp';
+import imgGigiCakil from '../../assets/image/Gigi-Cakil.webp';
+import imgGigitanTerbuka from '../../assets/image/Gigitan-Terbuka.webp';
+import imgGigitanSilang from '../../assets/image/Gigitan-Silang.webp';
+import imgImpaksiGigi from '../../assets/image/impaksigigi.webp';
 
-import imgBehelKonvensional from '../../assets/image/Behel-Konvesional.jpg';
-import imgFastbraces from '../../assets/image/fastbraces.jpg';
-import imgSelfLigating from '../../assets/image/Behel-Self-Ligating.jpg';
-import imgInvisibleBraces from '../../assets/image/retainer.jpg';
-import imgPerawatanBehel from '../../assets/image/Perawatan-Behel.png';
-import imgRetainer from '../../assets/image/retainer.jpg';
+import imgBehelKonvensional from '../../assets/image/Behel-Konvesional.webp';
+import imgFastbraces from '../../assets/image/fastbraces.webp';
+import imgSelfLigating from '../../assets/image/Behel-Self-Ligating.webp';
+import imgInvisibleBraces from '../../assets/image/retainer.webp';
+import imgPerawatanBehel from '../../assets/image/Perawatan-Behel.webp';
+import imgRetainer from '../../assets/image/retainer.webp';
 
 export const BEHEL_CONDITIONS = [
   {

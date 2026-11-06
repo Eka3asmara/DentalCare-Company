@@ -2,16 +2,16 @@ import { useState, useMemo } from 'react';
 import { SERVICES_PAGE_DATA } from './layanan';
 import TreatmentModal from '../../components/TreatmentModal';
 
-import imgDeepCaries from '../../assets/image/Deep-Caries.jpg';
-import imgPulpitis from '../../assets/image/Pulpitis-Irreversibel.png';
-import imgNekrosisPulpa from '../../assets/image/Nekrosis-Pulpa.jpg';
-import imgGigiRetak from '../../assets/image/Gigi-Retak.jpg';
-import imgGigiPatah from '../../assets/image/Gigi-Patah.jpg';
-import imgPerubahanWarnaGigi from '../../assets/image/Perubahan-Warna-Gigi.jpg';
+import imgDeepCaries from '../../assets/image/Deep-Caries.webp';
+import imgPulpitis from '../../assets/image/Pulpitis-Irreversibel.webp';
+import imgNekrosisPulpa from '../../assets/image/Nekrosis-Pulpa.webp';
+import imgGigiRetak from '../../assets/image/Gigi-Retak.webp';
+import imgGigiPatah from '../../assets/image/Gigi-Patah.webp';
+import imgPerubahanWarnaGigi from '../../assets/image/Perubahan-Warna-Gigi.webp';
 
-import imgRootCanal from '../../assets/image/root-canal-treatment.jpg';
-import imgRetreatment from '../../assets/image/Retreatment.jpg';
-import imgKontrolPasca from '../../assets/image/Setelah-Psa.jpg';
+import imgRootCanal from '../../assets/image/root-canal-treatment.webp';
+import imgRetreatment from '../../assets/image/Retreatment.webp';
+import imgKontrolPasca from '../../assets/image/Setelah-Psa.webp';
 
 export const CONDITIONS = [
   {

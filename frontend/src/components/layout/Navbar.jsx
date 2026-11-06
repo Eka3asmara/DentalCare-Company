@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import logoKlinik from '../../assets/image/logo-indentalcare.png';
+import logoKlinik from '../../assets/image/logo-indentalcare.webp';
 
 export default function Navbar({ activePage = 'Beranda', onNavigate }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

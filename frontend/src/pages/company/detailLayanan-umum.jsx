@@ -2,24 +2,24 @@ import { useState, useMemo } from 'react';
 import { SERVICES_PAGE_DATA } from './layanan';
 import TreatmentModal from '../../components/TreatmentModal';
 
-import imgKarangGigi from '../../assets/image/Karang-Gigi.jpg';
-import imgPlakGigi from '../../assets/image/Plak-Gigi.jpg';
-import imgToothStaining from '../../assets/image/Tooth-Staining.jpg';
-import imgGigiBerlubang from '../../assets/image/Gigi-Berlubang.jpg';
-import imgGigiDepanPatah from '../../assets/image/Gigi-Depan-Patah.jpg';
-import imgGigiBerubahBentuk from '../../assets/image/Gigi-Berubah-Bentuk.jpg';
-import imgPembesaranGusi from '../../assets/image/Pembesaran-Gusi.jpg';
-import imgGusiTumbuhBerlebihan from '../../assets/image/Gusi-Tumbuh-Berlebihan.jpg';
+import imgKarangGigi from '../../assets/image/Karang-Gigi.webp';
+import imgPlakGigi from '../../assets/image/Plak-Gigi.webp';
+import imgToothStaining from '../../assets/image/Tooth-Staining.webp';
+import imgGigiBerlubang from '../../assets/image/Gigi-Berlubang.webp';
+import imgGigiDepanPatah from '../../assets/image/Gigi-Depan-Patah.webp';
+import imgGigiBerubahBentuk from '../../assets/image/Gigi-Berubah-Bentuk.webp';
+import imgPembesaranGusi from '../../assets/image/Pembesaran-Gusi.webp';
+import imgGusiTumbuhBerlebihan from '../../assets/image/Gusi-Tumbuh-Berlebihan.webp';
 
-import imgScaling from '../../assets/image/scalling-gigi2.jpg';
-import imgAirFlow from '../../assets/image/air-flow.jpg';
-import imgTambalGigi from '../../assets/image/tambal-gigi.jpg';
-import imgTambalGigiEstetik from '../../assets/image/tambal-gigi-estetik.jpg';
-import imgAbsesGigi from '../../assets/image/Abses-Gigi.jpg';
-import imgGingivektomi from '../../assets/image/Gingivektomi.jpg';
+import imgScaling from '../../assets/image/scalling-gigi2.webp';
+import imgAirFlow from '../../assets/image/air-flow.webp';
+import imgTambalGigi from '../../assets/image/tambal-gigi.webp';
+import imgTambalGigiEstetik from '../../assets/image/tambal-gigi-estetik.webp';
+import imgAbsesGigi from '../../assets/image/Abses-Gigi.webp';
+import imgGingivektomi from '../../assets/image/Gingivektomi.webp';
 
-import imgManfaatScalling from '../../assets/image/scalling-gigi.jpg';
-import imgKontrolPasca from '../../assets/image/Kontrol-Pasca-Perawatan.jpg';
+import imgManfaatScalling from '../../assets/image/scalling-gigi.webp';
+import imgKontrolPasca from '../../assets/image/Kontrol-Pasca-Perawatan.webp';
 
 export const CONDITIONS = [
   {

@@ -100,7 +100,7 @@ export default function Footer({ onNavigate }) {
                   <span>Cabang 1</span>
                 </div>
                 <p className="text-xs text-[#333333]/85 leading-relaxed pl-6">
-                  Jl. Garuda No.21, RT.8/RW.1, Petukangan Selatan, Kec. Pesanggrahan, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12270
+                  Jl. Garuda No.21, RT.6/RW.1, Petukangan Sel., Kec. Pesanggrahan, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12320
                 </p>
               </div>
 
@@ -111,7 +111,7 @@ export default function Footer({ onNavigate }) {
                   <span>Cabang 2</span>
                 </div>
                 <p className="text-xs text-[#333333]/85 leading-relaxed pl-6">
-                  Jl. H. Muchtar Raya No.9D, RT.1/RW.01, Petukangan Utara, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12260
+                  Jl. H. Muchtar Raya No.9D, RT.1/RW.06, Petukangan Utara, JAKARTA, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12260
                 </p>
               </div>
             </div>

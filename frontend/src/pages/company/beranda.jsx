@@ -449,7 +449,7 @@ export default function Beranda({ onNavigate, onSelectService }) {
                       <CheckCircleIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#93ab19]" />
                     </div>
                     <div>
-                      <p className="font-semibold text-[#93ab19] text-xs sm:text-sm md:text-base">Dokter Gigi Umum</p>
+                      <p className="font-medium text-[#93ab19] text-xs sm:text-sm md:text-base">Dokter Gigi Umum</p>
                       <p className="text-[#333333]/80 text-[11px] sm:text-xs">Pemeriksaan dan perawatan gigi dasar.</p>
                     </div>
                   </div>
@@ -459,7 +459,7 @@ export default function Beranda({ onNavigate, onSelectService }) {
                       <CheckCircleIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#93ab19]" />
                     </div>
                     <div>
-                      <p className="font-semibold text-[#93ab19] text-xs sm:text-sm md:text-base">Dokter Spesialis Bedah Mulut</p>
+                      <p className="font-medium text-[#93ab19] text-xs sm:text-sm md:text-base">Dokter Spesialis Bedah Mulut</p>
                       <p className="text-[#333333]/80 text-[11px] sm:text-xs">Layanan bedah gigi dan mulut.</p>
                     </div>
                   </div>

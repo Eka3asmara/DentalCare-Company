@@ -7,7 +7,6 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
   MapPinIcon,
-  CloseIcon
 } from '../../components/Icons';
 
 // Local Image Assets

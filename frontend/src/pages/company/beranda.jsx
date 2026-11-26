@@ -12,7 +12,7 @@ import {
 // Local Image Assets
 import imgDokterIndira from '../../assets/image/dokter-indira.webp';
 import imgPerawatan from '../../assets/image/perawatan.webp';
-import imgLokasiKlinik from '../../assets/image/lokasi-klinik.webp';
+import imgLokasiKlinik from '../../assets/image/Map_klinik.webp';
 import imgScalling from '../../assets/image/scalling-gigi.webp';
 import imgRootCanal from '../../assets/image/root-canal-treatment.webp';
 import imgCabutGigi from '../../assets/image/cabut-gigi.webp';
